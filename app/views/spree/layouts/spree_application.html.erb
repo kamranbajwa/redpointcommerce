@@ -1,0 +1,37 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
+  <head data-hook="">
+    <%= render :partial => 'spree/shared/head' %>
+    <%= render :partial => 'spree/shared/header' %>
+  </head>
+  <body>
+
+
+    <div id="wrapper" data-hook>
+
+<%#= breadcrumbs(@taxon) %>
+
+      <%= render :partial => 'spree/shared/sidebar' if content_for? :sidebar %>
+
+      <div id="content" class="columns <%= !content_for?(:sidebar) ? "sixteen" : "twelve omega" %>" data-hook>
+
+        <div class="flash-messages-top-space">
+          <%= flash_messages %></div>
+          <%= yield %>
+      </div>
+
+      <%= yield :templates %>
+
+    </div>
+  </body>
+  <%= render :partial => 'spree/shared/footer' %>
+
+
+
+  <%= render :partial => 'spree/shared/google_analytics' %>
+
+</html>
