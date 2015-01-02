@@ -1,22 +1,19 @@
-<div class="container">
+<div class="container top-space">
   <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+  <%= flash_messages %>
 
-  <%# content_for :sidebar do %>
-    <%#*<div data-hook="homepage_sidebar_navigation" class="container">%>
-    
-      <%# if "spree/products" == params[:controller] && @taxon %>
-        <%#= render :partial => 'spree/shared/filters' %>
-      <%# else %>
-        <%#= render :partial => 'spree/shared/taxonomies' %>
-      <%# end %>
-    <%#*</div>%>
-  <%# end %>
-  
+
+<%# content_for :sidebar do %>
+<%#*<div data-hook="homepage_sidebar_navigation" class="container">%>
+
+<%# if "spree/products" == params[:controller] && @taxon %>
+<%#= render :partial => 'spree/shared/filters' %>
+<%# else %>
+<%#= render :partial => 'spree/shared/taxonomies' %>
+<%# end %>
+<%#*</div>%>
+<%# end %>
+
 
 
   <% if params[:keywords] %>

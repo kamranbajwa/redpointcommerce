@@ -19,8 +19,8 @@
 
       <div id="content" class="columns <%= !content_for?(:sidebar) ? "sixteen" : "twelve omega" %>" data-hook>
 
-        <div class="flash-messages-top-space">
-          <%= flash_messages %></div>
+        <%#*<div class="flash-messages-top-space">%>
+          <%#= flash_messages %></div>
           <%= yield %>
       </div>
 

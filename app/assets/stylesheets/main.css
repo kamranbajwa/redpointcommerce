@@ -653,7 +653,7 @@ header.header-style-1 {
     }
 }
 header.header-style-1 .header-top {
-    background: rgba(0, 0, 0, 0.7);
+    background: #000;
 }
 @media (max-width: 767px) {
     header.header-style-1 .header-top .header-top-inner {
@@ -824,7 +824,8 @@ header.header-style-1 .header-nav {
     }
 }
 header.header-style-1 .header-nav .navbar {
-    background: rgba(0, 0, 0, 0.7);
+    background: #2b2b2b;
+    padding-top: 6px;
     border: none;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -4177,14 +4178,18 @@ a {
     color: #666666 !important;
 }
 .flash-messages-top-space{
-    margin-top:  8.1%;
+    margin-top:  8.8%;
 }
 .top-space {
-    margin-top: 2%;
+    margin-top: 8%;
 }
 .checkbox-bottom {
     margin-bottom: 10px !important;
 }
 .ledgend-padding-bottom {
-    margin-bottom: 30px !important;   
+    margin-bottom: 30px !important;  
+
+}
+.navbar-nav>li:hover {
+    background: #000 !important;
 }

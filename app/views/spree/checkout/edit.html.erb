@@ -1,4 +1,5 @@
 <div class="container top-space">
+  <%= flash_messages %>
   <div id="checkout" data-hook>
     <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
 
