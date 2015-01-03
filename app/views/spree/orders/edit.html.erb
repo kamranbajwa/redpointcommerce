@@ -1,10 +1,4 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container">
+<div class="container top-space">
   <% @body_id = 'cart' %>
   <div data-hook="cart_container">
     <h1><%= Spree.t(:shopping_cart) %></h1>
@@ -22,12 +16,12 @@
         <%= form_for @order, :url => update_cart_path, :html => {:id => 'update-cart'} do |order_form| %>
           <div data-hook="inside_cart_form">
 
-            <div data-hook="cart_items">
+            <div data-hook="cart_items"  style="overflow: auto;">
               <%= render :partial => 'form', :locals => { :order_form => order_form } %>
             </div>
 
-            <div class="links columns sixteen alpha omega" data-hook="cart_buttons">
-              <%= order_form.text_field :coupon_code, :size => 10, :placeholder => Spree.t(:coupon_code) %>
+            <div class="links columns sixteen alpha omega" data-hook="cart_buttons" >
+    <%#= order_form.text_field :coupon_code, :size => 10, :placeholder => Spree.t(:coupon_code) %>
               <%= button_tag :class => 'primary', :id => 'update-button' do %>
                 <%= Spree.t(:update) %>
               <% end %>
@@ -52,4 +46,4 @@
 
     <% end %>
   </div>
-</div>
+</div>  

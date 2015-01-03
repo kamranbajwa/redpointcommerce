@@ -97,6 +97,7 @@ Table of Contents
     background-color: #12cca7 !important;
     color: #fff !important;
 }
+
 .blue-text {
     color: #379adc !important;
 }
@@ -189,7 +190,7 @@ a:focus {
 }
 .cnt-strip .strip h3 {
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
     color: #ffffff;
     line-height: 30px;
@@ -313,6 +314,9 @@ body.body-style-6 .wrapper footer .links-social {
         text-align: center;
         width: 100%;
     }
+    .search-text-area {
+        width: 68% !important;
+    }    
 }
 .body-container .scroll-tabs .nav-tab-line li a {
     border: none;
@@ -4201,3 +4205,25 @@ a {
     text-align: center;
     width: 100%;
 }
+.product-image {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    border: solid 1px #dedede;
+}
+
+@media (min-width: 480px) {
+    .search-text-area {
+        width: 74% !important;
+    }
+    .cnt-strip .strip h3 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px !important;
+        font-weight: bold;
+        color: #ffffff;
+        line-height: 30px;
+        margin: 0;
+        text-transform: uppercase;
+    }
+}
+
+

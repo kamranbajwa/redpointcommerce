@@ -1,7 +1,8 @@
 <% if products.any? %>
   <% products.each do |product| %>
     <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
-    <div class="owl-item" style="width: 285px;"><div class="item">
+    <div class="owl-item" style="min-width: 280px;float: left;">
+      <div class="item" style="">
         <div class="product">
           <div class="product-image">
             <div class="image">
