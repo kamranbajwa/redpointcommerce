@@ -19,6 +19,7 @@
             <li><a href="/cart">My Cart</a></li>
             <li><a href="/checkout">Checkout</a></li>
             <% if spree_user_signed_in? %>
+              <li><a href="/account">My Account</a></li>
               <li> <%=  link_to 'Sign Out', spree_logout_path %></li>
   <%#*<li><a href="">Sign Out</a></li>%>
             <% else %>
@@ -30,21 +31,21 @@
         <div class="cnt-cart">
           <ul class="list-unstyled list-inline">
             <li class="dropdown dropdown-small">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">English <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">English</a></li>
-                <li><a href="#">French</a></li>
-                <li><a href="#">German</a></li>
-              </ul>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">&nbsp;</a>
+<%#*<ul class="dropdown-menu">%>
+<%#*<li><a href="#">English</a></li>%>
+<%#*<li><a href="#">French</a></li>%>
+<%#*<li><a href="#">German</a></li>%>
+<%#*</ul>%>
             </li>
 
             <li class="dropdown dropdown-small">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">USD <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">USD</a></li>
-                <li><a href="#">INR</a></li>
-                <li><a href="#">GBP</a></li>
-              </ul>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">&nbsp;</a>
+<%#*<ul class="dropdown-menu">%>
+<%#*<li><a href="#">USD</a></li>%>
+<%#*<li><a href="#">INR</a></li>%>
+<%#*<li><a href="#">GBP</a></li>%>
+<%#*</ul>%>
             </li>
             <li class="dropdown dropdown-cart">
 <%#*<a href="#" class="dropdown-toggle lnk-cart btn btn-blue btn-small" data-toggle="dropdown">Cart 02</a>%>
