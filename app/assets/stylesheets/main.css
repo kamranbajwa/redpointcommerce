@@ -4224,6 +4224,12 @@ a {
         margin: 0;
         text-transform: uppercase;
     }
+
 }
 
+@media (max-width: 480px) {
+    .new-width {
+        width: 100% !important;
+    }
+}
 
