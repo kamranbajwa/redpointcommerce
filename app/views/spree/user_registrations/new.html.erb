@@ -1,5 +1,8 @@
 <div class="container top-space">
   <% @body_id = 'signup' %>
+  <div class="error-messages">
+    <%= flash_messages %>
+  </div>
 
   <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @user } %>
 

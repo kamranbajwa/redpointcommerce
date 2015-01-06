@@ -1,5 +1,8 @@
 <div class="container top-space">
   <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @spree_user } %>
+  <div class="error-messages">
+    <%= flash_messages %>
+  </div>
 
   <div id="forgot-password">
     <h6 class="title-style"><%= Spree.t(:forgot_password) %></h6>

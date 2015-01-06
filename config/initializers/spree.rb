@@ -14,3 +14,33 @@ end
 Spree.user_class = "Spree::User"
 
 Devise.secret_key = "362b58b50a53bbcc3eae88d5ce2795ccce94c3960cf20f07f0676ab3585beb1b9ac85e8a6b149fb485e2af60f1f1ec47aa72"
+
+attachment_config = {
+ 
+  s3_credentials: {
+    access_key_id: ENV['AKIAJJGUHCUAKNL2LYAQ'],
+    secret_access_key: ENV['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'],
+    bucket: ENV['redpoint-commerce']
+  },
+ 
+  storage: :s3,
+  s3_headers: { "Cache-Control" => "max-age=31557600" },
+  s3_protocol: "https",
+  bucket: ENV['redpoint-commerce'],
+  url: ":default_url",
+ 
+  styles: {
+    mini: "48x48>",
+    small: "100x100>",
+    product: "240x240>",
+    large: "600x600>"
+  },
+ 
+  path: "/spree/:class/:id/:style/:basename.:extension",
+  default_url: "/spree/:class/:id/:style/:basename.:extension",
+  default_style: "product"
+}
+ 
+attachment_config.each do |key, value|
+  Spree::Image.attachment_definitions[:attachment][key.to_sym] = value
+end 

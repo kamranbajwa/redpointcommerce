@@ -1,7 +1,9 @@
 <div class="container top-space">
-  <% if flash[:alert] %>
-    <div class="flash errors"><%= flash[:alert] %></div>
-  <% end %>
+
+  <div class="error-messages">
+    <%= flash_messages %>
+  </div>
+
   <% @body_id = 'login' %>
   <div id="existing-customer">
     <h6 class="title-style"><%= Spree.t(:login_as_existing) %></h6>
