@@ -4215,7 +4215,7 @@ a {
 
 @media (min-width: 480px) {
     .search-text-area {
-        width: 74% !important;
+        width: 70% !important;
     }
     .cnt-strip .strip h3 {
         font-family: 'Roboto', sans-serif;
