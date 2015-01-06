@@ -18,7 +18,7 @@ gem 'spree_paypal_express', github: 'spree-contrib/better_spree_paypal_express'
 gem 'aws-sdk'
 
 gem "font-awesome-rails"
-
+gem 'rails_12factor'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
