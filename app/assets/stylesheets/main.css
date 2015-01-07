@@ -4166,7 +4166,6 @@ a {
 }
 .price {
     text-align: center;
-    padding-bottom: 15px;
 }
 .offer {
     color: #00adee !important;
@@ -4264,4 +4263,13 @@ a {
     border-bottom: 1px solid #d9d9db;
     line-height: 33px;
     margin-bottom: 10px;
+}
+
+.width-full {
+    width: 100% !important;
+    overflow: auto;
+}
+
+strong {
+    margin-left: 15px;
 }

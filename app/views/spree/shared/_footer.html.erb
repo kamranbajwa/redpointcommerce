@@ -1,81 +1,7 @@
 <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->	
 <!-- ============================================== INFO BOXES ============================================== -->
 <footer>
-  <div class="info-boxes wow fadeInUp">
-    <div class="container">
-      <div class="info-boxes-inner">
-        <div class="">
-          <div class="col-md-3">
-            <div class="info-box">
-              <div class="row">
-                <div class="col-xs-2">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-truck fa-stack-1x fa-inverse"></i>
-                  </span>
-                </div>
-                <div class="col-xs-10">
-                  <h4>FREE DELIVERY</h4>
-                  <h6>Free Delivry On Oder Over $680.00</h6>
-                </div>
-              </div>	
-            </div>
-          </div><!-- .col -->
 
-          <div class="col-md-3">
-            <div class="info-box">
-              <div class="">
-                <div class="col-xs-2">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-money fa-stack-1x fa-inverse"></i>
-                  </span>
-                </div>
-                <div class="col-xs-10">
-                  <h4>100% Money back</h4>
-                  <h6>30 Day Money Back Guarantee.</h6>
-                </div>
-              </div>	
-            </div>
-          </div><!-- .col -->
-
-          <div class="col-md-3">
-            <div class="info-box">
-              <div class="">
-                <div class="col-xs-2">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
-                  </span>
-                </div>
-                <div class="col-xs-10">
-                  <h4>CALL TO ORDER</h4>
-                  <h6>Call Phone: 84. 868 868 / 868 888</h6>
-                </div>
-              </div>	
-            </div>
-          </div><!-- .col -->
-
-          <div class="col-md-3">
-            <div class="info-box">
-              <div class="">
-                <div class="col-xs-2">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-comments fa-stack-1x fa-inverse"></i>
-                  </span>
-                </div>
-                <div class="col-xs-10">
-                  <h4>online support</h4>
-                  <a href="#"><h6>Click Here to Chat With Us!</h6></a>
-                </div>
-              </div>
-            </div>
-          </div><!-- .col -->
-        </div><!-- /.row -->
-      </div><!-- /.info-boxes-inner -->
-    </div><!-- /.container -->
-  </div><!-- /.info-boxes -->
   <!-- ============================================== INFO BOXES : END ============================================== -->	
   <div class="links-social">
     <div class="container-class container">
@@ -85,69 +11,42 @@
             <!-- ============================================== LINK GROUPS ============================================== -->
             <div class="link-groups">
               <div class="">
-                <div class="col-sm-3">
-                  <div class="links">
-                    <h3 class="title">ABOUT US</h3>
-                    <ul>
-                      <li><a href="#">Fixies</a></li>   
-<%#*<li><a href="#">City Bikes</a></li>%>
-<%#*<li><a href="#">Glow</a></li>%>
-<%#*<li><a href="#">Wheelsets</a></li>%>
-<%#*<li><a href="#">Accessories</a></li>%>
-<%#*<li><a href="#">Sale</a></li>%>
-<%#*<li><a href="#">Clothing</a></li>%>
-<%#*<li><a href="#">Shop by Size</a></li>%>
-                    </ul>
-                  </div>
-                </div><!-- /.col -->
-
-                <div class="col-sm-3">
-                  <div class="links">
-                    <h3 class="title">MY ACCOUNT</h3>
-                    <ul>
-                      <li><a href="#">Fixies</a></li>
-<%#*<li><a href="#">City Bikes</a></li>%>
-<%#*<li><a href="#">Glow</a></li>%>
-<%#*<li><a href="#">Wheelsets</a></li>%>
-<%#*<li><a href="#">Accessories</a></li>%>
-<%#*<li><a href="#">Sale</a></li>%>
-<%#*<li><a href="#">Clothing</a></li>%>
-<%#*<li><a href="#">Shop by Size</a></li>%>
-                    </ul>
-                  </div>
-                </div><!-- /.col -->
-
-                <div class="col-sm-3">
-                  <div class="links">
-                    <h3 class="title">INFORMATION</h3>
-                    <ul>
-                      <li><a href="#">Fixies</a></li>
-<%#*<li><a href="#">City Bikes</a></li>%>
-<%#*<li><a href="#">Glow</a></li>%>
-<%#*<li><a href="#">Wheelsets</a></li>%>
-<%#*<li><a href="#">Accessories</a></li>%>
-<%#*<li><a href="#">Sale</a></li>%>
-<%#*<li><a href="#">Clothing</a></li>%>
-<%#*<li><a href="#">Shop by Size</a></li>%>
-                    </ul>
-                  </div>
-                </div><!-- /.col -->
-
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                   <div class="links">
                     <h3 class="title">SHOP</h3>
                     <ul>
-                      <li><a href="#">Fixies</a></li>
-<%#*<li><a href="#">City Bikes</a></li>%>
-<%#*<li><a href="#">Glow</a></li>%>
-<%#*<li><a href="#">Wheelsets</a></li>%>
-<%#*<li><a href="#">Accessories</a></li>%>
-<%#*<li><a href="#">Sale</a></li>%>
-<%#*<li><a href="#">Clothing</a></li>%>
-<%#*<li><a href="#">Shop by Size</a></li>%>
+                      <li><a href="/products">Products</a></li>
+                      <li><a href="/cart">My Cart</a></li>
+                      <% if spree_user_signed_in? %>
+                        <li><a href="/account">My Account</a></li>
+                      <% end %>
                     </ul>
                   </div>
                 </div><!-- /.col -->
+
+                <div class="col-sm-4">
+                  <div class="links">
+                    <h3 class="title">Help</h3>
+                    <ul>
+                      <li><a href="/aboutus">About Us</a></li>   
+                      <li><a href="/contactus">Contact Us</a></li>   
+                      <li><a href="/faq">FAQ's</a></li>   
+                    </ul>
+                  </div>
+                </div><!-- /.col -->
+
+                <div class="col-sm-4">
+                  <div class="links">
+                    <h3 class="title">Payment Methods</h3>
+                    <ul>
+                      <li><a href="#">Credit Card &nbsp; &nbsp;<i class="fa fa-credit-card"></i></a></li>
+                      <li><a href="#">PayPal &nbsp; &nbsp;<i class="fa fa-cc-paypal"></i></a></li>
+
+                    </ul>
+                  </div>
+                </div><!-- /.col -->
+
+
               </div><!-- /.row -->
             </div><!-- /.link-groups -->
             <!-- ============================================== LINK GROUPS : END ============================================== -->					</div><!-- /.col -->
@@ -166,15 +65,7 @@
                 </ul>
               </div><!-- /.social-links -->
 
-<%#*<div class="newsletter">%>
-<%#*<h3 class="title">GET NEWSLETTER</h3>%>
-<%#*<div class="input-group">%>
-<%#*<input type="text" class="form-control" placeholder="Email Address">%>
-<%#*<span class="input-group-btn">%>
-<%#*<button class="btn btn-default" type="button">Subscribe</button>%>
-<%#*</span>%>
-<%#*</div>%>
-<%#*</div><!-- /.newsletter -->%>
+
             </div><!-- /.social-newsletter -->
             <!-- ============================================== SOCIAL-NEWSLETTER : END ============================================== -->					</div><!-- /.col-md-4 -->
         </div><!-- /.row -->
@@ -182,7 +73,17 @@
     </div><!-- /.container -->
   </div><!-- /.links-social -->
 
-  <div class="copyright">&copy; <a href="#">Redpoint Commerce</a> | All Rights Reserved.</div>
+  <div class="copyright">
+    Copyright &copy; <a href="#">Redpoint Commerce</a> | All Rights Reserved.
+    &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+    <a href="/termsandconditions">Terms & conditions</a>
+    &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+    <a href="/privacypolicy">Privacy Policy</a>
+
+
+
+  </div>
+
 </footer>
 <!-- ============================================== FOOTER : END ============================================== -->
 
@@ -227,12 +128,13 @@
   });
 
 
-  $('.error-messages').slideUp(9500);
-  $('.alert').slideUp(9500);
-  $('.flash success').slideUp(9500);
-  $('.flash').slideUp(9500);
-  $('.errorExplanation').slideUp(9500);
-  
+  $('.error-messages').fadeOut(12000);
+  $('.alert').fadeOut(12000);
+  $('.flash success').fadeOut(12000);
+  $('.flash').fadeOut(12000);
+  $('.errorExplanation').fadeOut(12000);
+  $('.error').fadeOut(12000);
+
 
 </script>
 <!-- For demo purposes – can be removed on production : End -->

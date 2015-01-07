@@ -1,0 +1,36 @@
+<% if products.any? %>
+  <% products.each do |product| %>
+    <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
+    <div class="owl-item" style="min-width: 285px;float: left;">
+      <div class="item" style="">
+        <div class="product">
+          <div class="product-image">
+            <div class="image">
+              <%= link_to small_image(product, :itemprop => "image"), url, :itemprop => 'url' %>
+            </div>
+            <div class="cart">
+             <!-- <div class="action">
+               <!-- <%= link_to 'Add to Cart', url, :itemprop => 'url' ,:class => "add-to-cart-white"%>-->
+    <%#*<div><a class="lnk" href="#"><i class="fa fa-heart"></i> Add to wishlist</a></div>%>
+    <%#*<div><a class="lnk" href="#"><i class="fa fa-exchange"></i> Add to compare</a></div>%>
+              </div>
+            </div>	
+            <div class="tag tag-orange"><div class="text">HOT</div></div>-->
+          </div><!-- /.product-image -->
+
+          <div class="product-info">
+            <h3 class="name"><%= link_to truncate(product.name, :length => 50), url, :class => 'info', :itemprop => "name", :title => product.name %></h3>
+            <div class="price">
+              <hr>
+              <span class="offer"><%= display_price(product) %>
+              </span>
+            </div>
+          </div><!-- /.product-info -->
+        </div>
+        <!-- /.product -->	
+      </div>
+    </div>
+  <%end%>
+  <% reset_cycle("classes") %>
+
+<% end %>

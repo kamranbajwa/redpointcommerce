@@ -1,6 +1,6 @@
 <fieldset id="order_details" data-hook>
-  <div class="clear"></div>
-  <label align="center"><h3><%= Spree.t(:confirm) %></h3></label>
+  <div class="clearfix"></div>
+  <h3 style="margin-left: 20px;"><%= Spree.t(:confirm) %></h3>
   <%= render :partial => 'spree/shared/order_details', :locals => { :order => @order } %>
 </fieldset>
 

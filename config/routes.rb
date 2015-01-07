@@ -2,6 +2,13 @@ SpreeExample::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  get '/aboutus', :to => 'spree/statics#aboutus'
+  get '/contactus', :to => 'spree/statics#contactus'
+  get '/faq', :to => 'spree/statics#faq'
+  get '/termsandconditions', :to => 'spree/statics#termsandconditions'
+  get '/privacypolicy', :to => 'spree/statics#privacypolicy'
+  
+  
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   mount Spree::Core::Engine, :at => "/"
