@@ -1,0 +1,29 @@
+<style>
+  #admin-menu {
+    background-color: #2b2b2b;
+  }
+  #admin-menu li a:hover, #admin-menu li.selected a {
+    background-color: #000;
+  }
+  #admin-menu li a:hover:after, #admin-menu li.selected a:after {
+    content: '';
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 5px solid #000;
+    bottom: 0px;
+    margin-bottom: -5px;
+    left: 50%;
+    margin-left: -10px;
+    z-index: 1;
+  }
+</style>
+<nav id="admin-menu" data-hook>
+  <div class="container">
+    <div class="sixteen columns main-menu-wrapper">
+      <ul data-hook="admin_tabs" class="fullwidth-menu">
+        <%= render :partial => 'spree/admin/shared/tabs' %>
+      </ul>
+    </div>
+  </div>
+</nav>
