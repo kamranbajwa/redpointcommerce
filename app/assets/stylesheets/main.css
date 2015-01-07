@@ -4168,7 +4168,7 @@ a {
     text-align: center;
 }
 .offer {
-    color: #00adee !important;
+    color: #000 !important;
 }
 .info {
     color: #181818 !important;
@@ -4272,4 +4272,44 @@ a {
 
 strong {
     margin-left: 15px;
+}
+
+.min-product-height {
+    min-height: 300px;
+}
+.min-height-static {
+    min-height: 300px;
+}
+
+.cart-subtotal, .cart-total {
+    background: #d9d9db !important;
+    color: black !important;
+}
+
+
+span.price, #checkout-summary table tr[data-hook="item_total"] td:last-child strong, #checkout-summary table #summary-order-total, #order_details td.price span, #order_details td.total span, #order_summary td.price span, #order_summary td.total span, table#cart-detail tbody#line_items tr td[data-hook="cart_item_price"], table#cart-detail tbody#line_items tr td[data-hook="cart_item_total"], div[data-hook="inside_cart_form"] #subtotal span.order-total {
+    font-weight: bold;
+    color: #000 !important;
+}
+
+.conitue-shopping {
+    padding-top: 15px !important;
+}
+
+.progress-steps li.current-first, .progress-steps li.current {
+    background-color: #717176 !important;
+    color: white !important;
+}
+.progress-steps li.current-first, .progress-steps li.current:hover {
+    background-color: #717176 !important;
+    color: white !important;
+}
+
+input[type="submit"], input[type="button"], input[type="reset"], button, a.button {
+    background-color: #717170 !important;
+}
+
+.progress-steps li.completed-first:hover, .progress-steps li.completed:hover {
+background-color: #717170 !important;
+color: white ;
 }

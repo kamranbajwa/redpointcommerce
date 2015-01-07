@@ -2,7 +2,7 @@
 <div class="" data-hook="billing_fieldset_wrapper">
   <fieldset id="billing" data-hook>
     <%= form.fields_for :bill_address do |bill_form| %>
-      <label align="center" class="ledgend-padding-bottom"><h3><%= Spree.t(:billing_address) %></h3></label>
+    <label align="center" class="ledgend-padding-bottom"><h3 class="gray"><%= Spree.t(:billing_address) %></h3></label>
       <%= render :partial => 'spree/address/form', :locals => { :form => bill_form, :address_type => 'billing', :address => @order.bill_address } %>
     <% end %>
   </fieldset>
@@ -24,7 +24,7 @@
 <hr class="clear" />
 
 <div class="form-buttons" data-hook="buttons">
-  <%= submit_tag Spree.t(:save_and_continue), :class => 'continue button primary' %>
+  <%= submit_tag Spree.t(:save_and_continue), :class => 'continue button gray' %>
   <% if try_spree_current_user %>
     <span data-hook="save_user_address">
       &nbsp; &nbsp;

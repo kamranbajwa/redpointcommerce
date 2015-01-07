@@ -1,5 +1,5 @@
 module Spree
-  class StaticsController < ApplicationController
+  class StaticsController <  Spree::StoreController
    
     def contactus
     end
