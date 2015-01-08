@@ -4342,16 +4342,7 @@ input[type="submit"].gray, input[type="button"].gray, input[type="reset"].gray, 
     font-weight: normal !important;
 }
 
-/*.continue-shopping {
-      background-color: #000;
-                  padding-top: 7px !important;
-                  padding-bottom: 8px !important;
-                  padding-left: 5px;
-                  padding-right: 5px;
-                  margin-top: -35px !important;
-                  position: absolute;
-                  margin-left: 94px;
-                  color: #fff !important;
-                  font-family: arial;
-                  font-size: 14px;
-}*/
+.lineheight20
+{
+    line-height: 20px !important;
+}
