@@ -4316,8 +4316,22 @@ input[type="submit"], input[type="button"], input[type="reset"], button, a.butto
 
 
 input[type="submit"], input[type="button"], input[type="reset"], button, a.button {
-    background-color: #717176 !important;
+    background-color: #000 !important;
+    border-radius: 0px !important;
+    border-top: solid 1px !important;
+    border: 1px solid #000 !important;
 
-    border: 1px solid #717176 !important;
+}
 
+input[type="submit"].gray, input[type="button"].gray, input[type="reset"].gray, button.gray, a.button.gray {
+
+    padding: 7px;
+    border: none !important;
+    font-size: 15px !important;
+    font-family: arial;
+    font-weight: normal !important;
+}
+
+.continue {
+    padding-top:10px !important; padding-bottom:10px !important;
 }
