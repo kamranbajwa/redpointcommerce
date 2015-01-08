@@ -4310,6 +4310,14 @@ input[type="submit"], input[type="button"], input[type="reset"], button, a.butto
 }
 
 .progress-steps li.completed-first:hover, .progress-steps li.completed:hover {
-background-color: #717170 !important;
-color: white ;
+    background-color: #717170 !important;
+    color: white ;
+}
+
+
+input[type="submit"], input[type="button"], input[type="reset"], button, a.button {
+    background-color: #717176 !important;
+
+    border: 1px solid #717176 !important;
+
 }

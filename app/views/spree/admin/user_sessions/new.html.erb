@@ -1,0 +1,41 @@
+<br>
+
+<div class="container">
+  <div class="center-login">
+    <% if flash[:alert] %>
+      <div class="flash errors"><%= flash[:alert] %></div>
+    <% end %>
+
+    <% @body_id = 'login' %>
+    <div id="existing-customer">
+      <h3><%= Spree.t(:admin_login) %></h3>
+      <br>
+      <div data-hook="login">
+        <%= form_for Spree::User.new, :as => :spree_user, :url => spree.admin_create_new_session_path do |f| %>
+          <div id="password-credentials">
+            <p>
+              <%= f.label :email, Spree.t(:email) ,:class => "label-size"%><br />
+              <%= f.email_field :email, :class => 'title field-width', :tabindex => 1 %>
+            </p>
+            <br>
+            <p>
+              <%= f.label :password, Spree.t(:password) %><br />
+              <%= f.password_field :password, :class => 'title field-width', :tabindex => 2 %>
+            </p>
+            <br>
+          </div>
+          <p>
+            <%= f.check_box :remember_me, :tabindex => 3 ,:class => "remeber-me"%>
+            <%= f.label :remember_me, Spree.t(:remember_me) %>
+          </p>
+          <br>
+
+          <p><%= f.submit Spree.t(:login), :class => 'button gray field-width', :tabindex => 4 %></p>
+          <br>
+        <% end %>
+        <%= link_to Spree.t(:forgot_password), spree.recover_password_path %>
+      </div>
+    </div>
+    <div data-hook="login_extras"></div>
+  </div>
+</div>
