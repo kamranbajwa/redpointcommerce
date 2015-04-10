@@ -1,0 +1,75 @@
+   <%= render :partial => 'spree/shared/setting_sub_nav_tab' %>
+<div id="content-header" data-hook="">
+    <div class="container">
+      <div class="sixteen columns">
+        <div class="block-table">
+          <div class="table-cell">
+            <h1 class="page-title "> Slider </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="with-sidebar " >
+       <div class="twelve columns">
+              
+<br>
+
+<hr>
+
+
+
+  <div class="row">
+        <div class="alpha six columns" style="text-align:center;">
+          
+          <img src=/assets/<%=@theme.template_no.to_i%>/a.jpg class=""> </div>
+        <div class="omega six columns">
+        <p>
+        </p><h3><%=@theme.name%> </h3>
+        <p></p>
+          
+         <fieldset class="currency no-border-bottom">
+            <legend align="center">Add Slider Images</legend>
+             
+              <%= form_for(@slider_image=Spree::SliderImage.last,url:  admin_slider_image_path(@slider_image), multipart: true) do |f| %>
+             <div data-hook="file" class="field">
+            <%= f.label :s_image,'Slider Image' %>
+     <%= f.file_field :s_image %>
+    </div>
+
+    
+  
+    </div>
+            </fieldset>
+               
+              
+           
+         
+          
+           <fieldset>
+  <div class="form-buttons filter-actions actions" data-hook="buttons">
+       
+         <a class="button " href="javascript:void(0)" onclick="window.history.back();"><span class="text">Back</span></a>
+       
+        <span class="or">or</span>
+        <a class="button "><span class="text"><%= f.submit "Save" %></span></a>
+      </div>
+<%end%>
+    </fieldset>
+        </div>
+      </div>
+
+
+
+
+
+
+
+            </div>
+
+
+        </div>
+      </div>
+    </div>

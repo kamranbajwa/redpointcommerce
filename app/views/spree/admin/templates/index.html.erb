@@ -1,0 +1,43 @@
+<%=render :partial=>'spree/shared/setting_sub_nav_tab'%>
+<div id="content-header" data-hook="">
+    <div class="container">
+      <div class="sixteen columns">
+        <div class="block-table">
+          <div class="table-cell">
+            <h1 class="page-title ">Templates</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="with-sidebar " >
+        <div class="twelve columns"> <br>
+         
+<hr />
+
+
+
+  <div class="row">
+        <div class="alpha ">
+        
+        <a href="/admin/templates/<%=Spree::Template.first.id
+%>/edit"><div class="two column" style="margin-bottom:10px;"> <img src="/assets/tem.jpg" class="" /></div></a>
+         <a href="/admin/templates/<%=Spree::Template.first.id
+%>/edit"> <div class="two column" style="margin-bottom:10px;"> <img src="/assets/temp2.jpg" class="" /></div></a>
+          
+          </div>
+       
+      </div>
+
+
+        </div>
+        <aside  data-hook="" class="four columns"> <br>
+          <nav class="menu">
+            <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
+              <li class="active" ><a href="temp.html">Templates</a></li>
+              <li ><a href="/admin/slider_images">Sliders</a></li>
+            </ul>
+          </nav>
+        </aside>

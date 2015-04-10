@@ -1,0 +1,10 @@
+<%= form_for(@slider_image,url:  admin_slider_image_path, multipart: true) do |f| %>
+
+ <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image,multiple: true %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

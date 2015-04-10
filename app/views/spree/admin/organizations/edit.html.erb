@@ -1,0 +1,107 @@
+ <%= render :partial => 'spree/shared/setting_sub_nav_tab' %>
+  <div id="content-header" data-hook="">
+    <div class="container">
+      <div class="sixteen columns">
+        <div class="block-table">
+          <div class="table-cell">
+            <h1 class="page-title "> Organization Settings </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ <%= form_for(@org=Spree::Organization.last,url:  admin_organization_path(@org), multipart: true) do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="with-sidebar " >
+        <div class="twelve columns"> <br>
+          <form   method="post">
+            <div >
+              <fieldset class="general no-border-top">
+                <div class="field" data-hook="admin_general_setting_input_name">
+                  <label for="store_name">Company Code</label>
+                  <br>
+                  <%= f.text_field :company_code, class: 'fullwidth'  %>
+                </div>
+                <div class="field" data-hook="admin_general_setting_input_seo_title">
+                  <label for="store_seo_title">Company Name</label>
+                  <br>
+                 <%= f.text_field :company_name, class: 'fullwidth'  %>
+                </div>
+                <div class="field" data-hook="admin_general_setting_input_meta_keywords" s>
+                  <%= f.label :country %>
+                  <br>
+                  <div class="field" tyle="border-radius: 3px;
+padding: 7px 10px;
+border: 1px solid #cee1f4;
+color: #5498da;
+font-size: 90%;" >
+              <%= select_tag(:country_id, options_for_select([['Pakistan', 'Pakistan'], ['India', 'India']]), class: 'fullwidth') %>
+            </div>
+                </div>
+                <div class="field" data-hook="admin_general_setting_input_meta_description">
+                  <%= f.label :company_address %>
+                  <br>
+                  <%= f.text_field :company_address, class: 'fullwidth'  %>
+                </div>
+               <div class="field" data-hook="admin_general_setting_input_meta_description">
+                  <%= f.label :city %>
+                  <br>
+                  <%= f.text_field :city, :class => 'fullwidth'   %>
+                </div>
+               <div class="field" data-hook="admin_general_setting_input_meta_keywords" s>
+                  <%= f.label :state %>
+                  <br>
+                  <div class="field" tyle="border-radius: 3px;
+padding: 7px 10px;
+border: 1px solid #cee1f4;
+color: #5498da;
+font-size: 90%;" >
+               <%= select_tag(:country_id, options_for_select([['Punjab', 'Punjab'], ['Sindh', 'Sindh']]), class: 'fullwidth') %>
+            </div>
+                <div class="field" data-hook="admin_general_setting_input_url">
+                  <%= f.label :postel_code ,'Postal code'%>
+                  <br>
+                  <%= f.text_field :postel_code, :class => 'fullwidth'  %>
+                </div>
+                <div class="field" data-hook="admin_general_setting_mail_from_address">
+                    <%= f.label :phone_number %>
+                  <br>
+                  <%= f.text_field :phone_number, :class => 'fullwidth' %>
+                </div>
+                <div class="field" data-hook="admin_general_setting_input_meta_keywords">
+                  <%= f.label :phone_number %>
+                  <br>
+                  <select class="fullwidth" style="border-radius: 3px;
+padding: 7px 10px;
+border: 1px solid #cee1f4;
+color: #5498da;
+font-size: 90%;">
+                    <option selected="">(GMT-06:00) Central Time</option>
+                    <option>(GMT-06:00) Central Time</option>
+                    <option>(GMT-06:00) Central Time</option>
+                  </select>
+                </div>
+               
+                
+                
+                <div class="form-buttons filter-actions actions" data-hook="buttons"> <a class="button " href="templates.html"><span class="text"><div class="actions">
+    <%= f.submit %>
+  </div></span></a> </div>
+              </fieldset>
+            </div>
+          </form>
+        </div>
+        <%end%>
+        <aside  data-hook="" class="four columns"> <br>
+          <nav class="menu">
+            <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
+              <li class="active" ><a href="index.html">Information</a></li>
+              <li ><a href="/admin/themes"> Logo & Favicon </a></li>
+
+            </ul>
+          </nav>
+        </aside>
+      </div>
+    </div>
+  </div>

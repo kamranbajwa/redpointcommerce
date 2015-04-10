@@ -1,0 +1,90 @@
+   <%= render :partial => 'spree/shared/setting_sub_nav_tab' %>
+  <div id="content-header" data-hook="">
+    <div class="container">
+      <div class="sixteen columns">
+        <div class="block-table">
+          <div class="table-cell">
+            <h1 class="page-title "> Themes </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="container">
+    <div class="row">
+      <div class="with-sidebar " >
+       <div class="twelve columns">
+              
+<br>
+
+<hr>
+
+
+
+  <div class="row">
+        <div class="alpha six columns" style="text-align:center;">
+           <%= form_for(@template,url:  admin_template_path) do |f| %>
+           <%= f.hidden_field :selected, :value => "true" %>
+           <%= f.hidden_field :template_no, :value => params[:id]%>
+          <img src="/assets/<%= @template.template_no %>/a.jpg" class=""> </div>
+        <div class="omega six columns">
+        <p>
+        </p><h3><%= @template.name %></h3>
+        <%unless @template.name == "Ware House" %>
+          <fieldset class="currency no-border-bottom">
+            <legend align="center">Color Themes</legend>
+            
+            <div class="field" data-hook="admin_general_setting_input_meta_keywords">
+     		
+         
+          <div class="field" >
+                <%= f.select :theme_color, [ 'red', 'blue', 'purpel', 'pink'], :prompt => 'Select One' , :class => 'fullwidth'%>
+            </div>
+                
+        
+        </div>
+         </fieldset>
+         <%end%>
+         
+               
+              
+           
+        
+          
+           <fieldset>
+  <div class="form-buttons filter-actions actions" data-hook="buttons">
+       
+         <a class="button " href="/admin/templates"><span class="text">Back</span></a>
+       
+        <span class="or">or</span>
+        <a class="button "><span class="text"><%= f.submit "Save" %></span></a>
+      </div>
+
+    </fieldset>
+        </div>
+      </div>
+<%end%> 
+
+
+
+
+
+
+            </div>
+
+
+        </div>
+        <aside  data-hook="" class="four columns"> <br>
+          <nav class="menu">
+            <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
+              <li ><a href="/admin/templates">Templates</a></li>
+              <li class="active"  ><a href="themes.html">Themes</a></li>
+              <li ><a href="/admin/slider_images">Sliders</a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+    </div>
+
+
+

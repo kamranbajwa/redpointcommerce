@@ -1,4 +1,8 @@
 SpreeExample::Application.routes.draw do
+
+
+  #resources :organizations
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -12,7 +16,11 @@ SpreeExample::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   mount Spree::Core::Engine, :at => "/"
-  
+  # Spree::Core::Engine.routes.prepend do
+  # namespace :admin do
+  # resources :themes
+  # end
+  # end
 #  Spree::Core::Engine.routes.prepend do
 #    match "/store/user/spree_user/logout", :to => redirect('/store/logout')
 #  end
@@ -64,4 +72,15 @@ SpreeExample::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  Spree::Core::Engine.add_routes do
+  namespace :admin do
+    resources :themes 
+    resources :slider_images
+    resources :organizations
+    resources :templates
+    end
+    end
 end
+
+
+
