@@ -21,12 +21,11 @@
 
   <div class="row">
         <div class="alpha ">
-        
-        <a href="/admin/templates/<%=Spree::Template.first.id
-%>/edit"><div class="two column" style="margin-bottom:10px;"> <img src="/assets/tem.jpg" class="" /></div></a>
-         <a href="/admin/templates/<%=Spree::Template.first.id
-%>/edit"> <div class="two column" style="margin-bottom:10px;"> <img src="/assets/temp2.jpg" class="" /></div></a>
-          
+        <%Spree::Template.all.each_with_index do |temp, index|%>
+        <a href="/admin/templates/<%=temp.id
+%>/edit"><div class="two column" style="margin-bottom:10px;"> <img src="/assets/template<%= index+1%>.jpg" class="" /></div></a>
+<%end%>
+            
           </div>
        
       </div>
