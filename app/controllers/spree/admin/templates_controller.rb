@@ -43,7 +43,7 @@ class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
   def update
     Spree::Template.update_all(:selected => false)
     respond_to do |format|
-      if @template.update(template_params)
+      if @template.update_attributes(:selected =>  true , :theme_color => params[:template][:theme_color])
         format.html { redirect_to admin_templates_path, notice: 'Template was successfully updated.' }
         format.json { head :no_content }
       else
@@ -67,6 +67,7 @@ class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
     # Use callbacks to share common setup or constraints between actions.
     def set_template
       @template = Spree::Template.find(params[:id])
+      puts ""
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

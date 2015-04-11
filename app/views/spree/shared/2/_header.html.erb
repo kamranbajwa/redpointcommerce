@@ -1,0 +1,85 @@
+<header class="topHead-black fixed" id="topHead">
+    <div class="container"> 
+      
+      <!-- PHONE/EMAIL --> 
+     <!--  <span class="quick-contact pull-left"> <i class="fa fa-phone"></i> 1800-555-1234 • <a href="mailto:mail@yourdomain.com" class="hidden-xs">mail@domain.com</a> </span>  -->
+      
+      <!-- SIGN IN -->
+      
+      <div class="pull-right nav signin-dd"> 
+
+      <% if spree_user_signed_in? %>
+      <a href="<%= spree_logout_path%>" id="quick_sign_in"><i class="fa fa-users"></i><span class="hidden-xs"> Sign Out</span>
+        <a href="/account" id="quick_sign_in"><i class="fa fa-users"></i><span class="hidden-xs">My Account</span>
+      </a>
+      <%else%>
+      <a href="/login" id="quick_sign_in"><i class="fa fa-users"></i><span class="hidden-xs"> Sign In</span>
+      </a>
+       <%end%>
+          <a href="/cart" id="quick_sign_in"><i class="fa fa-users"></i><span class="hidden-xs">Cart</span>
+      </a>
+      </div>
+      <!-- /SIGN IN --> 
+      
+      <!-- CART MOBILE BUTTON --> 
+      <a href="/cart" id="btn-mobile-quick-cart" class="pull-right"><i class="fa fa-shopping-cart"></i></a> 
+      <!-- CART MOBILE BUTTON --> 
+      
+      <!-- LINKS -->
+      <div class="pull-right nav hidden-xs"> <a href="page-about-us.html"><i class="fa fa-angle-right"></i> About</a> <a href="contact-us.html"><i class="fa fa-angle-right"></i> Contact</a> </div>
+      <!-- /LINKS --> 
+      
+    </div>
+  </header>
+
+  <header class="topHead" id="topNav" style="height: 81px;"><!-- remove class="topHead" if no topHead used! -->
+    <div class="container"> 
+      
+      <!-- Mobile Menu Button -->
+      <button data-target=".nav-main-collapse" data-toggle="collapse" class="btn btn-mobile" style="margin-top: 8px;"> <i class="fa fa-bars"></i> </button>
+      
+      <!-- Logo text or image --> 
+      <a href="/" class="logo" style="margin-top: 0px; line-height: 50px;"> <img alt="Atropos" src="<%= Spree::Logo.last.avatar.url(:logo)%>"> </a> 
+      
+      <!-- Top Nav -->
+      <div class="navbar-collapse nav-main-collapse collapse pull-right top-nav-bg" style="margin-top: 16px;">
+        <nav class="nav-main mega-menu">
+          <ul id="topMain" class="nav nav-pills nav-main scroll-menu">
+            <li class="mega-menu-item mega-menu-two-columns active"> <a href="/"> Home </a> </li>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/"> Features </a> </li>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/"> Services </a> </li>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/"> Staff profile </a> </li>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/"> Photo Gallery </a> </li>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/"> Contact Us </a> </li>
+            
+            <!-- GLOBAL SEARCH -->
+            <li class="search"> 
+              <!-- search form -->
+              <form class="input-group pull-right" action="#" method="get">
+                <input type="text" placeholder="Search" value="" id="k" name="k" class="form-control">
+                <span class="input-group-btn">
+                <button class="btn btn-primary notransition" style="margin-top: 8px;"><i class="fa fa-search"></i></button>
+                </span>
+              </form>
+              <!-- /search form --> 
+            </li>
+            <!-- /GLOBAL SEARCH --> 
+            
+            <!-- QUICK SHOP CART -->
+             
+            <a href="/cart">
+            <li  class="quick-cart">   </li>
+            </a>
+         
+        
+              
+        
+            <!-- /QUICK SHOP CART -->
+            
+          </ul>
+        </nav>
+      </div>
+      <!-- /Top Nav --> 
+      
+    </div>
+  </header>

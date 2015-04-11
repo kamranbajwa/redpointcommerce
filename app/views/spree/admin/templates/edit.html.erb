@@ -20,13 +20,12 @@
 <hr>
 
 
-
+ <%= form_for(@template,url:  admin_template_path) do |f| %>
   <div class="row">
         <div class="alpha six columns" style="text-align:center;">
-           <%= form_for(@template,url:  admin_template_path) do |f| %>
-           <%= f.hidden_field :selected, :value => "true" %>
-           <%= f.hidden_field :template_no, :value => params[:id]%>
-          <img src="/assets/<%= @template.template_no %>/a.jpg" class=""> </div>
+          <img src="/assets/<%= @template.template_no%>/a.jpg" class=""> 
+
+          </div>
         <div class="omega six columns">
         <p>
         </p><h3><%= @template.name %></h3>
@@ -38,7 +37,8 @@
      		
          
           <div class="field" >
-                <%= f.select :theme_color, [ 'red', 'blue', 'purpel', 'pink'], :prompt => 'Select One' , :class => 'fullwidth'%>
+                <%= f.select :theme_color, [ 'red', 'blue', 'purpel', 'pink'], :prompt => 'Select One' , :class => 'fullwidth'
+                %>
             </div>
                 
         

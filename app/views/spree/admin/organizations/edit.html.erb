@@ -60,9 +60,9 @@ font-size: 90%;" >
                <%= select_tag(:country_id, options_for_select([['Punjab', 'Punjab'], ['Sindh', 'Sindh']]), class: 'fullwidth') %>
             </div>
                 <div class="field" data-hook="admin_general_setting_input_url">
-                  <%= f.label :postel_code ,'Postal code'%>
+                  <%= f.label :postal_code ,'Postal code'%>
                   <br>
-                  <%= f.text_field :postel_code, :class => 'fullwidth'  %>
+                  <%= f.text_field :postal_code, :class => 'fullwidth'  %>
                 </div>
                 <div class="field" data-hook="admin_general_setting_mail_from_address">
                     <%= f.label :phone_number %>
@@ -97,7 +97,7 @@ font-size: 90%;">
           <nav class="menu">
             <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
               <li class="active" ><a href="index.html">Information</a></li>
-              <li ><a href="/admin/themes"> Logo & Favicon </a></li>
+              <li ><a href="/admin/logos"> Logo & Favicon </a></li>
 
             </ul>
           </nav>

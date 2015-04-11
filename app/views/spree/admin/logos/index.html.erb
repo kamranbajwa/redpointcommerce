@@ -1,0 +1,57 @@
+  <%=render :partial=>'spree/shared/setting_sub_nav_tab'%>
+  <div class="container">
+    <div class="row">
+      <div class="with-sidebar " >
+        <div class="twelve columns"> <br>
+          
+            <div >
+              <fieldset class="general no-border-top">
+                <%= form_for(@logo, url: admin_logo_path(@logo), multipart: true) do |f| %>
+                 <div data-hook="file" class="field">
+                  <h4>Upload Logo</h4>
+                  
+                  <br />
+                  <%= f.label :avatar,'Select Images' %>
+                  <%= f.file_field :avatar,:required => true, :accept=>"image/*" %>
+                  <!-- <input id="image_attachment" name="image[attachment]" type="file"> -->
+                </div>
+                <div class="actions">
+				    <%= f.submit "Save" %>
+				  </div>
+                <% end %>
+                <hr />
+              </fieldset>
+            </div>
+            <div >
+            <link rel="shortcut icon" type="image/x-icon" href="<%= @favicon.favicon_image.url%>" />
+              <fieldset class="general no-border-top">
+              <%= form_for( @favicon,url:  admin_favicon_path(@favicon), multipart: true) do |f| %>
+  <div data-hook="file" class="field">
+                  <h4>Upload Favicon</h4>
+                  
+                  <br />
+                  <%= f.label :favicon_image,'Select an Image' %>
+                  <%= f.file_field :favicon_image,:required => true, :accept=>"image/*" %>
+                  <!-- <input id="image_attachment" name="image[attachment]" type="file"> -->
+                </div>
+                <div class="actions">
+            <%= f.submit "Save" %>
+          </div>
+                <% end %>
+                <hr />
+              </fieldset>
+            </div>
+         
+        </div>
+        <aside  data-hook="" class="four columns"> <br>
+          <nav class="menu">
+            <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
+              <li  ><a href="/admin/organizations/<%=Spree::Organization.first.id%>/edit">Information</a></li>
+              <li class="active" ><a href="/admin/logos"> Logo & Favicon </a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+    </div>
+  </div>
+ 

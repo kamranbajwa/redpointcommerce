@@ -1,0 +1,17 @@
+<%= form_for(@favicon) do |f| %>
+  <% if @favicon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@favicon.errors.count, "error") %> prohibited this favicon from being saved:</h2>
+
+      <ul>
+      <% @favicon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

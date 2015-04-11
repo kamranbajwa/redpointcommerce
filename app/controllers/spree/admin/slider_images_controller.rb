@@ -4,7 +4,8 @@ class Spree::Admin::SliderImagesController < Spree::Admin::ResourceController
   # GET /slider_images
   # GET /slider_images.json
   def index
-    @slider_images = Spree::SliderImage.all
+    @slider_images = @selected_template.spree_slider_images
+    @slider_image = Spree::SliderImage.first
   end
 
   # GET /slider_images/1
@@ -19,6 +20,7 @@ class Spree::Admin::SliderImagesController < Spree::Admin::ResourceController
 
   # GET /slider_images/1/edit
   def edit
+
   end
 
   # POST /slider_images
@@ -40,9 +42,18 @@ class Spree::Admin::SliderImagesController < Spree::Admin::ResourceController
   # PATCH/PUT /slider_images/1
   # PATCH/PUT /slider_images/1.json
   def update
+
+    @selected_template.spree_slider_images.delete_all
+       # puts "sjkfdsdjkf", image.inspect
+          # puts "asdasdsadasdasdasdasdas", slider_image_params.inspect
+          # sdlkfj
     respond_to do |format|
-      if @slider_image.update(slider_image_params)
-        format.html { redirect_to admin_templates_url , notice: 'Slider image was successfully updated.' }
+      if slider_image_params.size > 0
+        slider_image_params[:slider_image].each do |image|
+       
+        @selected_template.spree_slider_images.create(:slider_image => image)
+      end
+        format.html { redirect_to admin_slider_images_url , notice: 'Slider image was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -71,6 +82,6 @@ class Spree::Admin::SliderImagesController < Spree::Admin::ResourceController
     def slider_image_params
       # puts "dsfmnsmfbsdf", params.inspect
       # puts "sdfsdfsdfsdf", params[:slider_image] 
-      params.require(:slider_image).permit(:s_image)
+      params.require(:slider_image).permit(:slider_image => [])
     end
 end

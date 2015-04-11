@@ -1,0 +1,23 @@
+<h1>Listing favicons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @favicons.each do |favicon| %>
+      <tr>
+        <td><%= link_to 'Show', favicon %></td>
+        <td><%= link_to 'Edit', edit_favicon_path(favicon) %></td>
+        <td><%= link_to 'Destroy', favicon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Favicon', new_favicon_path %>

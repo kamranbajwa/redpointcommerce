@@ -21,9 +21,9 @@
 
   <div class="row">
         <div class="alpha ">
-        <%Spree::Template.all.each_with_index do |temp, index|%>
+        <%Spree::Template.all.sort_by(&:template_no).each do |temp|%>
         <a href="/admin/templates/<%=temp.id
-%>/edit"><div class="two column" style="margin-bottom:10px;"> <img src="/assets/template<%= index+1%>.jpg" class="" /></div></a>
+%>/edit"><div class="two column" style="margin-bottom:10px;"> <img src="/assets/<%= temp.template_no%>/a.jpg" class="" /></div></a>
 <%end%>
             
           </div>
@@ -32,11 +32,4 @@
 
 
         </div>
-        <aside  data-hook="" class="four columns"> <br>
-          <nav class="menu">
-            <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
-              <li class="active" ><a href="temp.html">Templates</a></li>
-              <li ><a href="/admin/slider_images">Sliders</a></li>
-            </ul>
-          </nav>
-        </aside>
+        <%=render :partial=>'/spree/admin/templates/side_bar_template'%>

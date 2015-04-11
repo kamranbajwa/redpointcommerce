@@ -1,0 +1,58 @@
+<meta charset="utf-8">
+<title>Red point commerce</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1" name="viewport">
+<%== meta_data_tags %>
+<%= canonical_tag(current_store.url) %>
+<%#= favicon_link_tag 'favicon.ico' %>
+<%= stylesheet_link_tag 'spree/frontend/all', :media => 'screen' %>
+<%= stylesheet_link_tag 'font-awesome' %>
+<%= csrf_meta_tags %>
+<%= javascript_include_tag 'spree/frontend/all' %>
+
+<%#= stylesheet_link_tag ''%>
+
+<!-- Bootstrap core CSS -->
+<link href="/assets/bootstrap.min.css" rel="stylesheet">
+
+<!-- Customizable CSS -->
+<link href="/assets/owl.carousel.css" rel="stylesheet">
+<link href="/assets/owl.transitions.css" rel="stylesheet">
+<link href="/assets/rateit.css" rel="stylesheet">
+<link href="/assets/jquery.bxslider.css" rel="stylesheet">
+<link href="/assets/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+<link href="/assets/lightbox.css" rel="stylesheet">
+<link href="/assets/animate.min.css" rel="stylesheet">
+
+<!-- Fonts -->
+<%#*<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300,100' rel='stylesheet' type='text/css'>%>
+
+<!-- Icons/Glyphs -->
+<%#*<link href="/assets/font-awesome.min.css" rel="stylesheet">%>
+
+<!-- Main CSS -->
+<link href="/assets/main.css" rel="stylesheet">
+
+<!-- Default Preset Color -->
+
+
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="<%= @selected_template.spree_favicon and @selected_template.spree_favicon.favicon_image ? @selected_template.spree_favicon.favicon_image.url : '/assets/favicon.ico'%>" />
+
+<!-- Demo Purpose Only. Should be removed in production -->
+<link rel="stylesheet" href="/assets/config.css">
+
+<link href="/assets/green.css" rel="alternate stylesheet" title="Green color">
+
+<link href="/assets/red.css" rel="alternate stylesheet" title="Red color">
+<link href="/assets/navy.css" rel="alternate stylesheet" title="Navy color">
+<link href="/assets/orange.css" rel="alternate stylesheet" title="Orange color">
+<!-- Demo Purpose Only. Should be removed in production : END -->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]-->
+<script src="/assets/html5shiv.js"></script>
+<script src="/assets/respond.min.js"></script>
+<![endif]-->
+
+<%= yield :head %>

@@ -1,0 +1,43 @@
+<meta charset="utf-8" />
+<title><%= @selected_template.name%></title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1" name="viewport">
+<%== meta_data_tags %>
+<%= canonical_tag(current_store.url) %>
+<%#= favicon_link_tag 'favicon.ico' %>
+<%= stylesheet_link_tag 'spree/frontend/all', :media => 'screen' %>
+<%= stylesheet_link_tag 'font-awesome' %>
+<%= csrf_meta_tags %>
+<%= javascript_include_tag 'spree/frontend/all' %>
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
+<!-- WEB FONTS -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet" type="text/css" />
+
+<!-- CORE CSS -->
+<link href="/assets/<%= @selected_template.template_no%>/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="/assets/<%= @selected_template.template_no%>/font-awesome.css" rel="stylesheet" type="text/css" />
+<link href="/assets/<%= @selected_template.template_no%>/owl.carousel.css" rel="stylesheet" type="text/css" />
+<link href="/assets/<%= @selected_template.template_no%>/owl.theme.css" rel="stylesheet" type="text/css" />
+<link href="/assets/<%= @selected_template.template_no%>/owl.transitions.css" rel="stylesheet" type="text/css" />
+<%= stylesheet_link_tag 'font-awesome' %>
+<!-- REVOLUTION SLIDER -->
+<link href="/assets/<%= @selected_template.template_no%>/settings.css" rel="stylesheet" type="text/css" />
+
+<!-- color CSS -->
+<link href="/assets/<%= @selected_template.template_no%>/color_scheme/lightgrey.css" rel="stylesheet" type="text/css" />
+<!-- <link href="/assets/<%= @selected_template.template_no%>/color_scheme/<%= @selected_template.theme_color%>.css" rel="stylesheet" type="text/css" /> -->
+
+
+<!--End color CSS -->
+
+<link href="/assets/<%= @selected_template.template_no%>/layout.css" rel="stylesheet" type="text/css" />
+<link href="/assets/<%= @selected_template.template_no%>/layout-responsive.css" rel="stylesheet" type="text/css" />
+<link href="/assets/skeleton.css" rel="stylesheet" type="text/css" />
+<!-- <link href="/assets/screen.css" rel="stylesheet" type="text/css" /> -->
+<link href="/assets/<%= @selected_template.template_no%>/main.css" rel="stylesheet" type="text/css" />
+<!-- Morenizr -->
+<script type="text/javascript" src="/assets/<%= @selected_template.template_no%>/modernizr.min.js"></script>
+
+<link rel="shortcut icon" type="image/x-icon" href="<%= @selected_template.spree_favicon and @selected_template.spree_favicon.favicon_image ? @selected_template.spree_favicon.favicon_image.url : '/assets/favicon.ico'%>" />

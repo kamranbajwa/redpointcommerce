@@ -8,7 +8,7 @@ class CreateOrganizations < ActiveRecord::Migration
     	t.string :company_code
     	t.string :city
     	t.string :state
-    	t.integer :postel_code
+    	t.integer :postal_code
     	t.integer :phone_number
     	t.time :central_time
       t.timestamps

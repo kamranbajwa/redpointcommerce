@@ -20,29 +20,27 @@
 <hr>
 
 
-
+ <%= form_for(@slider_image,url:  admin_slider_image_path(@slider_image), multipart: true) do |f| %>
   <div class="row">
         <div class="alpha six columns" style="text-align:center;">
           
-          <img src=/assets/<%=@theme.template_no.to_i%>/a.jpg class=""> </div>
+          <img src=/assets/<%=@selected_template.template_no.to_i%>/a.jpg class=""> </div>
         <div class="omega six columns">
-        <p>
-        </p><h3><%=@theme.name%> </h3>
-        <p></p>
+        <h3><%=@selected_template.name%> </h3>
+       
           
          <fieldset class="currency no-border-bottom">
             <legend align="center">Add Slider Images</legend>
-             
-              <%= form_for(@slider_image=Spree::SliderImage.last,url:  admin_slider_image_path(@slider_image), multipart: true) do |f| %>
              <div data-hook="file" class="field">
-            <%= f.label :s_image,'Slider Image' %>
-     <%= f.file_field :s_image %>
+            <%= f.label :slider_image,'Slider Image' %>
+     <%= f.file_field :slider_image, :multiple => true, :accept => "image/*", required: true %>
     </div>
 
     
   
-    </div>
+
             </fieldset>
+                </div>
                
               
            
@@ -56,9 +54,20 @@
         <span class="or">or</span>
         <a class="button "><span class="text"><%= f.submit "Save" %></span></a>
       </div>
-<%end%>
+
+    </fieldset>
+
+               <fieldset>
+                <h3>Current Slider Images</h3>
+       <%@slider_images.each do |image|%>
+<p>
+  <img src="<%= image.slider_image.url(:medium)%>">
+</p>
+       <%end%>
+
     </fieldset>
         </div>
+        <%end%>
       </div>
 
 
@@ -69,7 +78,7 @@
 
             </div>
 
-
+<%=render :partial=>'/spree/admin/templates/side_bar_template'%>
         </div>
       </div>
-    </div>
+   

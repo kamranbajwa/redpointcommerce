@@ -12,8 +12,12 @@ class ApplicationController < ActionController::Base
     end
   end
   def check_theme
-    @theme =   Spree::Template.find_by_selected true
-    @logo_image=Spree::Theme.last.avatar.url
-    @slider_image=Spree::SliderImage.last.s_image.url
+    @selected_template = Spree::Template.find_by_selected true
+    unless @selected_template
+    @selected_template = Spree::Template.find_by_template_no 1 
+    end
+    @favi_con = @selected_template.spree_favicon
+    @logo_image = @selected_template.spree_logo
+    @slider_image = @selected_template.spree_slider_images
   end
 end

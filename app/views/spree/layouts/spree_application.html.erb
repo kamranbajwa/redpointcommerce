@@ -4,11 +4,12 @@
 <!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
 <!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
 <!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
+  
   <head data-hook="">
-    <%= render :partial => 'spree/shared/head' %>
-    <%= render :partial => 'spree/shared/header' %>
+    <%= render :partial => "spree/shared/#{@selected_template.template_no}/head" %>
+    <%= render :partial => "spree/shared/#{@selected_template.template_no}/header" %>
   </head>
-  <body>
+  <body class="boxed">
 
 
     <div id="wrapper" data-hook>
@@ -28,7 +29,7 @@
 
     </div>
   </body>
-  <%= render :partial => 'spree/shared/footer' %>
+  <%= render :partial => "spree/shared/#{@selected_template.template_no}/footer" %>
 
 
 

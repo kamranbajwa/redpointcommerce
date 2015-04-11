@@ -1,0 +1,7 @@
+class AddIndex < ActiveRecord::Migration
+  def change
+  	  add_index :spree_favicons, :template_id
+  	  add_index :spree_slider_images, :template_id
+  	  add_index :spree_logos, :template_id
+  end
+end

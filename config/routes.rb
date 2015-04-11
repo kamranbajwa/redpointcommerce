@@ -1,6 +1,8 @@
 SpreeExample::Application.routes.draw do
 
 
+
+
   #resources :organizations
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -74,7 +76,8 @@ SpreeExample::Application.routes.draw do
   #   end
   Spree::Core::Engine.add_routes do
   namespace :admin do
-    resources :themes 
+    resources :logos
+    resources :favicons 
     resources :slider_images
     resources :organizations
     resources :templates
