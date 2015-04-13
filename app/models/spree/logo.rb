@@ -2,10 +2,7 @@ module Spree
 class Logo < Spree::Base
 	belongs_to :template
 	has_attached_file :avatar, styles: {
-    logo: '240x75>',
-    square: '200x200#',
-    medium: '300x300>',
-    xlarge: '1920x879'
+    logo: '240x75#'
   }
 
   
