@@ -2,8 +2,16 @@
     <div class="container">
       <div class="sixteen columns">
         <ul id="sub_nav" data-hook="admin_product_sub_tabs" class="inline-menu">
-          <li class="selected"><a href="/admin/organizations/1/edit">Organization Info</a></li>
-          <li class=""><a href="/admin/templates">Templates</a></li>
+          <% if params[:controller]=="spree/admin/organizations"and params[:action]=="edit" or params[:controller]=="spree/admin/logos"%>
+          <li class="selected"><a href="/admin/organizations/<%=Spree::Organization.first.id%>/edit">Organization Info</a></li>
+          <%else%>
+          <li ><a href="/admin/organizations/<%=Spree::Organization.first.id%>/edit">Organization Info</a></li>
+          <%end%>
+          <% if params[:controller]=="spree/admin/templates"and (params[:action]=="edit" or params[:action]=="index") or params[:controller]=="spree/admin/slider_images"%>
+          <li class="selected"><a href="/admin/templates">Templates</a></li>
+          <%else%>
+          <li ><a href="/admin/templates">Templates</a></li>
+          <%end%>
           <li class=""><a href="/">Pages</a></li>
           <li class=""><a href="/">Cart Checkout</a></li>
           <li class=""><a href="/">Emails Templates</a></li>

@@ -10,7 +10,7 @@
       </div>
     </div>
   </div>
- <%= form_for(@org=Spree::Organization.last,url:  admin_organization_path(@org), multipart: true) do |f| %>
+ <%= form_for(@org=Spree::Organization.first,url:  admin_organization_path(@org), multipart: true) do |f| %>
   <div class="container">
     <div class="row">
       <div class="with-sidebar " >

@@ -18,5 +18,10 @@
 
 <% if Spree.user_class && can?(:admin, Spree.user_class) %>
   <%= tab *Spree::BackendConfiguration::USER_TABS, url: spree.admin_users_path, icon: 'user' %>
-   <li class="tab-with-icon "><a class="" href="/admin/organizations/<%= Spree::Organization.first.id%>/edit"><span class="text">Setting</span></a></li>
+  <%if params[:controller]=="spree/admin/organizations" or params[:controller]=="spree/admin/templates" or params[:controller]=="spree/admin/slider_images" or params[:controller]=="spree/admin/logos"%>
+  <li class="tab-with-icon selected">
+  <%else%>
+  <li class="tab-with-icon">
+  <%end%>
+   <a class="" href="/admin/organizations/<%= Spree::Organization.first.id%>/edit"><span class="text">Setting</span></a></li>
 <% end %>
