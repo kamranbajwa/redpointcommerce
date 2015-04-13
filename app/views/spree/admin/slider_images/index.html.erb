@@ -78,16 +78,7 @@
 
             </div>
 
- <aside  data-hook="" class="four columns"> <br>
-          <nav class="menu">
-            <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
-              <li ><a href="/admin/templates">Templates</a></li>
-              <li ><a href="/admin/templates/<%=@selected_template.id
-%>/edit">Themes</a></li>
-              <li class="active"><a href="/admin/slider_images">Sliders</a></li>
-            </ul>
-          </nav>
-        </aside>
+<%=render :partial=>'/spree/admin/templates/side_bar_template'%>
         </div>
       </div>
    

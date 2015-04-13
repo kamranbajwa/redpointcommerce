@@ -4765,3 +4765,12 @@ img.mfp-img {
 	padding-top: 0;
 }
 }
+
+.glyphicon-chevron-left:before {
+    content:url(/assets/left.png);
+    
+}
+
+.glyphicon-chevron-right:before {
+    content:url(/assets/right.png);
+}
