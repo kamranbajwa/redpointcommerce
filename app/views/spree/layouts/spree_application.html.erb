@@ -10,6 +10,7 @@
     <%= render :partial => "spree/shared/#{@selected_template.template_no}/header" %>
   </head>
   <body class="boxed">
+  <div class='main-body'>
 
 
     <div id="wrapper" data-hook>
@@ -28,11 +29,13 @@
       <%= yield :templates %>
 
     </div>
-  </body>
+    </div>
+
   <%= render :partial => "spree/shared/#{@selected_template.template_no}/footer" %>
 
 
 
   <%= render :partial => 'spree/shared/google_analytics' %>
-
+</body>
 </html>
+  

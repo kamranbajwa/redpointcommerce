@@ -1,5 +1,5 @@
 class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
-  before_action :set_template, only: [:show, :edit, :update, :destroy]
+  before_action :set_template, only: [:show, :edit,  :destroy]
 
   # GET /templates
   # GET /templates.json
@@ -42,8 +42,11 @@ class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
   # PATCH/PUT /templates/1.json
   def update
     Spree::Template.update_all(:selected => false)
+    @template = Spree::Template.find(params[:id])
+    @template.selected = true
+    @template.theme_color = params[:template][:theme_color]
     respond_to do |format|
-      if @template.update_attributes(:selected =>  true , :theme_color => params[:template][:theme_color])
+      if @template.save!
         format.html { redirect_to admin_templates_path, notice: 'Template was successfully updated.' }
         format.json { head :no_content }
       else
@@ -67,7 +70,9 @@ class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
     # Use callbacks to share common setup or constraints between actions.
     def set_template
       @template = Spree::Template.find(params[:id])
-      puts ""
+      puts "ddsfsfsdfsdf",@template.inspect
+      puts "ddsfsfsdfsdf",@template.inspect
+      # put
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

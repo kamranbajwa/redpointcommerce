@@ -22,6 +22,13 @@
                 <hr />
               </fieldset>
             </div>
+<div >
+              <fieldset class="general no-border-top">
+              <h3>Current Logo</h3>
+              <img src="<%= Spree::Logo.last.avatar.url(:logo)%>">
+              </fieldset>
+              </div>
+
             <div >
             <link rel="shortcut icon" type="image/x-icon" href="<%= @favicon.favicon_image.url%>" />
               <fieldset class="general no-border-top">
@@ -41,7 +48,12 @@
                 <hr />
               </fieldset>
             </div>
-         
+         <div >
+              <fieldset class="general no-border-top">
+              <h3>Current Favicon</h3>
+              <img src="<%= Spree::Favicon.last.favicon_image.url(:logo)%>">
+              </fieldset>
+              </div>
         </div>
         <aside  data-hook="" class="four columns"> <br>
           <nav class="menu">

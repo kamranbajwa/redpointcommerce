@@ -29,14 +29,14 @@
       <% if @products.empty? %>
         <h6 class="search-results-title min-product-height"><%= Spree.t(:no_products_found) %></h6>
       <% else %>
-        <%= render :partial => 'spree/shared/<%= @selected_template.temaplate_no%>/products', :locals => { :products => @products, :taxon => @taxon } %>
+        <%= render :partial => "spree/shared/#{@selected_template.template_no}/products", :locals => { :products => @products, :taxon => @taxon } %>
       <% end %>
     </div>
 
   <% else %>
 
     <div data-hook="homepage_products">
-        <%= render :partial => 'spree/shared/<%= @selected_template.temaplate_no%>/products', :locals => { :products => @products, :taxon => @taxon } %>
+         <%= render :partial => "spree/shared/#{@selected_template.template_no}/products", :locals => { :products => @products, :taxon => @taxon } %>
     </div>
   <% end %>
 </div>
