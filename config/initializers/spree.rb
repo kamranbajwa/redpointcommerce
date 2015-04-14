@@ -36,8 +36,7 @@ attachment_config = {
       large:    "600x600>",
        logo: '240x75>',
     square: '200x200#',
-    medium: '300x300>',
-    xlarge: '1920x879'
+    medium: '300x300>'
   },
 
   path:           "/spree/:class/:id/:style/:basename.:extension",
@@ -48,7 +47,9 @@ attachment_config = {
 attachment_config.each do |key, value|
   Spree::Image.attachment_definitions[:attachment][key.to_sym] = value
   Spree::Favicon.attachment_definitions[:favicon_image][key.to_sym] = value
-  Spree::SliderImage.attachment_definitions[:slider_image][key.to_sym] = value
+  Spree::SliderImage.attachment_definitions[:slider_image][key.to_sym].merge!(
+      :xlarge => '1920x879#'
+) = value
   Spree::Logo.attachment_definitions[:avatar][key.to_sym] = value
   
 
