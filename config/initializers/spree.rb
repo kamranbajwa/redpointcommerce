@@ -49,7 +49,7 @@ attachment_config.each do |key, value|
   Spree::Favicon.attachment_definitions[:favicon_image][key.to_sym] = value
   Spree::SliderImage.attachment_definitions[:slider_image][key.to_sym].merge!(
       :xlarge => '1920x879#'
-) = value
+)
   Spree::Logo.attachment_definitions[:avatar][key.to_sym] = value
   
 
