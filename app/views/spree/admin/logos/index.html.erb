@@ -13,6 +13,9 @@
                   <br />
                   <%= f.label :avatar,'Select Images' %>
                   <%= f.file_field :avatar,:required => true, :accept=>"image/*" %>
+                  <br><small> <p>Please upload image of size approx. 240x75</p> </small>
+                  
+
                   <!-- <input id="image_attachment" name="image[attachment]" type="file"> -->
                 </div>
                 <div class="actions">
@@ -39,6 +42,7 @@
                   <br />
                   <%= f.label :favicon_image,'Select an Image' %>
                   <%= f.file_field :favicon_image,:required => true, :accept=>"image/*" %>
+                  <br><small> <p>Please upload image of size approx. 6x6</p> </small>
                   <!-- <input id="image_attachment" name="image[attachment]" type="file"> -->
                 </div>
                 <div class="actions">
