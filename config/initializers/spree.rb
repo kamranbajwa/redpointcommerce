@@ -36,7 +36,7 @@ attachment_config = {
       large:    "600x600>",
        logo: '240x75>',
     square: '200x200#',
-    medium: '300x300>'
+    medium: '300x300>',
     xlarge:  '1876x879#'
   },
 
