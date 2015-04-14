@@ -2,7 +2,7 @@ module Spree
 class Favicon < Spree::Base
 belongs_to  :template
 has_attached_file :favicon_image, styles: {
-    thumb: '6x6'
+    thumb: '6x6#'
   }
   
   # Validate the attached image is image/jpg, image/png, etc
