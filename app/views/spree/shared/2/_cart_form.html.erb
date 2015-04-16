@@ -1,15 +1,14 @@
-
 <%= form_for :order, :url => populate_orders_path do |f| %>
   <div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
     <% if @product.variants_and_option_values(current_currency).any? %>
-      <div id="product-variants" class="columns five alpha">
+      <div id="product-variants">
         <h6 class="product-section-title"><%= Spree.t(:variants) %></h6>
         <ul>
           <% @product.variants_and_option_values(current_currency).each_with_index do |variant, index| %>
-            <li>
+            <li style=" list-style-type: none;">
               <%= radio_button_tag "variant_id", variant.id, index == 0, 'data-price' => variant.price_in(current_currency).money  %>
-              <%= label_tag "variant_id_#{ variant.id }" do %>
+              <%= label_tag "variant_id_#{ variant.id }" do %> 
                 <span class="variant-description">
                   <%= variant_options variant %>
                 </span>
@@ -35,9 +34,9 @@
         <div id="product-price">
           <h6 class="product-section-title"><%= Spree.t(:price) %>:</h6>
           <div>
-            <span class="price selling" itemprop="price">
-              <%= display_price(@product) %>
-            </span>
+           <div class="productRowInfo">
+                      <span class="price styleSecondColor fsize20"><%= display_price(@product) %></span>
+
             <span itemprop="priceCurrency" content="<%= @product.currency %>"></span>
           </div>
 
@@ -50,10 +49,16 @@
         </div>
 
         <div class="add-to-cart">
-          <%= number_field_tag :quantity, 1, :class => 'title', :min => 1 %>
-          <%= button_tag :class => 'button gray', :id => 'add-to-cart-button',:style=>"color:white;font-weight: bold;", :type => :submit do %>
-            <%= Spree.t(:add_to_cart) %>
-          <% end %>
+          
+         <div class="addCartBtn">
+                              <span class="input-group-btn">
+                                <%= number_field_tag :quantity, 1, :class => 'title', :min => 1 %>
+                                <button class="btn btn-primary"><i class="fa fa-shopping-cart"></i> <%= f.submit "ADD TO CART",:style=>"background: transparent !important;
+border: 0px none !important;
+box-shadow: inset 0 0px 0 rgba(255, 255, 255, 0.4);" %></button> 
+                              </span>
+                            </div><!-- /input-group -->
+                          </div>
         </div>
       </div>
     <% else %>

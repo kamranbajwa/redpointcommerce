@@ -9,11 +9,19 @@
     <%= render :partial => "spree/shared/#{@selected_template.template_no}/head" %>
     <%= render :partial => "spree/shared/#{@selected_template.template_no}/header" %>
   </head>
+  <% if params[:controller]=="spree/home" and params[:action]=="index"%>
   <body class="boxed">
+  <%else%>
+  <style>.main-body, header {
+margin: auto;
+max-width: 100%;
+}</style>
+  <body >
+  <%end %>
   <div class='main-body'>
 
 
-    <div id="wrapper" data-hook style="padding:0px;">
+    <div id="wrapper" data-hook>
 
 <%#= breadcrumbs(@taxon) %>
 

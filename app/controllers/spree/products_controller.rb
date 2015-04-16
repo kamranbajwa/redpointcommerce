@@ -11,13 +11,18 @@ module Spree
     def index
       @searcher = build_searcher(params.merge(include_images: true))
       @products = @searcher.retrieve_products
-      @taxonomies = Spree::Taxonomy.includes(root: :children)
+      @taxonomies = Spree::Taxonomy.all
+      render :template => "/spree/shared/#{@selected_template.template_no}/products_index.html.erb", :locals => {:products => @products,:taxonomies => @taxonomies, :searcher => @searcher, :taxon =>@taxon }
     end
 
     def show
       @variants = @product.variants_including_master.active(current_currency).includes([:option_values, :images])
       @product_properties = @product.product_properties.includes(:property)
       @taxon = Spree::Taxon.find(params[:taxon_id]) if params[:taxon_id]
+      @product = @products.friendly.find(params[:id])
+      @taxns=@product.taxons.first
+      @simlier_product=  @taxns.products.limit 3
+
     end
 
     private

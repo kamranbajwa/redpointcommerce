@@ -23,7 +23,6 @@
   </div>
 
   <% if params[:keywords] %>
-
   <div data-hook="search_results" class="container">
 
       <% if @products.empty? %>
@@ -36,7 +35,8 @@
   <% else %>
 
     <div data-hook="homepage_products">
-         <%= render :partial => "spree/shared/#{@selected_template.template_no}/products", :locals => { :products => @products, :taxon => @taxon } %>
+     <%= render :partial => "spree/shared/#{@selected_template.template_no}/products_index",:locals => { :products => @products, :taxon => @taxon } %>
+         <%#= render :partial => "spree/shared/#{@selected_template.template_no}/products", :locals => { :products => @products, :taxon => @taxon } %>
     </div>
   <% end %>
 </div>

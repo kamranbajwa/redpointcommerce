@@ -1,0 +1,72 @@
+<%
+paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+paginated_products ||= products
+%>
+
+<% content_for :head do %>
+  <% if paginated_products.respond_to?(:num_pages) %>
+    <%= rel_next_prev_link_tags paginated_products %>
+  <% end %>
+<% end %>
+<div class="row top-shop-option">
+						<div class="col-sm-6 col-md-6">
+							<p>Showing 1-12 of <%=products.count%> results.</p>
+						</div>
+						
+					</div>
+<div class="row">
+<aside class="col-md-3">
+
+
+	<h3>CATEGORIES</h3><!-- h3 - have no margin-top -->
+              <ul class="nav nav-list">
+
+                <% if "spree/products" == params[:controller] && taxon %>
+      <%= render :partial => 'spree/shared/filters' %>
+    <% else %>
+     <%#= render :partial => "spree/shared/#{@selected_template.template_no}/products_index" %>
+     <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+<ul id="taxonomies" class="sidebar-item" data-hook>
+  <% @taxonomies.each do |taxonomy| %>
+    <% cache [I18n.locale, taxonomy, max_level] do %>
+      <li>
+      <%= taxons_tree_products_list(taxonomy.root, @taxon) %>
+      <li>
+    <% end %>
+  <% end %>
+</ul>
+    <% end %>
+              </ul>
+</aside>
+<div class="col-md-9">
+<%products.each do |p|%>
+<div class="col-sm-6 col-md-3"><!-- item -->
+ 
+                   <% url = product_path(p) %>
+                   
+
+							<div class="item-box">
+								<figure>
+									<a class="item-hover" href="<%=url%>">
+										<span class="overlay color2"></span>
+										<span class="inner">
+											<span class="block fa fa-plus fsize20"></span>
+											<strong>PRODUCT</strong> DETAIL
+										</span>
+									</a>
+									
+									<%= link_to product_image(p, :itemprop => "image", :class => "img-responsive" )%>
+									<div class="btn btn-primary add_to_cart"><i class="fa fa-shopping-cart"></i> ADD TO CART</div>
+								</figure>
+								<div class="item-box-desc">
+									<h4><%=p.name%></h4>
+									<small class="styleColor"><span>$180</span> $<%=p.price%></small>
+								</div>
+							</div>
+						</div>
+						<%end%>
+						</div>
+						</div>
+						<% if paginated_products.respond_to?(:num_pages) %>
+  <%= paginate paginated_products%>
+<% end %>

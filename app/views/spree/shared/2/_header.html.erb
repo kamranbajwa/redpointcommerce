@@ -1,4 +1,8 @@
-<header class="topHead-black fixed" id="topHead">
+  <% if params[:controller]=="spree/home" and params[:action]=="index"%>
+ <header class="topHead-black fixed" id="topHead">
+  <%else%>
+  <header class="topHead-black fixed " id="topHead" style="width:100%;">
+  <%end %>
     <div class="container"> 
       
       <!-- PHONE/EMAIL --> 
@@ -47,7 +51,7 @@
           <ul id="topMain" class="nav nav-pills nav-main scroll-menu">
             <li class="mega-menu-item mega-menu-two-columns active"> <a href="/"> Home </a> </li>
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/"> Features </a> </li>
-            <li class="mega-menu-item mega-menu-two-columns"> <a href="/"> Services </a> </li>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/products"> Services </a> </li>
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/"> Staff profile </a> </li>
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/"> Photo Gallery </a> </li>
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/"> Contact Us </a> </li>

@@ -1,13 +1,15 @@
-<div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: -30px;
-border: solid 5px #fff;">
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-top: 0px !imporatant;">
   <!-- Indicators -->
   
  <!-- Indicators -->
   <ol class="carousel-indicators">
+   <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
+   <% if index == 0 %>
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
+    <%else%>
+     <li data-target="#myCarousel" data-slide-to=<%=index%>></li>
+   <%end%>
+   <%end%>
   </ol>
 
   <!-- Wrapper for slides -->
@@ -135,7 +137,7 @@ border: solid 5px #fff;">
         <div class="col-lg-12">
           <div class=" border-footer">
             <div class="col-lg-9"> <span style="">
-              <h4>We are waiting for you. lease make an Appointment here</h4>
+              <h4>We are waiting for you. Please make an Appointment here</h4>
               </span></div>
             <div style="text-align:right" class="col-lg-3 pull-right"><a href="#" class="btn btn-primary btn-lg">Appointment</a></div>
           </div>
