@@ -494,7 +494,8 @@ header#topNav li a i.fa {
 	#topHead .signin-dd input[type="text"],
 	#topHead .signin-dd input[type="password"],
 	#topHead .signin-dd input[type="email"] {
-		margin:0; border:0;
+		margin:0;
+		border:0;
 		padding:8px !important;
 		height:38px;
 
@@ -530,7 +531,8 @@ header#topNav li a i.fa {
 	}
 	#topHead .signin-dd form .input-group-btn,
 	#topHead .signin-dd form label {
-		margin:0; padding:0;
+		margin:0;
+		padding:0;
 		line-height:20px;
 	}
 	#topHead .signin-dd form div.checkbox {
@@ -632,7 +634,8 @@ header#topNav li a i.fa {
 	background:#f6f6f6;
 	overflow:hidden;
 	width:100%;
-	margin:0; padding:0;
+	margin:0; 
+	padding:0;
 	
 	display:block;
 	margin-top:-81px !important; /* see #wrapper padding */
@@ -1432,7 +1435,8 @@ footer a, footer a:hover {
 footer ul,
 footer ul li {
 	list-style:none;
-	margin:0; padding:0;
+	margin:0; 
+	padding:0;
 }
 footer .footer-bar {
 	background:#292f38;
@@ -2232,7 +2236,7 @@ ul.star-rated,
 ul.list-style-none {
 	clear:both;
 	display:inline-block;
-	margin:; padding:0;
+	padding:0;
 	list-style:none;
 }
 
