@@ -31,7 +31,7 @@ paginated_products ||= products
     <% else %>
      <%#= render :partial => "spree/shared/#{@selected_template.template_no}/products_index" %>
      <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
-<ul id="taxonomies" class="sidebar-item" data-hook>
+
 
   <% @taxonomies.each do |taxonomy| %>
     <% cache [I18n.locale, taxonomy, max_level] do %>
@@ -39,7 +39,6 @@ paginated_products ||= products
       <%= taxons_tree_products_list(taxonomy.root, @taxon) %>
     <% end %>
   <% end %>
-</ul>
     <% end %>
               </ul>
 </aside>

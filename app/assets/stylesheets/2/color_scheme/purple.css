@@ -488,3 +488,10 @@ color: #fff;
 aside ul.nav-list li {
 color: #8f0373;
 }
+.fontstyle {
+	font-family: 'Open Sans';
+	color: #8f0373;
+}
+.fontstyle:hover {
+	color: red;
+}

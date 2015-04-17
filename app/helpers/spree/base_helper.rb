@@ -137,7 +137,7 @@ module Spree
                   #                  css_class = (current_taxon && current_taxon.self_and_ancestors.include?(taxon)) ? 'current' : nil
                   content_tag :li do
                     content_tag :i,style: 'color:#ddd', class: 'fa fa-circle-o' do
-                    link_to(taxon.name, seo_url(taxon),:class => "cat123",:style=>"margin-left:4px;") +
+                    link_to(taxon.name, seo_url(taxon),:class => "cat123 fontstyle",:style=>"margin-left:4px;") +
                       taxons_tree(taxon, current_taxon, max_level - 1)
                     end
                   end
