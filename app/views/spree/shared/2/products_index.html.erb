@@ -1,3 +1,6 @@
+<div class="container top-space">
+  <br>
+  <%= flash_messages %>
 <%
 paginated_products = @searcher.retrieve_products if params.key?(:keywords)
 paginated_products ||= products
@@ -8,15 +11,17 @@ paginated_products ||= products
     <%= rel_next_prev_link_tags paginated_products %>
   <% end %>
 <% end %>
-<div class="row top-shop-option">
+<!-- <div class="row top-shop-option">
 						<div class="col-sm-6 col-md-6">
 							<p>Showing 1-12 of <%=products.count%> results.</p>
 						</div>
 						
-					</div>
+					</div> -->
 <div class="row">
 <aside class="col-md-3">
-
+<div class="col-sm-12 col-md-12 no-padding" >
+							<p>Showing 1-12 of <%=products.count%> results.</p>
+						</div>
 
 	<h3>CATEGORIES</h3><!-- h3 - have no margin-top -->
               <ul class="nav nav-list">
@@ -27,11 +32,11 @@ paginated_products ||= products
      <%#= render :partial => "spree/shared/#{@selected_template.template_no}/products_index" %>
      <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
 <ul id="taxonomies" class="sidebar-item" data-hook>
+
   <% @taxonomies.each do |taxonomy| %>
     <% cache [I18n.locale, taxonomy, max_level] do %>
-      <li>
+  
       <%= taxons_tree_products_list(taxonomy.root, @taxon) %>
-      <li>
     <% end %>
   <% end %>
 </ul>
@@ -54,13 +59,13 @@ paginated_products ||= products
 											<strong>PRODUCT</strong> DETAIL
 										</span>
 									</a>
-									
-									<%= link_to product_image(p, :itemprop => "image", :class => "img-responsive" )%>
+									<!-- <img src="/assets/1.jpg" class = "img-responsive"> -->
+									<%= link_to product_image(p, :itemprop => "image", :class => "img-responsive",:style=>"max-width:100%;" )%>
 									<div class="btn btn-primary add_to_cart"><i class="fa fa-shopping-cart"></i> ADD TO CART</div>
 								</figure>
 								<div class="item-box-desc">
 									<h4><%=p.name%></h4>
-									<small class="styleColor"><span>$180</span> $<%=p.price%></small>
+									<small class="styleColor"><span>$<%=p.price%></span></small>
 								</div>
 							</div>
 						</div>
@@ -70,3 +75,4 @@ paginated_products ||= products
 						<% if paginated_products.respond_to?(:num_pages) %>
   <%= paginate paginated_products%>
 <% end %>
+</div>

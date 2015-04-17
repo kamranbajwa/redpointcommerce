@@ -485,3 +485,6 @@ ol li, ul li {
 color: #fff;
 }
 .white-row li{ color:#000;}
+aside ul.nav-list li {
+color: #8f0373;
+}

@@ -4799,3 +4799,12 @@ margin-top: -27px;
  .border-footer- {
 min-height: 319px !important;
 }
+aside ul.nav-list li {
+padding: 0;
+border-bottom: #ccc 1px dotted;
+padding-bottom: 10px;
+padding-top: 10px;
+}
+.no-padding{
+	padding: 0px;
+}
