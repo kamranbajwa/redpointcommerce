@@ -34,10 +34,11 @@ attachment_config = {
       small:    "100x100>",
       product:  "240x240>",
       large:    "600x600>",
-       logo: '240x75>',
+       logo: '240x75#',
     square: '200x200#',
     medium: '300x300>',
-    xlarge:  '1876x879#'
+    xlarge:  '1876x879#',
+    thumb: '6x6#'
   },
 
   path:           "/spree/:class/:id/:style/:basename.:extension",
