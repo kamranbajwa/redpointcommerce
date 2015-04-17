@@ -1041,6 +1041,7 @@ span.js_loader {
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
+	min-height: 315px;
 }
 .item-box.fullwidth {
 	max-width: 100%;
@@ -4810,4 +4811,11 @@ padding-top: 10px;
 }
 .fontstyle{
 font-family: 'Open Sans';
+}
+.btn-space{
+	margin-top: 5px;
+}
+.add-to-cart input[type="number"] {
+padding: 11px 10px;
+height: 46px;
 }

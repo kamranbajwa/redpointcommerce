@@ -111,35 +111,34 @@
               <!-- RELATED -->
               <h2><strong>Related</strong> Products</h2>
               <div class="row">
+             <!-- item -->
                   <%@simlier_product.each do |p|%>
+                   <div class="col-sm-6 col-md-3">
                    <% url = product_path(p) %>
+<div class="item-box">
+                <figure>
+                  <a class="item-hover" href="<%=url%>">
+                    <span class="overlay color2"></span>
+                    <span class="inner">
+                      <span class="block fa fa-plus fsize20"></span>
+                      <strong>PRODUCT</strong> DETAIL
+                    </span>
+                  </a>
+                  <img src="/assets/1.jpg" class = "img-responsive">
+                  <%#= link_to product_image(p, :itemprop => "image", :class => "img-responsive",:style=>"max-width:100%;" )%>
 
-                <div class="col-sm-6 col-md-4"><!-- item -->
-                  <div class="item-box fixed-box">
-                    <figure>
-                      <a class="item-hover" href="<%=url%>">
-                        <span class="overlay color2"></span>
-                        <span class="inner">
-                          <span class="block fa fa-plus fsize20"></span>
-                          <strong>PRODUCT</strong> DETAIL
-                        </span>
-                      </a>
-                      <a class="btn btn-primary add_to_cart"><i class="fa fa-shopping-cart"></i> ADD TO CART</a>
-                      <div>
-                     <%= link_to product_image(p, :itemprop => "image", :class => "img-responsive" )%>
-                      <!-- <img class="img-responsive" src="" width="260" height="260" alt=""> -->
-                    </figure>
-                    <div class="item-box-desc" style="height:75px;">
-                      <h4><%=p.name%></h4>
-                      <small class="styleColor"><span>$<%=p.price%></span></small>
-                    </div>
-                  </div>
+                  <div class="btn btn-primary add_to_cart btn-space"><i class="fa fa-shopping-cart"></i> ADD TO CART</div>
+                </figure>
+                <div class="item-box-desc">
+                  <h4><%=p.name%></h4>
+                  <small class="styleColor"><span>$<%=p.price%></span></small>
                 </div>
-                
-            <%end%>
               </div>
+              </div>
+            <%end%>
+              
               <!-- /RELATED -->
-
+              </div>
             </div>
 
             <aside class="col-md-3">
