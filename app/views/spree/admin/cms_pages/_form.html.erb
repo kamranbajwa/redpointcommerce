@@ -1,0 +1,25 @@
+ <%= form_for @cms_page , url: {action: "create"} do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="with-sidebar " >
+        <div class="twelve columns"> <br>
+          <form   method="post">
+            <div>
+             <div class="field" data-hook="admin_general_setting_input_name">
+                <label for="store_name">Page Title</label>
+                <br>
+                <%= f.text_field :title %>
+              </div>
+              <div class="field" data-hook="admin_general_setting_input_name">
+                <label for="store_name">Description</label>
+                <br>
+                <%= f.cktext_area :description %>
+              </div>
+              <%= f.submit "Save"%>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+ <% end %>

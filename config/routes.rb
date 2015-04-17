@@ -3,6 +3,7 @@ SpreeExample::Application.routes.draw do
 
 
 
+  mount Ckeditor::Engine => '/ckeditor'
   #resources :organizations
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -13,8 +14,7 @@ SpreeExample::Application.routes.draw do
   get '/faq', :to => 'spree/statics#faq'
   get '/termsandconditions', :to => 'spree/statics#termsandconditions'
   get '/privacypolicy', :to => 'spree/statics#privacypolicy'
-  
-  
+  get '/page/(:id)', :to => 'spree/statics#pages'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   mount Spree::Core::Engine, :at => "/"
@@ -81,6 +81,7 @@ SpreeExample::Application.routes.draw do
     resources :slider_images
     resources :organizations
     resources :templates
+    resources :cms_pages
     end
     end
 end
