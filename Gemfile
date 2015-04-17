@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.8'
 
 gem 'pg'
-
+#gem 'sqlite3'
 gem 'execjs'
 
 gem 'therubyracer'
@@ -12,7 +12,7 @@ gem 'rmagick'
 
 gem 'spree', github: 'spree/spree', branch: '2-4-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '2-4-stable'
-gem 'spree_gateway', branch: '2-4-stable'
+#gem 'spree_gateway', branch: '2-4-stable'
 gem 'spree_paypal_express', github: 'spree-contrib/better_spree_paypal_express'
 
 gem 'aws-sdk'
