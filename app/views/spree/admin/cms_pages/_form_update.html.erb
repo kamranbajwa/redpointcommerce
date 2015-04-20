@@ -5,27 +5,42 @@
         <div class="twelve columns"> <br>
           <form   method="post">
             <div>
+            <fieldset class="general no-border-top">
              <div class="field" data-hook="admin_general_setting_input_name">
                 <label for="store_name">Page Title</label>
                 <br>
-                <%= f.text_field :title %>
+                <%= f.text_field :title, class: "fullwidth" %>
               </div>
+                <div class="field" data-hook="admin_general_setting_input_meta_keywords" >
+                <label for="store_name">Select Template</label>
+                  <br>
+              <div class="field" tyle="border-radius: 3px; padding: 7px 10px; border: 1px solid #cee1f4; color: #5498da; font-size: 90%;" >
+               <%= f.select :template_id, 
+              options_for_select(@templates, params[:template_id]),
+              {}, { :class => 'fullwidth' } %>
+            </div>
+            </div>
               <div class="field" data-hook="admin_general_setting_input_name">
                 <label for="store_name">Description</label>
                 <br>
-                <%= f.cktext_area :description %>
+                <%= f.cktext_area :description, class: "fullwidth" %>
               </div>
                <div class="field" data-hook="admin_general_setting_input_name">
                 <label for="store_name">Meta Tag</label>
                 <br>
-                <%= f.text_field :meta_tags %>
+                <%= f.text_field :tag_list, class: "fullwidth" %>
               </div>
               <div class="field" data-hook="admin_general_setting_input_name">
                 <label for="store_name">Meta Description</label>
                 <br>
-                <%= f.text_field :meta_description %>
+                <%= f.text_field :meta_description, class: "fullwidth" %>
               </div>
-              <%= f.submit "Update"%>
+              <div class="form-buttons filter-actions actions" data-hook="buttons">
+               <a class="button " href="javascript:void(0)" onclick="window.history.back();"><span class="text" >Back</span></a>
+              <span class="or">or</span>
+              <a class="" style="border: 0px solid #000 !important;"><span class="text"><%= f.submit "update" %></span></a>
+              </div>
+              </fieldset>
             </div>
           </form>
         </div>

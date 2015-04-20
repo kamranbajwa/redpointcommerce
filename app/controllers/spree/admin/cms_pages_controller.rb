@@ -11,15 +11,15 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
 
   def new
     @cms_page = Spree::CmsPage.new
+    @templates = Spree::Template.all.map {|a| [a.name, a.id]}
   end
 
   def edit
     @cms_page = Spree::CmsPage.find(params[:id])
+    @templates = Spree::Template.all.map {|a| [a.name, a.id]}
   end
 
   def update
-    current_template
-    params[:cms_page][:template_id] = @current_template.first.id
     respond_to do |format|
       if @cms_page.update(cms_page_params)
        format.html { redirect_to admin_cms_pages_path, notice: 'Spree::Cms Page was successfully updated.' }
@@ -32,8 +32,6 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
   end
 
   def create
-    current_template
-    params[:cms_page][:template_id] = @current_template.first.id
     @cms_page = Spree::CmsPage.new(cms_page_params)
 
     respond_to do |format|
@@ -61,7 +59,7 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
    end
 
    def cms_page_params
-      params.require(:cms_page).permit(:title, :description, :template_id, :meta_tags, :meta_description)
+      params.require(:cms_page).permit(:title, :description, :template_id, :meta_tags, :meta_description, :tag_list)
    end
 
 end
