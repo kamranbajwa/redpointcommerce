@@ -61,7 +61,7 @@
                 <div class="form-group">
                   <div class="col-md-12">
                   <%= f.label :body,"Message *" %>
-                   <%= f.text_area :body,:class => 'contact_name', :maxlength=>"500",:required=>true,:rows=>10 %>
+                   <%= f.text_area :body,:class => 'contact_name col-md-12', :maxlength=>"500",:required=>true,:rows=>10 %>
                   </div>
                 </div>
               </div>
@@ -75,7 +75,11 @@
                     
                   </span>
 
-                  <%= f.submit "Send",  :class=>"hover btn btn-primary btn-lg" %>
+                  <%= f.submit "Send",  :class=>"hover btn btn-primary btn-lg",:style=>"width: 200px;
+height: 51px;
+padding: 12px 32px;
+border-radius: 11px !important;
+border: none;" %>
                   <%#= f.submit,'Send',  :class=>"btn btn-primary btn-lg" %>
                 </div>
               </div>
