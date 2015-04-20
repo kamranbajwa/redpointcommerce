@@ -15,6 +15,10 @@ module Spree
   
     def privacypolicy
     end
+
+    def pages
+        @page_data = Spree::CmsPage.find(params[:id])
+    end
     
   end
 end

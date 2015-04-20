@@ -9,11 +9,13 @@ gem 'execjs'
 
 gem 'therubyracer'
 gem 'rmagick'
+gem 'paperclip'
 
 gem 'spree', github: 'spree/spree', branch: '2-4-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '2-4-stable'
 #gem 'spree_gateway', branch: '2-4-stable'
 gem 'spree_paypal_express', github: 'spree-contrib/better_spree_paypal_express'
+gem 'spree_editor', github: 'spree-contrib/spree_editor', branch: '2-4-stable'
 
 gem 'aws-sdk'
 

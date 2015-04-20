@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :check_template
+  before_filter :load_pages
   
   def after_sign_in_path_for(resource)
     if spree_current_user.has_spree_role?("admin")
@@ -19,5 +20,8 @@ class ApplicationController < ActionController::Base
     @favi_con = @selected_template.spree_favicon
     @logo_image = @selected_template.spree_logo
     @slider_image = @selected_template.spree_slider_images
+  end
+  def load_pages
+    @cms_pages = @selected_template.cms_pages
   end
 end

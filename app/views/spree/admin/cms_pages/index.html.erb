@@ -1,0 +1,16 @@
+<%=render :partial=>'cms_pages_sub_nav'%>
+<div class="container">
+  <div class="row">
+    <div class="with-sidebar " >
+      <div class="twelve columns"> <br>
+        <div class="row">
+          <%= link_to "Add new Page", new_admin_cms_page_path, class: 'btn btn-default' %>
+          <p><%= @current_template.first.name %></p>
+          <p><%= select("post", "page_id", @current_template.first.cms_pages.all.collect {|p| [ p.title, p.id ] }, {include_blank: 'None'}) %> </p>
+          <p><%= link_to "Delete Selected Page"%></p>
+          <p><%= link_to "Edit Selected Page"%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

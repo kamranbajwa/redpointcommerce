@@ -54,3 +54,8 @@ attachment_config.each do |key, value|
   
 
 end
+
+SpreeEditor::Config.tap do |config|
+  config.current_editor = 'CKEditor'
+  config.ids = 'product_description page_body event_body'
+end
