@@ -4,13 +4,33 @@
     <div class="with-sidebar " >
       <div class="twelve columns"> <br>
         <div class="row">
-          <%= link_to "Add new Page", new_admin_cms_page_path, class: 'btn btn-default' %>
-          <p><%= @current_template.first.name %></p>
-          <p><%= select("post", "page_id", @current_template.first.cms_pages.all.collect {|p| [ p.title, p.id ] }, {include_blank: 'None'}) %> </p>
-          <p><%= link_to "Delete Selected Page"%></p>
-          <p><%= link_to "Edit Selected Page"%></p>
+        <%= link_to "Add new Page", new_admin_cms_page_path, class: 'button fa fa-plus', icon: "plus" %>
+        <br>
+        <br>
+          <p><label>Template Name :  <%= @current_template.first.name %> </label></p><br>
+          <label>Pages</label> <br><br>
+          <table class="index" id="listing_products">
+            <colgroup>
+              <col style="width: 50%;">
+            </colgroup>
+            <thead>
+              <tr data-hook="admin_products_index_headers">
+                <th>Title</th>
+                <th data-hook="admin_products_index_header_actions" class="actions"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @pages.each do |page| %>
+                <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
+                  <td class="align-center"><%= page.title %></td>
+                  <td class="actions" data-hook="admin_products_index_row_actions">
+                    <%= link_to '', edit_admin_cms_page_path(page), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%> 
+                    <%= link_to '', admin_cms_page_path(page), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash icon_link with-tip no-text", "data-action" => "remove" %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+<%=render :partial=>'side_bar'%>
