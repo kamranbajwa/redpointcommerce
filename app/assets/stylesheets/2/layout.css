@@ -20,6 +20,7 @@ body {
 	position: relative;
 	overflow: hidden;
 	min-height: 550px;
+	width: 100%;
 }
 html.overflow-hidden,  body.overflow-hidden {
 	overflow: hidden !important;
@@ -4818,4 +4819,7 @@ font-family: 'Open Sans';
 .add-to-cart input[type="number"] {
 padding: 11px 10px;
 height: 46px;
+}
+.full_width{
+	width: 99%;
 }
