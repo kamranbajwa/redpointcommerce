@@ -15,6 +15,9 @@ SpreeExample::Application.routes.draw do
   get '/termsandconditions', :to => 'spree/statics#termsandconditions'
   get '/privacypolicy', :to => 'spree/statics#privacypolicy'
   get '/page/(:id)', :to => 'spree/statics#pages'
+  get '/messages'  ,       :to => 'spree/contacts#new'
+  post '/messages'  ,       :to => 'spree/contacts#create'
+  
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   mount Spree::Core::Engine, :at => "/"
