@@ -13,7 +13,8 @@ SpreeExample::Application.routes.draw do
   get '/faq', :to => 'spree/statics#faq'
   get '/termsandconditions', :to => 'spree/statics#termsandconditions'
   get '/privacypolicy', :to => 'spree/statics#privacypolicy'
-  
+  get '/messages'  ,       :to => 'spree/contacts#new'
+  post '/messages'  ,       :to => 'spree/contacts#create'
   
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
