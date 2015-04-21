@@ -74,5 +74,10 @@ $('#myformcart').submit(function(){
      setTimeout(function() {
     $('.alert-success').hide();
     }, 3000);
+    // g = $(".badge").html();
+    // var counter = parseInt(g, 10);
+    var counter = <%= @order.line_items.count %>
+    ++counter
+    $(".badge").html(counter);
 })
 </script>

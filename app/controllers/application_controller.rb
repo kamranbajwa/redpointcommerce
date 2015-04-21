@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :check_template
   before_filter :load_pages
+  before_filter :load_cart
   
   def after_sign_in_path_for(resource)
     if spree_current_user.has_spree_role?("admin")
@@ -23,5 +24,8 @@ class ApplicationController < ActionController::Base
   end
   def load_pages
     @cms_pages = @selected_template.cms_pages
+  end
+  def load_cart
+    @order = current_order
   end
 end
