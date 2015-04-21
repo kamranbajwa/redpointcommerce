@@ -2984,7 +2984,7 @@ figure {
 	border-radius: 6px;
 }
 .modal-header {
-	background-color: #333;
+	/*background-color: #333;*/
 }
 .modal-header button, h4.modal-title {
 	color: #fff !important;
@@ -4822,4 +4822,10 @@ height: 46px;
 }
 .full_width{
 	width: 99%;
+}
+.cart_popup
+{
+    z-index: 999;
+    position: relative;
+    margin-top: 3px;
 }
