@@ -18,11 +18,9 @@
             -->
 
             <!-- SENT OK -->
-            <div id="_sent_ok_" class="alert alert-success fade in fsize16 hide">
+          <div id="_sent_ok_" class="alert alert-success fade in fsize16">
               <button type="button" class="close"  aria-hidden="true">&times;</button>
-              <%if notice%>
-              <%=notice %>
-              <%end%>
+              <strong>Thank You!</strong> Your message successfully sent!
             </div>
             <!-- /SENT OK -->
 
@@ -32,7 +30,7 @@
               <strong>Failed!</strong> Please complete all mandatory (*) fields!
             </div>
             <!-- /SENT FAILED -->
-            <%= form_for @message, :url => "/messages" do |f| %>
+            <%= form_for @message, :url => "/messages", remote: true, :html => { :id => "contact_us" }  do |f| %>
               <div class="row">
                 <div class="form-group">
                   <div class="col-md-4">
@@ -75,7 +73,7 @@
                     
                   </span>
 
-                  <%= f.submit "Send",  :class=>"hover btn btn-primary btn-lg",:style=>"width: 200px;
+                  <%= f.submit "Send",  :class=>"form_send hover btn btn-primary btn-lg",:style=>"width: 200px;
 height: 51px;
 padding: 12px 32px;
 border-radius: 11px !important;
@@ -103,3 +101,15 @@ border: none;" %>
       </section>
 
     </div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.alert-success').hide();
+});
+$('#contact_us').submit(function(){
+    $('.alert-success').show();
+    window.location.reload(true);
+     setTimeout(function() {
+    $('.alert-success').hide();
+    }, 3000);
+})
+</script>

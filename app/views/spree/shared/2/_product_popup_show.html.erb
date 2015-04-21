@@ -1,0 +1,38 @@
+    <section class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-sm-6 col-md-6">
+              <div class="owl-carousel controlls-over product-image" data-plugin-options='{"items": 1, "singleItem": true, "navigation": true, "pagination": true, "transitionStyle":"fadeUp"}' style="display: block !important">
+                <div>
+                  <% if defined?(image) && image %>
+                    <%= image_tag image.attachment.url(:product), :itemprop => "image" , :class => "full_width" %>
+                  <% else %>
+                    <%= product_image(@product, :itemprop => "image", :class => "full_width") %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+              <input type="hidden" name="action" value="cart_add" />
+              <input type="hidden" name="product_id" value="1" />
+              <h2 class="product-title"><%= @product.name%></h2>
+              <!-- product unique code -->
+              <span class="code">PART NUMBER: <%=@product.sku%></span>
+              <div id="cart-form" data-hook="cart_form">
+                <%= render :partial => "spree/shared/#{@selected_template.template_no}/cart_popup_form" %>
+              </div>
+              <div class="desc">
+                <h3 class="page-header">DESCRIPTION</h3>
+                <p>
+                  <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+    

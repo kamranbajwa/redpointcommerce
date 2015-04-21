@@ -2985,7 +2985,7 @@ figure {
 	border-radius: 6px;
 }
 .modal-header {
-	background-color: #333;
+	/*background-color: #333;*/
 }
 .modal-header button, h4.modal-title {
 	color: #fff !important;
@@ -4889,3 +4889,10 @@ input[type="submit"] {
 border-radius: 6px !important;
 }
 .margintop{ margin-top: 5%;}
+.cart_popup
+{
+    z-index: 999;
+    position: relative;
+    margin-top: 3px;
+}
+
