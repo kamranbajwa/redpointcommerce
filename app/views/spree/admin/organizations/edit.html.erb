@@ -69,13 +69,27 @@ font-size: 90%;" >
                   <br>
                   <%= f.text_field :phone_number, :class => 'fullwidth' %>
                 </div>
+                <div class="field" data-hook="admin_general_setting_mail_from_address">
+                    <%= f.label :facebook_url,'Facebook Link' %>
+                  <br>
+                  <%= f.text_field :facebook_url, :class => 'fullwidth' %>
+                </div>
+                <div class="field" data-hook="admin_general_setting_mail_from_address">
+                    <%= f.label :twitter_url,'Twitter Link' %>
+                  <br>
+                  <%= f.text_field :twitter_url, :class => 'fullwidth' %>
+                </div>
+                <div class="field" data-hook="admin_general_setting_mail_from_address">
+                    <%= f.label :google_url,'Google Link' %>
+                  <br>
+                  <%= f.text_field :google_url, :class => 'fullwidth' %>
+                </div>
                 <div class="field" data-hook="admin_general_setting_input_meta_keywords">
                   <%= f.label :central_time %>
                   <br>
                   <select class="fullwidth" style="border-radius: 3px;
 padding: 7px 10px;
 border: 1px solid #cee1f4;
-color: #5498da;
 font-size: 90%;">
                     <option selected="">(GMT-06:00) Central Time</option>
                     <option>(GMT-06:00) Central Time</option>
