@@ -12,10 +12,13 @@
           <%else%>
           <li ><a href="/admin/templates">Templates</a></li>
           <%end%>
-          <li class=""><a href="/admin/cms_pages">Pages</a></li>
+          <% if params[:controller]=="spree/admin/cms_pages"and (params[:action]=="edit" or params[:action]=="index" or params[:action] == "new")%>
+          <li class="selected"><a href="/admin/cms_pages">Cms Pages</a></li>
+          <%else%>
+          <li class=""><a href="/admin/cms_pages">Cms Pages</a></li>
+          <% end %>
           <li class=""><a href="/">Cart Checkout</a></li>
           <li class=""><a href="/">Emails Templates</a></li>
-          
         </ul>
       </div>
     </div>

@@ -573,3 +573,7 @@ footer .links-social .newsletter .input-group button:hover {
 .bx-wrapper .bx-controls .bx-next:hover:before {
   color: #379adc !important;
 }
+.progress-steps li.current-first, .progress-steps li.current {
+background-color: blue !important;
+color: white !important;
+}

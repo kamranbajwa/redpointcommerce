@@ -22,10 +22,10 @@
 
             <div class="links columns sixteen alpha omega checkout-space pull-right" data-hook="cart_buttons" >
     <%#= order_form.text_field :coupon_code, :size => 10, :placeholder => Spree.t(:coupon_code) %>
-              <%= button_tag  :class => 'button gray' ,:style => "color:white;", :id => 'update-button' do %>
+              <%= button_tag  :class => 'btn btn-primary' ,:style => "color:white !important", :id => 'update-button' do %>
                 <%= Spree.t(:update) %>
               <% end %>
-              <%= button_tag :class => 'button checkout gray',:style => "color:white;", :id => 'checkout-link', :name => 'checkout' do %>
+              <%= button_tag :class => 'btn btn-primary',:style => "color:white !important;", :id => 'checkout-link', :name => 'checkout' do %>
                 <%= Spree.t(:checkout) %>
               <% end %>
             </div>
@@ -37,11 +37,11 @@
       <div id="empty-cart" data-hook>
         <%= form_tag empty_cart_path, :method => :put do %>
         
-        <p id="clear_cart_link" data-hook class="conitue-shopping">
+        <p id="clear_cart_link" data-hook style="margin-top:0px">
             
-            <%= submit_tag Spree.t(:empty_cart), :class => 'button gray' %>
+            <%= button_tag Spree.t(:empty_cart), :class => 'btn btn-primary',:style => "color:white !important;" %>
             &nbsp;&nbsp;
-            <%= link_to Spree.t(:continue_shopping), products_path, :class => 'continue button gray lineheight20'  %>
+            <%= link_to Spree.t(:continue_shopping), products_path, :class => 'btn btn-primary',:style => "color:white !important;"  %>
           </p>
         <% end %>
       </div>

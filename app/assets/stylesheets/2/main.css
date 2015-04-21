@@ -4297,12 +4297,12 @@ span.price, #checkout-summary table tr[data-hook="item_total"] td:last-child str
 }
 
 .progress-steps li.current-first, .progress-steps li.current {
-    background-color: #717176 !important;
-    color: white !important;
+    background-color: #717176;
+    color: white ;
 }
 .progress-steps li.current-first, .progress-steps li.current:hover {
-    background-color: #717176 !important;
-    color: white !important;
+    background-color: #717176;
+    color: white;
 }
 
 input[type="submit"], input[type="button"], input[type="reset"], button, a.button {
@@ -4316,15 +4316,15 @@ input[type="submit"], input[type="button"], input[type="reset"], button, a.butto
 
 
 input[type="button"], input[type="reset"], button, a.button {
-    background-color: #000 !important;
-    border-radius: 0px !important;
-    border-top: solid 1px !important;
-    border: 1px solid #000 !important;
-    font-size: 15px !important;
+    background-color: #000;
+    border-radius: 0px;
+    border-top: solid 1px;
+    border: 1px solid #000;
+    font-size: 15px;
     font-family: arial;
-    font-weight: normal !important;
-    padding-top:7px !important;
-    padding-bottom:7px !important;
+    font-weight: normal;
+    padding-top:7px;
+    padding-bottom:7px;
 
 }
 input[type="submit"] {
@@ -4345,4 +4345,7 @@ input[type="submit"].gray, input[type="button"].gray, input[type="reset"].gray, 
 .lineheight20
 {
     line-height: 20px !important;
+}
+.text-align-center{
+    text-align: center;
 }

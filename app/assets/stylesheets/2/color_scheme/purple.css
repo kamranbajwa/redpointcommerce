@@ -495,3 +495,15 @@ color: #8f0373;
 .fontstyle:hover {
 	color: red;
 }
+ input[type="button"], input[type="reset"], button, a.button {
+background-color: #b3008f !important;
+color: #fff !important;
+}
+.progress-steps li.current-first, .progress-steps li.current {
+background-color: #b3008f !important;
+color: white !important;
+}
+form label {
+font-weight: 300;
+color: #000;
+}
