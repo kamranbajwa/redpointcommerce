@@ -21,6 +21,7 @@ body {
 	overflow: hidden;
 	min-height: 550px;
 	width: 100%;
+	
 }
 html.overflow-hidden,  body.overflow-hidden {
 	overflow: hidden !important;
@@ -3738,7 +3739,7 @@ p.dropcap.color:first-letter {
 	filter: alpha(opacity=70);
 }
 table, .note-editor .note-editable {
-	background-color: #f9f9f9;
+	/*background-color: #f9f9f9;*/
 }
 /**	38. Colors
    colors.css v2.0.0
@@ -4796,7 +4797,7 @@ margin-top: 0% !important;
 .carousel {
 position: relative;
 border: 5px solid #fff;
-margin-top: -27px;
+margin-top: 0px;
 }
  .border-footer- {
 min-height: 319px !important;
@@ -4823,3 +4824,68 @@ height: 46px;
 .full_width{
 	width: 99%;
 }
+@media (max-width: 600px){
+body.boxed {
+background: #fff ;
+background-repeat: repeat-x;
+background: transparent;
+}
+
+header#topNav {
+height: 81px !important;
+}
+.carousel {
+position: relative;
+border: 5px solid #fff;
+margin-top: -6px;
+}
+.border-footer- {
+min-height: 319px !important;
+margin-bottom: 20px;
+}
+
+.border-footer- {
+ -webkit-box-shadow: 0px 0px 0px 0px rgba(50,50,50,0.75); 
+-moz-box-shadow: 0px 0px 0px 0px rgba(50,50,50,0.75);
+ box-shadow: 0px 0px 0px 0px rgba(50,50,50,0.75); 
+padding: 9px;
+border-radius: 5px;
+min-height: 271px;
+border: solid 1px #fff;
+}
+
+}
+@media only screen and (max-width: 768px){
+
+body.boxed {
+background: #fff ;
+background-repeat: repeat-x;
+background: transparent;
+}
+
+.carousel {
+position: relative;
+border: 0px solid #fff;
+margin-top: 1px;
+}
+header#topNav {
+height: 73px;
+padding-top: 19px;
+}
+.border-footer- {
+min-height: 319px !important;
+margin-bottom: 20px;
+}
+
+}
+@media only screen and (max-width: 480px){
+header#topNav a.logo {
+margin-top: -10px !important;
+width: 84%;
+}
+}
+
+input[type="submit"] {
+border-radius: 6px !important;
+}
+.margintop{ margin-top: 5%;}
