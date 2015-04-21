@@ -2,6 +2,7 @@ module Spree
 class ContactsController < Spree::StoreController
  def new
     @message = Message.new
+    @org=Spree::Organization.first
   end
 
   def create
