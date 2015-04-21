@@ -144,7 +144,7 @@ function _topNav() {
 
 		// #topHead Fixes
 		window._headHeight		= 81;
-		window._headHeightSmall	= 30;
+		window._headHeightSmall	= 81;
 
 		function _topNavCalibrate() {
 
@@ -162,10 +162,10 @@ function _topNav() {
 			} else {
 
 				if(jQuery(window).width() < 1006) {
-					jQuery('#wrapper').css({"margin-top":"-30px"});
+					jQuery('#wrapper').css({"margin-top":"40px"});
 					jQuery('#header_shadow').css({"top":"40px"});
 				} else {
-					jQuery('#wrapper').css({"margin-top":"0px"});
+					jQuery('#wrapper').css({"margin-top":"80px"});
 					jQuery('#header_shadow').css({"top":"80px"});				
 				}
 
@@ -189,10 +189,10 @@ function _topNav() {
 		if(window.topNavSmall === false && _scrollTop > 0) {
 		
 			jQuery('header#topNav div.nav-main-collapse').addClass('topFix');
-			jQuery('#topNav').stop().animate({ 'height':'60px'},400);
-			jQuery('header#topNav div.nav-main-collapse').stop().animate({ 'margin-top':'6px'},400);
-			jQuery('header#topNav button').stop().animate({ 'margin-top':'0'},100);
-			jQuery('header#topNav a.logo').stop().animate({ 'margin-top':'-10px'},400);
+			jQuery('#topNav').stop().animate({ 'height':'80px'},100);
+			jQuery('header#topNav div.nav-main-collapse').stop().animate({ 'margin-top':'10'},100);
+			jQuery('header#topNav button').stop().animate({ 'margin-top':'10'},100);
+			jQuery('header#topNav a.logo').stop().animate({ 'margin-top':'0'},100);
 
 			if(jQuery('#header_shadow').length > 0) {
 				jQuery('#header_shadow').stop().animate({ 'top':window._headHeightSmall + 'px'},400);/* just a little visible */
@@ -201,19 +201,7 @@ function _topNav() {
 			window.topNavSmall = true;
 		} 
 
-		if(window.topNavSmall === true && _scrollTop < 3) {
-			jQuery('header#topNav div.nav-main-collapse').removeClass('topFix');
-			jQuery('#topNav').stop().animate({ 'height':'81px'},400);
-			jQuery('header#topNav div.nav-main-collapse').stop().animate({ 'margin-top':'16px'},400);
-			jQuery('header#topNav button').stop().animate({ 'margin-top':'8px'},100);
-			jQuery('header#topNav a.logo').stop().animate({ 'line-height':'50px', 'margin-top':'0'},400);
-
-			if(jQuery('#header_shadow').length > 0) {
-				jQuery('#header_shadow').stop().animate({ 'top':window._headHeight + 'px'},400);
-			}
-
-			window.topNavSmall = false;
-		}
+		
 
 	}
 }
@@ -1233,6 +1221,7 @@ function _toggle() {
 			var js, fjs = d.getElementsByTagName(s)[0];
 			if (d.getElementById(id)) return;
 			js = d.createElement(s); js.id = id;
+			alert(id)
 			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));

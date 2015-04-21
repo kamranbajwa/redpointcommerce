@@ -18,7 +18,7 @@
             -->
 
             <!-- SENT OK -->
-          <div id="_sent_ok_" class="alert alert-success fade in fsize16">
+          <div id="_sent_ok_" class="alert alert-success fade in fsize16 hide">
               <button type="button" class="close"  aria-hidden="true">&times;</button>
               <strong>Thank You!</strong> Your message successfully sent!
             </div>
@@ -103,10 +103,10 @@ border: none;" %>
     </div>
 <script type="text/javascript">
 $(document).ready(function() {
-    $('.alert-success').hide();
 });
 $('#contact_us').submit(function(){
-    $('.alert-success').show();
+    $('.alert-success').removeClass('hide');
+
     window.location.reload(true);
      setTimeout(function() {
     $('.alert-success').hide();

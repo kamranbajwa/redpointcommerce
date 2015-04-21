@@ -361,7 +361,7 @@ h4 {
 	font-weight: 400;
 	letter-spacing: normal;
 	line-height: 27px;
-	margin: 12px 0 14px 0;
+	
 }
 
 h5 {
@@ -502,8 +502,21 @@ color: #fff !important;
 .progress-steps li.current-first, .progress-steps li.current {
 background-color: #b3008f !important;
 color: white !important;
+border-radius: 6px;
 }
 form label {
 font-weight: 300;
 color: #000;
+}
+.cart-subtotal, .cart-total {
+background: #ffd8f7 !important;
+color: #fff !important;
+}
+table thead {
+background-color: #b3008f;
+text-transform: uppercase;
+color: #fff;
+}
+.out-of-stock {
+border-radius: 6px;
 }

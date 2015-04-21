@@ -149,7 +149,7 @@
 			padding-top:90px !important;
 		}
 		header#topNav {
-			height:60px !important;
+			height:60px;
 		}
 		header#topNav div.nav-main-collapse {
 			margin-top:6px;

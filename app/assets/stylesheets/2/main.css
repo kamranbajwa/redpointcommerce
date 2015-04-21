@@ -4282,8 +4282,8 @@ strong {
 }
 
 .cart-subtotal, .cart-total {
-    background: #d9d9db !important;
-    color: black !important;
+    background: #d9d9db;
+    color: black;
 }
 
 
@@ -4329,9 +4329,9 @@ input[type="button"], input[type="reset"], button, a.button {
 }
 input[type="submit"] {
 
-    border-radius: 0px !important;
-    border-top: solid 1px !important;
-    border: 1px solid #000 !important;
+    border-radius: 0px ;
+    border-top: solid 1px ;
+    border: 1px solid #000 ;
 }
 input[type="submit"].gray, input[type="button"].gray, input[type="reset"].gray, button.gray, a.button.gray {
 
