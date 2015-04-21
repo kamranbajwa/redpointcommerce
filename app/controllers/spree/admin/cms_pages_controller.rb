@@ -10,8 +10,10 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
   end
 
   def new
+    current_template
     @cms_page = Spree::CmsPage.new
     @templates = Spree::Template.all.map {|a| [a.name, a.id]}
+    @selected_template = @current_template.first.id
   end
 
   def edit

@@ -15,9 +15,7 @@
                 <label for="store_name">Select Template</label>
                   <br>
               <div class="field" tyle="border-radius: 3px; padding: 7px 10px; border: 1px solid #cee1f4; color: #5498da; font-size: 90%;" >
-               <%= f.select :template_id, 
-              options_for_select(@templates, params[:template_id]),
-              {}, { :class => 'fullwidth' } %>
+              <%= f.select :template_id, @templates, {}, { :class => 'fullwidth' } %>
             </div>
             </div>
               <div class="field" data-hook="admin_general_setting_input_name">
