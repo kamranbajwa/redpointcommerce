@@ -1,3 +1,4 @@
+</script>
 <div class="container top-space">
   <br>
   <%= flash_messages %>
@@ -43,6 +44,7 @@ paginated_products ||= products
               </ul>
 </aside>
 <div class="col-md-9">
+<div class="alert alert-success" role="alert"> Successfully Added </div>
 <%products.each do |p|%>
 <div class="col-sm-6 col-md-3"><!-- item -->
  
@@ -59,9 +61,12 @@ paginated_products ||= products
 										</span>
 									</a>
 									<!-- <img src="/assets/1.jpg" class = "img-responsive"> -->
-									<%= link_to product_image(p, :itemprop => "image", :class => "img-responsive",:style=>"max-width:100%;" )%>
-									<div class="btn btn-primary add_to_cart"><i class="fa fa-shopping-cart"></i> ADD TO CART</div>
+									<%= link_to product_image(p, :itemprop => "image", :class => "img-responsive",:style=>"max-width:100%;", rel: 'shadowbox' )%>
+                  <%= link_to url, :class => "btn btn-primary add_to_cart cart_popup", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal" do %>
+                  <i class="fa fa-shopping-cart"></i> ADD TO CART
+                <% end %>
 								</figure>
+								
 								<div class="item-box-desc">
 									<h4><%=p.name%></h4>
 									<small class="styleColor"><span>$<%=p.price%></span></small>
@@ -75,3 +80,12 @@ paginated_products ||= products
   <%= paginate paginated_products%>
 <% end %>
 </div>
+<%= render :partial => "spree/shared/2/popup_modal" %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.alert-success').hide();
+    $(".add_to_cart").click(function(){
+      $("#myModal").show();
+    });
+  });
+</script>
