@@ -36,7 +36,9 @@ padding: 7px 10px;
 border: 1px solid #cee1f4;
 color: #5498da;
 font-size: 90%;" >
-              <%= select_tag(:country_id, options_for_select([['Pakistan', 'Pakistan'], ['India', 'India']]), class: 'fullwidth') %>
+              <%= f.select(:country,  [ 'Pakistan','Inida'], :prompt => 'Pakistan' , :class => 'fullwidth')
+                %>
+              <%#= f.select_tag(:country, options_for_select([['Pakistan', 'Pakistan'], ['India', 'India']]), class: 'fullwidth') %>
             </div>
                 </div>
                 <div class="field" data-hook="admin_general_setting_input_meta_description">
@@ -57,7 +59,8 @@ padding: 7px 10px;
 border: 1px solid #cee1f4;
 color: #5498da;
 font-size: 90%;" >
-               <%= select_tag(:country_id, options_for_select([['Punjab', 'Punjab'], ['Sindh', 'Sindh']]), class: 'fullwidth') %>
+               <%= f.select( :state,  [ 'Dehli','Punjab'], :prompt => 'select state' , :class => 'fullwidth')
+                %>
             </div>
                 <div class="field" data-hook="admin_general_setting_input_url">
                   <%= f.label :postal_code ,'Postal code'%>
