@@ -6,7 +6,6 @@ class ContactsController < Spree::StoreController
   end
 
   def create
-    debugger
     @message = Message.new(params[:message])
     
     if @message.valid?
