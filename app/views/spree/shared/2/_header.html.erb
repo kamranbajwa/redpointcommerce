@@ -51,11 +51,28 @@
           <ul id="topMain" class="nav nav-pills nav-main scroll-menu">
             <li class="mega-menu-item mega-menu-two-columns active"> <a href="/"> Home </a> </li>
             <li class="mega-menu-item mega-menu-two-columns active"> <a href="/products"> Products </a> </li>
-            <% @cms_pages.each do |page|%>
-            <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
+           
+
+            <!-- Arrange Menus -->            
+            <% @cms_pages.each_with_index  do |page, index|%>
+              <% if index >= 2 %>
+                <% if index == 2 %>
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" href="#">
+                        More <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu menu_color">
+                <% end %>
+                      <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
+                <% if index+1 == @cms_pages.length %>
+                    </ul>
+                  </li>
+                <% end %>
+              <% else %>
+                <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
+              <% end %>
             <% end %>
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/messages"> Contact Us </a> </li>
-            
             <!-- GLOBAL SEARCH -->
             <li class="search"> 
               <!-- search form -->
@@ -70,9 +87,11 @@
             <!-- /GLOBAL SEARCH --> 
             
             <!-- QUICK SHOP CART -->
-             
-           <li  class="quick-cart">
-             <span class="badge pull-right"><%= @order.line_items.count %></span></li>
+          <li class="mega-menu-item mega-menu-two-columns">
+          <a href="/cart" class="fa fa-shopping-cart cart-align">
+            <span class="badge pull-right custom-badge"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span>
+            </a>
+          </li>
             
          
         

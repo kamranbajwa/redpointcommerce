@@ -26,6 +26,6 @@ class ApplicationController < ActionController::Base
     @cms_pages = @selected_template.cms_pages
   end
   def load_cart
-    @order = current_order
+    @order = current_order rescue nil
   end
 end

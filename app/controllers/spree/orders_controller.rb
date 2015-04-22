@@ -45,6 +45,7 @@ module Spree
       if populator.populate(params[:variant_id], params[:quantity], params[:options])
         respond_with(@order) do |format|
           format.html { redirect_to cart_path }
+          format.js { render "populate"}
         end
       else
         flash[:error] = populator.errors.full_messages.join(" ")
