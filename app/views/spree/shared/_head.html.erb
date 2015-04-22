@@ -2,6 +2,8 @@
 <title><%= @selected_template.name%></title>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1" name="viewport">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
 <%== meta_data_tags %>
 <%= canonical_tag(current_store.url) %>
 <%#= favicon_link_tag 'favicon.ico' %>
@@ -38,8 +40,8 @@
 
 <!-- Favicon -->
 <%#*<link rel="shortcut icon" href="/assets/favicon.ico">%>
-<%= favicon_link_tag 'favicon.ico' %>
-
+<%#= favicon_link_tag 'favicon.ico' %>
+<link rel="shortcut icon" type="image/x-icon" href="<%= @selected_template.spree_favicon and @selected_template.spree_favicon.favicon_image ? @selected_template.spree_favicon.favicon_image.url(:thumb) : '/assets/favicon.ico'%>" />
 <!-- Demo Purpose Only. Should be removed in production -->
 <link rel="stylesheet" href="/assets/config.css">
 

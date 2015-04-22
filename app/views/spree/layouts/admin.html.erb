@@ -1,4 +1,8 @@
 <!doctype html>
+<!-- <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1" name="viewport">
+<meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
 <!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
@@ -35,10 +39,20 @@
       <%= render :partial => 'spree/admin/shared/menu' %>
       <%= render :partial => 'spree/admin/shared/sub_menu' %>
       <%= render :partial => 'spree/admin/shared/content_header' %>
-
+      <%if params[:controller]=="spree/admin/organizations" or params[:controller]=="spree/admin/templates" or params[:controller]=="spree/admin/slider_images" or params[:controller]=="spree/admin/cms_pages" %>
+      <div class="">  
+      
+      <%else%>
       <div class="container">
+      <%end%>
         <div class="row">
-          <div class="<%= 'with-sidebar ' if content_for?(:sidebar) %>" id="content" data-hook>
+          <%if params[:controller]=="spree/admin/organizations" or params[:controller]=="spree/admin/templates" or params[:controller]=="spree/admin/slider_images" or params[:controller]=="spree/admin/cms_pages" %>
+      <div class="<%= 'with-sidebar ' if content_for?(:sidebar)  %>" id="content" style="margin-top:0px"  data-hook>  
+      
+      <%else%>
+      <div class="<%= 'with-sidebar ' if content_for?(:sidebar) %>" id="content" data-hook>
+      <%end%>
+          
             <%= render :partial => 'spree/admin/shared/table_filter' %>
 
             <div class="<%= if content_for?(:sidebar) then 'twelve' else 'sixteen' end %> columns">
