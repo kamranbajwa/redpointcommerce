@@ -93,7 +93,7 @@
 	}
 	header#topNav nav.mega-menu ul.nav-main li.mega-menu-item:hover ul.sub-menu li:hover a:hover,
 	header#topNav nav ul.nav-main ul.dropdown-menu li:hover > a {
-		background-color: #1b1f23; 		/* hover background color */
+		background-color: #8d0175; 		/* hover background color */
 	}
 	header#topNav nav ul.nav-main li.dropdown:hover > a:after {
 		border-bottom:#2E363F 10px solid;/* arrow color */
@@ -103,7 +103,7 @@
 	}
 	header#topNav nav.mega-menu ul.nav-main li.mega-menu-item ul.sub-menu a,
 	header#topNav nav ul.nav-main ul.dropdown-menu > li > a {
-		color: #afafaf; 				/* link color */
+		color: #fff; 				/* link color */
 	}
 
 	/* top Head */
