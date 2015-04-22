@@ -915,47 +915,47 @@ function _toggle() {
  **************************************************************** **/
 	function _quickCart() {
 
-		jQuery('li.quick-cart').bind("click", function() {
+		// jQuery('li.quick-cart').bind("click", function() {
 
-			jQuery('li.quick-cart .quick-cart-content').bind("click", function(e) {
-				e.stopPropagation();
-			});
+		// 	jQuery('li.quick-cart .quick-cart-content').bind("click", function(e) {
+		// 		e.stopPropagation();
+		// 	});
 
-			if(jQuery(this).hasClass('open')) {
+		// 	if(jQuery(this).hasClass('open')) {
 
-				disable_overlay();
-				enable_scroll();
-				jQuery(this).removeClass('open');
+		// 		disable_overlay();
+		// 		enable_scroll();
+		// 		jQuery(this).removeClass('open');
 
-			} else {
+		// 	} else {
 
-				enable_overlay();
-				disable_scroll();
-				jQuery(this).addClass('open');
-				jQuery('li.search').removeClass('open'); // close search
+		// 		enable_overlay();
+		// 		disable_scroll();
+		// 		jQuery(this).addClass('open');
+		// 		jQuery('li.search').removeClass('open'); // close search
 
-			}
+		// 	}
 
-			return false;
-		});
+		// 	return false;
+		// });
 
-		// 'esc' key
-		jQuery(document).keydown(function(e) {
-			var code = e.keyCode ? e.keyCode : e.which;
-			if(code == 27) {
-				jQuery('li.search, li.quick-cart').removeClass('open');
-				disable_overlay();
-				enable_scroll();
-			}
-		});
+		// // 'esc' key
+		// jQuery(document).keydown(function(e) {
+		// 	var code = e.keyCode ? e.keyCode : e.which;
+		// 	if(code == 27) {
+		// 		jQuery('li.search, li.quick-cart').removeClass('open');
+		// 		disable_overlay();
+		// 		enable_scroll();
+		// 	}
+		// });
 
-		jQuery(document).bind("click", function() {
-			if(jQuery('li.quick-cart').hasClass('open')) {
-				jQuery('li.search, li.quick-cart').removeClass('open');
-				disable_overlay();
-				enable_scroll();
-			}
-		});
+		// jQuery(document).bind("click", function() {
+		// 	if(jQuery('li.quick-cart').hasClass('open')) {
+		// 		jQuery('li.search, li.quick-cart').removeClass('open');
+		// 		disable_overlay();
+		// 		enable_scroll();
+		// 	}
+		// });
 
 	}
 

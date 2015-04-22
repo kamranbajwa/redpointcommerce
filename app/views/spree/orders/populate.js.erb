@@ -1,0 +1,2 @@
+<% order = current_order rescue nil %>
+$(".badge").html(<%= order.line_items.count %>);
