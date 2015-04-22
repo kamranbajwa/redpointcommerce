@@ -91,8 +91,8 @@ SpreeExample::Application.configure do
     domain: 'gmail.com',
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "hassan@gems.techverx.com",
-    password: "hassanraza123"
+    user_name: "shoaib@gems.techverx.com",
+    password: "techverx123"
   }
   
 end

@@ -1,13 +1,15 @@
 <<!DOCTYPE html>
 <html>
-Hi
-Name: <%= @message.name %>
-
-Email: <%= @message.email %>
-
+Hi You have Feedback
+<br>
+Sender Name: <%= @message.name %>
+<br>
+Sender Email: <%= @message.email %>
+<br>
+Sender Phone: <%=@message.phone%>
+<br>
 Subject: <%= @message.subject %>
+<br>
+Message: <%= @message.body %>
 
-Body: <%= @message.body %>
-Phone: <%=@message.phone%>
-
-</html>>
+</html>
