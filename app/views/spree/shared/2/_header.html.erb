@@ -55,23 +55,26 @@
 
             <!-- Arrange Menus -->            
             <% @cms_pages.each_with_index  do |page, index|%>
-              <% if index >= 2 %>
-                <% if index == 2 %>
-                  <li class="dropdown">
-                    <a class="dropdown-toggle" href="#">
-                        More <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="dropdown-menu menu_color">
+              <% unless page.title == "about us" %>
+                <% if index >= 2 %>
+                  <% if index == 2 %>
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" href="#">
+                          More <i class="fa fa-angle-down"></i>
+                      </a>
+                      <ul class="dropdown-menu menu_color">
+                  <% end %>
+                        <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
+                  <% if index+1 == @cms_pages.length %>
+                      </ul>
+                    </li>
+                  <% end %>
+                <% else %>
+                  <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
                 <% end %>
-                      <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
-                <% if index+1 == @cms_pages.length %>
-                    </ul>
-                  </li>
-                <% end %>
-              <% else %>
-                <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
               <% end %>
             <% end %>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_us_page.try(:id)%>"> About Us </a> </li>
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/messages"> Contact Us </a> </li>
             <!-- GLOBAL SEARCH -->
             <li class="search"> 

@@ -143,9 +143,12 @@
                 <a href="/products" class="dropdown-toggle" >Products</a>
 
               </li>
-              <% @cms_pages.each do |page|%>
-            <li class=""> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
+            <% @cms_pages.each do |page|%>
+              <% unless page.title == "about us" %>
+                <li class=""> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>4
+              <% end %>
             <% end %>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_us_page.try(:id)%>"> About Us </a> </li>
 
 <%#*<li class="dropdown yamm-fw ">%>
 <%#*<a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Living Rooms</a>%>
