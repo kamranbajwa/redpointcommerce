@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
     @favi_con = @selected_template.spree_favicon
     @logo_image = @selected_template.spree_logo
     @slider_image = @selected_template.spree_slider_images
+     @org=Spree::Organization.first
   end
   def load_pages
     @cms_pages = @selected_template.cms_pages

@@ -1,0 +1,130 @@
+<link rel="stylesheet" href="/assets/<%= @selected_template.template_no%>/background.css" />
+<!-- HEADER -->
+
+<header class="front-header" role="banner">
+  <div class="menu-open">
+    <div class="fa fa-bars"></div>
+  </div>
+  <!-- end menu-open -->
+  
+  <div class="mobile-menu-wrap">
+    <div class="fa fa-times menu-close"></div>
+    <div class="col-xs-12">
+      <nav class="mobile-menu">
+        <ul class="mobile-ul">
+          <li class="shopping-icon"> <a href="/cart"> <i class="fa fa-shopping-cart"></i> <span class="number-amount"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span> </a> </li>
+          <li><a href="/">home</a></li>
+          <li><a href="about.html">about us</a></li>
+          <li><a href="/products">service</a></li>
+          <li><a href="/">Resources</a></li>
+          <li><a href="/messages"> Contacts</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <!-- end mobile-menu-wrap -->
+  <div style="background:#000; position:relative">
+    <div style="background:#202020; text-align:center; padding:20px;">
+      <figure class="logo"> <a href="/" title="logo" rel="home"> <img alt="Atropos" src="<%= Spree::Logo.last.avatar.url(:logo)%>" </a>
+        <div class=" nav-menu" style="float:right;"> <a href=<%= @org.facebook_url|| '#'%>><img src="/assets/<%= @selected_template.template_no%>/social/f-icon.png"></a> <a href=<%= @org.twitter_url|| '#'%>><img src="/assets/<%= @selected_template.template_no%>/social/g-icon.png"></a> <a href=<%= @org.google_url|| '#'%>><img src="/assets/<%= @selected_template.template_no%>/social/t-icon.png"></a> </div>
+      </figure>
+    </div>
+    <!-- end col-sm-3 -->
+    
+    <div class="container abc">
+      <div class="col-md-12 nav-menu " style="text-align:center; margin-bottom: -16px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+        
+       
+        
+          <center>
+            <span class="menu-sep"><a class="active" href="/">Home</a> </span> 
+            <span class="menu-sep"><a href="#"> About Us</a></span> 
+            <span class="menu-sep"><a href="/products">Services</a> </span> 
+            <span class="menu-sep"><a href="#">Resources</a></span> 
+            <span class="menu-sep"><a href="/messages"> Contacts</a></span>
+          </center>
+        </div>
+        <div class="col-md-2"> <span class="nav-menu pull-right" >
+          <ul class="nav navbar-nav" style="margin-top:0px;">
+            <li> </li>
+            <li><a href="/cart"><i class="fa fa-shopping-cart"></i></a> <span class="number-amount"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span> </a>
+              <ul class="sub-menu">
+                <li><a href="#">Responsive</a></li>
+                <li><a href="#">Diffrent</a></li>
+              </ul>
+            </li>
+          </ul>
+          </span> </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="col-sm-12 col-md-12 col-lg-10 col-lg-offset-1 clearfix" style="margin-top:10%;">
+      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <h2 class="headline-title white-col">Low Firm</h2>
+        <h4 class="white-col headline-title" style=""> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer </h4>
+      </div>
+      
+      <!-- end headline --> 
+      
+    </div>
+    <!-- end col-sm-10 --> 
+    
+  </div>
+  <!-- end container --> 
+  
+</header>
+
+<!-- END HEADER --> 
+
+<!-- FIXED HEADER -->
+
+<header class="fixed-header">
+  <div class="fixed-menu-cover">
+    <div class="container">
+      <div class="col-sm-2 col-md-1 col-lg-2">
+        <figure class="logo"> <a href="/" title="logo" rel="home"> <img alt="Atropos" src="<%= Spree::Logo.last.avatar.url(:logo)%>" </a> </figure>
+      </div>
+      <!-- col-sm-3 -->
+      
+      <div class="col-sm-10 col-md-10 col-lg-10">
+        <nav class="nav-menu">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="/products">Services</a></li>
+            <li><a href="#">Resources</a> </li>
+            <li><a href="/messages"> Contacts</a> </li>
+            <li class="pull-right" style="margin-right:35px;" ><a href="/cart"><i class="fa fa-shopping-cart"></i></a> <span class="number-amount"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span> </a>
+              <ul class="sub-menu">
+                <li><a href="#">Responsive</a></li>
+                <li><a href="#">Diffrent</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- end container --> 
+    
+  </div>
+  <!-- end fixed-header-cover --> 
+  
+</header>
+
+<!--END FIXED HEADER --> 
+
+<!-- QUOTE -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-62198392-1', 'auto');
+  ga('send', 'pageview');
+
+</script>

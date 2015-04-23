@@ -1,0 +1,179 @@
+
+        <section class="container margintop">
+          <div class="row">
+
+            <div class="col-md-9">
+
+              <div class="row">
+                <div class="col-sm-6 col-md-6">
+                  <div class="owl-carousel controlls-over product-image" data-plugin-options='{"items": 1, "singleItem": true, "navigation": true, "pagination": true, "transitionStyle":"fadeUp"}'>
+                    <div>
+                      <% if defined?(image) && image %>
+                          <%= image_tag image.attachment.url(:product), :itemprop => "image" , :class => "full_width" %>
+                      <% else %>
+                        <%= product_image(@product, :itemprop => "image", :class => "full_width") %>
+                      <% end %>
+                    </div>
+                    <div>
+                       <% if defined?(image) && image %>
+                          <%= image_tag image.attachment.url(:product), :itemprop => "image" , :class => "full_width"%>
+                      <% else %>
+                        <%= product_image(@product, :itemprop => "image", :class => "full_width") %>
+                      <% end %>
+                    </div>
+                    <div>
+                       <% if defined?(image) && image %>
+                          <%= image_tag image.attachment.url(:product), :itemprop => "image" , :class => "full_width"%>
+                      <% else %>
+                        <%= product_image(@product, :itemprop => "image" , :class => "full_width") %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-md-6">
+
+                  <!-- product detail -->
+                  
+
+                    <!-- hidden fields -->
+                    <input type="hidden" name="action" value="cart_add" />
+                    <input type="hidden" name="product_id" value="1" />
+
+                    <h2 class="product-title"><%= @product.name%></h2>
+
+                    <!-- product unique code -->
+                    <span class="code">PART NUMBER: <%=@product.sku%></span>
+                    <!-- /product unique code -->
+
+                    <!-- product price -->
+                    <!-- <div class="productRowInfo">
+                      <span class="price styleSecondColor fsize20">$ --><%#=@product.price%></span>
+                      <!-- <span class="oldprice">$43.00</span> -->
+                  <!--   </div> -->
+                    <!-- /product price -->
+
+  <div id="cart-form" data-hook="cart_form">
+              <%= render :partial => "spree/shared/#{@selected_template.template_no}/cart_form" %>
+            </div>
+
+
+
+                    <!-- <div class="row">
+ -->
+                      <!-- quantity + add to cart -->
+                      <!-- <div class="row">
+                        <div class="col-md-7 col-sm-12">
+
+                          <div class="addCartBtn">
+                            <div class="input-group">
+                              <input type="text" name="product_qty" id="product_qty" class="text-center form-control" value="1" placeholder="Qty" />
+                              <span class="input-group-btn">
+                                
+                                <a href="shop-cart.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> ADD TO CART</a>
+                              </span>
+                            </div><! /input-group -->
+                          <!-- </div> -->
+
+                        <!-- </div> -->
+                      <!-- </div>  -->
+                      <!-- /quantity + add to cart -->
+
+             <!--        </div> -->
+
+                    <!-- product description -->
+                    <div class="desc">
+                      <h3 class="page-header">DESCRIPTION</h3>
+                      <p>
+                         <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
+                      </p>
+                    </div>
+                    <!-- /product description -->
+
+                    <div class="socialApis">
+                      <h3 class="page-header">TELL TO YOUR FRIENDS</h3>
+
+                      <!-- facebook -->
+                      <div class="api">
+                        <div class="fb-like" data-href=<%=request.url%> data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+                      </div>
+
+                      <!-- twitter -->
+                      <div class="api">
+                        <a href=<%=request.url%> class="twitter-share-button" data-lang="en">Tweet</a>
+                      </div>
+
+                      <!-- google plus -->
+                      <div class="api">
+                        <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="300"></div>
+                      </div>
+
+                    </div>
+
+   
+                  <!-- product detail -->
+
+                </div>
+              </div>
+
+
+            
+            </div>
+
+            <aside class="col-md-3">
+
+              <h3>CATEGORIES</h3><!-- h3 - have no margin-top -->
+              <ul class="nav nav-list">
+
+                <% @product.taxons.each do |taxon| %>
+        <li><%= link_to taxon.name, seo_url(taxon) %></li>
+      <% end %>
+              </ul>
+
+          
+
+            </aside>
+            <div class="col-md-12">
+                <hr />
+
+
+              <!-- RELATED -->
+              <h2><strong>Related</strong> Products</h2>
+              <div class="row">
+             <!-- item -->
+                  <%@simlier_product.each do |p|%>
+                   <div class="col-sm-6 col-md-3">
+                   <% url = product_path(p) %>
+<div class="item-box">
+                <figure>
+                  <a class="item-hover" href="<%=url%>">
+                    <span class="overlay color2"></span>
+                    <span class="inner">
+                      <span class="block fa fa-plus fsize20"></span>
+                      <strong>PRODUCT</strong> DETAIL
+                    </span>
+                  </a>
+                 
+                  <%= link_to product_image(p, :itemprop => "image", :class => "img-responsive",:style=>"width:100%;" )%>
+
+                  <div class="btn btn-primary add_to_cart btn-space"><i class="fa fa-shopping-cart"></i> ADD TO CART</div>
+                </figure>
+                <div class="item-box-desc text-align-center">
+                  <h4><%=p.name%></h4>
+                  <small class="styleColor"><span>$<%=p.price%></span></small>
+                </div>
+              </div>
+              </div>
+            <%end%>
+              
+              <!-- /RELATED -->
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+    
