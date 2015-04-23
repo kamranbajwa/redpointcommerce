@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title><%= @selected_template.name%></title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1" name="viewport">
+<%== meta_data_tags %>
+<%= canonical_tag(current_store.url) %>
+<%#= favicon_link_tag 'favicon.ico' %>
+<%= stylesheet_link_tag 'spree/frontend/all', :media => 'screen' %>
+<%= stylesheet_link_tag 'font-awesome' %>
+<%= csrf_meta_tags %>
+<%= javascript_include_tag 'spree/frontend/all' %>
+<!-- mobile settings -->
+
+<!-- Mobile Specific Meta -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- Stylesheets -->
+
+<link rel="stylesheet" href="/assets/<%= @selected_template.template_no%>/bootstrap.css" />
+<link rel="stylesheet" href="/assets/<%= @selected_template.template_no%>/font-awesome.css" />
+<link rel="stylesheet" href="/assets/<%= @selected_template.template_no%>/animate.css" />
+<link rel="stylesheet" href="/assets/<%= @selected_template.template_no%>/background.css" />
+<link rel="stylesheet" href="/assets/<%= @selected_template.template_no%>/ytplayer.css" />
+<link rel="stylesheet" href="/assets/<%= @selected_template.template_no%>/style.css" />
+
+<!-- Fonts -->
+
+<link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link rel="shortcut icon" type="image/x-icon" href="<%= @selected_template.spree_favicon and @selected_template.spree_favicon.favicon_image ? @selected_template.spree_favicon.favicon_image.url(:thumb) : '/assets/favicon.ico'%>" />
+</head>
