@@ -28,18 +28,10 @@
                   <br>
                  <%= f.text_field :company_name, class: 'fullwidth'  %>
                 </div>
-                <div class="field" data-hook="admin_general_setting_input_meta_keywords" s>
+                <div class="field" data-hook="admin_general_setting_input_meta_description">
                   <%= f.label :country %>
                   <br>
-                  <div class="field" tyle="border-radius: 3px;
-padding: 7px 10px;
-border: 1px solid #cee1f4;
-color: #5498da;
-font-size: 90%;" >
-              <%= f.select(:country,  [ 'Pakistan','Inida'], :prompt => 'Pakistan' , :class => 'fullwidth')
-                %>
-              <%#= f.select_tag(:country, options_for_select([['Pakistan', 'Pakistan'], ['India', 'India']]), class: 'fullwidth') %>
-            </div>
+                  <%= f.text_field :country, :class => 'fullwidth'   %>
                 </div>
                 <div class="field" data-hook="admin_general_setting_input_meta_description">
                   <%= f.label :company_address %>
@@ -51,17 +43,11 @@ font-size: 90%;" >
                   <br>
                   <%= f.text_field :city, :class => 'fullwidth'   %>
                 </div>
-               <div class="field" data-hook="admin_general_setting_input_meta_keywords" s>
+                 <div class="field" data-hook="admin_general_setting_input_meta_description">
                   <%= f.label :state %>
                   <br>
-                  <div class="field" tyle="border-radius: 3px;
-padding: 7px 10px;
-border: 1px solid #cee1f4;
-color: #5498da;
-font-size: 90%;" >
-               <%= f.select( :state,  [ 'Dehli','Punjab'], :prompt => 'select state' , :class => 'fullwidth')
-                %>
-            </div>
+                  <%= f.text_field :state, :class => 'fullwidth'   %>
+                </div>
                 <div class="field" data-hook="admin_general_setting_input_url">
                   <%= f.label :postal_code ,'Postal code'%>
                   <br>
