@@ -147,9 +147,8 @@ border: none;" %>
 $(document).ready(function() {
 });
 $('#contact_us').submit(function(){
-    $('.alert-success').removeClass('hide');
-
     window.location.reload(true);
+    $('.alert-success').removeClass('hide');
      setTimeout(function() {
     $('.alert-success').hide();
     }, 3000);
