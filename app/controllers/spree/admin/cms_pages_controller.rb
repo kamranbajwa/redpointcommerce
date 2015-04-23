@@ -1,7 +1,7 @@
 class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
+  before_action :current_template, only: [:index, :new]
 
   def index
-  	current_template
     @pages =  @current_template.first.cms_pages
   end
 
@@ -10,7 +10,6 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
   end
 
   def new
-    current_template
     @cms_page = Spree::CmsPage.new
     @templates = Spree::Template.all.map {|a| [a.name, a.id]}
     @selected_template = @current_template.first.id
