@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     @slider_image = @selected_template.spree_slider_images
   end
   def load_pages
-    @cms_pages = @selected_template.cms_pages
+    @cms_pages = @selected_template.cms_pages.order("sort asc")
   end
   def load_cart
     @order = current_order rescue nil

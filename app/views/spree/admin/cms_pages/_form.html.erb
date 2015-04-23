@@ -25,6 +25,11 @@
                 <%= f.cktext_area :description, class: "fullwidth" %>
               </div>
                <div class="field" data-hook="admin_general_setting_input_name">
+                <label for="store_name">Set Page Order</label>
+                <br>
+                <%= f.text_field :sort, class: "fullwidth" %>
+              </div>
+               <div class="field" data-hook="admin_general_setting_input_name">
                 <label for="store_name">Meta Tag</label>
                 <br>
                 <%= f.text_field :tag_list, class: "fullwidth" %>
