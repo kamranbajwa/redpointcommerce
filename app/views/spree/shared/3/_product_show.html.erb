@@ -14,20 +14,6 @@
                         <%= product_image(@product, :itemprop => "image", :class => "full_width") %>
                       <% end %>
                     </div>
-                    <div>
-                       <% if defined?(image) && image %>
-                          <%= image_tag image.attachment.url(:product), :itemprop => "image" , :class => "full_width"%>
-                      <% else %>
-                        <%= product_image(@product, :itemprop => "image", :class => "full_width") %>
-                      <% end %>
-                    </div>
-                    <div>
-                       <% if defined?(image) && image %>
-                          <%= image_tag image.attachment.url(:product), :itemprop => "image" , :class => "full_width"%>
-                      <% else %>
-                        <%= product_image(@product, :itemprop => "image" , :class => "full_width") %>
-                      <% end %>
-                    </div>
                   </div>
                 </div>
 
