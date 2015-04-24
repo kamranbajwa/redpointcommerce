@@ -6,11 +6,9 @@ var longitude
 function setAddress(comp_address){
   add = comp_address;
 geocoder.geocode( { 'address': add }, function(results, status) {
-alert(add)
   if (status == google.maps.GeocoderStatus.OK) {
      latitude = results[0].geometry.location.lat();
      longitude = results[0].geometry.location.lng();
-     alert(latitude)
   } 
 });
 } 
