@@ -20,6 +20,9 @@ class Spree::Admin::OrganizationsController < Spree::Admin::ResourceController
   # GET /organizations/1/edit
   def edit
     @organization=Spree::Organization.find(params[:id])
+    if(@organization.org_addresses.length==0)
+      @organization.org_addresses.create
+    end
   end
 
   # POST /organizations
@@ -41,6 +44,7 @@ class Spree::Admin::OrganizationsController < Spree::Admin::ResourceController
   # PATCH/PUT /organizations/1
   # PATCH/PUT /organizations/1.json
   def update
+    debugger
     respond_to do |format|
       if @organization.update(organization_params)
         format.html { redirect_to edit_admin_organization_path(@organization), notice: 'Spree::Organization was successfully updated.' }
@@ -72,7 +76,7 @@ class Spree::Admin::OrganizationsController < Spree::Admin::ResourceController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def organization_params
-      params.require(:organization).permit(:company_code, :company_name, :country,:company_address,:city, :state, :postel_code,:phone_number,:facebook_url,:twitter_url,:google_url,:central_time)
+      params.require(:organization).permit(:company_code,:facebook_url,:twitter_url,:google_url,:central_time,org_addresses_attributes: [:id, :company_name, :country,:company_address,:city, :state, :postel_code,:phone_no, :_destroy])
       #params[:organization].permit[:all]
     end
 end

@@ -1,6 +1,15 @@
 module Spree
   module BaseHelper
-
+  def link_to_remove_fields_for_org(name, ff)
+  ff.hidden_field(:_destroy) + link_to_function(name, "remove_org_address_fields(this)")
+  end
+   def link_to_add_fields_for_org(name, ff, association)
+    new_object = f.object.class.reflect_on_association(association).klass.new
+    fields = ff.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
+      render(association.to_s.singularize + "_fields", :ff => builder)
+    end
+    link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
+  end
     # Defined because Rails' current_page? helper is not working when Spree is mounted at root.
     def current_spree_page?(url)
       path = request.fullpath.gsub(/^\/\//, '/')
