@@ -53,9 +53,8 @@
             <li class="mega-menu-item mega-menu-two-columns active"> <a href="/products"> Products </a> </li>
            
 
-            <!-- Arrange Menus -->            
-            <% @cms_pages.each_with_index  do |page, index|%>
-              <% unless page.title == "about us" %>
+            <!-- Arrange Menus -->   
+            <% @customize_pages.each_with_index  do |page, index|%>
                 <% if index >= 2 %>
                   <% if index == 2 %>
                     <li class="dropdown">
@@ -65,14 +64,13 @@
                       <ul class="dropdown-menu menu_color">
                   <% end %>
                         <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
-                  <% if index+1 == @cms_pages.length %>
+                  <% if index+1 == @customize_pages.length %>
                       </ul>
                     </li>
                   <% end %>
                 <% else %>
                   <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
                 <% end %>
-              <% end %>
             <% end %>
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_us_page.try(:id)%>"> About Us </a> </li>
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/messages"> Contact Us </a> </li>

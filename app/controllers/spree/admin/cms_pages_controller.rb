@@ -40,7 +40,7 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
         format.html { redirect_to admin_cms_pages_path, notice: 'Spree::Cms Page was successfully created.' }
         format.json { render action: 'index', status: :created, location: @cms_page }
       else
-        format.html { redirect_to new_admin_cms_page_path, notice: "Title can't be blanked"}
+        format.html { redirect_to new_admin_cms_page_path, notice: "#{@cms_page.errors.full_messages.first}"}
         format.json { render json: @cms_page.errors, status: :unprocessable_entity }
       end
     end

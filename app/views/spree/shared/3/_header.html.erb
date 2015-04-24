@@ -40,20 +40,37 @@
         
           <center>
             <span class="menu-sep"><a class="active" href="/">Home</a> </span> 
-            <span class="menu-sep"><a href="#"> About Us</a></span> 
-            <span class="menu-sep"><a href="/products">Services</a> </span> 
-            <span class="menu-sep"><a href="#">Resources</a></span> 
+            <span class="menu-sep"><a href="/products">Services</a> </span>
+
+             <% @customize_pages.each_with_index  do |page, index|%>
+                <% if index >= 2 %>
+                  <% if index == 2 %>
+                  <span class="nav-menu pull-right" >
+                    <ul class="nav navbar-nav" style="margin-top:0px;">
+                      <li class="">
+                        <a class="" href="#">
+                          More <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="sub-menu">
+                  <% end %>
+                       <span class="menu-sep"><a href="/page/<%= page.id %>"><%= page.title%></a></span>
+                  <% if index+1 == @customize_pages.length %>
+                        </ul>
+                      </li>
+                    </ul>
+                  </span>
+                  <% end %>
+                <% else %>
+                  <span class="menu-sep"><a href="/page/<%= page.id %>"> <%= page.title%></a></span>
+                <% end %>
+            <% end %>
+            <span class="menu-sep"> <a href="/page/<%= @about_page.first.try(:id)%>"> About Us </a></span>
             <span class="menu-sep"><a href="/messages"> Contacts</a></span>
           </center>
         </div>
         <div class="col-md-2"> <span class="nav-menu pull-right" >
           <ul class="nav navbar-nav" style="margin-top:0px;">
-            <li> </li>
             <li><a href="/cart"><i class="fa fa-shopping-cart"></i></a> <span class="number-amount"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span> </a>
-              <ul class="sub-menu">
-                <li><a href="#">Responsive</a></li>
-                <li><a href="#">Diffrent</a></li>
-              </ul>
             </li>
           </ul>
           </span> </div>
