@@ -26,9 +26,9 @@
     
     <div class="social-icon col-xs-12 col-sm-5">
       <ul>
-        <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-        <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href=<%= @org.facebook_url || '#'%> target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a href=<%= @org.twitter_url || '#'%> target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a href=<%= @org.google_url || '#'%> target="_blank"><i class="fa fa-google-plus"></i></a></li>
       </ul>
     </div>
     <!-- end social-icon --> 
