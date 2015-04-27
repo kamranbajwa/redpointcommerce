@@ -28,6 +28,11 @@
                 <br>
                 <%= f.text_field :sort, class: "fullwidth" %>
               </div>
+              <div class="field" data-hook="admin_general_setting_input_name">
+                <label for="store_name">Static</label>
+                <br>
+                <%= f.check_box :static_flag %>
+              </div>
                <div class="field" data-hook="admin_general_setting_input_name">
                 <label for="store_name">Meta Tag</label>
                 <br>

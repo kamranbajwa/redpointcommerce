@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :check_template
   before_filter :load_pages
-  before_filter :load_cart, :home_content, :customize_pages
+  before_filter :load_cart, :home_content, :customize_pages, :static_pages
   
   def after_sign_in_path_for(resource)
     if spree_current_user.has_spree_role?("admin")
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
      @org=Spree::Organization.first
   end
   def load_pages
-    @cms_pages = @selected_template.cms_pages.order("sort asc")
+    @cms_pages = @selected_template.cms_pages.dynamic.order("sort asc")
     @about_us_page = @selected_template.cms_pages.find_by_title("about us")
   end
   def load_cart
@@ -36,5 +36,8 @@ class ApplicationController < ActionController::Base
   def customize_pages
     @customize_pages = @cms_pages.reject { |h| h['title'] == "Home" || h['title'] == "About us" }
     @about_page = @cms_pages.select { |h| h['title'] == "About us" }
+  end
+  def static_pages
+    @static_pages = @selected_template.cms_pages.static.order("sort asc").limit(4)
   end
 end

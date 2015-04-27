@@ -20,41 +20,21 @@ font-size: 25px;">00-000-0000</span> <span>Available 24/7</span> </div> -->
   
 </section>
 
-<!-- END SECTION QUOTE --> 
+<!-- END SECTION QUOTE -->
+<% data_pages = [{:img => "breakfast", :animation => "200"}, 
+             {:img => "lunch", :animation => "350"}, 
+             {:img => "afternoon", :animation => "500"}, 
+             {:img => "dinner", :animation => "650"}] %>
 <section class="section-features">
   <div class="container">
-    <div class="col-sm-6 col-md-3 animated" data-animation="flipInY" data-animation-delay="200">
-      <div class="h-event"> <img src="/assets/3/breakfast.png" alt="">
-        <div class="p-name">Responsive</div>
-        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
-        <span class="dt-start read-more"><a href="#">Read More</a></span> </div>
-      <!-- end features-wrap --> 
-      
+    <% @static_pages.each_with_index do |page, index|%>
+    <div class="col-sm-6 col-md-3 animated" data-animation="flipInY" data-animation-delay=<%= data_pages[index][:animation]%>>
+      <div class="h-event"> <img src="/assets/3/<%= data_pages[index][:img]%>.png" alt="">
+        <div class="p-name"><%= page.title%></div>
+        <p> <%= truncate(strip_tags(page.description.html_safe), length: 50) %> </p>
+         <span class="dt-start read-more"><a href="/page/<%= page.id%>">Read More</a></span> </div>
     </div>
-    <div class="col-sm-6 col-md-3 animated" data-animation="flipInY" data-animation-delay="350">
-      <div class="h-event"> <img src="/assets/3/lunch.png" alt="">
-        <div class="p-name">Diffrent</div>
-        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
-        <span class="dt-start read-more"><a href="#">Read More</a></span> </div>
-      <!-- end features-wrap --> 
-      
-    </div>
-    <div class="col-sm-6 col-md-3 animated" data-animation="flipInY" data-animation-delay="500">
-      <div class="h-event"> <img src="/assets/3/afternoon.png" alt="">
-        <div class="p-name"> Profession</div>
-        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
-        <span class="dt-start read-more"><a href="#">Read More</a></span> </div>
-      <!-- end features-wrap --> 
-      
-    </div>
-    <div class="col-sm-6 col-md-3 animated" data-animation="flipInY" data-animation-delay="650">
-      <div class="h-event"> <img src="/assets/3/dinner.png" alt="">
-        <div class="p-name"> Well Structured </div>
-        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
-        <span class="dt-start read-more"><a href="#">Read More</a></span> </div>
-      <!-- end features-wrap --> 
-      
-    </div>
+    <% end %>
   </div>
   <!-- end container --> 
   
@@ -79,7 +59,7 @@ font-size: 25px;">00-000-0000</span> <span>Available 24/7</span> </div> -->
 </section>
 <!-- VIDEO BG -->
 
-<section class="section-video">
+<!-- <section class="section-video">
   <div class="container">
     <h2 class="white-col text-center" >Recent Legal Articles</h2>
     <div class="col-sm-4 col-md-4 bottom-mar animated" data-animation="fadeInRight" data-animation-delay="300">
@@ -132,4 +112,4 @@ font-size: 25px;">00-000-0000</span> <span>Available 24/7</span> </div> -->
     </div>
     <div style="height:50px; clear:both;"></div>
   </div>
-</section>
+</section> -->
