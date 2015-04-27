@@ -4346,3 +4346,14 @@ input[type="submit"].gray, input[type="button"].gray, input[type="reset"].gray, 
 {
     line-height: 20px !important;
 }
+
+#wrapper {
+    padding: 0px 0;     /* top nav height */
+    z-index: 98;            /* under top nav */
+    position: relative;
+    overflow: hidden;
+    min-height: 550px;
+    width: 100%;
+}
+
+#content { min-height: 50px}
