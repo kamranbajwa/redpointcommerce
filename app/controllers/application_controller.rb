@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
     @home_content = @selected_template.cms_pages.find_by_title("Home") rescue nil
   end
   def customize_pages
-    @customize_pages = @cms_pages.reject { |h| h['title'] == "Home" || h['title'] == "About us" }
+    @customize_pages = @cms_pages.reject { |h| h['title'] == "Home" || h['title'] == "About us" || h['title'] == "about us" }
     @about_page = @cms_pages.select { |h| h['title'] == "About us" }
   end
   def static_pages

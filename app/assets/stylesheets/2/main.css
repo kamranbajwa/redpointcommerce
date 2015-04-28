@@ -4189,6 +4189,7 @@ a {
 }
 .top-space {
     margin-top: 9%;
+    margin-bottom: 30px;
 }
 .checkbox-bottom {
     margin-bottom: 10px !important;
@@ -4340,4 +4341,4 @@ input[type="submit"].gray, input[type="button"].gray, input[type="reset"].gray, 
 .text-align-center{
     text-align: center;
 }
-#content{ margin-top: 60px;}
+#content{ margin-top: 60px; }

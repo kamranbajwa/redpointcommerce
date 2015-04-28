@@ -3,7 +3,7 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
   before_action :get_templates, only: [:new, :edit, :update]
 
   def index
-    @pages =  @current_template.first.cms_pages
+    @pages =  @current_template.first.cms_pages.order("sort asc")
   end
 
   def show
