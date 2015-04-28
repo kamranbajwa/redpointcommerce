@@ -1,0 +1,115 @@
+header.header-style-1 .header-nav .navbar {
+	background: rgba(12, 105, 185, 0.7) !important;
+}
+header.header-style-1 .header-top {
+	background: rgba(9, 88, 157, 0.7) !important;
+}
+footer .links-social {
+	background: #145fa0 !important;
+}
+footer .copyright {
+	background: #094579 !important;
+}
+footer .links-social .newsletter .input-group button {
+	background: #1275cb !important;
+	color: #fff !important;
+}
+.product .product-image .cart {
+	background: rgba(16, 142, 252, 0.66) !important;
+}
+footer .links-social .social-newsletter .social-links ul li a {
+	border: 1px solid #fff !important;
+}
+
+h3.title {
+color: #fff !important;
+
+}
+
+footer .links-social .link-groups .links ul li a {
+
+color: #fff !important;}
+
+footer .links-social .newsletter .input-group {
+border: 1px solid #0d61ab !important;
+background: #0e538f !important;
+}
+
+::-webkit-input-placeholder {
+   color: #4690d1 !important;
+}
+
+footer .links-social .newsletter .input-group input {
+color: #fff !important;
+}
+
+header.header-style-1 .header-nav .cnt-search .input-group {
+border: 1px solid #174976 !important;
+background: rgba(5, 45, 81, 0.66) !important;
+
+}
+
+.btn-default {
+color: #fff !important ;
+background-color: #fff;
+border-color: #ccc;
+}
+header.header-style-1 .header-nav .cnt-search .input-group input{ color:#fff !important;}
+footer .links-social .social-newsletter .social-links ul li a {
+color: #fff !important;}
+footer .copyright {
+color: #fff !important;}
+
+
+
+/*..........................................*/
+
+
+input[type="button"], input[type="reset"], button, a.button {
+background-color: #d4e7f7 !important;
+border-radius: 0px !important;
+border-top: solid 1px !important;
+border: 1px solid #000 !important;
+font-size: 15px !important;
+font-family: arial;
+font-weight: normal !important;
+padding-top: 7px !important;
+padding-bottom: 7px !important;
+}
+
+.btn-primary {
+color: #fff;
+background-color: #d4e7f7 !important;
+border-color: #d4e7f7 d4e7f7;
+}
+
+
+
+
+
+
+table thead {
+background-color: #bddefb !important;
+text-transform: uppercase;
+}
+table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
+background-color: #d4e7f7 !important;
+}
+.cart-subtotal, .cart-total {
+background: #bddefb !important;
+color: black !important;
+}
+
+
+
+
+
+::selection {
+background: #105593;
+color: white;
+text-shadow: none;
+}
+
+.next:hover {
+color: #105593 !important;
+}

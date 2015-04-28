@@ -41,8 +41,8 @@
 
 <!-- Demo Purpose Only. Should be removed in production -->
 <link rel="stylesheet" href="/assets/config.css">
-
-<link href="/assets/green.css" rel="alternate stylesheet" title="Green color">
+<link href="/assets/<%= @selected_template.template_no%>/color_scheme/<%= @selected_template.theme_color%>.css" rel="stylesheet" type="text/css" />
+<!-- <link href="/assets/green.css" rel="alternate stylesheet" title="Green color"> -->
 
 <link href="/assets/red.css" rel="alternate stylesheet" title="Red color">
 <link href="/assets/navy.css" rel="alternate stylesheet" title="Navy color">

@@ -1,0 +1,21 @@
+header.header-style-1 .header-nav .navbar {
+	background: rgba(0, 0, 0, 0.7) !important;
+}
+header.header-style-1 .header-top {
+	background: rgba(0, 0, 0, 0.7) !important;
+}
+footer .links-social {
+	background: #181818 !important;
+}
+footer .copyright {
+	background: #060606 !important;
+}
+footer .links-social .newsletter .input-group button {
+	background: #343434 !important;
+}
+.product .product-image .cart {
+	background: rgba(159, 159, 159, 0.66) !important;
+}
+footer .links-social .social-newsletter .social-links ul li a {
+	border: 1px solid #343434 !important;
+}
