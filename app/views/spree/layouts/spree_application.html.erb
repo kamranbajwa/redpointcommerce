@@ -11,11 +11,15 @@
   </head>
   <% if params[:controller]=="spree/home" and params[:action]=="index"%>
   <body class="boxed">
+  <style type="text/css">
+  #content{ margin-top: 0px; min-height: 0px !important;}
+  </style>
   <%else%>
   <style>.main-body, header {
 margin: auto;
-max-width: 100%;
-}</style>
+max-width: 100%; 
+}
+</style>
   <body >
   <%end %>
   <div class='main-body'>

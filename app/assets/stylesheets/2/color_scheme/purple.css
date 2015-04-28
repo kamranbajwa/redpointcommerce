@@ -232,6 +232,7 @@
 	}
 	
 	body.boxed {
+	
 
 background: white url(/assets/2/bg.jpg);
 background-repeat: repeat-x;
@@ -519,4 +520,27 @@ color: #fff;
 }
 .out-of-stock {
 border-radius: 6px;
+}
+
+.menu_color {
+background: #b3008f !important;
+color: #fff !important;
+}
+
+.cart-subtotal, .cart-total {
+background: #b3008f;
+color: black;
+}
+.progress-steps li.current-first, .progress-steps li.current:hover {
+background-color: #8f0373;
+color: white;
+}
+
+.progress-steps li.current-first, .progress-steps li.current {
+background-color: #8f0373;
+color: white;
+}
+
+table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
+background-color: #f4d5ee !important;
 }

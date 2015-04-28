@@ -37,10 +37,10 @@
 	ul.star-rated.styleSecondColor li i,
 	.tp-catpion a,
 	.divider.styleColor .fa {
-		color:#8f0373;
+		color:#ffb502;
 	}
 	#slider .btn.btn-default {
-		color:#8f0373 !important;
+		color:#ffb502 !important;
 	}
 
 	a:hover, a:active {
@@ -63,7 +63,7 @@
 	.blog-timeline .timeline-item .item-date span,
 	ul.nav-pills li.active a,
 	.modal-header {
-		background-color:#8f0373;
+		background-color:#ffb502;
 	}
 
 	.styleSecondBackground,
@@ -93,7 +93,7 @@
 	}
 	header#topNav nav.mega-menu ul.nav-main li.mega-menu-item:hover ul.sub-menu li:hover a:hover,
 	header#topNav nav ul.nav-main ul.dropdown-menu li:hover > a {
-		background-color: #1b1f23; 		/* hover background color */
+		background-color: #9e7104; 		/* hover background color */
 	}
 	header#topNav nav ul.nav-main li.dropdown:hover > a:after {
 		border-bottom:#2E363F 10px solid;/* arrow color */
@@ -103,13 +103,13 @@
 	}
 	header#topNav nav.mega-menu ul.nav-main li.mega-menu-item ul.sub-menu a,
 	header#topNav nav ul.nav-main ul.dropdown-menu > li > a {
-		color: #afafaf; 				/* link color */
+		color: #fff; 				/* link color */
 	}
 
 	/* top Head */
 	header#topHead.color {
 		color:#fff;
-		background-color:#8f0373;
+		background-color:#ffb502;
 	}
 	header#topHead.color a {
 		color:#fff;
@@ -125,7 +125,7 @@
 
 	/* Buttons */
 	.btn-default {
-		border:#8f0373 2px solid;
+		border:#ffb502 2px solid;
 	}
 	.btn-default:hover, .btn-default:active, .btn-default:focus {
 		border:#ed5434 2px solid;
@@ -135,21 +135,20 @@
 	}
 	.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
 		border:rgba(255,255,255,0) 2px solid;
-		background-color:#8f0373 !important;
+		background-color:#bd8807 !important;
 	}
-
 	
 	/* Toggle */
 	div.toggle.active > label {
 		color:#fff;
-		background-color:#8f0373;
+		background-color:#ffb502;
 	}
 
 	/* Panels */
 
 	.panel-primary .panel-heading {
-		background-color:#8f0373;
-		border-bottom:#8f0373 1px solid;
+		background-color:#ffb502;
+		border-bottom:#ffb502 1px solid;
 	}
 	.panel-body {
 		background-color:#fff;
@@ -163,26 +162,26 @@
 
 	/* Featured Box */
 	div.featured-box i.fa:after {
-		border-color:#8f0373;
+		border-color:#ffb502;
 	}
 	div.featured-box.nobg.border-only i.fa {
-		color:#8f0373;
-		border-color:#8f0373;
+		color:#ffb502;
+		border-color:#ffb502;
 	}
 	
 	/* Featured Icons */
 	i.featured-icon,
 	i.featured-icon:after {
-		border:#8f0373 1px solid;
+		border:#ffb502 1px solid;
 	}
 	i.featured-icon.empty {
-		color:#8f0373 !important;
+		color:#ffb502 !important;
 	}
 
 	/* Popover */
 	.popover-title {
 		color:#fff;
-		background-color:#8f0373;
+		background-color:#ffb502;
 	}
 
 	/* testimonials */
@@ -194,12 +193,12 @@
 	.testimonial.color2 p,
 	.testimonial.color2 cite {
 		color:#fff;
-		background-color:#8f0373;
+		background-color:#ffb502;
 	}
 
 	/* OWL Carousel */
 	.owl-theme .owl-controls .owl-buttons div {
-		color:#8f0373;
+		color:#ffb502;
 	}
 
 	/* slider */
@@ -352,7 +351,7 @@ h2 {
 }
 
 h3 {
-	color: #000;
+	color: #fff;
 	font-size: 1.8em;
 	font-weight: 300;
 	letter-spacing: normal;
@@ -361,16 +360,15 @@ h3 {
 }
 
 h4 {
-	color: #000;
-	font-size: 1.2em;
-	font-weight: 400;
-	letter-spacing: normal;
-	line-height: 27px;
-	margin: 12px 0 14px 0;
+	color: #fff;
+font-size: 1.2em;
+font-weight: 400;
+letter-spacing: normal;
+line-height: 27px;
 }
 
 h5 {
-	color: #000;
+	color: #fff;
 	font-size: 1em;
 	font-weight: 400;
 	letter-spacing: normal;
@@ -480,7 +478,7 @@ header#topNav nav ul.nav-main li a {
 background: none;
 font-style: normal;
 line-height: 20px;
-color: #b48104;
+color: #fff;
 font-weight: 100;
 position: relative;
 font-size: 1.1em;
@@ -488,4 +486,35 @@ font-size: 1.1em;
 
 ol li, ul li {
 color: #fff;
+}
+a:hover, a:focus, a:active {
+text-decoration: none;
+color:#ffb502;
+}
+
+.menu_color {
+background: #ffb502 !important;
+color: #fff !important;
+}
+table thead {
+background-color:#f6d88e;
+text-transform: uppercase;
+color:#000;
+}
+
+.cart-subtotal, .cart-total {
+background: #f6d88e;
+color:#000;
+}
+.progress-steps li.current-first, .progress-steps li.current:hover {
+background-color: #ffb502;
+color: white;
+}
+.progress-steps li.current-first, .progress-steps li.current {
+background-color: #ffb502;
+color: white;
+}
+
+table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
+background-color: #f9ecce !important;
 }

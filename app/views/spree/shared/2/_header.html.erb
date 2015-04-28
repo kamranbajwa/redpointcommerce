@@ -30,7 +30,7 @@
       <!-- CART MOBILE BUTTON --> 
       
       <!-- LINKS -->
-      <div class="pull-right nav hidden-xs"> <a href="page-about-us.html"><i class="fa fa-angle-right"></i> About</a> <a href="/messages"><i class="fa fa-angle-right"></i> Contact</a> </div>
+      <div class="pull-right nav hidden-xs"> <a href="/page/<%= @about_us_page.try(:id)%>"><i class="fa fa-angle-right"></i> About</a> <a href="/messages"><i class="fa fa-angle-right"></i> Contact</a> </div>
       <!-- /LINKS --> 
       
     </div>
@@ -49,8 +49,8 @@
       <div class="navbar-collapse nav-main-collapse collapse pull-right top-nav-bg" style="margin-top: 16px;">
         <nav class="nav-main mega-menu">
           <ul id="topMain" class="nav nav-pills nav-main scroll-menu">
-            <li class="mega-menu-item mega-menu-two-columns active"> <a href="/"> Home </a> </li>
-            <li class="mega-menu-item mega-menu-two-columns active"> <a href="/products"> Products </a> </li>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/"> Home </a> </li>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/products"> Services </a> </li>
            
 
             <!-- Arrange Menus -->   

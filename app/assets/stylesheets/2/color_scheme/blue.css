@@ -17,13 +17,13 @@ a, .styleSecondColor, .list-icon.color li:before, .item-box-desc small, p.dropca
 	color: #2e6da4;
 }
 #slider .btn.btn-default {
-	color: #8f0373 !important;
+	color: #084376 !important;
 }
 a:hover, a:active {
 	color: #ed5434;
 }
 #slider h3, .styleSecondBackground, .list-icon.color.circle li:before, .featured-box-minimal i.fa, .label-primary, div.featured-box i.fa, .progress-bar-primary, ul.pagination li.active a:hover, ul.pagination li.active a, ul.isotope-filter li.active a, ul.isotope-filter li.active a:hover, i.featured-icon, p.dropcap.color:first-letter, .blog-timeline .timeline-item .item-date span, ul.nav-pills li.active a, .modal-header {
-	background-color: #8f0373;
+	background-color: #084376;
 }
 .styleSecondBackground, .styleSecondBackground h1, .styleSecondBackground h2, .styleSecondBackground h3, .styleSecondBackground h4, .styleSecondBackground h5, .styleSecondBackground h6, .styleSecondBackground p {
 	color: #fff;
@@ -33,10 +33,10 @@ header#topNav nav ul.nav-main > li:hover > a, header#topNav nav ul.nav-main li.a
 	color: #fff;
 }
 header#topNav nav.mega-menu ul.nav-main li.mega-menu-item ul.dropdown-menu, header#topNav nav ul.nav-main ul.dropdown-menu {
-	background-color: #2E363F; 		/* dropdown background color */
+	background-color: #2e3a48; 		/* dropdown background color */
 }
 header#topNav nav.mega-menu ul.nav-main li.mega-menu-item:hover ul.sub-menu li:hover a:hover, header#topNav nav ul.nav-main ul.dropdown-menu li:hover > a {
-	background-color: #1b1f23; 		/* hover background color */
+	background-color: #154c7d; 		/* hover background color */
 }
 header#topNav nav ul.nav-main li.dropdown:hover > a:after {
 	border-bottom: #2E363F 10px solid;/* arrow color */
@@ -45,12 +45,12 @@ header#topNav nav.mega-menu ul.nav-main li.mega-menu-item .mega-menu-sub-title {
 	color: #ffffff; 				/* mega menu subtitle */
 }
 header#topNav nav.mega-menu ul.nav-main li.mega-menu-item ul.sub-menu a, header#topNav nav ul.nav-main ul.dropdown-menu > li > a {
-	color: #afafaf; 				/* link color */
+	color: #fff; 				/* link color */
 }
 /* top Head */
 header#topHead.color {
 	color: #fff;
-	background-color: #8f0373;
+	background-color: #084376;
 }
 header#topHead.color a {
 	color: #fff;
@@ -63,7 +63,7 @@ header#page-title h1, header#page-title h2 {
 }
 /* Buttons */
 .btn-default {
-	border: #8f0373 2px solid;
+	border: #084376 2px solid;
 }
 .btn-default:hover, .btn-default:active, .btn-default:focus {
 	border: #ed5434 2px solid;
@@ -73,18 +73,18 @@ header#page-title h1, header#page-title h2 {
 }
 .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
 	border: rgba(255,255,255,0) 2px solid;
-	background-color: #8f0373 !important;
+	background-color: #084376 !important;
 }
 /* Toggle */
 div.toggle.active > label {
 	color: #fff;
-	background-color: #8f0373;
+	background-color: #084376;
 }
 /* Panels */
 
 .panel-primary .panel-heading {
-	background-color: #8f0373;
-	border-bottom: #8f0373 1px solid;
+	background-color: #084376;
+	border-bottom: #084376 1px solid;
 }
 .panel-body {
 	background-color: #fff;
@@ -97,23 +97,23 @@ div.toggle.active > label {
 }
 /* Featured Box */
 div.featured-box i.fa:after {
-	border-color: #8f0373;
+	border-color: #084376;
 }
 div.featured-box.nobg.border-only i.fa {
-	color: #8f0373;
-	border-color: #8f0373;
+	color: #084376;
+	border-color: #084376;
 }
 /* Featured Icons */
 i.featured-icon, i.featured-icon:after {
-	border: #8f0373 1px solid;
+	border: #084376 1px solid;
 }
 i.featured-icon.empty {
-	color: #8f0373 !important;
+	color: #084376 !important;
 }
 /* Popover */
 .popover-title {
 	color: #fff;
-	background-color: #8f0373;
+	background-color: #084376;
 }
 /* testimonials */
 .testimonial.color1 p, .testimonial.color1 cite {
@@ -122,11 +122,11 @@ i.featured-icon.empty {
 }
 .testimonial.color2 p, .testimonial.color2 cite {
 	color: #fff;
-	background-color: #8f0373;
+	background-color: #084376;
 }
 /* OWL Carousel */
 .owl-theme .owl-controls .owl-buttons div {
-	color: #8f0373;
+	color: #084376;
 }
 /* slider */
 #slider li .noimg-slider h1 {
@@ -137,11 +137,11 @@ i.featured-icon.empty {
 }
 /* Top Search , Top Login */
 #topHead .signin-dd form button, #topHead .signin-dd form button:hover, #topHead .signin-dd form button:active, header#topNav li.search form button, header#topNav li.search form button:hover, header#topNav li.search form button:active {
-	background-color: #8f0373 !important;
+	background-color: #084376 !important;
 	;
 }
 #topHead .signin-dd form button:after, header#topNav li.search form button:after {
-	border: #8f0373 10px solid; /* same with .btn-primary */
+	border: #084376 10px solid; /* same with .btn-primary */
 	border-top: 10px solid transparent;
 	border-left: 10px solid transparent;
 	border-bottom: 10px solid transparent;
@@ -248,11 +248,11 @@ h3 {
 }
 h4 {
 	color: #000;
-	font-size: 1.2em;
-	font-weight: 400;
-	letter-spacing: normal;
-	line-height: 27px;
-	margin: 12px 0 14px 0;
+font-size: 1.2em;
+font-weight: 400;
+letter-spacing: normal;
+line-height: 27px;
+	
 }
 h5 {
 	color: #000;
@@ -373,4 +373,39 @@ header#topHead a {
 	background: #daebfa;
 	padding-top: 35px;
 	border-right: #fff 2px dotted;
+}
+
+a:hover, a:focus, a:active {
+text-decoration: none;
+color:#2e6da4;
+}
+
+/*.....................................................*/
+
+.menu_color {
+background: #2e6da4 !important;
+color: #fff !important;
+}
+
+table thead {
+background-color:#92b9da;
+text-transform: uppercase;
+color:#000;
+}
+
+.cart-subtotal, .cart-total {
+background: #92b9da;
+color:#000;
+}
+.progress-steps li.current-first, .progress-steps li.current:hover {
+background-color: #2e6da4;
+color: white;
+}
+
+.progress-steps li.current-first, .progress-steps li.current {
+background-color: #2e6da4;
+color: white;
+}
+table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
+background-color: #dae7f2 !important;
 }

@@ -4105,13 +4105,13 @@ a {
     color: black !important;
 }
 .next:hover {
-    color: red !important;
+    /*color: red !important;*/
 }
 .last {
     color: black !important;
 }
 .last:hover {
-    color: red !important;
+    /*color: red !important;*/
 }
 
 .pagination {
@@ -4282,8 +4282,8 @@ strong {
 }
 
 .cart-subtotal, .cart-total {
-    background: #d9d9db;
-    color: black;
+  /*  background: #d9d9db;
+    color: black;*/
 }
 
 
@@ -4294,15 +4294,6 @@ span.price, #checkout-summary table tr[data-hook="item_total"] td:last-child str
 
 .conitue-shopping {
     padding-top: 15px !important;
-}
-
-.progress-steps li.current-first, .progress-steps li.current {
-    background-color: #717176;
-    color: white ;
-}
-.progress-steps li.current-first, .progress-steps li.current:hover {
-    background-color: #717176;
-    color: white;
 }
 
 input[type="submit"], input[type="button"], input[type="reset"], button, a.button {
@@ -4349,3 +4340,4 @@ input[type="submit"].gray, input[type="button"].gray, input[type="reset"].gray, 
 .text-align-center{
     text-align: center;
 }
+#content{ margin-top: 60px;}

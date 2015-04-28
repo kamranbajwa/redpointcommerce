@@ -37,10 +37,10 @@
 	ul.star-rated.styleSecondColor li i,
 	.tp-catpion a,
 	.divider.styleColor .fa {
-		color:#8f0373;
+		color:#c61212;
 	}
 	#slider .btn.btn-default {
-		color:#8f0373 !important;
+		color:#c61212 !important;
 	}
 
 	a:hover, a:active {
@@ -63,7 +63,7 @@
 	.blog-timeline .timeline-item .item-date span,
 	ul.nav-pills li.active a,
 	.modal-header {
-		background-color:#8f0373;
+		background-color:#c61212;
 	}
 
 	.styleSecondBackground,
@@ -93,7 +93,7 @@
 	}
 	header#topNav nav.mega-menu ul.nav-main li.mega-menu-item:hover ul.sub-menu li:hover a:hover,
 	header#topNav nav ul.nav-main ul.dropdown-menu li:hover > a {
-		background-color: #1b1f23; 		/* hover background color */
+		background-color: #a10b0b; 		/* hover background color */
 	}
 	header#topNav nav ul.nav-main li.dropdown:hover > a:after {
 		border-bottom:#2E363F 10px solid;/* arrow color */
@@ -103,13 +103,13 @@
 	}
 	header#topNav nav.mega-menu ul.nav-main li.mega-menu-item ul.sub-menu a,
 	header#topNav nav ul.nav-main ul.dropdown-menu > li > a {
-		color: #afafaf; 				/* link color */
+		color: #fff; 				/* link color */
 	}
 
 	/* top Head */
 	header#topHead.color {
 		color:#fff;
-		background-color:#8f0373;
+		background-color:#c61212;
 	}
 	header#topHead.color a {
 		color:#fff;
@@ -125,7 +125,7 @@
 
 	/* Buttons */
 	.btn-default {
-		border:#8f0373 2px solid;
+		border:#c61212 2px solid;
 	}
 	.btn-default:hover, .btn-default:active, .btn-default:focus {
 		border:#ed5434 2px solid;
@@ -135,21 +135,21 @@
 	}
 	.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
 		border:rgba(255,255,255,0) 2px solid;
-		background-color:#8f0373 !important;
+		background-color:#b60e0e !important;
 	}
 
 	
 	/* Toggle */
 	div.toggle.active > label {
 		color:#fff;
-		background-color:#8f0373;
+		background-color:#c61212;
 	}
 
 	/* Panels */
 
 	.panel-primary .panel-heading {
-		background-color:#8f0373;
-		border-bottom:#8f0373 1px solid;
+		background-color:#c61212;
+		border-bottom:#c61212 1px solid;
 	}
 	.panel-body {
 		background-color:#fff;
@@ -163,26 +163,26 @@
 
 	/* Featured Box */
 	div.featured-box i.fa:after {
-		border-color:#8f0373;
+		border-color:#c61212;
 	}
 	div.featured-box.nobg.border-only i.fa {
-		color:#8f0373;
-		border-color:#8f0373;
+		color:#c61212;
+		border-color:#c61212;
 	}
 	
 	/* Featured Icons */
 	i.featured-icon,
 	i.featured-icon:after {
-		border:#8f0373 1px solid;
+		border:#c61212 1px solid;
 	}
 	i.featured-icon.empty {
-		color:#8f0373 !important;
+		color:#c61212 !important;
 	}
 
 	/* Popover */
 	.popover-title {
 		color:#fff;
-		background-color:#8f0373;
+		background-color:#c61212;
 	}
 
 	/* testimonials */
@@ -194,12 +194,12 @@
 	.testimonial.color2 p,
 	.testimonial.color2 cite {
 		color:#fff;
-		background-color:#8f0373;
+		background-color:#c61212;
 	}
 
 	/* OWL Carousel */
 	.owl-theme .owl-controls .owl-buttons div {
-		color:#8f0373;
+		color:#c61212;
 	}
 
 	/* slider */
@@ -221,11 +221,11 @@
 	header#topNav li.search form button,
 	header#topNav li.search form button:hover,
 	header#topNav li.search form button:active {
-		background-color:#8f0373 !important;;
+		background-color:#c61212 !important;;
 	}
 	#topHead .signin-dd form button:after,
 	header#topNav li.search form button:after {
-		border: #8f0373 10px solid; /* same with .btn-primary */
+		border: #c61212 10px solid; /* same with .btn-primary */
 		border-top: 10px solid transparent;
 		border-left: 10px solid transparent;
 		border-bottom: 10px solid transparent;
@@ -358,11 +358,10 @@ h3 {
 
 h4 {
 	color: #000;
-	font-size: 1.2em;
-	font-weight: 400;
-	letter-spacing: normal;
-	line-height: 27px;
-	margin: 12px 0 14px 0;
+font-size: 1.2em;
+font-weight: 400;
+letter-spacing: normal;
+line-height: 27px;
 }
 
 h5 {
@@ -484,4 +483,37 @@ font-size: 1.1em;
 
 ol li, ul li {
 color: #fff;
+}
+
+a:hover, a:focus, a:active {
+text-decoration: none;
+color:#c61212;
+}
+
+.menu_color {
+background: #c61212 !important;
+color: #000 !important;
+}
+table thead {
+background-color:#ffbdbd;
+text-transform: uppercase;
+color:#000;
+}
+
+.cart-subtotal, .cart-total {
+background: #ffbdbd;
+color: #000;
+}
+.progress-steps li.current-first, .progress-steps li.current:hover {
+background-color: #c61212;
+color: white;
+}
+
+.progress-steps li.current-first, .progress-steps li.current {
+background-color: #c61212;
+color: white;
+}
+
+table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
+background-color: #fad0d0 !important;
 }
