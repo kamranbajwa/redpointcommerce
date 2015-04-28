@@ -1,3 +1,4 @@
+ <%= javascript_include_tag :defaults, :cache => true %>
  <%= render :partial => 'spree/shared/setting_sub_nav_tab' %>
   <div id="content-header" data-hook="">
     <div class="container">
@@ -29,7 +30,16 @@
                  <%= f.text_field :company_name, class: 'fullwidth'  %>
                 </div>
                 <%=f.fields_for :org_addresses do |builder| %>
-                <%= render 'org_addresses_field', :ff => builder %>
+                <%= render 'org_address_fields', :f => builder %>
+                <span class="button fa fa-plus ">
+                 <%=link_to_add_fields_o "Add New address", f, :org_addresses%>
+                 </span>
+
+
+           
+
+                  <%#=link_to_remove_fields_o "Remove address", f %>
+                <%#=link_to_remove_fields_o "Remove address", f, :org_addresses%>
                 <%end%>
                 <div class="field" data-hook="admin_general_setting_mail_from_address">
                     <%= f.label :facebook_url,'Facebook Link' %>
@@ -81,3 +91,14 @@ font-size: 90%;">
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+function add_fields_o(link, association, content) {  
+    var new_id = new Date().getTime();  
+    var regexp = new RegExp("new_" + association, "g");  
+    $(link).parent().before(content.replace(regexp, new_id));  
+}
+function remove_fields_o(link) {
+$(link).prev("input[type=hidden]").val("1");
+$(link).closest(".org_addresses").hide(); 
+}
+  </script>>

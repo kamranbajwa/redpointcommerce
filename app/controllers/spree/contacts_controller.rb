@@ -3,9 +3,13 @@ class ContactsController < Spree::StoreController
  def new
     @message = Message.new
     @org=Spree::Organization.first
-    add=@org.org_addresses.first
-    @complte_address=[add.company_address, add.city, add.state, add.country,add.postal_code.to_s
-].compact.join(', ')
+    add=@org.org_addresses
+    array_address = add.pluck(:company_address, :city, :state, :country, :postal_code)
+    @complte_address=[];
+
+    array_address.each do |ad|
+    @complte_address << ad.join(" ")
+end
   end
 
   def create

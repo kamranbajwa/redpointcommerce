@@ -20,6 +20,7 @@ class Spree::Admin::OrganizationsController < Spree::Admin::ResourceController
   # GET /organizations/1/edit
   def edit
     @organization=Spree::Organization.find(params[:id])
+    2.times{@organization.org_addresses.build}
     if(@organization.org_addresses.length==0)
       @organization.org_addresses.create
     end

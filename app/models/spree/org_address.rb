@@ -1,5 +1,5 @@
 module Spree
-	class OrgAddress < ActiveRecord::Base
+	class OrgAddress < Spree::Base
 		 belongs_to :organization
 	end
 end
