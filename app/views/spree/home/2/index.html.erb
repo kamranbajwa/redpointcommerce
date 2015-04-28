@@ -44,10 +44,24 @@
    
     
     <!-- FEATURED BOXES 3 -->
+    <% data_pages = [{:img => "eye"}, 
+             {:img => "gal"}, 
+             {:img => "cal"}, 
+             {:img => "emo"}] %>
     <section class="container topHead-">
       <div class="row">
+        <% @static_pages.each_with_index do |page, index|%>
         <div class="col-md-3">
-          <div class="featured-box nobg border-only border-dot">
+        <div class="featured-box nobg border-only border-dot">
+            <div class="box-content"> <img width="56" height="40" src="assets/2/icon/<%=  data_pages[index][:img] %>.png">
+              <h4><%= page.title %></h4>
+              <hr>
+              <p class="center"> <%= truncate(strip_tags(page.description.html_safe), length: 50) %> </p>
+              <span class="pink-text"><a href="/page/<%= page.id%>">Read More...</a></span> </div>
+          </div>
+        </div>
+        <% end %>
+        <!--   <div class="featured-box nobg border-only border-dot">
             <div class="box-content"> <img width="56" height="40" src="assets/2/icon/eye.png">
               <h4>Unique Design</h4>
               <hr>
@@ -75,7 +89,7 @@
             <hr>
             <p class="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <span class="pink-text"><a href="#">Read More...</a></span> </div>
-        </div>
+        </div> -->
       </div>
     </section>
     <!-- /FEATURED BOXES 3 -->

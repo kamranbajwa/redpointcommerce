@@ -1,5 +1,6 @@
 class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
   before_action :current_template, only: [:index, :new]
+  before_action :get_templates, only: [:new, :edit, :update]
 
   def index
     @pages =  @current_template.first.cms_pages
@@ -11,13 +12,11 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
 
   def new
     @cms_page = Spree::CmsPage.new
-    @templates = Spree::Template.all.map {|a| [a.name, a.id]}
     @selected_template = @current_template.first.id
   end
 
   def edit
     @cms_page = Spree::CmsPage.find(params[:id])
-    @templates = Spree::Template.all.map {|a| [a.name, a.id]}
   end
 
   def update
@@ -26,7 +25,7 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
        format.html { redirect_to admin_cms_pages_path, notice: 'Spree::Cms Page was successfully updated.' }
         format.json { render action: 'index', status: :created, location: @cms_page }
       else
-        format.html { render action: 'edit' }
+        format.html { redirect_to edit_admin_cms_page_path(@cms_page), notice: "#{@cms_page.errors.full_messages.first}" }
         format.json { render json: @cms_page.errors, status: :unprocessable_entity }
       end
     end
@@ -61,6 +60,10 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
 
    def cms_page_params
       params.require(:cms_page).permit(:title, :description, :template_id, :meta_tags, :meta_description, :tag_list, :sort, :static_flag)
+   end
+
+   def get_templates
+      @templates = Spree::Template.all.map {|a| [a.name, a.id]}
    end
 
 end
