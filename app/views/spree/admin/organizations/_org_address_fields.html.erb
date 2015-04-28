@@ -1,0 +1,52 @@
+<div class="org_addresses">
+  <div class="field" data-hook="admin_general_setting_input_meta_description">
+    <%= f.label :country %>
+    <br>
+    <%= f.text_field :country, :class => 'fullwidth'   %>
+  </div>
+  <div class="field" data-hook="admin_general_setting_input_meta_description">
+    <%= f.label :company_address %>
+    <br>
+    <%= f.text_field :company_address, class: 'fullwidth'  %>
+  </div>
+  <div class="field" data-hook="admin_general_setting_input_meta_description">
+    <%= f.label :city %>
+    <br>
+    <%= f.text_field :city, :class => 'fullwidth'   %>
+  </div>
+   <div class="field" data-hook="admin_general_setting_input_meta_description">
+    <%= f.label :state %>
+    <br>
+    <%= f.text_field :state, :class => 'fullwidth'   %>
+  </div>
+  <div class="field" data-hook="admin_general_setting_input_url">
+    <%= f.label :postal_code ,'Postal code'%>
+    <br>
+    <%= f.text_field :postal_code, :class => 'fullwidth'  %>
+  </div>
+  <div class="field" data-hook="admin_general_setting_mail_from_address">
+      <%= f.label :phone_no %>
+    <br>
+    <%= f.text_field :phone_no, :class => 'fullwidth' %>
+  </div>
+  <div class="field">
+   <%= f.hidden_field :_destroy %>
+        <span class="button fa fa-minus ">
+         <%=link_to_remove_fields_o "Remve address", f %>
+  </span>   
+ 
+  </div>
+
+
+</div>
+<script>
+function add_fields_o(link, association, content) {  
+    var new_id = new Date().getTime();  
+    var regexp = new RegExp("new_" + association, "g");  
+    $(link).parent().before(content.replace(regexp, new_id));  
+}
+function remove_fields_o(link) {
+$(link).prev("input[type=hidden]").val("1");
+$(link).closest(".org_addresses").hide(); 
+}
+</script>

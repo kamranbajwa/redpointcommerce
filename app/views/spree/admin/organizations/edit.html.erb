@@ -1,3 +1,4 @@
+ <%= javascript_include_tag :defaults, :cache => true %>
  <%= render :partial => 'spree/shared/setting_sub_nav_tab' %>
   <div id="content-header" data-hook="">
     <div class="container">
@@ -28,36 +29,18 @@
                   <br>
                  <%= f.text_field :company_name, class: 'fullwidth'  %>
                 </div>
-                <div class="field" data-hook="admin_general_setting_input_meta_description">
-                  <%= f.label :country %>
-                  <br>
-                  <%= f.text_field :country, :class => 'fullwidth'   %>
-                </div>
-                <div class="field" data-hook="admin_general_setting_input_meta_description">
-                  <%= f.label :company_address %>
-                  <br>
-                  <%= f.text_field :company_address, class: 'fullwidth'  %>
-                </div>
-               <div class="field" data-hook="admin_general_setting_input_meta_description">
-                  <%= f.label :city %>
-                  <br>
-                  <%= f.text_field :city, :class => 'fullwidth'   %>
-                </div>
-                 <div class="field" data-hook="admin_general_setting_input_meta_description">
-                  <%= f.label :state %>
-                  <br>
-                  <%= f.text_field :state, :class => 'fullwidth'   %>
-                </div>
-                <div class="field" data-hook="admin_general_setting_input_url">
-                  <%= f.label :postal_code ,'Postal code'%>
-                  <br>
-                  <%= f.text_field :postal_code, :class => 'fullwidth'  %>
-                </div>
-                <div class="field" data-hook="admin_general_setting_mail_from_address">
-                    <%= f.label :phone_number %>
-                  <br>
-                  <%= f.text_field :phone_number, :class => 'fullwidth' %>
-                </div>
+                <%=f.fields_for :org_addresses do |builder| %>
+                <%= render 'org_address_fields', :f => builder %>
+                <span class="button fa fa-plus ">
+                 <%=link_to_add_fields_o "Add New address", f, :org_addresses%>
+                 </span>
+
+
+           
+
+                  <%#=link_to_remove_fields_o "Remove address", f %>
+                <%#=link_to_remove_fields_o "Remove address", f, :org_addresses%>
+                <%end%>
                 <div class="field" data-hook="admin_general_setting_mail_from_address">
                     <%= f.label :facebook_url,'Facebook Link' %>
                   <br>
@@ -108,3 +91,14 @@ font-size: 90%;">
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+function add_fields_o(link, association, content) {  
+    var new_id = new Date().getTime();  
+    var regexp = new RegExp("new_" + association, "g");  
+    $(link).parent().before(content.replace(regexp, new_id));  
+}
+function remove_fields_o(link) {
+$(link).prev("input[type=hidden]").val("1");
+$(link).closest(".org_addresses").hide(); 
+}
+  </script>>
