@@ -1,0 +1,33 @@
+<div class="row">
+<div class="col-md-9">
+<%products.each do |p|%>
+<div class="col-sm-6 col-md-3"><!-- item -->
+ 
+                   <% url = product_path(p) %>
+                   
+
+              <div class="item-box">
+                <figure>
+                  <a class="item-hover" href="<%=url%>">
+                    <span class="overlay color2"></span>
+                    <span class="inner">
+                      <span class="block fa fa-plus fsize20"></span>
+                      <strong>PRODUCT</strong> DETAIL
+                    </span>
+                  </a>
+                  <!-- <img src="/assets/1.jpg" class = "img-responsive"> -->
+                  <%= link_to product_image(p, :itemprop => "image", :class => "img-responsive",:style=>"max-width:100%;", rel: 'shadowbox' )%>
+                  <%= link_to url, :class => "btn btn-primary add_to_cart cart_popup", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "width: 100%" do %>
+                  <i class="fa fa-shopping-cart"></i> ADD TO CART
+                <% end %>
+                </figure>
+                
+                <div class="item-box-desc">
+                  <h4><%=p.name%></h4>
+                  <small class="styleColor"><span>$<%=p.price%></span></small>
+                </div>
+              </div>
+            </div>
+            <%end%>
+            </div>
+            </div>

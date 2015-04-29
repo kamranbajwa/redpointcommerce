@@ -77,12 +77,18 @@
             <!-- GLOBAL SEARCH -->
             <li class="search"> 
               <!-- search form -->
-              <form class="input-group pull-right" action="#" method="get">
+              <%= form_tag spree.products_path, class: "input-group pull-right",:method => :get do %>
+              <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search), :class => "search-text-area form-control" %>
+              <span class="input-group-btn">
+              <%= submit_tag Spree.t(:search), :name => nil,:class => "btn btn-primary notransition" %>
+               </span>
+            <% end %>
+            <!--   <form class="input-group pull-right" action="#" method="get">
                 <input type="text" placeholder="Search" value="" id="k" name="k" class="form-control">
                 <span class="input-group-btn">
                 <button class="btn btn-primary notransition" style="margin-top: 8px;"><i class="fa fa-search"></i></button>
                 </span>
-              </form>
+              </form> -->
               <!-- /search form --> 
             </li>
             <!-- /GLOBAL SEARCH --> 

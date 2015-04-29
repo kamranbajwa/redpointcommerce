@@ -867,7 +867,7 @@ function _toggle() {
 		});
 
 		jQuery('li.search input').bind("click", function() {
-			return false;
+			// return false;
 		});
 
 		jQuery('li.search').bind("click", function() {

@@ -19,7 +19,7 @@ a {
     line-height: inherit;
 }
 a:visited {
-    color: #fff;
+    color: #000;
 }
 a:visited:hover {
     color: #888;
@@ -247,4 +247,11 @@ fieldset {
 }
 .add-page{
     margin-right: -110px;
+}
+.white-text  a { color:#fff !important; font-size: 12px !important; width: 200px !important; }
+.fa-minus{
+    width: 200px;
+}
+.fa-plus{
+    width: 200px;
 }

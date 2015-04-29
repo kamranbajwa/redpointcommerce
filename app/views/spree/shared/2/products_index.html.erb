@@ -46,6 +46,18 @@ paginated_products ||= products
               </ul>
 </aside>
 <div class="col-md-9">
+<% if params[:keywords] %>
+  <div data-hook="search_results" class="container">
+
+      <% if @products.empty? %>
+        <h6 class="search-results-title min-product-height"><%= Spree.t(:no_products_found) %></h6>
+      <% else %>
+        <%= render :partial => "spree/shared/#{@selected_template.template_no}/products_search", :locals => { :products => @products, :taxon => @taxon } %>
+      <% end %>
+    </div>
+
+  <% else %>
+
 <%products.each do |p|%>
 <div class="col-sm-6 col-md-3"><!-- item -->
  
@@ -75,6 +87,7 @@ paginated_products ||= products
 							</div>
 						</div>
 						<%end%>
+						<% end %>
 						</div>
 						</div>
 						<% if paginated_products.respond_to?(:num_pages) %>
