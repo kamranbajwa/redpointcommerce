@@ -7,7 +7,7 @@ paginated_products ||= products
       
         <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
         <div class="col-md-3">
-          <div class="gallery-img"><%= link_to product_image(product, :itemprop => "image", :class => "img-responsive",:style=>"width:100%" ), url, :itemprop => 'url' %>
+          <div class="gallery-img"><%= link_to product_image(product, :itemprop => "image", :class => "img-responsive height-responsive-home",:style=>"width:100%" ), url, :itemprop => 'url' %>
             <div class="text-center">
               <h4><%= link_to truncate(product.name, :length => 25), url, :class => 'info', :itemprop => "name", :title => product.name %></h4>
               <p><%= display_price(product) %></p>
