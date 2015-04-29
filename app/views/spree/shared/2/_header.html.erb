@@ -78,9 +78,9 @@
             <li class="search"> 
               <!-- search form -->
               <%= form_tag spree.products_path, class: "input-group pull-right",:method => :get do %>
-              <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search), :class => "search-text-area form-control" %>
+              <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search), :class => "form-control" %>
               <span class="input-group-btn">
-              <%= submit_tag Spree.t(:search), :name => nil,:class => "btn btn-primary notransition" %>
+              <%= submit_tag Spree.t(:search), :name => nil,:class => "btn btn-primary notransition" %><i class="fa fa-search"></i>
                </span>
             <% end %>
             <!--   <form class="input-group pull-right" action="#" method="get">
