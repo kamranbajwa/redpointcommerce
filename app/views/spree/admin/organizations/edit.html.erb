@@ -32,7 +32,7 @@
                 <%=f.fields_for :org_addresses do |builder| %>
                 <%= render 'org_address_fields', :f => builder %>
                 <span class="button fa fa-plus ">
-                 <%=link_to_add_fields_o "Add New address", f, :org_addresses%>
+                 <%=link_to_add_fields_o "Add a new address", f, :org_addresses%>
                  </span>
 
 
@@ -71,7 +71,7 @@ font-size: 90%;">
                
                 
                 
-                <div class="form-buttons filter-actions actions" data-hook="buttons"> <a class="button " href="templates.html"><span class="text"><div class="actions">
+                <div class="form-buttons filter-actions actions" data-hook="buttons"> <a class="button "><span class="text"><div class="actions">
     <%= f.submit %>
   </div></span></a> </div>
               </fieldset>
@@ -82,7 +82,7 @@ font-size: 90%;">
         <aside  data-hook="" class="four columns"> <br>
           <nav class="menu">
             <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
-              <li class="active" ><a href="index.html">Information</a></li>
+              <li class="active" ><a href="#">Information</a></li>
               <li ><a href="/admin/logos"> Logo & Favicon </a></li>
 
             </ul>
