@@ -1,0 +1,138 @@
+header.header-style-1 .header-nav .navbar {
+	background: rgba(173, 80, 13, 1) !important;
+}
+header.header-style-1 .header-top {
+	background: rgba(139, 69, 19, 1) !important;
+}
+footer .links-social {
+	background: #ad500d !important;
+}
+footer .copyright {
+	background: #a34a0a !important;
+}
+footer .links-social .newsletter .input-group button {
+	background: #CB6312 !important;
+color: #fff !important;
+}
+.product .product-image .cart {
+	background: rgba(250, 131, 3, 0.66) !important;
+}
+footer .links-social .social-newsletter .social-links ul li a {
+	border: 1px solid #fff !important;
+}
+h3.title {
+	color: #fff !important;
+}
+footer .links-social .link-groups .links ul li a {
+	color: #fff !important;
+}
+footer .links-social .newsletter .input-group {
+	border: 1px solid #BE4811 !important;
+background: #91420E !important;
+}
+
+::-webkit-input-placeholder {
+ color: #f7cdae !important;
+}
+footer .links-social .newsletter .input-group input {
+	color: #fff !important;
+}
+header.header-style-1 .header-nav .cnt-search .input-group {
+	border: 1px solid #c0560b !important;
+	background: rgba(163, 74, 10, 0.80) !important;
+}
+.btn-default {
+	color: #fff !important;
+	background-color: #fff;
+	border-color: #ccc;
+}
+header.header-style-1 .header-nav .cnt-search .input-group input {
+	color: #fff !important;
+}
+footer .links-social .social-newsletter .social-links ul li a {
+	color: #fff !important;
+}
+footer .copyright {
+	color: #fff !important;
+}
+/*..........................................*/
+
+
+input[type="button"], input[type="reset"], button, a.button {
+	background-color: #e76406 !important;
+	border-radius: 0px !important;
+	border-top: solid 1px !important;
+	border: 1px solid #f66c09 !important;
+	font-size: 15px !important;
+	font-family: arial;
+	font-weight: normal !important;
+	padding-top: 7px !important;
+	padding-bottom: 7px !important;
+}
+.btn-primary {
+	color: #fff;
+	background-color: #e76406 !important;
+	border-color: #d4e7f7 !important;
+}
+table thead {
+	background-color: #FBDDBD !important;
+text-transform: uppercase;
+}
+table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
+	background-color: #F7F1D4 !important;
+}
+.cart-subtotal, .cart-total {
+	background: #F1C4A3 !important;
+color: black !important;
+}
+::selection {
+	background: #105593;
+	color: white;
+	text-shadow: none;
+}
+.next:hover {
+	color: #105593 !important;
+}
+.search-text-area {
+	border: 1px solid #C7660D !important;
+background: rgba(81, 38, 5, 0.66) !important;
+}
+input[type="submit"] {
+	background-color: #A5610B !important;
+border-color: #8E5E08 !important;
+}
+.header-top .cnt-cart .list-unstyled > li > a:active {
+	color: #fff !important;
+}
+.cnt-strip .strip {
+	background: rgba(231, 95, 4, 0.44) !important;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+	background: rgba(0, 0, 0, 0.5) !important;
+	color: #555
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+color: #fff !important;
+background-color: #C58B34 !important;
+border-color: #a26408 !important;
+border-radius: 1px !important;
+}
+
+li.current-first, .progress-steps li.current:hover {
+background-color: #C58B34; !important;
+color: white !important;
+}
+.progress-steps li.current-first, .progress-steps li.current {
+background-color: #C58B34;
+color: white;
+}
+
+.btn-primary {
+color: #fff;
+background-color: #8B390B !important;
+border-color: #81260A !important;
+border-radius: 1px !important;
+}
+h4 a{ color:#000;}
+.similar_items_by_taxon > li > a{ color:#000;}

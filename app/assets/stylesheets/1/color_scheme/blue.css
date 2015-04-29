@@ -66,7 +66,7 @@ color: #fff !important;}
 
 
 input[type="button"], input[type="reset"], button, a.button {
-background-color: #d4e7f7 !important;
+background-color: #105593 !important;
 border-radius: 0px !important;
 border-top: solid 1px !important;
 border: 1px solid #000 !important;
@@ -79,8 +79,8 @@ padding-bottom: 7px !important;
 
 .btn-primary {
 color: #fff;
-background-color: #d4e7f7 !important;
-border-color: #d4e7f7 d4e7f7;
+background-color: #105593 !important;
+border-color: #d4e7f7 !important;
 }
 
 
@@ -112,4 +112,30 @@ text-shadow: none;
 
 .next:hover {
 color: #105593 !important;
+}
+
+
+
+.search-text-area {
+border: 1px solid #174976 !important;
+background: rgba(5, 45, 81, 0.66) !important;
+}
+
+input[type="submit"] {
+background-color: #073d6d !important;
+border-color: #084f8e !important;
+}
+.header-top .cnt-cart .list-unstyled > li > a:active {
+color: #fff !important;
+}
+
+.cnt-strip .strip {
+
+background: rgba(16, 85, 147, 0.44) !important;
+
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+	background: rgba(0, 0, 0, 0.5) !important;
+	color: #555
 }

@@ -1043,7 +1043,7 @@ span.js_loader {
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
-	min-height: 315px;
+	min-height: 372px;
 }
 .item-box.fullwidth {
 	max-width: 100%;
@@ -4938,3 +4938,4 @@ border-radius: 6px !important;
     position: absolute;
 }
 .wrapper-padding{ padding-top: 80px !important;}
+.responsive-height {min-height: 182px;}
