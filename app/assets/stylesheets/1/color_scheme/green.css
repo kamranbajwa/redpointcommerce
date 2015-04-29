@@ -121,7 +121,7 @@ border-radius: 1px !important;
 }
 
 li.current-first, .progress-steps li.current:hover {
-background-color: #638009; !important;
+background-color: #638009 !important;
 color: white !important;
 }
 .progress-steps li.current-first, .progress-steps li.current {
