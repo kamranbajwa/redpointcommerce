@@ -44,14 +44,10 @@ var geocoder;
                      plotMarkers();
                     }
         function setAddress(address){
-          console.log('aa'+address.replace(/&quot;/g, '"'));
-        
           locationsArray=address.replace(/&quot;/g, '"');
-          console.log([locationsArray])
-          locationsArray = [locationsArray]
-          console.log('loc+aftre'+locationsArray)
+          locationsArray= locationsArray.split(",")
          }
-         console.log(locationsArray[0])
+         // console.log(locationsArray[0])
         function plotMarkers(){
           for(var i = 0; i < locationsArray.length; i++){
             codeAddresses(locationsArray[i]);
