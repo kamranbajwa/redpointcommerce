@@ -31,6 +31,7 @@
                 </div>
                 <%=f.fields_for :org_addresses do |builder| %>
                 <%= render 'org_address_fields', :f => builder %>
+                <%end%>
                 <span class="button fa fa-plus ">
                  <%=link_to_add_fields_o "Add a new address", f, :org_addresses%>
                  </span>
@@ -40,7 +41,7 @@
 
                   <%#=link_to_remove_fields_o "Remove address", f %>
                 <%#=link_to_remove_fields_o "Remove address", f, :org_addresses%>
-                <%end%>
+                
                 <div class="field" data-hook="admin_general_setting_mail_from_address">
                     <%= f.label :facebook_url,'Facebook Link' %>
                   <br>
@@ -99,6 +100,6 @@ function add_fields_o(link, association, content) {
 }
 function remove_fields_o(link) {
 $(link).prev("input[type=hidden]").val("1");
-$(link).closest(".org_addresses").hide(); 
+$(link).closest(".org_addresses").hide();
 }
   </script>>
