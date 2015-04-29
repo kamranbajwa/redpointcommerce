@@ -27,7 +27,7 @@ var geocoder;
              }
              else
            {
-               alert("Geocode was not successful for the following reason: " + status);
+               //alert("Geocode was not successful for the following reason: " + status);
                        }
            });
 
@@ -65,7 +65,7 @@ var geocoder;
         markersArray.push(marker); 
         }
         else{
-        alert("Geocode was not successful for the following reason: " + status);
+        //alert("Geocode was not successful for the following reason: " + status);
         }
         });
         }
@@ -74,9 +74,9 @@ var geocoder;
   $(document).ready(function() {
       $('#contact_us').submit(function(){
       window.location.reload(true);
-      $('.alert-success').removeClass('hide');
+      $('.//alert-success').removeClass('hide');
       setTimeout(function() {
-      $('.alert-success').hide();
+      $('.//alert-success').hide();
       }, 3000);
     })
   });
