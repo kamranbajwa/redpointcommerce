@@ -37,7 +37,7 @@
      		
          
           <div class="field" >
-                <%= f.select :theme_color, [ 'lightgrey','yellow', 'orange', 'green', 'red','blue','purple'], :prompt => 'Select One' , :class => 'fullwidth'
+                <%= f.select :theme_color, @template.themes.collect {|p| [ p.name, p.name ] }, :prompt => 'Select One' , :class => 'fullwidth'
                 %>
             </div>
                 
@@ -54,7 +54,7 @@
            <fieldset>
   <div class="form-buttons filter-actions actions" data-hook="buttons">
        
-         <a class="button " href="/admin/templates"><span class="text white_color">Back</span></a>
+         <a class="button" href="/admin/templates"><span class="text white_color">Back</span></a>
        
         <span class="or">or</span>
         <a class="button "><span class="text"><%= f.submit "Save" %></span></a>

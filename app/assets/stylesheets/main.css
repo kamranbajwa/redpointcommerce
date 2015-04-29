@@ -856,7 +856,6 @@ header.header-style-1 .header-nav .navbar-nav {
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
-    background: rgba(0, 0, 0, 0.7) !important;
     color: #555
 }
 header.header-style-1 .header-nav .navbar-nav > li > a {
@@ -4087,7 +4086,7 @@ footer .copyright a:active {
 }
 
 a {
-    color: #acacac ;
+    color: #fff ;
     text-decoration: none;
 }
 
@@ -4124,18 +4123,18 @@ a {
 }*/
 
 .search-button {
-    background-color: #000 !important;
-    border: 1px solid #000 !important;
-    border-radius: 5px !important;
+    background-color: #000;
+    border: 1px solid #000;
+    border-radius: 5px;
 }
 .search-button:hover {
-    background-color: #343434 !important;
+    background-color: #343434;
 }
 .search-text-area {
-    border: 1px solid #000 !important;
-    background: #000 !important;
+    border: 1px solid #000;
+    background: #000;
     border-radius: 5px;
-    color: white !important;
+    color: white;
 }
 
 ::-webkit-input-placeholder {
@@ -4198,7 +4197,8 @@ a {
 
 }
 .navbar-nav>li:hover {
-    background: #000 !important;
+    background: rgba(0,0,0,0.5);
+    color: #555;
 }
 .error-messages {
     z-index: 999999;
@@ -4297,16 +4297,16 @@ span.price, #checkout-summary table tr[data-hook="item_total"] td:last-child str
 }
 
 .progress-steps li.current-first, .progress-steps li.current {
-    background-color: #717176 !important;
-    color: white !important;
+    background-color: #717176;
+    color: white;
 }
 .progress-steps li.current-first, .progress-steps li.current:hover {
-    background-color: #717176 !important;
-    color: white !important;
+    background-color: #717176;
+    color: white;
 }
 
 input[type="submit"], input[type="button"], input[type="reset"], button, a.button {
-    background-color: #717170 !important;
+    /*background-color: #717170 !important;*/
 }
 
 .progress-steps li.completed-first:hover, .progress-steps li.completed:hover {
@@ -4316,22 +4316,22 @@ input[type="submit"], input[type="button"], input[type="reset"], button, a.butto
 
 
 input[type="button"], input[type="reset"], button, a.button {
-    background-color: #000 !important;
-    border-radius: 0px !important;
-    border-top: solid 1px !important;
-    border: 1px solid #000 !important;
-    font-size: 15px !important;
+    background-color: #000;
+    border-radius: 0px;
+    border-top: solid 1px;
+    border: 1px solid #000;
+    font-size: 15px;
     font-family: arial;
-    font-weight: normal !important;
-    padding-top:7px !important;
-    padding-bottom:7px !important;
+    font-weight: normal;
+    padding-top:7px;
+    padding-bottom:7px;
 
 }
 input[type="submit"] {
-    background-color: #000 !important;
-    border-radius: 0px !important;
-    border-top: solid 1px !important;
-    border: 1px solid #000 !important;
+    background-color: #000;
+    border-radius: 0px;
+    border-top: solid 1px;
+    border: 1px solid #000;
 }
 input[type="submit"].gray, input[type="button"].gray, input[type="reset"].gray, button.gray, a.button.gray {
 
@@ -4356,3 +4356,4 @@ input[type="submit"].gray, input[type="button"].gray, input[type="reset"].gray, 
     width: 100%;
 }
 .wrapper-padding{ padding-top: 80px !important;}
+#content{ margin-top: 25px;}
