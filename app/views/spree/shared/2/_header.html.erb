@@ -13,14 +13,14 @@
       <div class="pull-right nav signin-dd"> 
 
       <% if spree_user_signed_in? %>
-      <a href="<%= spree_logout_path%>" id="quick_sign_in"><i class="fa fa-users"></i><span class="hidden-xs"> Sign Out</span>
+      <a href="<%= spree_logout_path%>" id="quick_sign_in"><i class="fa"></i><span class="hidden-xs"> Sign Out</span>
         <a href="/account" id="quick_sign_in"><i class="fa fa-users"></i><span class="hidden-xs">My Account</span>
       </a>
       <%else%>
       <a href="/login" id="quick_sign_in"><i class="fa fa-users"></i><span class="hidden-xs"> Sign In</span>
       </a>
        <%end%>
-          <a href="/cart" id="quick_sign_in"><i class="fa fa-users"></i><span class="hidden-xs">Cart</span>
+          <a href="/cart" id="quick_sign_in"><i class="fa fa-shopping-cart"></i><span class="hidden-xs">Cart</span>
       </a>
       </div>
       <!-- /SIGN IN --> 
