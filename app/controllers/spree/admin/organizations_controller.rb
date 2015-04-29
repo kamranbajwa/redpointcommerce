@@ -45,7 +45,6 @@ class Spree::Admin::OrganizationsController < Spree::Admin::ResourceController
   # PATCH/PUT /organizations/1
   # PATCH/PUT /organizations/1.json
   def update
-    debugger
     respond_to do |format|
       if @organization.update(organization_params)
         format.html { redirect_to edit_admin_organization_path(@organization), notice: 'Spree::Organization was successfully updated.' }
