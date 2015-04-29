@@ -4,6 +4,7 @@ class Template < Spree::Base
 	has_one :spree_logo, :class_name => 'Spree::Logo'
 	has_one :spree_favicon, :class_name => 'Spree::Favicon'
 	has_many :cms_pages, :class_name => 'Spree::CmsPage'
+	has_many :themes
 
 	scope :selected, -> { where(selected: true) }
 end
