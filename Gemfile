@@ -6,6 +6,7 @@ gem 'rails', '4.1.8'
 gem 'pg'
 #gem 'sqlite3'
 gem 'execjs'
+gem 'spree_social_products', github: 'spree-contrib/spree_social_products', branch: '2-4-stable'
 
 gem 'therubyracer'
 gem 'rmagick'
@@ -45,7 +46,6 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
