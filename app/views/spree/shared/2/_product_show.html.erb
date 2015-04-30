@@ -88,7 +88,6 @@
                          <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
                       </p>
                     </div>
-       
                     <!-- /product description -->
 
                     <div class="socialApis">
@@ -96,13 +95,10 @@
 
                       <!-- facebook -->
                       <div class="api">
-            
+                      
 
-  
-
-                   <a href="https://facebook.com/sharer.php?u=<%=request.url%>">Facebook</a>
+                   <div class="fb-like" data-href="<%=request.url%>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                       </div>
-<!-- <%=request.url%> -->
                       <!-- twitter -->
                       <div class="api">
                         <a href=<%=request.url%> class="twitter-share-button" data-lang="en">Tweet</a>
@@ -181,24 +177,4 @@
 
       </div>
     </div>
-
-    <script>
-
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1401713220152013',
-      xfbml      : true,
-      version    : 'v2.3'
-    });
-
-    // ADD ADDITIONAL FACEBOOK CODE HERE
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
+    
