@@ -28,7 +28,7 @@ paginated_products ||= products
 							<p>Showing <%=show_arr[1]%>-<%=show_arr[0]%> of <%=show_arr[2]%> results.</p>
 							
 							<%else%>
-							<p>Showing 1-<%=products.count%> of <%=total_product.to_i%> results.</p>
+							<p>Showing 1-<%=products.count%> of <%=Spree::Product.count.to_i%> results.</p>
 							<%end%>
 							<%end%>
 						</div>
