@@ -1,5 +1,13 @@
 module Spree
   module BaseHelper
+    def show_product_on_pages(page,p_on_current_page)
+      page_no=page
+      product_on_current_page=p_on_current_page
+      total_product=Spree::Product.count
+      display_count=(page_no.to_i-1)*12+product_on_current_page.to_i
+      staring_p_count=(page_no.to_i-1)*12+1
+      return [display_count,staring_p_count,total_product]
+    end
 
 def link_to_add_fields_o(name, f, association)  
   new_object = f.object.class.reflect_on_association(association).klass.new  
