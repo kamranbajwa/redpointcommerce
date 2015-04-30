@@ -255,3 +255,7 @@ fieldset {
 .fa-plus{
     width: 200px;
 }
+.remove-border
+{
+    padding: 8px 8px !important;
+}
