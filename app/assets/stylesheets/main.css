@@ -4086,8 +4086,11 @@ footer .copyright a:active {
 }
 
 a {
-    color: #fff ;
+    color: #666666;
     text-decoration: none;
+}
+#link-to-cart a {
+    color: #ddd;
 }
 
 .image-100 {
@@ -4257,7 +4260,7 @@ a {
 }
 
 #order_details .steps-data div.columns:first-child, #order_summary .steps-data div.columns:first-child {
-    margin-left: 30px !important;
+    text-align: center;
 }
 #order_details .steps-data h6, #order_summary .steps-data h6 {
     border-bottom: 1px solid #d9d9db;
@@ -4272,6 +4275,7 @@ a {
 
 strong {
     margin-left: 15px;
+    display: block;
 }
 
 .min-product-height {
@@ -4354,6 +4358,7 @@ input[type="submit"].gray, input[type="button"].gray, input[type="reset"].gray, 
     overflow: hidden;
     min-height: 550px;
     width: 100%;
+    margin-bottom: 10px;
 }
 .wrapper-padding{ padding-top: 80px !important;}
 #content{ margin-top: 25px;}
@@ -4361,6 +4366,7 @@ input[type="submit"].gray, input[type="button"].gray, input[type="reset"].gray, 
 .product-image {
 margin-left: 5px;
 margin-right: 5px;
+width: 98%;
 }
 
 
@@ -4420,3 +4426,11 @@ left: 0px;
 }
 
 }
+
+#product-images #main-image img {
+  min-height: 240px;
+  min-width: 366px;
+}
+
+.responsive-height {min-height: 182px;}
+.height-responsive-home{min-height: 240px;}
