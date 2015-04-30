@@ -89,21 +89,13 @@
                       </p>
                     </div>
                     <!-- /product description -->
-                    <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1430065913907266";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 
                     <div class="socialApis">
                       <h3 class="page-header">TELL TO YOUR FRIENDS</h3>
 
                       <!-- facebook -->
                       <div class="api">
-                       <div class="fb-like" data-href=<%=request.url%> data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                        <div class="fb-like" data-href=<%=request.url%> data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
                       </div>
 
                       <!-- twitter -->
