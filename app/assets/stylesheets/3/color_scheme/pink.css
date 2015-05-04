@@ -1,0 +1,97 @@
+.menu-color {
+background: #970023 !important;
+text-align: center;
+padding: 20px;
+}
+.header-color {
+background: #470010 !important;
+position: relative;
+}
+a:hover, a:focus, .active {
+    color: #E0DEDE !important;
+}
+.section-counter:before {
+background-color: #5c0016 !important;
+}
+.btn-primary {
+    background-color: #5c0016 !important;
+    border-color: #5c0016 !important;
+}
+table thead {
+    background-color: #5c0016!important;
+    text-transform: uppercase;
+}
+table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
+    background-color: #fff !important;
+}
+.cart-subtotal, .cart-total {
+    background: #fff!important;
+    color: black !important;
+}
+::selection {
+    background: #5c0016;
+    color: white;
+    text-shadow: none;
+}
+.header-top .cnt-cart .list-unstyled > li > a:active {
+    color: #fff !important;
+}
+.btn-default {
+    color: #fff !important ;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.progress-steps li.current-first, .progress-steps li.current {
+    background-color: #5c0016!important;
+    color: white;
+}
+.progress-steps li.current-first, .progress-steps li:hover {
+    background-color: #5c0016!important;
+    color: white;
+}
+input[type="submit"].gray, input[type="button"].gray, input[type="reset"].gray, button.gray, a.button.gray {
+    background-color: #5c0016!important;
+    border-color: #5c0016!important;
+}
+ul#products li .price {
+color: #754649 !important;
+}
+ul#products li a.info {
+  color: #7E7777 !important
+}
+.menu-sep a {
+color: #e9e9e9;
+}
+.sub-menu a {
+    color: #000 !important;
+}
+.sub-menu a:hover {
+    color:#4a1609 !important;
+}
+.number-amount{ 
+    color:#fff;
+}
+.info a{
+    color:#fff;
+}
+.more-color {
+    color: #e9e9e9 !important;
+}
+.shopping-icon .number-amount {
+    background-color: #AF0909;
+}
+.mobile-menu-wrap {
+    background-color: #660909;
+}
+.mobile-menu-wrap a {
+    color: #E2E2E2;
+    display: block;
+    padding-left: 30px;
+}
+table thead tr th {
+    padding: 5px 10px;
+    color: #fff;
+}
+span.price, #checkout-summary table tr[data-hook="item_total"] td:last-child strong, #checkout-summary table #summary-order-total, #order_details td.price span, #order_details td.total span, #order_summary td.price span, #order_summary td.total span, table#cart-detail tbody#line_items tr td[data-hook="cart_item_price"], table#cart-detail tbody#line_items tr td[data-hook="cart_item_total"], div[data-hook="inside_cart_form"] #subtotal span.order-total {
+color: #470010;
+}

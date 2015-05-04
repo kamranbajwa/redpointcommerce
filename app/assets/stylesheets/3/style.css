@@ -4009,3 +4009,6 @@ padding: 10px;}
 .responsive-height{ min-height: 200px;}
 .more-li { margin-top: -2px;}
 .more-color { color: #9c9797 !important;}
+.header-color{background:#000; position:relative;}
+.menu-color{background:#202020; text-align:center; padding:20px;}
+.nav-align{text-align:center; margin-bottom: -16px;}
