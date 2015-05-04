@@ -45,12 +45,13 @@ class Spree::Admin::OrganizationsController < Spree::Admin::ResourceController
   # PATCH/PUT /organizations/1
   # PATCH/PUT /organizations/1.json
   def update
+    debugger
     respond_to do |format|
       if @organization.update(organization_params)
-        format.html { redirect_to edit_admin_organization_path(@organization), notice: 'Spree::Organization was successfully updated.' }
+        format.html { redirect_to edit_admin_organization_path(@organization), notice: 'Organization was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { redirect_to edit_admin_organization_path(@organization), notice: 'Organization was noy updated.Please update it again' }
         format.json { render json: @organization.errors, status: :unprocessable_entity }
       end
     end
@@ -76,7 +77,7 @@ class Spree::Admin::OrganizationsController < Spree::Admin::ResourceController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def organization_params
-      params.require(:organization).permit(:company_code,:facebook_url,:twitter_url,:google_url,:central_time,org_addresses_attributes: [:id, :company_name, :country,:company_address,:city, :state, :postel_code,:phone_no, :_destroy])
+      params.require(:organization).permit(:company_name,:company_code,:facebook_url,:twitter_url,:google_url,:central_time,org_addresses_attributes: [:id, :company_name, :country,:company_address,:city, :state, :postal_code,:phone_no, :_destroy])
       #params[:organization].permit[:all]
     end
 end
