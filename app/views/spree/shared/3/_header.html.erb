@@ -22,8 +22,8 @@
     </div>
   </div>
   <!-- end mobile-menu-wrap -->
-  <div style="background:#000; position:relative">
-    <div style="background:#202020; text-align:center; padding:20px;">
+  <div class="header-color">
+    <div class="menu-color">
       <figure class="logo"> <a href="/" title="logo" rel="home"> <img alt="Atropos" src="<%= Spree::Logo.last.avatar.url(:logo)%>" </a>
         <div class=" nav-menu" style="float:right;"> <a href=<%= @org.facebook_url|| '#'%> target="_blank"><img src="/assets/<%= @selected_template.template_no%>/social/f-icon.png"></a> <a href=<%= @org.google_url|| '#'%> target="_blank"><img src="/assets/<%= @selected_template.template_no%>/social/g-icon.png"></a> <a href=<%= @org.twitter_url|| '#'%> target="_blank"><img src="/assets/<%= @selected_template.template_no%>/social/t-icon.png"></a> </div>
       </figure>
@@ -31,7 +31,7 @@
     <!-- end col-sm-3 -->
     
     <div class="container abc">
-      <div class="col-md-12 nav-menu " style="text-align:center; margin-bottom: -16px;">
+      <div class="col-md-12 nav-menu nav-align">
         <div class="col-md-2"></div>
         <div class="col-md-8">
         
