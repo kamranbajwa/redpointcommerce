@@ -30,22 +30,19 @@
     <%= f.text_field :phone_no, :class => 'fullwidth' %>
   </div>
   <div class="field">
-   <%= f.hidden_field :_destroy %>
         <span class="button fa fa-minus ">
-         <span class="white-text"><%=link_to_remove_fields_o "Remove address", f  %></span>
-  </span>   
+         <span class="white-text">
+            <%= f.hidden_field :_destroy %>
+            <%=link_to_remove_fields_o "Remove address", f  %>
+          </span>
+        </span>   
  
   </div>
 
 
 </div>
 <script>
-function add_fields_o(link, association, content) {  
-    var new_id = new Date().getTime();  
-    var regexp = new RegExp("new_" + association, "g");  
-    $(link).parent().before(content.replace(regexp, new_id));  
-}
-function remove_fields_o(link) {
+function remove_fields_o(link,f) {
 $(link).prev("input[type=hidden]").val("1");
 $(link).closest(".org_addresses").hide(); 
 }

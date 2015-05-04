@@ -33,7 +33,7 @@
                 <%= render 'org_address_fields', :f => builder %>
                 <%end%>
                 <span class="button fa fa-plus ">
-                 <span class="white-text"><%=link_to_add_fields_o "Add a new address", f, :org_addresses%></span>
+                 <%=link_to_add_fields_o "Add a new address", f, :org_addresses%>
                  </span>
                 
                 <div class="field" data-hook="admin_general_setting_mail_from_address">
@@ -86,3 +86,10 @@ font-size: 90%;">
       </div>
     </div>
   </div>
+<script>
+function add_fields_o(link, association, content) {  
+    var new_id = new Date().getTime();  
+    var regexp = new RegExp("new_" + association, "g");  
+    $(link).parent().before(content.replace(regexp, new_id));  
+}
+</script>
