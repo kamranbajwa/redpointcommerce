@@ -1,0 +1,72 @@
+input[type='text'], input[type='email'], select, textarea {
+font-style: italic;
+width: 100%;
+border-radius: 6px;
+border: solid 1px #dedede;
+}
+
+.btn-facebook {
+background: #3b5997;
+color: #fff !important;
+}
+
+.btn-facebook, .btn-twitter, .btn-google-plus {
+font-size: 14px !important;
+height: 40px;
+line-height: 40px;
+display: inline-block;
+text-decoration: none !important;
+margin-bottom: 3px;
+}
+
+.radius3 {
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+.fullwidth {
+width: 100% !important;
+}
+
+.btn-facebook {
+background: #3b5997;
+color: #fff !important;
+}
+
+.btn-twitter {
+background: #41b7d8;
+color: #fff !important;
+}
+
+.btn-google-plus {
+background: #d64937;
+color: #fff !important;
+}
+
+
+.btn-facebook:hover {
+background: #37548e;
+}
+.btn-twitter:hover {
+background: #33b0d5;
+}
+
+.btn-google-plus:hover {
+background: #c43c28;
+}
+input, textarea {
+border: solid 1px #dedede !important;
+}
+
+.btn-facebook i.fa, .btn-twitter i.fa, .btn-google-plus i.fa {
+font-size: 23px;
+float: left;
+height: 40px;
+line-height: 40px;
+padding: 0;
+margin: 0 10px 0 0;
+width: 40px;
+text-align: center;
+position: relative;
+border-right: rgba(255,255,255,0.2) 1px solid;
+}
