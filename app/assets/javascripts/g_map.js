@@ -5,7 +5,7 @@ var geocoder;
 
 
    function initialize() 
-    { console.log(locationsArray)
+    { //console.log(locationsArray)
         geocoder = new google.maps.Geocoder();
 
     latlang = geocoder.geocode( { 
@@ -35,7 +35,7 @@ var geocoder;
           var myOptions = 
           {
             center: latlang, 
-            zoom: 5, 
+            zoom: 3, 
          
           };
           map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
@@ -45,16 +45,18 @@ var geocoder;
           locationsArray=address.replace(/&quot;/g, '"');
           locationsArray= locationsArray.split(",")
          }
-         // console.log(locationsArray[0])
+         //console.log(locationsArray[0])
         function plotMarkers(){
-          for(var i = 0; i < locationsArray.length; i++){
+          for(var i = 1; i < locationsArray.length; i++){
+            //console.log('loop to plot marker')
             codeAddresses(locationsArray[i]);
             //marker.setTitle("aas");
           }
         }
 
+
          function codeAddresses(address){
-          console.log('ad'+address)
+          //console.log('ad'+address)
          geocoder.geocode( { 'address': address}, function(results, status) { 
          if (status == google.maps.GeocoderStatus.OK) {
             map.setCenter(results[0].geometry.location);
@@ -74,9 +76,9 @@ var geocoder;
   $(document).ready(function() {
       $('#contact_us').submit(function(){
       window.location.reload(true);
-      $('.//alert-success').removeClass('hide');
+      $('.alert-success').removeClass('hide');
       setTimeout(function() {
-      $('.//alert-success').hide();
+      $('.alert-success').hide();
       }, 3000);
     })
   });
