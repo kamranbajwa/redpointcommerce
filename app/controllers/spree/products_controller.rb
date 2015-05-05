@@ -11,8 +11,18 @@ module Spree
     def index
       @searcher = build_searcher(params.merge(include_images: true))
       @products = @searcher.retrieve_products
+        if params[:AZ]=="true"
+          @products=@products.order(:name)
+        elsif params[:ZA]=="true"
+          @products=@products.order(:name).reverse
+        elsif params[:HL]=="true"
+          @products=@products.descend_by_master_price
+        elsif  params[:LH]=="true"
+          @products=@products.ascend_by_master_price
+      end
       @taxonomies = Spree::Taxonomy.all
       render :template => "/spree/shared/#{@selected_template.template_no}/products_index.html.erb", :locals => {:products => @products,:taxonomies => @taxonomies, :searcher => @searcher, :taxon =>@taxon }
+
     end
 
     def show
@@ -24,7 +34,6 @@ module Spree
       @simlier_product=  @taxns.products.limit 4
 
     end
-
     private
       def accurate_title
         if @product

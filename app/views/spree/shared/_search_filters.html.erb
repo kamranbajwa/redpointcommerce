@@ -1,0 +1,19 @@
+ <% if params[:keywords] %>
+	<%= form_tag spree.products_path, :method => :get do %>
+		<h4>Filter</h4>
+		<%= hidden_field_tag :AZ, false %>
+		<%= check_box_tag :AZ, checked = true %> A-Z Sorting</br>
+		<%= hidden_field_tag :ZA, false %>
+		<%= check_box_tag :ZA, checked = true %> Z-A Sorting</br>
+		<%= hidden_field_tag :LH, false %>
+		<%= check_box_tag :LH, checked = true %> Low to high</br>
+		<%= hidden_field_tag :HL, false %>
+		<%= check_box_tag :HL, checked = true %> High to low</br>
+		<%= hidden_field_tag :BM, false %>
+		<%= check_box_tag :BM, checked = true %> Best match</br>
+		<%= hidden_field_tag :keywords, params[:keywords] %>
+		<hr class="half-margins">
+
+		<%= submit_tag Spree.t(:search), :name => nil,:class => "search-button" %>
+	<%end%>
+<%end%>
