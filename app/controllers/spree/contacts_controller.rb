@@ -4,7 +4,7 @@ class ContactsController < Spree::StoreController
     @message = Spree::Message.new
     @org=Spree::Organization.first
     add=@org.org_addresses
-    array_address = add.pluck(:company_address, :city, :state, :country, :postal_code)
+    array_address = add.pluck(:company_address, :city, :state, :country)
     @complte_address=[];
 
     array_address.each do |ad|

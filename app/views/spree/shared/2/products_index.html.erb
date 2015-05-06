@@ -43,7 +43,9 @@ paginated_products ||= products
   <% end %>
     <% end %>
      </ul>
+     <% if @products.present? %>
      <%= render :partial => 'spree/shared/search_filters' %>
+     <%end%>
 
 </aside>
 <div class="col-md-9">

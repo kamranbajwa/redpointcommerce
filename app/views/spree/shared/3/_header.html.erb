@@ -64,9 +64,10 @@
                 <% end %>
             <% end %>
             <span class="menu-sep"> <a href="/page/<%= @about_page.first.try(:id)%>"> About Us </a></span>
-            <span class="menu-sep"><a href="/messages"> Contacts</a></span>
+            <span class="menu-sep"><a href="/messages"> Contact Us</a></span>
           </center>
         </div>
+        
         <div class="col-md-2"> <span class="nav-menu pull-right" >
           <ul class="nav navbar-nav" style="margin-top:0px;">
             <li><a href="/cart"><i class="fa fa-shopping-cart"></i></a> <span class="number-amount"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span> </a>
