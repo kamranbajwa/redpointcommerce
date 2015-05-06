@@ -11,66 +11,46 @@ paginated_products ||= products
     <%= rel_next_prev_link_tags paginated_products %>
   <% end %>
 <% end %>
-<!-- <div class="row top-shop-option">
-						<div class="col-sm-6 col-md-6">
-							<p>Showing 1-12 of <%=products.count%> results.</p>
-						</div>
-						
-					</div> -->
-					
-<div class="row">
-<div class="custom-alert alert-success" style="display: none;"> Successfully Added </div>
-<aside class="col-md-3">
-<div class="col-sm-12 col-md-12 no-padding" >
-							<%if Spree::Product.count>12 and params[:controller]=="spree/products"%>
-							<%if params[:page]%>
+  <div class="row">
+    <div class="custom-alert alert-success" style="display: none;"> Successfully Added </div>
+      <aside class="col-md-3">
+        <div class="col-sm-12 col-md-12 no-padding" >
+					<%if Spree::Product.count>12 and params[:controller]=="spree/products"%>
+						<%if params[:page]%>
 							<%show_arr=show_product_on_pages(params[:page],products.count)%>
 							<p>Showing <%=show_arr[1]%>-<%=show_arr[0]%> of <%=show_arr[2]%> results.</p>
-							
-							<%else%>
+						<%else%>
 							<p>Showing 1-<%=products.count%> of <%=Spree::Product.count.to_i%> results.</p>
-							<%end%>
-							<%end%>
-						</div>
-
-	<h3>CATEGORIES</h3><!-- h3 - have no margin-top -->
-              <ul class="nav nav-list">
-
-                <% if "spree/products" == params[:controller] && taxon %>
-      <%= render :partial => 'spree/shared/filters' %>
-    <% else %>
-     <%#= render :partial => "spree/shared/#{@selected_template.template_no}/products_index" %>
-     <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
-
-
-  <% @taxonomies.each do |taxonomy| %>
-    <% cache [I18n.locale, taxonomy, max_level] do %>
-  
-      <%= taxons_tree_products_list(taxonomy.root, @taxon) %>
-    <% end %>
-  <% end %>
-    <% end %>
-              </ul>
-</aside>
-<div class="col-md-9">
-<% if params[:keywords] %>
-  <div data-hook="search_results" class="container">
-
-      <% if @products.empty? %>
-        <h6 class="search-results-title min-product-height"><%= Spree.t(:no_products_found) %></h6>
-      <% else %>
-        <%= render :partial => "spree/shared/#{@selected_template.template_no}/products_search", :locals => { :products => @products, :taxon => @taxon } %>
-      <% end %>
-    </div>
-
-  <% else %>
-
-<%products.each do |p|%>
-<div class="col-sm-6 col-md-3"><!-- item -->
- 
-                   <% url = product_path(p) %>
-                   
-
+						<%end%>
+					<%end%>
+				</div>
+      	<h3>CATEGORIES</h3><!-- h3 - have no margin-top -->
+        <ul class="nav nav-list">
+          <% if "spree/products" == params[:controller] && taxon %>
+            <%= render :partial => 'spree/shared/filters' %>
+          <% else %>
+            <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+            <% @taxonomies.each do |taxonomy| %>
+              <% cache [I18n.locale, taxonomy, max_level] do %>
+              <%= taxons_tree_products_list(taxonomy.root, @taxon) %>
+            <% end %>
+          <% end %>
+          <% end %>
+        </ul>
+      </aside>
+      <div class="col-md-9">
+        <% if params[:keywords] %>
+          <div data-hook="search_results" class="container">
+            <% if @products.empty? %>
+              <h6 class="search-results-title min-product-height"><%= Spree.t(:no_products_found) %></h6>
+            <% else %>
+              <%= render :partial => "spree/shared/#{@selected_template.template_no}/products_search", :locals => { :products => @products, :taxon => @taxon } %>
+            <% end %>
+          </div>
+        <% else %>
+          <%products.each do |p|%>
+            <div class="col-sm-6 col-md-3"><!-- item -->
+              <% url = product_path(p) %>
 							<div class="item-box">
 								<figure>
 									<a class="item-hover" href="<%=url%>">
