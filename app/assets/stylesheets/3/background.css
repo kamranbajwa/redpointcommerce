@@ -29,23 +29,8 @@
 }
 
 /* 2. Custom Front Page */
-.front-header {
-  background: url('/assets/3/header.jpg') repeat-y center bottom;
-  max-width: 100%;
-  min-height: 570px;
-  position: relative;
-  overflow-y: hidden;
-}
-.front-header:before {
- 
-  width: 100%;
-  height: 100%;
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: .7;
-}
+
+
 
 /* 3. Blog Single */
 .blog-single-header {
