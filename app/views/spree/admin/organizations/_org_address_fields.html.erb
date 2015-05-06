@@ -1,24 +1,26 @@
 <div class="org_addresses">
-  <div class="field" data-hook="admin_general_setting_input_meta_description">
-    <%= f.label :country %>
-    <br>
-    <%= f.text_field :country, :class => 'fullwidth'   %>
-  </div>
-  <div class="field" data-hook="admin_general_setting_input_meta_description">
+<div class="field" data-hook="admin_general_setting_input_meta_description">
     <%= f.label :company_address %>
     <br>
     <%= f.text_field :company_address, class: 'fullwidth'  %>
   </div>
   <div class="field" data-hook="admin_general_setting_input_meta_description">
-    <%= f.label :city %>
+    <%= f.label :country %>
     <br>
-    <%= f.text_field :city, :class => 'fullwidth'   %>
+    <%= f.text_field :country, :class => 'fullwidth'   %>
   </div>
    <div class="field" data-hook="admin_general_setting_input_meta_description">
     <%= f.label :state %>
     <br>
     <%= f.text_field :state, :class => 'fullwidth'   %>
   </div>
+  
+  <div class="field" data-hook="admin_general_setting_input_meta_description">
+    <%= f.label :city %>
+    <br>
+    <%= f.text_field :city, :class => 'fullwidth'   %>
+  </div>
+  
   <div class="field" data-hook="admin_general_setting_input_url">
     <%= f.label :postal_code ,'Postal code'%>
     <br>

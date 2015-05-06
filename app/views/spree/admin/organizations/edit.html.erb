@@ -29,6 +29,8 @@
                   <br>
                  <%= f.text_field :company_name, class: 'fullwidth'  %>
                 </div>
+                <br>
+                <h1> Address Details</h1>
                 <%=f.fields_for :org_addresses do |builder| %>
                 <%= render 'org_address_fields', :f => builder %>
                 <%end%>
