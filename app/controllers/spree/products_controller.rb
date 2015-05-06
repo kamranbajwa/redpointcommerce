@@ -1,6 +1,7 @@
 module Spree
   class ProductsController < Spree::StoreController
     before_action :load_product, only: :show
+    before_action :search_products, only: :index
     before_action :load_taxon, only: :index
 
     rescue_from ActiveRecord::RecordNotFound, :with => :render_404
@@ -9,20 +10,8 @@ module Spree
     respond_to :html
 
     def index
-      @searcher = build_searcher(params.merge(include_images: true))
-      @products = @searcher.retrieve_products
-        if params[:AZ]=="true"
-          @products=@products.order(:name)
-        elsif params[:ZA]=="true"
-          @products=@products.order(:name).reverse
-        elsif params[:HL]=="true"
-          @products=@products.descend_by_master_price
-        elsif  params[:LH]=="true"
-          @products=@products.ascend_by_master_price
-      end
       @taxonomies = Spree::Taxonomy.all
       render :template => "/spree/shared/#{@selected_template.template_no}/products_index.html.erb", :locals => {:products => @products,:taxonomies => @taxonomies, :searcher => @searcher, :taxon =>@taxon }
-
     end
 
     def show
@@ -35,6 +24,19 @@ module Spree
 
     end
     private
+    def search_products
+      @searcher = build_searcher(params.merge(include_images: true))
+      @products = @searcher.retrieve_products
+        if params[:AZ]=="true"
+          @products=@products.order(:name)
+        elsif params[:ZA]=="true"
+          @products=@products.order(:name).reverse
+        elsif params[:HL]=="true"
+          @products=@products.descend_by_master_price
+        elsif  params[:LH]=="true"
+          @products=@products.ascend_by_master_price
+        end
+    end
       def accurate_title
         if @product
           @product.meta_title.blank? ? @product.name : @product.meta_title
