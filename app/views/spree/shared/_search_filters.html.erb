@@ -7,7 +7,6 @@
 		<%else%>
 		<%= check_box_tag :BM, checked = true, {:checked => "checked"}  %> Best match</br>
 		<%end%>
-		<%= check_box_tag :BM, true, params[:keywords] and (params[:AZ] or params[:ZA] or params[:LH] or params[:HL])  %> Best match</br>
 		<%#= hidden_field_tag :AZ, false %>
 		<%= check_box_tag :AZ, true, params[:AZ] %> Z-A sorting</br>
 		<%= check_box_tag :ZA, true, params[:ZA]%>A-Z sorting</br>
