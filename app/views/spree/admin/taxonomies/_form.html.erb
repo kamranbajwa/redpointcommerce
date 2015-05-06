@@ -2,6 +2,13 @@
   <%= f.field_container :name do %>
     <%= f.label :name, Spree.t(:name) %> <span class="required">*</span><br />
     <%= error_message_on :taxonomy, :name, :class => 'fullwidth title' %>
-    <%= text_field :taxonomy, :name %>
+    <%= text_field :taxonomy, :name %><br /><br /><br />
+    <div class="category-wrapper">
+    <% if @taxonomy.cat_image.exists? %>
+	  <%= image_tag @taxonomy.cat_image.url %><br/>
+	<% end %>
+	</div>
+    <%= f.label :image %>
+    <%= f.file_field :cat_image %>
   <% end %>
 </div>

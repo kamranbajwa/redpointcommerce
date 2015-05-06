@@ -12,7 +12,7 @@
 
 <%= render 'spree/admin/shared/product_sub_menu' %>
 
-<%= form_for [:admin, @taxonomy] do |f| %>
+<%= form_for [:admin, @taxonomy], multipart: true do |f| %>
 
   <%= render :partial => 'form', :locals => { :f => f } %>
   <fieldset class="no-border-top">
