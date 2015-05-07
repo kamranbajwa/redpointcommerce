@@ -1,3 +1,6 @@
+<%= javascript_include_tag "/assets/3/jquery.min.js" %>
+<%= javascript_include_tag "/assets/3/bootstrap.min.js" %>
+<%#= javascript_include_tag :/3/jquery.min.js -%>
 <div style="background: rgba(255, 255, 255, 0.4); position:absolute; width:100%; z-index:9;">
 <div class="container">
 <table width="100%" border="0">
@@ -33,11 +36,11 @@ padding-left: 7px; background: rgba(255, 255, 255, 0.8);"%>
   <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
    <% if index == 0 %>
     <div class="item active">
-      <img src="<%= image.slider_image.url(:xlarge)%>" alt="Chania">
+      <img src="<%= image.slider_image.url(:xlarge)%>" alt="Slider">
     </div>
     <%else%>
       <div class="item ">
-      <img src="<%= image.slider_image.url(:xlarge)%>" alt="Chania">
+      <img src="<%= image.slider_image.url(:xlarge)%>" alt="Slider">
     </div>
     <%end%>
 
@@ -55,10 +58,6 @@ padding-left: 7px; background: rgba(255, 255, 255, 0.8);"%>
     <span class="sr-only">Next</span>
   </a>
 </div>
-
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <section class="section-quote">
   <div class="container">
     <div class="quote-body col-md-12">

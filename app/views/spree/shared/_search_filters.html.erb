@@ -19,14 +19,4 @@
 		<%= submit_tag Spree.t(:search), :name => nil,:class => "search-button" %>
 	<%end%>
 <%end%>
-<script type="text/javascript">
-$(document).ready(function(){
-	$(function() { 
-  		$('input[type="checkbox"]').bind('click',function() 
-  		{
-  			$('input[type="checkbox"]').not(this).prop("checked", false);
-  		});
-	});
-
-});
-</script>
+<%= javascript_include_tag "/assets/shared/search_filters.js" %>
