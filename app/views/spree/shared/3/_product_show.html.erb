@@ -6,13 +6,14 @@
 
               <div class="row">
                 <div class="col-sm-6 col-md-6">
-                  <div class="owl-carousel controlls-over product-image" data-plugin-options='{"items": 1, "singleItem": true, "navigation": true, "pagination": true, "transitionStyle":"fadeUp"}'>
-                    <div>
-                      <% if defined?(image) && image %>
-                          <%= image_tag image.attachment.url(:product), :itemprop => "image" , :class => "full_width" %>
-                      <% else %>
-                        <%= product_image(@product, :itemprop => "image", :class => "full_width") %>
-                      <% end %>
+                  <div id="product-images" data-hook="product_images">
+                    <div id="main-image" class="line-hat" data-hook>
+                      <div class="product-image-wrapper">
+                        <%= render :partial => 'image' %>
+                      </div>
+                    </div>
+                    <div id="thumbnails" data-hook>
+                      <%= render :partial => 'thumbnails' %>
                     </div>
                   </div>
                 </div>
@@ -81,9 +82,10 @@
 
                       <!-- facebook -->
                       <div class="api">
-                        <div class="fb-like" data-href=<%=request.url%> data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
-                      </div>
+                      
 
+                   <div class="fb-like" data-href=<%=request.url%>  data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                      </div>
                       <!-- twitter -->
                       <div class="api">
                         <a href=<%=request.url%> class="twitter-share-button" data-lang="en">Tweet</a>
@@ -140,7 +142,7 @@
                     </span>
                   </a>
                  
-                  <%= link_to product_image(p, :itemprop => "image", :class => "img-responsive",:style=>"width:100%;" )%>
+                  <%= link_to product_image(p, :itemprop => "image", :class => "img-responsive",:style=>"max-width:100%;" )%>
 
                   <div class="btn btn-primary add_to_cart btn-space"><i class="fa fa-shopping-cart"></i> ADD TO CART</div>
                 </figure>
