@@ -4012,3 +4012,11 @@ padding: 10px;}
 .header-color{background:#000; position:relative;}
 .menu-color{background:#202020; text-align:center; padding:20px;}
 .nav-align{text-align:center; margin-bottom: -16px;}
+.glyphicon-chevron-left:before {
+    content:url(/assets/left.png);
+
+}
+
+.glyphicon-chevron-right:before {
+    content:url(/assets/right.png);
+}
