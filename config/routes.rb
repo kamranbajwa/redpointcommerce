@@ -8,7 +8,7 @@ SpreeExample::Application.routes.draw do
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  #match "spree/admin/imports" => "admin/imports#p_import", via: :post
   get '/aboutus', :to => 'spree/statics#aboutus'
   get '/contactus', :to => 'spree/statics#contactus'
   get '/faq', :to => 'spree/statics#faq'
@@ -80,6 +80,9 @@ SpreeExample::Application.routes.draw do
   Spree::Core::Engine.add_routes do
   namespace :admin do
     resources :logos
+    resources :imports do
+  collection { post :p_import }
+end
     resources :favicons 
     resources :slider_images
     resources :organizations
