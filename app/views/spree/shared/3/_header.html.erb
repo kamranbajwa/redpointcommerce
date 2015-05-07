@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/assets/<%= @selected_template.template_no%>/slider.css" />
 <!-- HEADER -->
 
-<header class="front-header" style="height:129px !important;" >
+<header class="front-header">
   <div class="menu-open">
     <div class="fa fa-bars"></div>
   </div>
@@ -73,6 +73,7 @@
           <ul class="nav navbar-nav" style="margin-top:0px;">
             <li><a href="/cart"><i class="fa fa-shopping-cart"></i></a> <span class="number-amount"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span> </a>
             </li>
+            <li><a href="#" type=button value='HIDE' onclick="toggle()" id='tst'> <i class="fa fa-search"></i></a></li>
           </ul>
           </span> </div>
       </div>
@@ -120,6 +121,7 @@
             <% end %>
             <li class="pull-right" style="margin-right:35px;" ><a href="/cart"><i class="fa fa-shopping-cart"></i></a> <span class="number-amount"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span> </a>
             </li>
+            <li><a href="#" type=button value='HIDE' onclick="toggle()" id='tst'> <i class="fa fa-search"></i></a></li>
           </ul>
         </nav>
       </div>
@@ -144,3 +146,32 @@
   ga('send', 'pageview');
 
 </script>
+
+<div style="display: none;
+position: absolute;
+z-index: 99999999;
+width: 100%;
+background: rgba(255, 255, 255, 0.8);" id='fxm'>
+<div class="container">
+
+<table width="100%" border="0">
+  <tr>
+    <th width="90%" ><input type="text" class="" placeholder="Search" style="width: 100%; padding-left: 20px;background: transparent;" /></th>
+    <th width="10%" ><i class="fa fa-search"></i></th>
+  </tr>
+</table>
+</div></div>
+
+<script type="text/javascript">
+function toggle() {
+ var oDiv = document.getElementById('fxm')
+ var oBtn = document.getElementById('tst')
+ if (oBtn.value=='SHOW') {
+  oDiv.style.display = 'block'
+  oBtn.value='HIDE'
+ } else {
+  oDiv.style.display = 'none'
+  oBtn.value='SHOW'
+ }
+}
+    </script>

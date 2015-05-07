@@ -1,18 +1,16 @@
 <%= form_for Spree::User.new, :as => :spree_user, :url => spree.create_new_session_path do |f| %>
   <div id="password-credentials">
-    <p>
       <%= f.label :email, Spree.t(:email) %><br />
-      <%= f.email_field :email, :class => 'title', :tabindex => 1, autofocus: true %>
-    </p>
-    <p>
+      <%= f.email_field :email, :class => 'title size-login-field', :tabindex => 1, autofocus: true %><br />
       <%= f.label :password, Spree.t(:password) %><br />
-      <%= f.password_field :password, :class => 'title', :tabindex => 2 %>
-    </p>
+      <%= f.password_field :password, :class => 'title size-login-field', :tabindex => 2 %>
   </div>
-  <p>
     <%= f.check_box :remember_me, :tabindex => 3 ,:class => "checkbox-bottom"%>
       <%= f.label :remember_me, Spree.t(:remember_me) %>
-    </p>
 
-    <p><%= f.submit Spree.t(:login), :class => 'button gray', :tabindex => 4 %></p>
+    <p><%= f.submit Spree.t(:login), :class => 'button gray size-login-button', :tabindex => 4 %></p>
   <% end %>
+
+  <script type="text/javascript">
+    $(".error-messages").show().delay(1000).fadeOut();
+  </script>

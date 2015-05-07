@@ -1,0 +1,36 @@
+span.price, #checkout-summary table tr[data-hook="item_total"] td:last-child strong, #checkout-summary table #summary-order-total, #order_details td.price span, #order_details td.total span, #order_summary td.price span, #order_summary td.total span, table#cart-detail tbody#line_items tr td[data-hook="cart_item_price"], table#cart-detail tbody#line_items tr td[data-hook="cart_item_total"], div[data-hook="inside_cart_form"] #subtotal span.order-total {
+font-weight: bold;
+color: #ffa622;
+}
+.btn-primary {
+color: #ffffff;
+background-color: #727276 !important;
+border-color: #59595c !important;
+}
+table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
+background-color: #F8F8F8;
+}
+span.price, #checkout-summary table tr[data-hook="item_total"] td:last-child strong, #checkout-summary table #summary-order-total, #order_details td.price span, #order_details td.total span, #order_summary td.price span, #order_summary td.total span, table#cart-detail tbody#line_items tr td[data-hook="cart_item_price"], table#cart-detail tbody#line_items tr td[data-hook="cart_item_total"], div[data-hook="inside_cart_form"] #subtotal span.order-total {
+font-weight: bold;
+color: #FF9011;
+}
+table thead {
+background-color: #F3F3F5;
+text-transform: uppercase;
+}
+.cart-subtotal, .cart-total {
+background: #F3F3F5;
+}
+.progress-steps li.current-first, .progress-steps li.current {
+background-color: #4A5052;
+color: white;
+}
+span.price, #checkout-summary table tr[data-hook="item_total"] td:last-child strong, #checkout-summary table #summary-order-total, #order_details td.price span, #order_details td.total span, #order_summary td.price span, #order_summary td.total span, table#cart-detail tbody#line_items tr td[data-hook="cart_item_price"], table#cart-detail tbody#line_items tr td[data-hook="cart_item_total"], div[data-hook="inside_cart_form"] #subtotal span.order-total {
+font-weight: bold;
+color: #ffa622 !important;
+}
+.progress-steps li.current-first, .progress-steps li:hover {
+    background-color: #727276 !important;
+    color: white;
+}
+

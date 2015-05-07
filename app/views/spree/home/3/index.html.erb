@@ -1,24 +1,6 @@
 <%= javascript_include_tag "/assets/3/jquery.min.js" %>
 <%= javascript_include_tag "/assets/3/bootstrap.min.js" %>
 <%#= javascript_include_tag :/3/jquery.min.js -%>
-<div style="background: rgba(255, 255, 255, 0.4); position:absolute; width:100%; z-index:9;">
-<div class="container">
-<table width="100%" border="0">
-  <tr>
-  <%= form_tag spree.products_path, :method => :get do %>
-    <th width="90%" >
-  <%= search_field_tag :keywords, params[:keywords],:style=>"width: 100%;
-border-radius: 7px;
-padding-left: 7px; background: rgba(255, 255, 255, 0.8);"%>
-</th>
-    <th width="10%" ><%= submit_tag Spree.t(:search), :name => nil,:class => "search-button" %>
-</th>
-<% end %>
-  </tr>
-</table>
-
- </div>
-</div>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
    <ol class="carousel-indicators">

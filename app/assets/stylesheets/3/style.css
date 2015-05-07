@@ -206,6 +206,10 @@ section {
   -webkit-transition: background .2s;
   transition: background .2s;
 }
+.front-header
+{
+  height: 134px !important;
+}
 .front-header .container {
   height: 100%;
 }
@@ -3462,7 +3466,7 @@ border-bottom:1px solid #d0d5d9;
   }
   .blog-header,
   .front-header{  
-    overflow: hidden;
+    /*overflow: hidden;*/
   }
   /*team*/
   .team-text-inner .sub-info{
@@ -4060,3 +4064,29 @@ ul#products li {
 #content{
   margin-top: 10px;
 }
+@media (max-width: 479px) {
+  table#cart-detail tbody tr td[data-hook="cart_item_image"] img{
+    max-width: none;
+    height: 50px
+
+  }
+ }
+ @media only screen and (max-width: 767px) and (min-width: 480px){
+.responsive-height {
+min-height: initial;
+width: 100%;
+}
+ul#products li .product-image {
+min-height: initial !important;
+}
+}
+#order_details .steps-data div.columns:first-child, #order_summary .steps-data div.columns:first-child {
+  margin-left: 50px;
+}
+@media (max-width: 500px){
+.carousel {
+position: relative;
+margin-top: -37px;
+}
+}
+
