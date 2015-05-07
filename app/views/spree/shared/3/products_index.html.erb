@@ -1,38 +1,6 @@
 <div class="container top-space">
   <br>
   <%= flash_messages %>
-
-  <% if params[:keywords] %>
-    <aside class="col-md-3">
-    <% if "spree/products" == params[:controller] && @taxon %>
-      <%= render :partial => 'spree/shared/filters' %>
-    <% else %>
-      <%= render :partial => 'spree/shared/taxonomies_products' %>
-    <% end %>
-    <% if @products.present? %>
-<%= render :partial => 'spree/shared/search_filters' %>
-<%end%>
-     </aside>
-  <div data-hook="search_results">
-      <% if @products.empty? %>
-        <h6 class="search-results-title min-product-height"><%= Spree.t(:no_products_found) %></h6>
-      <% else %>
-         <div class="col-md-9">
-        <%= render :partial => "spree/shared/#{@selected_template.template_no}/products", :locals => { :products => @products, :taxon => @taxon } %>
-        </div>
-      <% end %>
-
-    </div>
-
-  <% else %>
-    <% if "spree/products" == params[:controller] && @taxon %>
-      <%= render :partial => 'spree/shared/filters' %>
-    <% else %>
-      <%= render :partial => 'spree/shared/taxonomies_products' %>
-    <% end %>
-  </div>
-
-<div data-hook="homepage_products">
 <%
 paginated_products = @searcher.retrieve_products if params.key?(:keywords)
 paginated_products ||= products
@@ -43,41 +11,79 @@ paginated_products ||= products
     <%= rel_next_prev_link_tags paginated_products %>
   <% end %>
 <% end %>
+  <div class="row">
+    <div class="custom-alert alert-success" style="display: none;"> Successfully Added </div>
+      <aside class="col-md-3">
+        <div class="col-sm-12 col-md-12 no-padding" >
+          <%if Spree::Product.count>12 and params[:controller]=="spree/products"%>
+            <%if params[:page]%>
+              <%show_arr=show_product_on_pages(params[:page],products.count)%>
+              <p>Showing <%=show_arr[1]%>-<%=show_arr[0]%> of <%=show_arr[2]%> results.</p>
+            <%else%>
+              <p>Showing 1-<%=products.count%> of <%=Spree::Product.count.to_i%> results.</p>
+              <%end%>
+              <%end%>
+            </div>
 
-<div data-hook="products_search_results_heading">
-  <% if products.empty? %>
-  <div data-hook="products_search_results_heading_no_results_found" class="min-product-height">
-      <%= Spree.t(:no_products_found) %>
+  <h3>CATEGORIES</h3><!-- h3 - have no margin-top -->
+              <ul class="nav nav-list">
+
+                <% if "spree/products" == params[:controller] && taxon %>
+      <%= render :partial => 'spree/shared/filters' %>
+    <% else %>
+     <%#= render :partial => "spree/shared/#{@selected_template.template_no}/products_index" %>
+     <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+
+
+  <% @taxonomies.each do |taxonomy| %>
+    <% cache [I18n.locale, taxonomy, max_level] do %>
+  
+      <%= taxons_tree_products_list(taxonomy.root, @taxon) %>
+    <% end %>
+  <% end %>
+    <% end %>
+     </ul>
+     <% if @products.present? %>
+     <%= render :partial => 'spree/shared/search_filters' %>
+     <%end%>
+
+</aside>
+<div class="col-md-9">
+  <% if params[:keywords] %>
+    <div data-hook="search_results" class="container">
+      <% if @products.empty? %>
+        <h6 class="search-results-title min-product-height"><%= Spree.t(:no_products_found) %></h6>
+      <% else %>
+        <%= render :partial => "spree/shared/#{@selected_template.template_no}/products_search", :locals => { :products => @products, :taxon => @taxon } %>
+        <% if paginated_products.respond_to?(:num_pages) %>
+          <%= paginate paginated_products%>
+        <%end%>
+      <% end %>
     </div>
-  <% elsif params.key?(:keywords) %>
-    <div data-hook="products_search_results_heading_results_found">
-      <h6 class="search-results-title"><%= Spree.t(:search_results, :keywords => h(params[:keywords])) %></h6>
-    </div>
+  <% else %>
+    <% if products.any? %>
+      <ul id="products" class="inline product-listing" data-hook>
+        <% products.each do |product| %>
+          <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
+          <li id="product_<%= product.id %>" class="col-md-3 product new-width" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
+            <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
+              <div class="product-image">
+                <%= link_to product_image(product, :itemprop => "image", :class => "image-100 responsive-height" ), url, :itemprop => 'url' %>
+              </div>
+              <%= link_to truncate(product.name, :length => 50), url, :class => 'info', :itemprop => "name", :title => product.name %>
+              <span class="price selling" itemprop="price"><%= display_price(product) %>
+              </span>
+            <% end %>
+          </li>
+        <% end %>
+        <% reset_cycle("classes") %>
+      </ul>
+    <% end %>
   <% end %>
 </div>
-
-<% if products.any? %>
-  <ul id="products" class="inline product-listing" data-hook>
-    <% products.each do |product| %>
-      <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
-      <li id="product_<%= product.id %>" class="col-md-3 product new-width" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
-        <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
-          <div class="product-image">
-            <%= link_to product_image(product, :itemprop => "image", :class => "image-100 responsive-height" ), url, :itemprop => 'url' %>
-          </div>
-          <%= link_to truncate(product.name, :length => 50), url, :class => 'info', :itemprop => "name", :title => product.name %>
-          <span class="price selling" itemprop="price"><%= display_price(product) %>
-          </span>
-        <% end %>
-      </li>
-    <% end %>
-    <% reset_cycle("classes") %>
-  </ul>
-<% end %>
-
+</div>
 <% if paginated_products.respond_to?(:num_pages) %>
   <%= paginate paginated_products%>
 <% end %>
 </div>
-<% end %>
-</div>
+
