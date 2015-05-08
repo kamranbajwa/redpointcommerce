@@ -33,65 +33,8 @@
       </div> -->
 
     </div><!-- /.wide-slider -->
-
-    <div  class="container">		
-      <div class="wide-banners wow fadeInUp">
-        <div class="row">
-
-          <div class="col-md-6">
-            <div class="wide-banner cnt-strip">
-              <div class="image">
-                <img src="/assets/banners/2.jpg" alt="">
-              </div>	
-              <div class="strip">
-                <h6>2015 NEW Warehouse</h6>
-                <h3>Warehouse</h3>
-              </div>
-            </div><!-- /.wide-banner-->
-          </div><!-- /.col -->
-
-          <div class="col-md-3">
-            <div class="wide-banner cnt-strip">
-              <div class="image">
-                <img src="/assets/banners/3.jpg" alt="">
-              </div>	
-              <div class="strip">
-                <div class="strip-inner">
-                  <h5>Warehouse  2016</h5>
-                  <h3>Warehouse</h3>
-                </div>	
-              </div>
-            </div><!-- /.wide-banner-->
-          </div><!-- /.col -->
-
-          <div class="col-md-3">
-            <div class="wide-banner cnt-strip">
-              <div class="image">
-                <img src="/assets/banners/1.jpg" alt="">
-              </div>	
-              <div class="strip">
-                <div class="strip-inner">
-                  <h5>NEW Warehouse 2015</h5>
-                  <h3>Warehouse</h3>
-                </div>	
-              </div>
-            </div><!-- /.wide-banner-->
-          </div><!-- /.col -->
-
-        </div><!-- /.row -->
-      </div><!-- /.wide-banners -->
       <!-- ============================================== SCROLL TABS ============================================== -->
       <div id="product-tabs-slider" class="scroll-tabs wow fadeInUp">
-        <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
-
-        <% @taxonomies.each do |taxonomy| %>
-          <% cache [I18n.locale, taxonomy, max_level] do %>
-            <%= taxons_tree(taxonomy.root, @taxon, max_level) %>
-          <% end %>
-        <% end %>
-        <div id="category-products" class="">
-
-        </div>
         <div class="clearfix"></div>
 
 <%#*<div class="tab-content">%>
