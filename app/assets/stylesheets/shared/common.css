@@ -1,5 +1,15 @@
-.size-login-field{ height: 40px;}
+.input-width{ 
+  width: 100%;
+  padding-top: 0px !important;
+  padding-bottom: 0px!important;
+}
+.rememerme{  
+  margin-top: 3px;
+  position: absolute;
+  padding-left: 3px;
+}
 .size-login-button{ width: 200px; height: 43px;}
+
  @media only screen and (max-width: 500px){
 	#update-cart #subtotal, #update-cart .links { width: 100% !important; float: left; text-align: left;}
 	.btn { width: 100%; }

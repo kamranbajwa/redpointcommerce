@@ -18,7 +18,11 @@
           <li><a href="/page/<%= @about_page.first.try(:id)%>">about us</a></li>
           <li><a href="/products">service</a></li>
           <li><a href="/messages"> Contacts</a></li>
-          <li><a href="">Login</a></li>
+           <% if spree_user_signed_in? %>
+           <li> <%=  link_to 'Sign Out', spree_logout_path %></li>
+          <% else %>
+          <li><a href="/login">Login</a></li>
+          <% end %>
         </ul>
       </nav>
     </div>
