@@ -15,7 +15,7 @@ paginated_products ||= products
     <div class="custom-alert alert-success" style="display: none;"> Successfully Added </div>
       <aside class="col-md-3">
         <div class="col-sm-12 col-md-12 no-padding" >
-					<%if Spree::Product.count>12 and params[:controller]=="spree/products"%>
+					<%if Spree::Product.count>12 and params[:controller]=="spree/products" and !params[:keywords].present?%>
 						<%if params[:page]%>
 							<%show_arr=show_product_on_pages(params[:page],products.count)%>
 							<p>Showing <%=show_arr[1]%>-<%=show_arr[0]%> of <%=show_arr[2]%> results.</p>
