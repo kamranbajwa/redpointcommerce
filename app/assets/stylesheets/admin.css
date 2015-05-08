@@ -259,4 +259,7 @@ fieldset {
 {
     padding: 8px 8px !important;
 }
+.center-product-csv{
+   text-align: center;
+}
 /*.category-wrapper{ width: 300px; height: 200px;}*/

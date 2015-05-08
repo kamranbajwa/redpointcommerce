@@ -1,6 +1,16 @@
 <div class="container top-space">
   <br>
   <%= flash_messages %>
+   <div class="col-sm-12 col-md-12 no-padding" style="padding-left:0px" >
+          <%if Spree::Product.count>12 and params[:controller]=="spree/products" and !params[:keywords].present?%>
+            <%if params[:page]%>
+              <%show_arr=show_product_on_pages(params[:page],products.count)%>
+              <p>Showing <%=show_arr[1]%>-<%=show_arr[0]%> of <%=show_arr[2]%> results.</p>
+            <%else%>
+              <p>Showing 1-<%=products.count%> of <%=Spree::Product.count.to_i%> results.</p>
+              <%end%>
+              <%end%>
+            </div>
 
   <% if params[:keywords] %>
     <aside class="col-md-3">
