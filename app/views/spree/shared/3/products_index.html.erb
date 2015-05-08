@@ -1,6 +1,5 @@
 <div class="container top-space">
   <br>
-  <%= flash_messages %>
 <%
 paginated_products = @searcher.retrieve_products if params.key?(:keywords)
 paginated_products ||= products

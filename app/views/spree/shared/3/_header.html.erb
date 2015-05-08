@@ -18,6 +18,7 @@
           <li><a href="/page/<%= @about_page.first.try(:id)%>">about us</a></li>
           <li><a href="/products">service</a></li>
           <li><a href="/messages"> Contacts</a></li>
+          <li><a href="">Login</a></li>
         </ul>
       </nav>
     </div>
@@ -33,7 +34,7 @@
     
     <div class="container abc">
       <div class="col-md-12 nav-menu nav-align">
-        <div class="col-md-2"></div>
+        <div class="col-md-1"></div>
         <div class="col-md-8">
         
        
@@ -69,11 +70,16 @@
           </center>
         </div>
         
-        <div class="col-md-2"> <span class="nav-menu pull-right" >
+        <div class="col-md-3"> <span class="nav-menu" >
           <ul class="nav navbar-nav" style="margin-top:0px;">
+          <% if spree_user_signed_in? %>
+           <li> <%=  link_to 'Sign Out', spree_logout_path %></li>
+          <% else %>
+          <li><a href="/login">Login</a></li>
+          <% end %>
             <li><a href="/cart"><i class="fa fa-shopping-cart"></i></a> <span class="number-amount"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span> </a>
             </li>
-            <li><a href="#" type=button value='HIDE' onclick="toggle()" id='tst'> <i class="fa fa-search"></i></a></li>
+            <li><a href="#" type=button value='HIDE' id='tst'> <i class="fa fa-search"></i></a></li>
           </ul>
           </span> </div>
       </div>
@@ -119,9 +125,11 @@
                 <li><a href="/page/<%= page.id %>"><%= page.title%></a> </li>
                 <% end %>
             <% end %>
+
             <li class="pull-right" style="margin-right:35px;" ><a href="/cart"><i class="fa fa-shopping-cart"></i></a> <span class="number-amount"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span> </a>
             </li>
-            <li><a href="#" type=button value='HIDE' onclick="toggle()" id='tst'> <i class="fa fa-search"></i></a></li>
+            <li><a href="">Login</a></li>
+            <li><a href="#" type=button value='HIDE' id='tst'> <i class="fa fa-search"></i></a></li>
           </ul>
         </nav>
       </div>
@@ -147,31 +155,25 @@
 
 </script>
 
-<div style="display: none;
-position: absolute;
-z-index: 99999999;
-width: 100%;
-background: rgba(255, 255, 255, 0.8);" id='fxm'>
+<div  class="law-search" id='fxm'>
 <div class="container">
 
 <table width="100%" border="0">
-  <tr>
-    <th width="90%" ><input type="text" class="" placeholder="Search" style="width: 100%; padding-left: 20px;background: transparent;" /></th>
-    <th width="10%" ><i class="fa fa-search"></i></th>
+<tr>
+  <%= form_tag spree.products_path, :method => :get do %>
+    <th width="90%" >
+  <%= search_field_tag :keywords, params[:keywords],:style=>"width: 100%;
+padding-left: 20px;background: transparent;"%>
+</th>
+<% end %>
   </tr>
+
+   
 </table>
 </div></div>
 
 <script type="text/javascript">
-function toggle() {
- var oDiv = document.getElementById('fxm')
- var oBtn = document.getElementById('tst')
- if (oBtn.value=='SHOW') {
-  oDiv.style.display = 'block'
-  oBtn.value='HIDE'
- } else {
-  oDiv.style.display = 'none'
-  oBtn.value='SHOW'
- }
-}
-    </script>
+$("#tst").click(function(){
+    $("#fxm").toggle();
+});
+</script>

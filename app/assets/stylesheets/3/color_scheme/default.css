@@ -33,4 +33,8 @@ color: #ffa622 !important;
     background-color: #727276 !important;
     color: white;
 }
+input[type="submit"] {
+	background-color: #202020 !important;
+
+}
 
