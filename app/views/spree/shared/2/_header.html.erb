@@ -40,7 +40,7 @@
     <div class="container"> 
       
       <!-- Mobile Menu Button -->
-      <button data-target=".nav-main-collapse" data-toggle="collapse" class="btn btn-mobile" style="margin-top: 8px;"> <i class="fa fa-bars"></i> </button>
+      <button data-target=".collapse" data-toggle="collapse" class="btn btn-mobile" style="margin-top: 8px;"> <i class="fa fa-bars"></i> </button>
       
       <!-- Logo text or image --> 
       <a href="/" class="logo" style="margin-top: 0px; line-height: 50px;"> <img alt="Atropos" src="<%= Spree::Logo.last.avatar.url(:logo)%>" style="width:85%;"> </a> 
@@ -51,8 +51,6 @@
           <ul id="topMain" class="nav nav-pills nav-main scroll-menu">
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/"> Home </a> </li>
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/products"> Services </a> </li>
-           
-
             <!-- Arrange Menus -->   
             <% @customize_pages.each_with_index  do |page, index|%>
                 <% if index >= 2 %>
