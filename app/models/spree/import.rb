@@ -11,7 +11,7 @@ class Import < Spree::Base
   			taxn_name=product_params['sub_cat_name']
   			shiping_cat=Spree::ShippingCategory.where(:name=>shiping_cat_name).first_or_create
   			product_params.delete("sub_cat_name")
-  			taxn=Spree::Taxon.where(:name=>taxn_name,:taxonomy_id=>taxnomy.id,:parent_id=>taxnomy.id).first_or_create
+  			taxn=Spree::Taxon.where(:name=>taxn_name,:taxonomy_id=>taxnomy.id,:parent_id=>taxnomy.taxons.first.id).first_or_create
   			if product_params['images_url'].present?
   			file_path=product_params['images_url']
   			product_params.delete("images_url")
