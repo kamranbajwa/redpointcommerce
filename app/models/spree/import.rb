@@ -3,6 +3,7 @@ class Import < Spree::Base
 	def self.prodcut_import(file)
   		CSV.foreach(file.path, headers: true) do |row|
   			product_params=row.to_hash
+  			debuuger
   			taxnomy_name=product_params['category_name']
   			product_params.delete("category_name")
   			taxnomy=Spree::Taxonomy.where(:name=>taxnomy_name).first_or_create
