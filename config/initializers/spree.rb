@@ -45,7 +45,7 @@ attachment_config = {
   default_url:    "/spree/:class/:id/:style/:basename.:extension",
   default_style:  "product"
 }
-
+if Rails.env.production?
 attachment_config.each do |key, value|
   Spree::Image.attachment_definitions[:attachment][key.to_sym] = value
   Spree::Favicon.attachment_definitions[:favicon_image][key.to_sym] = value
@@ -53,6 +53,7 @@ attachment_config.each do |key, value|
   Spree::Logo.attachment_definitions[:avatar][key.to_sym] = value
   
 
+end
 end
 
 SpreeEditor::Config.tap do |config|

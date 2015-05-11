@@ -7,7 +7,7 @@
 <%= form_tag p_import_admin_imports_path  , multipart: true do %>
 <div class="field center-product-csv">
  <label for="file">Select a File</label>
-  <%= file_field_tag :file %>
+  <%= file_field_tag :file,  :accept=>"*.csv", required: true%>
   </div>
   <div class="form-buttons actions filter-actions" data-hook="admin_products_index_search_buttons">
           <button class="fa button remove-border"><%= submit_tag "Create Product" %></button>
