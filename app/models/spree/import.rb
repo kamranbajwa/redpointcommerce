@@ -22,8 +22,9 @@ class Import < Spree::Base
   			if imgs.present?
     			pr.images << imgs
     		end
+    		debugger
     		pr.taxons << taxn
-    		pr.shipping_category_id<<shiping_cat.id
+    		pr.shipping_category_id=shiping_cat.id
     		pr.save!
     	
   		end
