@@ -69,7 +69,7 @@ SpreeExample::Application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
@@ -84,7 +84,7 @@ SpreeExample::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
   
-  config.action_mailer.default_url_options = { :host => 'myt2w.com' }
+  config.action_mailer.default_url_options = { :host => 'redpoint-commerce.herokuapp.com' }
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
@@ -93,6 +93,12 @@ SpreeExample::Application.configure do
     enable_starttls_auto: true,
     user_name: "shoaib@gems.techverx.com",
     password: "techverx123"
+  }
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[notifier] ",
+    :sender_address => %{"notifier" <shoaib@gems.techverx.com>},
+    :exception_recipients => %w{shoaib@gems.techverx.com}
   }
   
 end
