@@ -18,11 +18,11 @@
   <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
    <% if index == 0 %>
     <div class="item active">
-      <img src="<%= image.slider_image.url(:xlarge)%>" alt="Slider">
+      <img src="<%= image.slider_image.url(:xlarge)%>" alt="Slider",class = "img_slider_width">
     </div>
     <%else%>
       <div class="item ">
-      <img src="<%= image.slider_image.url(:xlarge)%>" alt="Slider">
+      <img src="<%= image.slider_image.url(:xlarge)%>" alt="Slider", class = "img_slider_width">
     </div>
     <%end%>
 

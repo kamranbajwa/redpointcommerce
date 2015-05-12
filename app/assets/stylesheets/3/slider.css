@@ -676,3 +676,6 @@ th.visible-print, td.visible-print {
 	display: none!important
 }
 }
+.img_slider_width{
+	width: 100% !important
+}
