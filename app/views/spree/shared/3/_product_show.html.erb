@@ -27,7 +27,7 @@
                     <input type="hidden" name="action" value="cart_add" />
                     <input type="hidden" name="product_id" value="1" />
 
-                    <h2 class="product-title"><%= @product.name%></h2>
+                    <h2 class="product-title product-title-font"><%= @product.name%></h2>
 
                     <!-- product unique code -->
                     <span class="code">PART NUMBER: <%=@product.sku%></span>
@@ -46,7 +46,7 @@
 
                     <!-- product description -->
                     <div class="desc">
-                      <h3 class="">DESCRIPTION</h3>
+                      <h3 class="product-title-font product-page-margin">DESCRIPTION</h3>
                       <p>
                          <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
                       </p>
@@ -54,7 +54,7 @@
                     <!-- /product description -->
 
                     <div class="socialApis">
-                      <h3 class="">TELL TO YOUR FRIENDS</h3>
+                      <h3 class="product-title-font product-page-margin">TELL TO YOUR FRIENDS</h3>
 
                       <!-- facebook -->
                       <div class="api">
