@@ -4441,3 +4441,6 @@ left: 0px;
     padding-bottom: 7px;
     padding-top: 10px;
 }
+.carousel-inner {
+max-height: 500px;
+}
