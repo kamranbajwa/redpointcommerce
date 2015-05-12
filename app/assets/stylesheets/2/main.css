@@ -4230,6 +4230,10 @@ a {
 }
 
 @media (max-width: 480px) {
+    .search
+    {
+        display: none;
+    }
     .new-width {
         width: 100%;
     }
