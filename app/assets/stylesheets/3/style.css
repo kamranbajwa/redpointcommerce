@@ -4137,3 +4137,8 @@ margin-bottom: 4px;
 .cont-set{
   min-height: 500px;
 }
+.search-button {
+   width: 61px;
+  height: 53px;
+  margin-top: 4px;
+}
