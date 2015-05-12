@@ -4444,7 +4444,7 @@ left: 0px;
 .carousel-inner {
 max-height: 500px;
 }
-.pagination .current {
+/*.pagination .current {
 width: 31px;
 height: 28px;
 color: white !important;
@@ -4470,4 +4470,4 @@ background: #fff;
 .pagination >ul, li {
 list-style: none;
 float: left;
-}
+}*/

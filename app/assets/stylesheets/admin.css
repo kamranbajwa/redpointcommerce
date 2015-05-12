@@ -277,7 +277,3 @@ input[type="submit"], input[type="button"], button, .button {
     color: white !important;
     text-align: center;
 }
- .pagination > ul, li {
-list-style: none;
-float: initial !important;
-}

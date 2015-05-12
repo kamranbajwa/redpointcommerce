@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.8'
 
 gem 'pg'
+gem 'exception_notification'
 #gem 'sqlite3'
 gem 'execjs'
 gem 'spree_social_products', github: 'spree-contrib/spree_social_products', branch: '2-4-stable'
