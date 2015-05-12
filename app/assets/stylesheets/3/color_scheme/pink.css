@@ -18,14 +18,14 @@ background-color: #5c0016 !important;
     border-color: #5c0016 !important;
 }
 table thead {
-    background-color: #5c0016!important;
+    background-color: #970023 !important;
     text-transform: uppercase;
 }
 table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
     background-color: #fff !important;
 }
 .cart-subtotal, .cart-total {
-    background: #fff!important;
+    background: #970023 !important;
     color: black !important;
 }
 ::selection {

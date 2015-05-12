@@ -132,7 +132,11 @@
 
             <li class="pull-right" style="margin-right:35px;" ><a href="/cart"><i class="fa fa-shopping-cart"></i></a> <span class="number-amount"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span> </a>
             </li>
-            <li><a href="">Login</a></li>
+            <% if spree_user_signed_in? %>
+              <li> <%=  link_to 'Sign Out', spree_logout_path %></li>
+            <% else %>
+              <li><a href="/login">Login</a></li>
+            <% end %>
             <li><a href="#" type=button value='HIDE' id='tst'> <i class="fa fa-search"></i></a></li>
           </ul>
         </nav>
