@@ -4142,3 +4142,7 @@ margin-bottom: 4px;
   height: 53px;
   margin-top: 4px;
 }
+ input[type='text'], input[type='email'], select, textarea {
+font-style: italic;
+border: solid 1px #dedede;
+}
