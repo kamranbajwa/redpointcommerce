@@ -50,7 +50,7 @@ class Spree::Admin::OrganizationsController < Spree::Admin::ResourceController
         format.html { redirect_to edit_admin_organization_path(@organization), notice: 'Organization was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to edit_admin_organization_path(@organization), notice: 'Organization was noy updated.Please update it again' }
+        format.html { redirect_to edit_admin_organization_path(@organization), notice: 'Organization was not updated.Please update it again' }
         format.json { render json: @organization.errors, status: :unprocessable_entity }
       end
     end
