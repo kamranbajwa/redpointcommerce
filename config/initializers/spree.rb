@@ -37,7 +37,7 @@ attachment_config = {
        logo: '240x75#',
     square: '200x200#',
     medium: '300x300>',
-    xlarge:  '1876x879#',
+    xlarge:  '1280x768#',
     thumb: '6x6#'
   },
 
