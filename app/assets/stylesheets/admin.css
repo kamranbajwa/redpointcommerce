@@ -263,3 +263,17 @@ fieldset {
    text-align: center;
 }
 /*.category-wrapper{ width: 300px; height: 200px;}*/
+#admin-menu li a {
+    display: block;
+    padding: 25px 4px;
+    color: white !important;
+    text-transform: uppercase;
+    position: relative;
+    text-align: center;
+    padding-right: 10px;
+}
+input[type="submit"], input[type="button"], button, .button {
+    background-color: #000 !important;
+    color: white !important;
+    text-align: center;
+}

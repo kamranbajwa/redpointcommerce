@@ -136,3 +136,6 @@ border-radius: 1px !important;
 }
 h4 a{ color:#000;}
 .similar_items_by_taxon > li > a{ color:#000;}
+.current {
+	background: #C58B34 !important;
+}

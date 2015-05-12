@@ -4101,7 +4101,7 @@ a {
     color: black !important;
 }
 .page:hover {
-    color: red !important;
+    color: red;
 }
 .next {
     color: black !important;
@@ -4443,4 +4443,31 @@ left: 0px;
 }
 .carousel-inner {
 max-height: 500px;
+}
+.pagination .current {
+width: 31px;
+height: 28px;
+color: white !important;
+}
+.pagination>li>span {
+position: relative;
+float: left;
+padding: 6px 12px;
+margin-left: -1px;
+line-height: 1.42857143;
+color: #337ab7;
+text-decoration: none;
+background-color: #fff;
+border: 1px solid #ddd;
+}
+.pagination > li > a, .pagination > li > span {
+border: 0;
+margin-left: 1px;
+}
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+background: #fff;
+}
+.pagination >ul, li {
+list-style: none;
+float: left;
 }

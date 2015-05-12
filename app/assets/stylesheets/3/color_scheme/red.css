@@ -88,3 +88,6 @@ ul#products li a.info {
     display: block;
     padding-left: 30px;
 }
+.current {
+    background: #AF2323 !important;
+}

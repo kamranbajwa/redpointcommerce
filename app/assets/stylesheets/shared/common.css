@@ -37,3 +37,7 @@
   padding: 8px 10px;
   height: 44px;
 }
+.desc p {
+  margin: 0px;
+}
+

@@ -7,7 +7,7 @@
 
       <div data-hook="empty_cart">
         <p><%= Spree.t(:your_cart_is_empty) %></p>
-        <p><%= link_to Spree.t(:continue_shopping), products_path %></p>
+        <p><%= link_to Spree.t(:continue_shopping), products_path, class: "btn btn-primary"%></p>
       </div>
 
     <% else %>

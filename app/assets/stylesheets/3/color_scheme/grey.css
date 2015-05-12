@@ -94,3 +94,6 @@ span.price, #checkout-summary table tr[data-hook="item_total"] td:last-child str
 .cart-subtotal td h5, .cart-total td h5 {
   color: #332f3b;
 }
+.current {
+    background: #c3725f !important;
+}

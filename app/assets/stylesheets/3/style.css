@@ -4103,3 +4103,37 @@ margin-top: -37px;
 }
 .product-title-font{ font-size: 26px !important;}
 .product-page-margin{ margin-top: 15px; margin-bottom: 8px;}
+.pagination .current {
+width: 31px;
+height: 28px;
+color: white !important;
+}
+.pagination>li>span {
+position: relative;
+float: left;
+padding: 6px 12px;
+margin-left: -1px;
+line-height: 1.42857143;
+color: #337ab7;
+text-decoration: none;
+background-color: #fff;
+border: 1px solid #ddd;
+}
+.pagination > li > a, .pagination > li > span {
+border: 0;
+margin-left: 1px;
+}
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+background: #fff;
+}
+.pagination >ul, li {
+list-style: none;
+float: left;
+}
+.cart-item-description h4, .h4, h5, .h5, h6, .h6 {
+margin-top: 4px;
+margin-bottom: 4px;
+}
+.cont-set{
+  min-height: 500px;
+}
