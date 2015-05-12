@@ -2445,7 +2445,7 @@ div.circular-bar-content {
 /** 15. Pagination
  **************************************************************** **/
 .pagination {
-	border: #eee 1px solid;
+	border: none;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
@@ -2455,7 +2455,7 @@ div.circular-bar-content {
 	margin-left: 1px;
 }
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
-	background: #F5F7F7;
+	background: #fff;
 }
 /** 16. Parallax
  **************************************************************** **/
@@ -4944,3 +4944,8 @@ border-radius: 6px !important;
 .wrapper-padding{ padding-top: 80px !important;}
 .responsive-height {min-height: 182px;}
 .height-responsive-home{min-height: 240px;}
+.pagination .current {
+width: 31px;
+height: 28px;
+color: white !important;
+}

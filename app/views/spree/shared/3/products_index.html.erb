@@ -76,10 +76,11 @@ paginated_products ||= products
       </ul>
     <% end %>
   <% end %>
-</div>
-</div>
-<% if paginated_products.respond_to?(:num_pages) %>
+  <% if paginated_products.respond_to?(:num_pages) %>
   <%= paginate paginated_products%>
 <% end %>
+</div>
+</div>
+
 </div>
 

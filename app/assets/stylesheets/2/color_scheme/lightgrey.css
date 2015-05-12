@@ -548,3 +548,6 @@ background-color: #e3e3e3 !important;
 .fa-shopping-cart:before {
 color: #817C7C;
 }
+.current {
+	background: #5f5e5c !important;
+}

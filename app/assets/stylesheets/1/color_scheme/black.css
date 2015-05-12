@@ -19,3 +19,6 @@ footer .links-social .newsletter .input-group button {
 footer .links-social .social-newsletter .social-links ul li a {
 	border: 1px solid #343434 !important;
 }
+.current {
+	background: #000 !important;
+}

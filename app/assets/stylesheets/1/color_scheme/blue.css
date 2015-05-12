@@ -139,3 +139,6 @@ background: rgba(16, 85, 147, 0.44) !important;
 	background: rgba(0, 0, 0, 0.5) !important;
 	color: #555
 }
+.current {
+	background: #bddefb !important;
+}

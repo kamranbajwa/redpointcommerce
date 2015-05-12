@@ -518,3 +518,6 @@ color: white;
 table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
 background-color: #f9ecce !important;
 }
+.current {
+	background: #ffb502 !important;
+}
