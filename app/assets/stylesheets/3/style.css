@@ -4122,7 +4122,7 @@ border: 1px solid #ddd;
 .pagination-wrapper .pagination-new > li > a, .pagination-wrapper .pagination-new > li > span {
 margin-left: 1px;
 }
-..pagination-wrapper .pagination-new > li > a:hover, .pagination-wrapper .pagination-new > li > span:hover, .pagination-wrapper .pagination-new > li > a:focus, .pagination-wrapper .pagination-new > li > span:focus {
+.pagination-wrapper .pagination-new > li > a:hover, .pagination-wrapper .pagination-new > li > span:hover, .pagination-wrapper .pagination-new > li > a:focus, .pagination-wrapper .pagination-new > li > span:focus {
 background: #fff;
 }
 .pagination-wrapper .pagination-new >ul, li {
