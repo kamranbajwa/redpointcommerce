@@ -4103,12 +4103,12 @@ margin-top: -37px;
 }
 .product-title-font{ font-size: 26px !important;}
 .product-page-margin{ margin-top: 15px; margin-bottom: 8px;}
-/*.pagination .current {
-width: 31px;
-height: 28px;
+.pagination-wrapper .pagination-new .current {
+ width: 38px;
+  height: 35px;
 color: white !important;
 }
-.pagination>li>span {
+.pagination-wrapper .pagination-new >li>span {
 position: relative;
 float: left;
 padding: 6px 12px;
@@ -4119,17 +4119,20 @@ text-decoration: none;
 background-color: #fff;
 border: 1px solid #ddd;
 }
-.pagination > li > a, .pagination > li > span {
-border: 0;
+.pagination-wrapper .pagination-new > li > a, .pagination-wrapper .pagination-new > li > span {
 margin-left: 1px;
 }
-.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+..pagination-wrapper .pagination-new > li > a:hover, .pagination-wrapper .pagination-new > li > span:hover, .pagination-wrapper .pagination-new > li > a:focus, .pagination-wrapper .pagination-new > li > span:focus {
 background: #fff;
 }
-.pagination >ul, li {
+.pagination-wrapper .pagination-new >ul, li {
 list-style: none;
 float: left;
-}*/
+}
+.category-new ul li
+{
+  float: none;
+}
 .cart-item-description h4, .h4, h5, .h5, h6, .h6 {
 margin-top: 4px;
 margin-bottom: 4px;
@@ -4145,4 +4148,7 @@ margin-bottom: 4px;
  input[type='text'], input[type='email'], select, textarea {
 font-style: italic;
 border: solid 1px #dedede;
+}
+.mobile-menu ul li{
+  float: none;
 }

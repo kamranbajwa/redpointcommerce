@@ -26,6 +26,7 @@ paginated_products ||= products
 						</div>
 
 	<h3>CATEGORIES</h3><!-- h3 - have no margin-top -->
+  <div class="category-new">
               <ul class="nav nav-list">
 
                 <% if "spree/products" == params[:controller] && taxon %>
@@ -43,6 +44,7 @@ paginated_products ||= products
   <% end %>
     <% end %>
      </ul>
+     </div>
      <% if @products.present? %>
      <%= render :partial => 'spree/shared/search_filters' %>
      <%end%>

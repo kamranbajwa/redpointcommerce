@@ -2444,19 +2444,19 @@ div.circular-bar-content {
 }
 /** 15. Pagination
  **************************************************************** **/
-.pagination {
+/*.pagination-new {
 	border: none;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
 }
-.pagination > li > a, .pagination > li > span {
+.pagination-new > li > a, .pagination-new > li > span {
 	border: 0;
 	margin-left: 1px;
 }
-.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+.pagination-new > li > a:hover, .pagination-new > li > span:hover, .pagination-new > li > a:focus, .pagination > li > span:focus {
 	background: #fff;
-}
+}*/
 /** 16. Parallax
  **************************************************************** **/
 .parallax {
@@ -4944,8 +4944,34 @@ border-radius: 6px !important;
 .wrapper-padding{ padding-top: 80px !important;}
 .responsive-height {min-height: 182px;}
 .height-responsive-home{min-height: 240px;}
-/*.pagination .current {
-width: 31px;
-height: 28px;
+.pagination-new .current {
+  width: 38px;
+  height: 35px;
 color: white !important;
-}*/
+background: #000;
+}
+.pagination-new >li>span {
+position: relative;
+float: left;
+padding: 6px 12px;
+margin-left: -1px;
+line-height: 1.42857143;
+color: #337ab7;
+text-decoration: none;
+background-color: #fff;
+border: 1px solid #ddd;
+}
+.pagination-new > li > a, .pagination-new > li > span {
+margin-left: 1px;
+}
+.pagination-new > li > a:hover, .pagination-new > li > span:hover, .pagination-new > li > a:focus, .pagination-new > li > span:focus {
+background: #fff;
+}
+.pagination-new >ul, li {
+list-style: none;
+float: left;
+}
+.category-new ul li
+{
+  float: none;
+}
