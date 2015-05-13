@@ -20,7 +20,12 @@ module Spree
       @taxon = Spree::Taxon.find(params[:taxon_id]) if params[:taxon_id]
       @product = @products.friendly.find(params[:id])
       @taxns=@product.taxons.first
-      @simlier_product=  @taxns.products.limit 4
+      if @taxns
+        @simlier_product=  @taxns.products.limit(4).offset(1)
+      else
+        @simlier_product = @products.limit 4 
+      end
+
 
     end
     private

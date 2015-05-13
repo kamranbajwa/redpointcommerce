@@ -1,6 +1,5 @@
 class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
   before_action :set_template, only: [:show, :edit,  :destroy]
-
   # GET /templates
   # GET /templates.json
   def index
@@ -10,6 +9,7 @@ class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
   # GET /templates/1
   # GET /templates/1.json
   def show
+    redirect_to :back
   end
 
   # GET /templates/new
@@ -50,7 +50,7 @@ class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
         format.html { redirect_to admin_templates_path, notice: 'Template was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { redirect_to admin_templates_path, notice: 'Template was not updated.'}
         format.json { render json: @template.errors, status: :unprocessable_entity }
       end
     end
