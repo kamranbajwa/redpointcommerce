@@ -10,7 +10,7 @@ class Spree::Admin::ImportsController < Spree::Admin::ResourceController
   def cat_import
 	  	begin
 	  		Spree::Import.catageries_import(params[:file])
-	  		redirect_to :back, notice: "CSV imported scuccessfuly"
+	  		redirect_to :back, notice: "CSV imported scuccessfuly."
 	  	rescue 
 	  		redirect_to :back, notice: "Invalid data in csv."
 	  	end
