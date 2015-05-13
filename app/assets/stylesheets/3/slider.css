@@ -384,10 +384,11 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', end
 	bottom: 10px;
 	left: 50%;
 	z-index: 15;
-	width: 60%;
+	width: 20%;
 	padding-left: 0;
+	margin-left: -50px;
 	text-align: center;
-	list-style: none
+	list-style: none;
 }
 .carousel-indicators li {
 	display: inline-block;
