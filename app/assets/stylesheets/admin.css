@@ -288,3 +288,9 @@ span.page.current:hover {
     text-decoration: none;
     background: #000 !important;
 }
+#taxonomy_tree ul li {
+    float: none;
+}
+#select2-drop ul li {
+    float: none;
+} 
