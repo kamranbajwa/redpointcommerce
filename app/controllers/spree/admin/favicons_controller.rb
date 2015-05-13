@@ -12,6 +12,7 @@ class Spree::Admin::FaviconsController < Spree::Admin::ResourceController
   # GET /favicons/1
   # GET /favicons/1.json
   def show
+    redirect_to :admin_logos,  notice: 'Favicon was not updated Please try again.'
   end
 
   # GET /favicons/new
@@ -52,7 +53,7 @@ class Spree::Admin::FaviconsController < Spree::Admin::ResourceController
         format.html { redirect_to admin_logos_url, notice: 'Favicon was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { edirect_to admin_logos_url, notice: 'Favicon was not updated Please try again.' }
         format.json { render json: @favicon.errors, status: :unprocessable_entity }
       end
     end
