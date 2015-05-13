@@ -9,7 +9,7 @@ class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
   # GET /templates/1
   # GET /templates/1.json
   def show
-    redirect_to :back
+    redirect_to :admin_templates,  notice: 'Template was not updated.Please try again'
   end
 
   # GET /templates/new

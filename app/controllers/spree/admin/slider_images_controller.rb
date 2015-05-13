@@ -11,6 +11,7 @@ class Spree::Admin::SliderImagesController < Spree::Admin::ResourceController
   # GET /slider_images/1
   # GET /slider_images/1.json
   def show
+     redirect_to :admin_slider_images , notice: 'Slider image was not updated. Please try again'
   end
 
   # GET /slider_images/new
