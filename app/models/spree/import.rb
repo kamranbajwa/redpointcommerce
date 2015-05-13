@@ -32,10 +32,13 @@ class Import < Spree::Base
 		CSV.foreach(file.path,headers: true) do |row|
 			cat_params =row.to_hash
 			taxnomy_name=cat_params['category_name']
-			taxnomy=Spree::Taxonomy.where(:name=>taxnomy_name).first_or_create
+			taxnomy=Spree::Taxonomy.find_or_create_by(:name=>taxnomy_name)
 			taxn_name=cat_params['sub_cat_name']
+			# taxn_icon=cat_params['sub_cat_image']
+			# taxn_icon_path= URI.parse(cat_params['sub_cat_image'])
 			# txn=Spree::Taxon.where(:name=>taxn_name,:taxonomy_id=>taxnomy.id,:parent_id=>taxnomy.taxons.first.id)
 			Spree::Taxon.find_or_create_by(:name=>taxn_name,:taxonomy_id=>taxnomy.id,:parent_id=>taxnomy.taxons.first.id)
+			# t.icon=URI.parse(cat_params['sub_cat_image'])
 		end
 	end
 end
