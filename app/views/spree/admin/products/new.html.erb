@@ -39,8 +39,7 @@
           <%= f.error_message_on :price %>
         <% end %>
       </div>
-
-      <div data-hook="new_product_available_on" class="omega four columns">
+        <div data-hook="new_product_available_on" class="omega four columns">
         <%= f.field_container :available_on do %>
           <%= f.label :available_on, Spree.t(:available_on) %>
           <%= f.error_message_on :available_on %>
@@ -59,6 +58,14 @@
         <% end %>
       </div>
     </div>
+
+    <span>
+    <%= f.check_box :is_recommended %>
+ <%= f.label " Recommended" %>
+    </span>
+
+
+
 
     <div class="clearfix" data-hook="product-from-prototype" id="product-from-prototype">
       <%= render :file => 'spree/admin/prototypes/show' if @prototype %>
