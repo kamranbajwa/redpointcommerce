@@ -4444,12 +4444,13 @@ left: 0px;
 .carousel-inner {
 max-height: 500px;
 }
-/*.pagination .current {
-width: 31px;
-height: 28px;
+.pagination-new .current {
+  width: 38px;
+  height: 35px;
 color: white !important;
+background: #000;
 }
-.pagination>li>span {
+.pagination-new >li>span {
 position: relative;
 float: left;
 padding: 6px 12px;
@@ -4460,14 +4461,16 @@ text-decoration: none;
 background-color: #fff;
 border: 1px solid #ddd;
 }
-.pagination > li > a, .pagination > li > span {
-border: 0;
+.pagination-new > li > a, .pagination-new > li > span {
 margin-left: 1px;
 }
-.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+.pagination-new > li > a:hover, .pagination-new > li > span:hover, .pagination-new > li > a:focus, .pagination-new > li > span:focus {
 background: #fff;
 }
-.pagination >ul, li {
+.pagination-new >ul, li {
 list-style: none;
 float: left;
-}*/
+}
+.menu ul li{
+    float: none;
+}

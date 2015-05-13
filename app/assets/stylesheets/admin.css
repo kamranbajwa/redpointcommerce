@@ -277,3 +277,14 @@ input[type="submit"], input[type="button"], button, .button {
     color: white !important;
     text-align: center;
 }
+.pagination-new > li > a:hover, .pagination-new > li > span:hover, .pagination-new > li > a:focus, .pagination-new > li > span:focus {
+    text-decoration: none;
+    color: #000;
+}
+.pagination-new .current {
+  height: 33px !important;
+}
+span.page.current:hover {
+    text-decoration: none;
+    background: #000 !important;
+}
