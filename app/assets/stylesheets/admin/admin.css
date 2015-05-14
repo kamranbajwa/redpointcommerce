@@ -294,3 +294,6 @@ span.page.current:hover {
 #select2-drop ul li {
     float: none;
 } 
+#vakata-contextmenu ul li{
+    float: none;
+}
