@@ -37,7 +37,7 @@ attachment_config = {
        logo: '240x75#',
     square: '200x200#',
     medium: '300x300>',
-    xlarge:  '1280x768#',
+    xlarge:  '1280x879#',
     thumb: '6x6#'
   },
 
@@ -60,3 +60,5 @@ SpreeEditor::Config.tap do |config|
   config.current_editor = 'CKEditor'
   config.ids = 'product_description page_body event_body'
 end
+Spree::PermittedAttributes.checkout_attributes << [:is_recommended ]
+Spree::Api::ApiHelpers.product_attributes.push :is_recommended  
