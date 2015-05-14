@@ -4975,3 +4975,6 @@ float: left;
 {
   float: none;
 }
+.menu_color li {
+	float: none;
+}

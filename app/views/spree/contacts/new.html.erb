@@ -37,15 +37,15 @@
                 <div class="form-group">
                   <div class="col-md-4">
                      <%= f.label :name,"Full Name *" %>
-                  <%= f.text_field :name,:class=>'form-control',:required=>true %>
+                  <%= f.text_field :name,:class=>'form-control contact-field',:required=>true %>
                   </div>
                   <div class="col-md-4">
                      <%= f.label :email,"Email Address *" %>
-                  <%= f.text_field :email, :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}',:class=>'form-control',:placeholder=>"john@gmail.com" %>
+                  <%= f.text_field :email, :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}',:class=>'form-control contact-field',:placeholder=>"john@gmail.com" %>
                   </div>
                   <div class="col-md-4">
                       <%= f.label :phone %>
-                  <%= f.text_field :phone ,:class=>'form-control'%>
+                  <%= f.text_field :phone ,:class=>'form-control contact-field'%>
                   </div>
                 </div>
               </div>

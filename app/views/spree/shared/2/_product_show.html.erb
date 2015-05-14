@@ -123,39 +123,7 @@
             </aside>
             <div class="col-md-12">
                 <hr />
-
-
-              <!-- RELATED -->
-              <h2><strong>Related</strong> Products</h2>
-              <div class="row">
-             <!-- item -->
-                  <%@simlier_product.each do |p|%>
-                   <div class="col-sm-6 col-md-3">
-                   <% url = product_path(p) %>
-<div class="item-box">
-                <figure>
-                  <a class="item-hover" href="<%=url%>">
-                    <span class="overlay color2"></span>
-                    <span class="inner">
-                      <span class="block fa fa-plus fsize20"></span>
-                      <strong>PRODUCT</strong> DETAIL
-                    </span>
-                  </a>
-                 
-                  <%= link_to product_image(p, :itemprop => "image", :class => "img-responsive",:style=>"width:100%;" )%>
-
-                  <div class="btn btn-primary add_to_cart btn-space" style="width: 100%;"><i class="fa fa-shopping-cart"></i> ADD TO CART</div>
-                </figure>
-                <div class="item-box-desc text-align-center">
-                  <h4><%=p.name%></h4>
-                  <small class="styleColor"><span>$<%=p.price%></span></small>
-                </div>
-              </div>
-              </div>
-            <%end%>
-              
-              <!-- /RELATED -->
-              </div>
+              <%= render :partial => "spree/shared/common/related_products" %>
             </div>
 
           </div>
