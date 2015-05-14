@@ -48,4 +48,7 @@
   border: none;
   padding: 0px;
 }
+@media only screen and (max-width: 951px){
+  .contact-field {width:100%; margin-bottom: 15px; margin-top: 15px;}
+}
 
