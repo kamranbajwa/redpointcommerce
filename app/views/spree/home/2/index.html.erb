@@ -108,6 +108,11 @@
   
       </div>
     </section>
+     <!-- widgets -->
+     <%= render :partial => "/spree/home/#{@selected_template.template_no}/widgets", :locals => { :recommended_products => recommended_products,:best_selling_products => best_selling_products, :taxon => @taxon } %>
+  
+     <!-- widgets -->
+ 
     <section style="margin-top:5%" class="container">
       <div class="row">
         <div class="col-lg-12">
