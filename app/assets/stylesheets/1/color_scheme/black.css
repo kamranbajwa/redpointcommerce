@@ -22,3 +22,12 @@ footer .links-social .social-newsletter .social-links ul li a {
 .current {
 	background: #000 !important;
 }
+.btn-primary {
+  color: #fff;
+   background-color: #343434; 
+   border-color: #343434; 
+}
+.btn-primary:hover {
+   background-color: #343434; 
+   border-color: #343434; 
+}

@@ -4014,7 +4014,7 @@ padding: 10px;}
 .more-li { margin-top: -2px;}
 .more-color { color: #9c9797 !important;}
 .header-color{background:#000; position:relative;}
-.menu-color{background:#202020; text-align:center; padding:20px;}
+.menu-color{background:#202020; text-align:left; padding:20px;}
 .nav-align{text-align:center; margin-bottom: -16px;}
 .glyphicon-chevron-left:before {
     content:url(/assets/left.png);
