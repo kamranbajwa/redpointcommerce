@@ -11,7 +11,6 @@ SpreeExample::Application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
@@ -70,7 +69,8 @@ SpreeExample::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.raise_delivery_errors = true
-    config.action_mailer.perform_deliveries = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
@@ -78,6 +78,7 @@ SpreeExample::Application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
+  
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
