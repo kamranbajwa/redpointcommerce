@@ -14,7 +14,6 @@
  @media only screen and (max-width: 500px){
  	.mobile-hideview { display: none;}
 	#update-cart #subtotal, #update-cart .links { width: 100% !important; float: left; text-align: left;}
-	.btn { width: 100%; }
 	.btn-mobile { width: 50px !important; }
 	 p { padding: 0px 0 !important;}
 	}
@@ -23,8 +22,6 @@
  @media only screen and (max-width: 767px) and (min-width: 480px){
   .container { width: 100% !important; }
   #update-cart #subtotal, #update-cart .links { width: 100% !important; float: left; text-align: left;}
-  .btn { width: 100%; }
-   p { padding: 0px 0 !important;}
   .btn-primary { margin-bottom: 5px !important;}
 }
 .register-align{
@@ -40,5 +37,15 @@
 }
 .desc p {
   margin: 0px;
+}
+.order-detail-line-items{
+  width: 100% !important;
+}
+.place-order-new{
+  color: white !important;
+  width: 140px;
+  height: 44px;
+  border: none;
+  padding: 0px;
 }
 
