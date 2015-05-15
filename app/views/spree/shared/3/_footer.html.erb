@@ -1,37 +1,88 @@
-<footer class="bottom-footer" role="contentinfo">
+<footer id="main-footer" class="site-footer clearfix">
   <div class="container">
-    <!-- end col-sm-3 -->
-    
-<!--     <div class="col-xs-12 col-sm-9">
-      <nav>
-        <ul class="nav navbar-nav">
-          <li><a href="/">home</a></li>
-          <li><a href="/page/<%= @about_page.first.try(:id)%>">about us</a></li>
-          <li><a href="/products">service</a></li>
-          <li><a href="#">Resources</a></li>
-          <li><a href="/messages"> Contacts</a></li>
-        </ul>
-      </nav>
-    </div> -->
-    <!-- end col-sm-9 -->
-    
-    <div class="copyright col-xs-12 col-sm-7"> Copyright &copy; 2015  Red point commerce. </div>
-    <!-- end copyright -->
-    
-    <div class="social-icon col-xs-12 col-sm-5">
-      <ul>
-        <li><a href=<%= @org.facebook_url || '#'%> target="_blank"><i class="fa fa-facebook"></i></a></li>
-        <li><a href=<%= @org.twitter_url || '#'%> target="_blank"><i class="fa fa-twitter"></i></a></li>
-        <li><a href=<%= @org.google_url || '#'%> target="_blank"><i class="fa fa-google-plus"></i></a></li>
-      </ul>
+    <div class="row"> 
+      
+      <!--about widget-->
+      <div class="col-md-3 col-sm-6">
+        <section  class="widget animated widget-li">
+          <h3 class="title"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>"></h3>
+          <div class="textwidget">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+              tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+          </div>
+        </section>
+      </div>
+      
+      <!--general services-->
+      <div class="col-md-3 col-sm-6">
+        <section class="widget animated widget-li">
+          <h3 class="title">USEFUL LINK</h3>
+          <ul>
+            <li> <a href="#">Immunization</a> </li>
+            <li> <a href="#">Services</a> </li>
+            <li> <a href="#">FAQ</a> </li>
+            <li> <a href="#">Policy</a> </li>
+            <li> <a href="#">About us</a> </li>
+          </ul>
+        </section>
+      </div>
+      <div class="clearfix visible-sm"></div>
+      
+      <!--recent posts-->
+      <div class="col-md-3 col-sm-6">
+        <section  class="widget animated widget-li">
+          <h3 class="title">GET INVOLVED</h3>
+          <ul>
+            <li> <a href="#">Hello world!</a> </li>
+            <li> <a href="#">Image Post Format</a> </li>
+            <li> <a href="#">Quote Post Format</a> </li>
+            <li> <a href="#">Gallery Post Format</a> </li>
+          </ul>
+        </section>
+      </div>
+      <!--subscription form-->
+      <div class="col-md-3 col-sm-6 widget-li">
+        <section  class="widget animated ">
+          <h3 class="title">OPENING Hours</h3>
+          <div class="textwidget">
+          <% if @org.opening_day.present? %>
+            <p><%= @org.opening_day  %> - <%= @org.closing_day %> </p>
+            <% else %>
+            <p> Monday - Sunday </p>
+            <% end %>
+            <% if @org.opening_hour.present? %>
+            <p><%= @org.opening_hour %> - <%= @org.closing_hour%> </p>
+             <% else %>
+            <p> 11:00 am - 12:00 pm</p>
+            <% end %>
+          </div>
+          <div> </div>
+        </section>
+      </div>
     </div>
-    <!-- end social-icon --> 
-    
+    <div class="footer-bottom clearfix">
+      <div class="row">
+        <div class="col-sm-7">
+          <p>&copy; Copyright 2015. All Rights Reserved </p>
+        </div>
+        <!--footer social icons-->
+        <div class="col-sm-5 clearfix">
+          <ul class="footer-social-nav">
+            <li><a target="_blank" href=<%= @org.twitter_url || '#'%>><i class="fa fa-twitter"></i></a></li>
+            <li><a target="_blank" href=<%= @org.facebook_url || '#'%>><i class="fa fa-facebook"></i></a></li>
+            <li><a target="_blank" href=<%= @org.google_url || '#'%>><i class="fa fa-google-plus"></i></a></li>
+             <li><a target="_blank" href=<%= @org.youtube || '#'%>><i class="fa fa-youtube"></i></a></li>
+           <li><a target="_blank" href=<%= @org.linked_in || '#'%>><i class="fa fa-linkedin"></i></a></li>
+            <li><a target="_blank" href=<%= @org.pinterest || '#'%>><i class="fa fa-pinterest-square"></i></a></li>
+           <!--
+            <li><a target="_blank" href="skype:skypeusername?add"><i class="fa fa-skype"></i></a></li>
+            <li><a target="_blank" href="#"><i class="fa fa-rss"></i></a></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
-  <!-- end container --> 
-  
 </footer>
-
 <!-- END FOOTER --> 
 
 <!-- JQUERY --> 

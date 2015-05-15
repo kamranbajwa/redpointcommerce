@@ -30,12 +30,16 @@
           <div class="column col-md-3 " style="margin-left:0px margin-right:0px" >
           <div class="border-footer-">
             <h3>We are Open</h3>
-            <p class="footer-text"> Thuesday and Thursday<br>
-              9:00am - 7:00pm</p>
-            <p class="footer-text"> wednesday and Friday<br>
-              9:00am - 7:00pm</p>
-            <p class="footer-text"> Saturday<br>
-              9:00am - 7:00pm</p>
+            <% if @org.opening_day.present? %>
+            <p class="footer-text" ><%= @org.opening_day %> - <%= @org.closing_day %> </p>
+            <% else %>
+            <p class="footer-text" > Monday - Sunday</p>
+            <% end %>
+            <% if @org.opening_hour.present? %>
+            <p class="footer-text"><%= @org.opening_hour %> - <%= @org.closing_hour%> </p>
+             <% else %>
+            <p class="footer-text"> 11:00 am - 12:00 pm</p>
+            <% end %>
           </div>
         </div>
           <div class="column col-md-3 " style="margin-left:0px margin-right:0px" >
@@ -70,7 +74,6 @@
   <!-- footer content --> 
   
 <!-- JAVASCRIPT FILES --> 
-<script type="text/javascript" src="/assets/<%= @selected_template.template_no%>/jquery-2.1.3.min.js"></script> 
 <script type="text/javascript" src="/assets/<%= @selected_template.template_no%>/jquery.cookie.js"></script> 
 <script type="text/javascript" src="/assets/<%= @selected_template.template_no%>/jquery.appear.js"></script> 
 <script type="text/javascript" src="/assets/<%= @selected_template.template_no%>/jquery.isotope.js"></script> 
@@ -92,16 +95,16 @@
 <script type="text/javascript" src="/assets/shared/jquery-ui.custom.min.js"></script>
 <script type="text/javascript" src="/assets/shared/bootstrap.min.js"></script>
 <script type="text/javascript" src="/assets/shared/bootstrap-hover-dropdown.min.js"></script>
-<script type="text/javascript" src="/assets/shared/shared/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/assets/shared/owl.carousel.min.js"></script>
 <script type="text/javascript" src="/assets/shared/echo.min.js"></script>
 <script type="text/javascript" src="/assets/shared/jquery.rateit.min.js"></script>
 <script type="text/javascript" src="/assets/shared/jquery.jcarousel.js"></script>
-<script type="text/javascript" src="/assetsshared/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/assets/shared/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="/assets/shared/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="/assets/shared/jquery.fitvids.js"></script>
 <script type="text/javascript" src="/assets/shared/lightbox.min.js"></script>
 <script type="text/javascript" src="/assets/shared/wow.min.js"></script>
-<script type="text/javascript" src="/assets/shared/scripts.js"></script>
+<script type="text/javascript" src="/assets/<%= @selected_template.template_no%>/scripts.js"></script>
 <script type="text/javascript" src="/assets/<%= @selected_template.template_no%>/layout.js"></script>
 
 <script>
