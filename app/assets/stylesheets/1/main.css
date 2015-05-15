@@ -4499,7 +4499,7 @@ background-repeat: repeat-x;
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1) !important;
 
 }
-.border_slider{
+.border_slider {
     border: solid 1px #dedede;
 }
 .glyphicon-chevron-left:before {
