@@ -4512,7 +4512,9 @@ background-repeat: repeat-x;
     content:url(/assets/left.png);
 
 }
-
 .glyphicon-chevron-right:before {
     content:url(/assets/right.png);
+}
+.ware-house-dropdown ul li{
+    float: none;
 }
