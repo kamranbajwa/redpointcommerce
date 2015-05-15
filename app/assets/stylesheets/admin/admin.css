@@ -297,3 +297,6 @@ span.page.current:hover {
 #vakata-contextmenu ul li{
     float: none;
 }
+#product_is_recommended {
+    vertical-align: inherit;
+}
