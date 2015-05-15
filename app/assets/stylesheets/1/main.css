@@ -4508,3 +4508,11 @@ background-repeat: repeat-x;
 .border_slider{
     border: solid 1px #dedede;
 }
+.glyphicon-chevron-left:before {
+    content:url(/assets/left.png);
+
+}
+
+.glyphicon-chevron-right:before {
+    content:url(/assets/right.png);
+}
