@@ -7,7 +7,7 @@
   <div class="field" data-hook="admin_general_setting_input_meta_description">
     <%= f.label :country %>
     <br>
-    <%= f.text_field :country, :class => 'fullwidth',required: true    %>
+    <%= f.collection_select :country, available_countries, :id, :name, {}, {:class => 'fullwidth',:required => true} %>
   </div>
    <div class="field" data-hook="admin_general_setting_input_meta_description">
     <%= f.label :state %>
