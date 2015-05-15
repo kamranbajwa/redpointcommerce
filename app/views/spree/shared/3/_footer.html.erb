@@ -19,10 +19,10 @@
           <h3 class="title">USEFUL LINK</h3>
           <ul>
             <li> <a href="#">Immunization</a> </li>
-            <li> <a href="#">Medical Services</a> </li>
-            <li> <a href="#">Surgical</a> </li>
-            <li> <a href="#">Diagnostic Services</a> </li>
-            <li> <a href="#">Pharmacy</a> </li>
+            <li> <a href="#">Services</a> </li>
+            <li> <a href="#">FAQ</a> </li>
+            <li> <a href="#">Policy</a> </li>
+            <li> <a href="#">About us</a> </li>
           </ul>
         </section>
       </div>
@@ -37,7 +37,6 @@
             <li> <a href="#">Image Post Format</a> </li>
             <li> <a href="#">Quote Post Format</a> </li>
             <li> <a href="#">Gallery Post Format</a> </li>
-            <li> <a href="#">How to Live a Healthier Life</a> </li>
           </ul>
         </section>
       </div>
@@ -47,7 +46,7 @@
           <h3 class="title">OPENING Hours</h3>
           <div class="textwidget">
           <% if @org.opening_day.present? %>
-            <p><%= @org.opening_day %> - <%= @org.closing_day %> </p>
+            <p><%= @org.opening_day  %> - <%= @org.closing_day %> </p>
             <% else %>
             <p> Monday - Sunday </p>
             <% end %>
