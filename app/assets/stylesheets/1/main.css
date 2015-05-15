@@ -4484,3 +4484,6 @@ float: left;
 .cart-subtotal td h5, .cart-total td h5 {
   color: #000;
 }
+.ware-house-dropdown ul li{
+    float: none;
+}

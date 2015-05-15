@@ -202,7 +202,7 @@ GEM
     devise-encryptable (0.1.2)
       devise (>= 2.1.0)
     erubis (2.7.0)
-    exception_notification (4.1.0)
+    exception_notification (4.1.0.rc1)
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
     execjs (2.2.2)
@@ -372,7 +372,7 @@ DEPENDENCIES
   aws-sdk
   coffee-rails (~> 4.0.0)
   debugger
-  exception_notification
+  exception_notification (= 4.1.0.rc1)
   execjs
   font-awesome-rails
   jbuilder (~> 1.2)
