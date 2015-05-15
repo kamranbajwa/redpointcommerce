@@ -67,7 +67,7 @@ SpreeExample::Application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
-
+  config.consider_all_requests_local = false
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
@@ -86,7 +86,7 @@ SpreeExample::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
   
-  config.action_mailer.default_url_options = { :host => 'redpoint-commerce.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'http://redpoint-commerce.herokuapp.com/' }
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
@@ -96,11 +96,11 @@ SpreeExample::Application.configure do
     user_name: "shoaib@gems.techverx.com",
     password: "techverx123"
   }
-  Rails.application.config.middleware.use ExceptionNotification::Rack,
-  :email => {
-    :email_prefix => "[notifier] ",
-    :sender_address => %{"notifier" <shoaib@gems.techverx.com>},
-    :exception_recipients => %w{shoaib@gems.techverx.com}
-  }
+ config.middleware.use ExceptionNotification::Rack,
+ :email => {
+ :email_prefix => "[RPC Error] ",
+ :sender_address => %{"Exception Notification" <shoaib@gems.techverx.com>},
+ :exception_recipients => %w{shoaib@gems.techverx.com qubaish@techverx.com usman@gems.techverx.com abdullah@gems.techverx.com hamzah@gems.techverx.com} 
+}
   
 end
