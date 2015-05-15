@@ -1,4 +1,3 @@
- <%= javascript_include_tag :defaults, :cache => true %>
  <%= render :partial => 'spree/shared/setting_sub_nav_tab' %>
   <div id="content-header" data-hook="">
     <div class="container">
@@ -53,6 +52,31 @@
                   <br>
                   <%= f.text_field :google_url, :class => 'fullwidth' %>
                 </div>
+                  <div class="field" data-hook="admin_general_setting_mail_from_address">
+                    <%= f.label :youtube,'Youtube Link' %>
+                  <br>
+                  <%= f.text_field :youtube, :class => 'fullwidth' %>
+                </div>
+                  <div class="field" data-hook="admin_general_setting_mail_from_address">
+                    <%= f.label :linked_in,'Linkedin Link' %>
+                  <br>
+                  <%= f.text_field :linked_in, :class => 'fullwidth' %>
+                </div>
+                  <div class="field" data-hook="admin_general_setting_mail_from_address">
+                    <%= f.label :pinterest,'Pinterest Link' %>
+                  <br>
+                  <%= f.text_field :pinterest, :class => 'fullwidth' %>
+                </div>
+                 <div class="field" data-hook="admin_general_setting_mail_from_address">
+                    <%= f.label :opening_hour,'Opening Time' %>
+                  <br>
+                  <%= f.text_field :opening_hour, id: "timepicker4" %> - <%= f.text_field :closing_hour, id: "timepicker3" %>
+                </div>
+                  <div class="field" data-hook="admin_general_setting_mail_from_address">
+                    <%= f.label :opening_day,'Opening Day' %>
+                  <br>
+                  <%= f.select(:opening_day, Date::DAYNAMES) %> - <%= f.select(:closing_day, Date::DAYNAMES) %>
+                </div>
                 <div class="field" data-hook="admin_general_setting_input_meta_keywords">
                   <%= f.label :central_time %>
                   <br>
@@ -89,3 +113,7 @@ font-size: 90%;">
     </div>
   </div>
 <%= javascript_include_tag '/assets/add_reomve_addresses_field' %>
+ <script type="text/javascript">
+ $('#timepicker3').timepicker();
+ $('#timepicker4').timepicker();
+ </script>

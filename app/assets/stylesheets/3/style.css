@@ -4152,4 +4152,61 @@ border: solid 1px #dedede;
 .mobile-menu ul li{
   float: none;
 }
-
+.widget-li ul li{
+  float: none;
+}
+.widget-li ul li a{
+  color: #fff;
+}
+.footer-bottom {
+  margin-top: 60px;
+  border-top: 1px solid #4a4c52;
+  padding-top: 26px;
+}
+.footer-bottom p {
+  color: #fff;
+}
+.footer-bottom .footer-social-nav {
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+.footer-bottom .footer-social-nav li {
+  display: inline-block;
+  list-style: none;
+  margin-left: 10px;
+}
+.footer-bottom .footer-social-nav li .fa {
+  font-size: 18px;
+  display: block;
+  text-align: center;
+  line-height: 20px;
+  color: #fff;
+}
+.footer-bottom .footer-social-nav li .fa:hover {
+  font-size: 20px;
+  color: #fff;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  margin-top: -2px;
+}
+.footer-bottom .footer-social-nav li a {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.footer-bottom .footer-social-nav li a:hover {
+  text-decoration: none;
+}
+#main-footer{
+  color: #fff;
+}
+#main-footer h3{
+  color: #fff;
+}

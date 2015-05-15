@@ -97,3 +97,6 @@ span.price, #checkout-summary table tr[data-hook="item_total"] td:last-child str
 .current {
     background: #c3725f !important;
 }
+#main-footer{
+    background: #e9e9e9;
+}
