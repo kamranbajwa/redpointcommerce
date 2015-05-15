@@ -1,5 +1,21 @@
 module Spree
   module BaseHelper
+    def org_address
+      address=Spree::OrgAddress.first
+      arr_add=[]
+      if address.present? 
+      address=address.company_address+","+address.city+","+address.state+","+address.country rescue ''
+      phone=address.phone_no rescue ''
+    else
+      address = "Joher Town Lahore, Punjab, Pakistan"
+      phone = "+9211113333343"
+    end
+    debugger
+     arr_add << address
+     arr_add << phone
+     arr_add << Spree::Store.first.url 
+      return arr_add
+    end
     def show_product_on_pages(page,p_on_current_page)
       page_no=page
       product_on_current_page=p_on_current_page
