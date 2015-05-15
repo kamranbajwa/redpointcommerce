@@ -1,6 +1,6 @@
 class Spree::Admin::OrganizationsController < Spree::Admin::ResourceController
   #before_action :set_organization, only: [:show, :edit, :update, :destroy]
-
+   skip_before_action :verify_authenticity_token
   # GET /organizations
   # GET /organizations.json
   def index
@@ -10,6 +10,10 @@ class Spree::Admin::OrganizationsController < Spree::Admin::ResourceController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
+    flash.now[:notice] = 'Sorry Organization was not updated please update again'
+    render action: 'edit'
+    #@organization = Spree::Organization.find(params[:id])
+    #redirect_to :admin_organization, notice: 'Organization was not updated.Please update it again'
   end
 
   # GET /organizations/new
@@ -69,7 +73,6 @@ class Spree::Admin::OrganizationsController < Spree::Admin::ResourceController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_organization
-      params[:id]=1
       @organization = Spree::Organization.find(params[:id])
     end
 

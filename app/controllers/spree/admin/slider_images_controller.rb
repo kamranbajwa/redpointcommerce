@@ -1,6 +1,6 @@
 class Spree::Admin::SliderImagesController < Spree::Admin::ResourceController
   before_action :set_slider_image, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token
   # GET /slider_images
   # GET /slider_images.json
   def index
@@ -43,7 +43,9 @@ class Spree::Admin::SliderImagesController < Spree::Admin::ResourceController
   # PATCH/PUT /slider_images/1
   # PATCH/PUT /slider_images/1.json
   def update
-
+  if  slider_image_params[:slider_image].length > 5
+    redirect_to :admin_slider_images , notice: "Sorry more than 5 images can't be uploaded"
+    else 
     @selected_template.spree_slider_images.delete_all
        # puts "sjkfdsdjkf", image.inspect
           # puts "asdasdsadasdasdasdasdas", slider_image_params.inspect
@@ -60,6 +62,7 @@ class Spree::Admin::SliderImagesController < Spree::Admin::ResourceController
         format.html { render action: 'edit' }
         format.json { render json: @slider_image.errors, status: :unprocessable_entity }
       end
+    end
     end
   end
 
