@@ -51,4 +51,6 @@
 @media only screen and (max-width: 951px){
   .contact-field {width:100%; margin-bottom: 15px; margin-top: 15px;}
 }
-
+#shipping input[type="text"], #shipping input[type="email"], #shipping  input[type="tel"], #shipping  input[type="number"], #shipping  select, #shipping textarea {
+    width: 100%;
+}

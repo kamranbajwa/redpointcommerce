@@ -21,7 +21,7 @@
             </div>
 
             <div class="links columns sixteen alpha omega checkout-space pull-right" data-hook="cart_buttons" >
-    <%#= order_form.text_field :coupon_code, :size => 10, :placeholder => Spree.t(:coupon_code) %>
+              <%= order_form.text_field :coupon_code, :size => 10, :placeholder => "Coupon Code" %>
               <%= button_tag  :class => 'btn btn-primary' ,:style => "color:white !important", :id => 'update-button' do %>
                 <%= Spree.t(:update) %>
               <% end %>
@@ -47,3 +47,20 @@
     <% end %>
   </div>
 </div>  
+<style type="text/css">
+  ::-webkit-input-placeholder {
+   color: #CCCCCC; 
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #CCCCCC;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #CCCCCC; 
+}
+
+:-ms-input-placeholder {  
+   color: #CCCCCC; 
+} 
+</style>

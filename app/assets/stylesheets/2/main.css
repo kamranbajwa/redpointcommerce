@@ -4257,10 +4257,6 @@ a {
     }
 }
 
-#shipping {
-    display: none;
-}
-
 #order_details .steps-data div.columns:first-child, #order_summary .steps-data div.columns:first-child {
     margin-left: 30px;
 }
