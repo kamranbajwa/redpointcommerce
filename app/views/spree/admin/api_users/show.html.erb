@@ -1,0 +1,13 @@
+<%=render :partial=>'sub_nav'%>
+<div class="container">
+  <div class="row">
+    <div class="with-sidebar " >
+      <div class="twelve columns"> <br>
+		<label> User Email</label> <br>
+		<p><%= @api_user.email %> </p> <br>
+		<label> TOkEN</label> <br>
+		<p><%= @api_user.token %> </p> <br>
+		<label> SECRET KEY</label> <br>
+		<p><%= @api_user.secret_key %></p> <br>
+		 <a class="button " href=<%= admin_api_users_path%>><span class="text" >Back</span></a>
+		</div>

@@ -1,0 +1,31 @@
+ <%= form_for @api_user, url: {action: "create"} do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="with-sidebar " >
+        <div class="twelve columns"> <br>
+          <form   method="post">
+            <div>
+              <fieldset class="general no-border-top">
+             <div class="field" data-hook="admin_general_setting_input_name">
+                <label for="store_name">User Name *</label>
+                <br>
+                <%= f.text_field :name, class: "fullwidth" %>
+              </div>
+               <div class="field" data-hook="admin_general_setting_input_name">
+                <label for="store_name">User Email *</label>
+                <br>
+                <%= f.text_field :email, type: "email", class: "fullwidth" %>
+              </div>
+               <div class="form-buttons filter-actions actions" data-hook="buttons">
+               <a class="button " href="javascript:void(0)" onclick="window.history.back();"><span class="text" >Back</span></a>
+              <span class="or">or</span>
+              <a class="" style="border: 0px solid #000 !important;"><span class="text"><%= f.submit "Generate" %></span></a>
+              </div>
+              </fieldset>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+ <% end %>
