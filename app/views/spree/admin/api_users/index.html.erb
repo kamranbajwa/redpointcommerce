@@ -1,0 +1,33 @@
+<%=render :partial=>'sub_nav'%>
+<div class="container">
+  <div class="row">
+    <div class="with-sidebar " >
+      <div class="twelve columns"> <br>
+        <div class="row">
+        <br>
+        <br>
+          <table class="index" id="listing_products">
+            <colgroup>
+              <col style="width: 50%;">
+            </colgroup>
+            <thead>
+              <tr data-hook="admin_products_index_headers">
+                <th>Name</th>
+                <th>Email</th>
+                <th data-hook="admin_products_index_header_actions" class="actions"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @api_users.each do |user| %>
+                <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
+                  <td class="align-center"><%= user.name %></td>
+                  <td class="align-center"><%= user.email %></td>
+                  <td class="actions" data-hook="admin_products_index_row_actions">
+                    <%= link_to '', admin_api_user_path(user), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%>
+                     <%= link_to '', admin_api_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash icon_link with-tip no-text", "data-action" => "remove" %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>

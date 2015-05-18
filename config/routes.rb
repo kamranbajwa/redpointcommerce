@@ -17,6 +17,9 @@ SpreeExample::Application.routes.draw do
   get '/page/(:id)', :to => 'spree/statics#pages'
   get '/messages'  ,       :to => 'spree/contacts#new'
   post '/messages'  ,       :to => 'spree/contacts#create'
+  get 'v1/api/orders',      :to => 'v1/api#orders'
+  get 'v1/api/products',      :to => 'v1/api#products'
+  get 'v1/api/customers',      :to => 'v1/api#customers'
   
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
@@ -78,18 +81,19 @@ SpreeExample::Application.routes.draw do
   #     resources :products
   #   end
   Spree::Core::Engine.add_routes do
-  namespace :admin do
-    resources :logos
-    resources :imports do
-  collection { post :p_import }
-  collection { post :cat_import }
-end
-    resources :favicons 
-    resources :slider_images
-    resources :organizations
-    resources :templates
-    resources :cms_pages
-    end
+    namespace :admin do
+      resources :logos
+      resources :imports do
+        collection { post :p_import }
+        collection { post :cat_import }
+      end
+      resources :favicons 
+      resources :slider_images
+      resources :organizations
+      resources :templates
+      resources :cms_pages
+      resources :api_users
+      end
     end
 end
 

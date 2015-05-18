@@ -39,14 +39,14 @@
       <%= render :partial => 'spree/admin/shared/menu' %>
       <%= render :partial => 'spree/admin/shared/sub_menu' %>
       <%= render :partial => 'spree/admin/shared/content_header' %>
-      <%if params[:controller]=="spree/admin/organizations" or params[:controller]=="spree/admin/templates" or params[:controller]=="spree/admin/slider_images" or params[:controller]=="spree/admin/cms_pages" %>
+      <%if params[:controller]=="spree/admin/organizations" or params[:controller]=="spree/admin/templates" or params[:controller]=="spree/admin/slider_images" or params[:controller]=="spree/admin/cms_pages" or params[:controller] == "spree/admin/api_users" %>
       <div class="">  
       
       <%else%>
       <div class="container">
       <%end%>
         <div class="row">
-          <%if params[:controller]=="spree/admin/organizations" or params[:controller]=="spree/admin/templates" or params[:controller]=="spree/admin/slider_images" or params[:controller]=="spree/admin/cms_pages" or params[:controller]=="spree/admin/logos"%>
+          <%if params[:controller]=="spree/admin/organizations" or params[:controller]=="spree/admin/templates" or params[:controller]=="spree/admin/slider_images" or params[:controller]=="spree/admin/cms_pages" or params[:controller]=="spree/admin/logos" or params[:controller] == "spree/admin/api_users" %>
       <div class="<%= 'with-sidebar ' if content_for?(:sidebar)  %>" id="content" style="margin-top:0px"  data-hook>  
       
       <%else%>
