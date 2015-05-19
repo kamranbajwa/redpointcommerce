@@ -1,8 +1,4 @@
 SpreeExample::Application.routes.draw do
-
-
-
-
   mount Ckeditor::Engine => '/ckeditor'
   #resources :organizations
 
@@ -93,6 +89,7 @@ SpreeExample::Application.routes.draw do
       resources :templates
       resources :cms_pages
       resources :api_users
+      resources :email_templates
       end
     end
 end
