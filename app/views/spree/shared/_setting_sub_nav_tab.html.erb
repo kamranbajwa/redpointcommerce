@@ -18,7 +18,11 @@
           <li class=""><a href="/admin/cms_pages">Cms Pages</a></li>
           <% end %>
           <li class=""><a href="/">Cart Checkout</a></li>
-          <li class=""><a href="/">Emails Templates</a></li>
+          <% if params[:controller]=="spree/admin/email_templates"and (params[:action]=="edit" or params[:action]=="index" or params[:action] == "new")%>
+          <li class="selected"><a href="/admin/email_templates">Emails Templates</a></li>
+          <%else%>
+          <li class=""><a href="/admin/email_templates">Emails Templates</a></li>
+          <%end%>
         </ul>
       </div>
     </div>
