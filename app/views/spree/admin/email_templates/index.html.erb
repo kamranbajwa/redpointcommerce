@@ -1,0 +1,20 @@
+  <%=render :partial=>'spree/shared/setting_sub_nav_tab'%>
+<div class="container">
+    <div class="row">
+      <div class="with-sidebar " >
+        <div class="twelve columns"> <br>
+         Please select an email template from sidebar to edit it.
+     
+        </div>
+         <aside  data-hook="" class="four columns"> <br>
+          <nav class="menu">
+           <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
+           <% @emailtemplates.each do |etemp| %>
+        <li><a href="email_templates/<%= etemp.id %>/edit"><%= etemp.title %></a></li>
+      <% end %>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+    </div>
+  </div>

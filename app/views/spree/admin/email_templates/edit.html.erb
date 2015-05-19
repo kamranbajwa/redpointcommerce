@@ -1,0 +1,54 @@
+ <%= render :partial => 'spree/shared/setting_sub_nav_tab' %>
+ <div class="container">
+    <div class="row">
+ <%= form_for @email_template , url: {action: "update"} do |f| %>
+      <div class="with-sidebar " >
+        <div class="twelve columns"> <br>
+            <div>
+            <fieldset class="general no-border-top">
+             <div class="field" data-hook="admin_general_setting_input_name">
+                <label for="store_name">Email Title *</label>
+                <br>
+                 <%=@email_template.title%>
+              </div>
+              <div class="field" data-hook="admin_general_setting_input_name">
+                <label for="store_name">To</label>
+                <br>
+                <%= f.text_field :mailto, class: "fullwidth" %>
+                   <br><small> <p>Enter enter emails seprated by comma.
+     </p> </small>
+              </div>
+              <div class="field" data-hook="admin_general_setting_input_name">
+                <label for="store_name">CC</label>
+                <br>
+                <%= f.text_field :mailcc,class: "fullwidth" %>
+                 <br><small> <p>Enter enter emails seprated by comma.
+     </p> </small>
+              </div>
+                 <div class="field" data-hook="admin_general_setting_input_name">
+                <label for="store_name">Text</label>
+                <br>
+                <%= f.cktext_area :mailtext, class: "fullwidth" %>
+              </div>
+              <div class="form-buttons filter-actions actions" data-hook="buttons">
+               <a class="button " href="javascript:void(0)" onclick="window.history.back();"><span class="text white_color" >Back</span></a>
+              <span class="or">or</span>
+              <a class="" style="border: 0px solid #000 !important;"><span class="text"><%= f.submit "update" %></span></a>
+              </div>
+              </fieldset>
+            </div>
+        </div>
+      </div>
+       <% end %>
+         <aside  data-hook="" class="four columns"> <br>
+          <nav class="menu">
+           <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
+           <% @emailtemplates.each do |etemp| %>
+        <li><a href="/admin/email_templates/<%= etemp.id %>/edit"><%= etemp.title %></a></li>
+      <% end %>
+            </ul>
+          </nav>
+        </aside>
+    </div>
+  </div>
+

@@ -10,7 +10,6 @@ module Spree
       address = "Joher Town Lahore, Punjab, Pakistan"
       phone = "+9211113333343"
     end
-    debugger
      arr_add << address
      arr_add << phone
      arr_add << Spree::Store.first.url 

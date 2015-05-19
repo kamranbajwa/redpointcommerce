@@ -46,7 +46,7 @@
       <div class="container">
       <%end%>
         <div class="row">
-          <%if params[:controller]=="spree/admin/organizations" or params[:controller]=="spree/admin/templates" or params[:controller]=="spree/admin/slider_images" or params[:controller]=="spree/admin/cms_pages" or params[:controller]=="spree/admin/logos" or params[:controller] == "spree/admin/api_users" %>
+          <%if params[:controller]=="spree/admin/organizations" or params[:controller]=="spree/admin/templates" or params[:controller]=="spree/admin/slider_images" or params[:controller]=="spree/admin/cms_pages" or params[:controller]=="spree/admin/logos" or params[:controller] == "spree/admin/api_users" or params[:controller]=="spree/admin/email_templates" %>
       <div class="<%= 'with-sidebar ' if content_for?(:sidebar)  %>" id="content" style="margin-top:0px"  data-hook>  
       
       <%else%>
