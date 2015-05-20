@@ -54,3 +54,48 @@
 #shipping input[type="text"], #shipping input[type="email"], #shipping  input[type="tel"], #shipping  input[type="number"], #shipping  select, #shipping textarea {
     width: 100%;
 }
+
+
+.left_meta time {
+    color: #3a3c41 !important;
+    display: block;
+    font-size: 18px!important;
+    font-weight: 500;
+    padding: 18px 0 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.left_meta time strong {
+    display: block;
+    font-size: 30px!important;
+    font-weight: 800;
+    line-height: 38px;
+}
+.left_meta {
+    background-color: #fff;
+    border-top: 2px solid #2389d7;
+}
+.comments_count {
+    background-color: #e7ecee;
+    display: block;
+    padding: 14px 0 18px;
+    text-align: center;
+}
+
+.right-contents-bl {
+    border-bottom: 1px solid #dcdee4;
+    overflow: hidden;
+    padding-bottom: 40px;
+}
+
+.read-more-button {
+    background-color: #3284c3;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
