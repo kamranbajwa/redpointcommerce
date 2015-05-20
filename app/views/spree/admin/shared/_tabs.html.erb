@@ -16,6 +16,10 @@
   <%= tab *Spree::BackendConfiguration::PROMOTION_TABS, url: spree.admin_promotions_path, icon: 'bullhorn' %>
 <% end %>
 
+<%#= tab *Spree::BackendConfiguration::CONFIGURATION_TABS, label: 'Blog', icon: 'wrench', url: spree.admin_blogs_path %>
+
+<%#*<a class="fa fa-wrench icon_link with-tip" href="/admin/blogs"><span class="text"> Blogs</span></a></li>%>
+
 <% if Spree.user_class && can?(:admin, Spree.user_class) %>
   <%= tab *Spree::BackendConfiguration::USER_TABS, url: spree.admin_users_path, icon: 'user' %>
   <%if params[:controller]=="spree/admin/organizations" or params[:controller]=="spree/admin/templates" or params[:controller]=="spree/admin/slider_images" or params[:controller]=="spree/admin/logos"%>
@@ -24,4 +28,9 @@
   <li class="tab-with-icon">
   <%end%>
    <a class="fa fa-wrench icon_link with-tip" href="/admin/organizations/<%= Spree::Organization.first.id%>/edit"><span class="text"> Setting</span></a></li>
+  
+  <%#= tab *Spree::BackendConfiguration::CONFIGURATION_TABS, label: 'Blog', icon: 'wrench', url: spree.admin_blogs_path %>
+
+  <li> <a class="fa fa-wrench icon_link with-tip" href="/admin/blogs"><span class="text"> Blog</span></a></li>
+  
 <% end %>

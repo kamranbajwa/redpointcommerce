@@ -1,0 +1,44 @@
+<%=render :partial=>'blog_sub_nav'%>
+<div class="container">
+  <div class="row">
+    <div class="with-sidebar " >
+      <div class="twelve columns"> <br>
+        <div class="row">
+        <br>
+        <br>
+          <table class="index" id="listing_products">
+            <colgroup>
+              <col style="width: 50%;">
+            </colgroup>
+            <thead>
+              <tr data-hook="admin_products_index_headers">
+                <th>Title</th>
+                <th> </th>
+                 <th>Author</th>
+                <th>Summary</th>
+                <th>Boby</th>
+                <th>Published</th>
+                <th>Visiblity</th>
+                <th data-hook="admin_products_index_header_actions" class="actions"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @spree_blogs.each do |page| %>
+                <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
+                   <td class="align-center"> <%= page.title %></td>
+                   <td class="align-center"> <%= image_tag page.avatar.url(:thumb) %> </td>
+                   <td class="align-center"> <%= page.author %> </td>
+                   <td class="align-center"> <%= page.summary %> </td>
+                   <td class="align-center"> <%= page.body.html_safe %> </td>
+                   <td class="align-center"> <%= page.published_at %>  </td>
+                   <td class="align-center"> <%= page.visible %></td>
+                  <td class="actions" data-hook="admin_products_index_row_actions">
+                    <%= link_to '', edit_admin_blog_path(page), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%> 
+                    <%= link_to '', admin_blog_path(page), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash icon_link with-tip no-text", "data-action" => "remove" %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
