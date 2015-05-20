@@ -72,7 +72,16 @@
       <%= f.check_box :is_recommended %>
       <%= f.label " Recommended" %>
       </div>
-
+    <div class="field" data-hook="admin_product_form_promotionable">
+      <%= f.check_box :subscription %>
+      <%= f.label "Subscription" %>
+    </div>
+      <div data-hook="admin_product_form_shipping_categories">
+        <%= f.label :subscription_type, "Subscription Type" %>
+        <%= f.select :subscription_type, 
+    options_for_select([['Weekly','Weekly'],['Monthly','Monthly'],['Yearly','Yearly']], :selected => @product.subscription_type),
+    {:include_blank => true}, { :class => '' } %>
+    </div>
     <% if @product.has_variants? %>
       <div data-hook="admin_product_form_multiple_variants">
         <%= f.label :skus, Spree.t(:skus) %>
@@ -100,7 +109,7 @@
           <%= f.text_field :sku, :size => 16 %>
         <% end %>
       </div>
-       
+
       <ul id="shipping_specs">
         <li id="shipping_specs_weight_field" data-hook="admin_product_form_weight" class="field alpha two columns">
           <%= f.label :weight, Spree.t(:weight) %>
