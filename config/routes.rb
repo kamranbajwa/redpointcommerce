@@ -1,4 +1,5 @@
 SpreeExample::Application.routes.draw do
+
   mount Ckeditor::Engine => '/ckeditor'
   #resources :organizations
   # The priority is based upon order of creation: first created -> highest priority.
@@ -39,6 +40,10 @@ SpreeExample::Application.routes.draw do
       resources :templates
       resources :cms_pages
       resources :api_users
+      resources :promotion_emails do 
+        member { get :select_user }
+        member { get :send_emails }
+      end
       resources :email_templates
       resources :blogs
       end
