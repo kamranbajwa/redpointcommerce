@@ -42,7 +42,7 @@
       <!-- Mobile Menu Button -->
       <button data-target=".collapse" data-toggle="collapse" class="btn btn-mobile" style="margin-top: 8px;"> <i class="fa fa-bars"></i> </button>
       
-      <!-- Logo text or image --> 
+      <!-- Logo text or image  mistake here view contain qurry--> 
       <a href="/" class="logo" style="margin-top: 0px; line-height: 50px;"> <img alt="Atropos" src="<%= Spree::Logo.last.avatar.url(:logo)%>" style="width:85%;"> </a> 
       
       <!-- Top Nav -->
@@ -72,6 +72,9 @@
             <% end %>
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_us_page.try(:id)%>"> About Us </a> </li>
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/messages"> Contact Us </a> </li>
+            <!--Blog link -->
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/blog">Blog</a></li>
+            
             <!-- GLOBAL SEARCH -->
             <li class="search"> 
               <!-- search form -->

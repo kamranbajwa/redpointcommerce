@@ -1,0 +1,14 @@
+<div id="content-header" data-hook="">
+  <div class="">
+    <div class="">
+      <div class="block-table">
+        <div class="table-cell">
+          <h1 class="page-title "> Blog Posts</h1>
+        </div>
+        <% if params[:action]=="index" %>
+             <%= link_to 'New Blog', new_admin_blog_path ,  class: 'button fa fa-plus add-page', icon: "plus" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+ <div class="container  cont-set">
+     <div  class="col-md-9">
+            <div class="">
+                <!--post date and comments-->
+                <div class="col-sm-2">
+                    <div class="left_meta clearfix entry-meta">
+                        <time class="entry-time updated" datetime="2014-05-10T11:07:36+00:00">
+                            <b><%= @blog_post_show.published_at.strftime("%b")%> </b>
+                            <br><br>
+                            <span style=" clear: both; font-weight: bold; font-size: 35px;">
+                            <%= @blog_post_show.published_at.strftime("%d")%> 
+                            </span></time>
+                        <span class="comments_count clearfix entry-comments-link">
+                           
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-10">
+                    <div class="right-contents-bl">
+                           <header class="entry-header">
+                            <!--post title-->
+                            <h3 class="entry-title"><a href="image-post-format.html">
+                               <%= link_to @blog_post_show.title , "/blog/#{@blog_post_show.permalink}" , class: " fa  icon_link with-tip no-text", "data-action" => "show_post"%>
+                             </a></h3>
+                            <!--author name-->
+                                    <span class="entry-author">
+                                        Posted by <span class="entry-author-link"> <a href="#" title="Posts by John Doe"><%= @blog_post_show.author%> </a>
+                                        </span>
+                                    </span>
+                        </header>
+                        <!--post content-->
+                        <div class="entry-content">
+                            <p><%= @blog_post_show.body.html_safe %> </p>
+                        </div>
+                        <!--read more button-->
+                    </div>
+                </div>
+               
+            </div>
+     </div>
+     
+     <!--- Catgories  -->
+     <div  class="col-md-3">
+          <section class="widget widget_categories">
+            <h3 class="title">Categories</h3>
+            <ul>
+                <li><a href="#" title="View all posts filed under Environment">Environment</a></li>
+                <br />
+                <li><a href="#" title="View all posts filed under Health Basics">Health Basics</a></li>
+                <br />
+                <li><a href="#" title="View all posts filed under Lifestyle">Lifestyle</a></li>
+                <br />
+                <li><a href="#" title="View all posts filed under Motivation">Motivation</a></li>
+            </ul>
+        </section>
+     </div>
+     <!--- End of Catagories -->     
+</div>
+
