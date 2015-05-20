@@ -10,6 +10,7 @@ class Spree::Admin::EmailTemplatesController < Spree::Admin::ResourceController
   # GET /emailtemplates/1
   # GET /emailtemplates/1.json
   def show
+    redirect_to :admin_emails_templates , notice: 'Emails Template was not updated. Please try again'
   end
 
   # GET /emailtemplates/new
@@ -29,7 +30,7 @@ class Spree::Admin::EmailTemplatesController < Spree::Admin::ResourceController
 
     respond_to do |format|
       if @emailtemplate.save
-        format.html { redirect_to @emailtemplate, notice: 'EmailTemplate was successfully created.' }
+        format.html { redirect_to email_templates_url, notice: 'EmailTemplate was successfully created.' }
         format.json { render action: 'show', status: :created, location: @emailtemplate }
       else
         format.html { render action: 'new' }
@@ -57,7 +58,7 @@ class Spree::Admin::EmailTemplatesController < Spree::Admin::ResourceController
   def destroy
     @emailtemplate.destroy
     respond_to do |format|
-      format.html { redirect_to emailtemplates_url }
+      format.html { redirect_to email_templates_url }
       format.json { head :no_content }
     end
   end

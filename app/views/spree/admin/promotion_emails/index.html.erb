@@ -1,5 +1,5 @@
-  <%=render :partial=>'spree/shared/setting_sub_nav_tab'%>
-  <div class="container">
+<%=render :partial=>'promotion_emails_nav'%>
+<div class="container">
   <div class="row">
     <div class="with-sidebar " >
       <div class="twelve columns"> <br>
@@ -17,11 +17,14 @@
               </tr>
             </thead>
             <tbody>
-              <%@emailtemplates.each do |emailtmp| %>
+              <%@promotion_emails.each do |emailtmp| %>
                 <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
                   <td class="align-center"><%= emailtmp.title %></td>
                   <td class="actions" data-hook="admin_products_index_row_actions">
-                    <%= link_to '', edit_admin_email_template_path(emailtmp), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%>
+                    <%= link_to '', edit_admin_promotion_email_path(emailtmp), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%>
+                 <!--    <button name="button" class="fa fa-email button">Resend</button>  -->
+                    <%= link_to '', admin_promotion_email_path(emailtmp), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash icon_link with-tip no-text", "data-action" => "remove" %>
+                    <%= link_to '', select_user_admin_promotion_email_path(emailtmp), class: "fa fa-envelope icon_link with-tip no-text"%>
                   </td>
                 </tr>
               <% end %>
@@ -29,23 +32,3 @@
           </table>
         </div>
       </div>
-
-<!-- <div class="container">
-    <div class="row">
-      <div class="with-sidebar " >
-        <div class="twelve columns"> <br>
-         Please select an email template from sidebar to edit it.
-     
-        </div>
-         <aside  data-hook="" class="four columns"> <br>
-          <nav class="menu">
-           <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
-           <% @emailtemplates.each do |etemp| %>
-        <li><a href="email_templates/<%= etemp.id %>/edit"><%= etemp.title %></a></li>
-      <% end %>
-            </ul>
-          </nav>
-        </aside>
-      </div>
-    </div>
-  </div> -->

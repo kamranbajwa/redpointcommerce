@@ -1,0 +1,48 @@
+    <%=render :partial=>'promotion_emails_nav'%>
+    <%= form_tag(send_emails_admin_promotion_email_path, method: "get") do %>
+  <table class="ptable">
+  <thead>
+    <tr data-hook="promotion_email_header">
+      <th><%= Spree.t(:Email) %></th>
+      <th class="align-center"><input type="checkbox" onClick="select_all(this)" /><%= Spree.t(:select_all) %></th>
+    </tr>
+  </thead>
+  <tbody>              
+  <% @users.each do |rating|%>
+    <tr data-hook="reports_row">
+      <td class="align-center"><%= rating.email %></td>
+      <td style="padding-left:3em; width:30% "> <%= check_box_tag "emails[]", rating.email, rating.email, id: "rating_#{rating.email}" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+      <fieldset>
+  <div class="form-buttons filter-actions actions" data-hook="buttons">
+       
+         <a class="button" href="javascript:void(0)" onclick="window.history.back();"><span class="text white_color">Back</span></a>
+       
+        <span class="or">or</span>
+        <a class="button remove-border"><span class="text"><%= submit_tag("Send email") %></span></a>
+      </div>
+
+    </fieldset>
+       <%end%>
+  <script type="text/javascript">
+  $(document).ready(function(){
+   $(':checkbox').attr('checked',true);
+});
+  function select_all(source) {
+  checkboxes = document.getElementsByName('emails[]');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+//   $('#select-all').click(function(event) {   
+//     if(this.checked) {
+//         // Iterate each checkbox
+//         $(':checkbox').each(function() {
+//             this.checked = true;                        
+//         });
+//     }
+// });
+  </script>

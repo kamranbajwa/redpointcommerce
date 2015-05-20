@@ -20,9 +20,14 @@
           <li class=""><a href=<%= admin_api_users_path %>>Api Users</a></li>
           <li class=""><a href="/">Cart Checkout</a></li>
           <% if params[:controller]=="spree/admin/email_templates"and (params[:action]=="edit" or params[:action]=="index" or params[:action] == "new")%>
-          <li class="selected"><a href="/admin/email_templates">Emails Templates</a></li>
+          <li class="selected"><a href=<%= admin_email_templates_path %>>Emails Templates</a></li>
           <%else%>
-          <li class=""><a href="/admin/email_templates">Emails Templates</a></li>
+          <li class=""><a href=<%= admin_email_templates_path %>>Emails Templates</a></li>
+          <%end%>
+          <% if params[:controller]=="spree/admin/promotion_emails"%>
+          <li class="selected"><a href=<%= admin_promotion_emails_path %>>Promotions Emails</a></li>
+          <%else%>
+          <li class=""><a href=<%= admin_promotion_emails_path %>>Promotions Emails</a></li>
           <%end%>
         </ul>
       </div>

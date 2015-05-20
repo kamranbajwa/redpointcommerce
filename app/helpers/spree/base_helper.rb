@@ -8,8 +8,9 @@ module Spree
       phone=address.phone_no rescue ''
     else
       address = "Joher Town Lahore, Punjab, Pakistan"
-      phone = "+9211113333343"
+      phone = "+921111333334"
     end
+
      arr_add << address
      arr_add << phone
      arr_add << Spree::Store.first.url 
