@@ -551,3 +551,19 @@ color: #817C7C;
 .current {
 	background: #5f5e5c !important;
 }
+
+
+.read-more-button 
+{
+    background-color: #5f5e5c !important;
+}
+
+.comments_count
+{
+     background-color: #5f5e5c !important;
+}
+
+.left_meta
+{
+     border-top: 2px solid  #5f5e5c !important;
+}

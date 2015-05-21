@@ -94,3 +94,17 @@ color: #DA9741;
 #main-footer{
     background: #582a10;
 }
+.read-more-button 
+{
+    background-color: #c16301 !important;
+}
+
+.comments_count
+{
+     background-color: #c16301 !important;
+}
+
+.left_meta
+{
+     border-top: 2px solid  #c16301 !important;
+}

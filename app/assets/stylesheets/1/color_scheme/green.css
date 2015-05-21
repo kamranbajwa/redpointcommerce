@@ -140,3 +140,18 @@ h4 a{ color:#000;}
 .current {
 	background: #638009 !important;
 }
+
+.read-more-button 
+{
+    background-color: #638009 !important;
+}
+
+.comments_count
+{
+     background-color: #638009 !important;
+}
+
+.left_meta
+{
+     border-top: 2px solid  #638009 !important;
+}

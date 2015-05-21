@@ -100,3 +100,17 @@ span.price, #checkout-summary table tr[data-hook="item_total"] td:last-child str
 #main-footer{
     background: #e9e9e9;
 }
+.read-more-button 
+{
+    background-color: #c3725f !important;
+}
+
+.comments_count
+{
+     background-color: #c3725f !important;
+}
+
+.left_meta
+{
+     border-top: 2px solid  #c3725f !important;
+}

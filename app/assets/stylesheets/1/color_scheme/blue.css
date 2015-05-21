@@ -142,3 +142,17 @@ background: rgba(16, 85, 147, 0.44) !important;
 .current {
 	background: #bddefb !important;
 }
+.read-more-button 
+{
+    background-color: #105593 !important;
+}
+
+.comments_count
+{
+     background-color: #105593 !important;
+}
+
+.left_meta
+{
+     border-top: 2px solid  #105593 !important;
+}

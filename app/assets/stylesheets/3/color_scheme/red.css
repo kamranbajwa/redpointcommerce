@@ -94,3 +94,19 @@ ul#products li a.info {
 #main-footer{
     background: #8F0F0F;
 }
+
+
+.read-more-button 
+{
+    background-color: #8F0F0F !important;
+}
+
+.comments_count
+{
+     background-color: #8F0F0F !important;
+}
+
+.left_meta
+{
+     border-top: 2px solid  #8F0F0F !important;
+}
