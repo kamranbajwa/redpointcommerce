@@ -345,7 +345,7 @@ p {
 	font-weight: 200;
 	line-height: 1.4
 }
-@media (min-width:10008px) {
+@media (min-width:1000px) {
 .lead {
 	font-size: 21px
 }
@@ -378,7 +378,7 @@ a.text-primary:hover {
 	color: #3071a9
 }
 .text-success {
-	color: #3c10003d
+	color: #3c763d
 }
 a.text-success:hover {
 	color: #2b542c
@@ -1331,7 +1331,7 @@ table td[class*=col-], table th[class*=col-] {
 .table-hover>tbody>tr>td.danger:hover, .table-hover>tbody>tr>th.danger:hover, .table-hover>tbody>tr.danger:hover>td, .table-hover>tbody>tr.danger:hover>th {
 	background-color: #ebcccc
 }
-@media (max-width:1000px) {
+@media (max-width:767px) {
 .table-responsive {
 	width: 100%;
 	margin-bottom: 15px;
@@ -1915,8 +1915,8 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 }
 @font-face {
 	font-family: 'Glyphicons Halflings';
-	src: url(../../fonts/glyphicons-halflings-regular.eot);
-	src: url(../../fonts/glyphicons-halflings-regulard41d.eot?#iefix) format('embedded-opentype'), url(../fonts/glyphicons-halflings-regular.woff) format('woff'), url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'), url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
+	src: url(../fonts/glyphicons-halflings-regular.eot);
+	src: url(../fonts/glyphicons-halflings-regulard41d.eot?#iefix) format('embedded-opentype'), url(../fonts/glyphicons-halflings-regular.woff) format('woff'), url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'), url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
 }
 .glyphicon {
 	position: relative;
@@ -3225,7 +3225,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 	padding-bottom: 10px;
 	line-height: 20px
 }
-@media (max-width:1000px) {
+@media (max-width:767px) {
 .navbar-nav .open .dropdown-menu {
 	position: static;
 	float: none;
@@ -3313,7 +3313,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 	top: 0
 }
 }
-@media (max-width:1000px) {
+@media (max-width:767px) {
 .navbar-form .form-group {
 	margin-bottom: 5px
 }
@@ -3413,7 +3413,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 	background-color: #e7e7e7;
 	color: #555
 }
-@media (max-width:1000px) {
+@media (max-width:767px) {
 .navbar-default .navbar-nav .open .dropdown-menu>li>a {
 	color: #777
 }
@@ -3481,7 +3481,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 	background-color: #080808;
 	color: #fff
 }
-@media (max-width:1000px) {
+@media (max-width:767px) {
 .navbar-inverse .navbar-nav .open .dropdown-menu>.dropdown-header {
 	border-color: #080808
 }
@@ -4885,7 +4885,7 @@ width:device-width
 .visible-xs, .visible-sm, .visible-md, .visible-lg {
 	display: none!important
 }
-@media (max-width:1000px) {
+@media (max-width:767px) {
 .visible-xs {
 	display: block!important
 }
@@ -4941,7 +4941,7 @@ th.visible-lg, td.visible-lg {
 	display: table-cell!important
 }
 }
-@media (max-width:1000px) {
+@media (max-width:767px) {
 .hidden-xs {
 	display: none!important
 }
@@ -4974,8 +4974,6 @@ table.visible-print {
 tr.visible-print {
 	display: table-row!important
 }
-
-
 th.visible-print, td.visible-print {
 	display: table-cell!important
 }
