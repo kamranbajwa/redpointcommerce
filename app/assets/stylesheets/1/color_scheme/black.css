@@ -46,3 +46,19 @@ footer .links-social .social-newsletter .social-links ul li a {
 {
      border-top: 2px solid  #343434 !important;
 }
+
+.header-box-blog {
+    background: #343434 none repeat scroll 0 0 !important;
+}
+
+
+.blog-bg
+{
+   background:#343434  !important;
+}
+
+
+.blog-bg:hover
+{
+     background:#343434 !important;
+}

@@ -1,6 +1,6 @@
 module Spree
   class StaticsController <  Spree::StoreController
-   
+   skip_before_action :verify_authenticity_token , :only => [:subcriptions]
     def contactus
     end
   
@@ -34,5 +34,27 @@ module Spree
        @blog_post_show = Spree::Blog.find_by_permalink(params[:permalink])
     end
     
+    # Start Subcription Email 
+    def subcriptions
+      @subscibed_email = Spree::Subscribe.new
+      if params[:email].blank?
+        text = 'blank'
+      else
+        @already_exist = Spree::Subscribe.find_by_subcription_email(params[:email])
+        if @already_exist.blank? 
+            @subscibed_email.subcription_email= params[:email]
+              if @subscibed_email.save
+                  text = 'insert'
+              else
+                  text = 'notinsert'
+              end
+        else
+          text ="already"
+        end
+      end
+        render :text => text
+    end
+        # End Subcription Email 
+
   end
 end
