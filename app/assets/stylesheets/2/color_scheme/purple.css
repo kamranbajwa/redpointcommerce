@@ -547,3 +547,18 @@ background-color: #f4d5ee !important;
 .current {
 	background: #8f0373 !important;
 }
+
+.read-more-button 
+{
+    background-color:#b3008f !important;
+}
+
+.comments_count
+{
+     background-color:#b3008f !important;
+}
+
+.left_meta
+{
+     border-top: 2px solid #b3008f !important;
+}

@@ -412,3 +412,19 @@ background-color: #dae7f2 !important;
 .current {
 	background: #2e6da4 !important;
 }
+
+
+.read-more-button 
+{
+    background-color: #2e6da4 !important;
+}
+
+.comments_count
+{
+     background-color: #2e6da4 !important;
+}
+
+.left_meta
+{
+     border-top: 2px solid  #2e6da4 !important;
+}

@@ -44,3 +44,18 @@ input[type="submit"] {
 #main-footer{
 	background: #202020;
 }
+
+.read-more-button 
+{
+    background-color: #727276 !important;
+}
+
+.comments_count
+{
+     background-color: #202020 !important;
+}
+
+.left_meta
+{
+     border-top: 2px solid  #202020 !important;
+}

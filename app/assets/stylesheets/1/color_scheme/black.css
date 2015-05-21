@@ -23,11 +23,26 @@ footer .links-social .social-newsletter .social-links ul li a {
 	background: #000 !important;
 }
 .btn-primary {
-  color: #fff;
+   color: #fff;
    background-color: #343434; 
    border-color: #343434; 
 }
 .btn-primary:hover {
    background-color: #343434; 
    border-color: #343434; 
+}
+
+.read-more-button 
+{
+    background-color: #343434 !important;
+}
+
+.comments_count
+{
+     background-color: #343434 !important;
+}
+
+.left_meta
+{
+     border-top: 2px solid  #343434 !important;
 }
