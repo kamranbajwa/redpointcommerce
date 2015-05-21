@@ -233,8 +233,8 @@
 	}
 
 	header#topNav div.nav-main-collapse {
-		background: #2D343E;
-		margin: -8px -15px 0 -15px !important;
+		
+		margin: -6px -6px 0 0px !important;
 		max-height: none;
 		-webkit-box-sizing: content-box;
 		-moz-box-sizing: content-box;
@@ -260,11 +260,12 @@
 	}
 
 	header#topNav nav.nav-main {
-		padding: 10px 0;
+		padding: 9px 0;
 		clear: both;
 		display: block;
 		float: none;
 		width: 100%;
+		padding-left: 30px;
 	}
 
 	header#topNav nav.nav-main ul,
@@ -277,7 +278,7 @@
 		clear: both;
 		float: none;
 		display: block;
-		border-bottom: 1px solid #383F49;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 	}
 
 	header#topNav nav ul.nav-main > li + li {
