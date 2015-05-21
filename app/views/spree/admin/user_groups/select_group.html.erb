@@ -1,0 +1,16 @@
+<%= render :partial => 'spree/admin/users/sidebar', :locals => { :current => :user_groups } %>
+<%= render :partial => 'spree/admin/users/user_page_actions' %>
+<%= form_tag(assign_group_admin_user_group_path(@user), method: "get") do %>
+<% if @user.user_group %>
+<h3>Current Group is <%= @user.user_group.name%></h3>
+<% end %>
+<br><br>
+<label>Select Group </label>
+<%= select("post", "group_id", Spree::UserGroup.all.collect {|p| [ p.name, p.id ] })%>
+<br><br>
+<fieldset>
+  <div class="form-buttons filter-actions actions" data-hook="buttons">
+   <a class="button remove-border"><span class="text"><%= submit_tag("Assign User") %></span></a>
+ </div>
+</fieldset>
+<% end %>

@@ -39,6 +39,13 @@
           <%= f.error_message_on :price %>
         <% end %>
       </div>
+      <div data-hook="new_product_price" class="four columns">
+        <%= f.field_container :retailer_price do %>
+          <%= f.label :retailer_price, "Retailer Price" %> <span class="required">*</span><br />
+          <%= f.text_field :retailer_price, :value => number_to_currency(@product.retailer_price, :unit => ''), :class => 'fullwidth', :required => true %>
+          <%= f.error_message_on :price_retailer %>
+        <% end %>
+      </div>
         <div data-hook="new_product_available_on" class="omega four columns">
         <%= f.field_container :available_on do %>
           <%= f.label :available_on, Spree.t(:available_on) %>
