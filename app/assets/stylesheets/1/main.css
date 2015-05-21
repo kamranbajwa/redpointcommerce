@@ -4360,7 +4360,7 @@ input[type="submit"].gray, input[type="button"].gray, input[type="reset"].gray, 
     width: 100%;
     margin-bottom: 10px;
 }
-.wrapper-padding{ padding-top: 80px !important;}
+.wrapper-padding{ padding-top: 80px ;}
 #content{ margin-top: 25px;}
 
 .product-image {
@@ -4512,6 +4512,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', en
 .ware-house-dropdown ul li{
     float: none;
 }
+.wrapper-padding{ padding-top: 0px ;}
 
  @media screen and (max-width: 320px) {
  
@@ -4527,7 +4528,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', en
 @media screen and (min-width: 640px) and (max-width: 767px) {
 }
 
-@media screen and (min-width: 768px) and (max-width: 1003px) {
+@media screen and (min-width: 320px) and (max-width: 1003px) {
     .navbar-nav>li {
   float: left;
   margin-top: -6px;
@@ -4535,7 +4536,26 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', en
   padding-top: 10px;
  clear:both !important;
 }
+ul#products li {
+  width: 23%;
+  margin-right: 10px;
+}
+.product-full{
+width: 100% !important;
+padding: 5%;
+}
 
+textarea, input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"] 
+{
+height: 40px;
+}
+ .edit_order {
+    padding: 14px;
+    padding-left: 28px;
+    padding-right: 28px;
+    width: 100%b;
+
+ }
 }
 
 @media screen and (min-width: 1004px) and (max-width: 1259px) {
@@ -4545,6 +4565,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', en
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1365px) {
+    .wrapper-padding{ padding-top: 0px ;}
 }
 
 @media screen and (min-width: 1366px) and (max-width: 1599px) {
@@ -4558,3 +4579,14 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', en
  @media screen and (min-width: 768px) and (max-width: 1003px) {
 
 }
+textarea, input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"] 
+{
+height: 40px;
+}
+.edit_order {
+    padding: 14px;
+    padding-left: 28px;
+    padding-right: 28px;
+    width: 100%b;
+
+ }
