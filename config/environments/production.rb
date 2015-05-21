@@ -100,7 +100,7 @@ SpreeExample::Application.configure do
  :email => {
  :email_prefix => "[RPC Error] ",
  :sender_address => %{"Exception Notification" <shoaib@gems.techverx.com>},
- :exception_recipients => %w{shoaib@gems.techverx.com qubaish@gems.techverx.com usman@gems.techverx.com abdullah@gems.techverx.com hamzah@gems.techverx.com} 
+ :exception_recipients => %w{shoaib@gems.techverx.com qubaish@gems.techverx.com usman@gems.techverx.com abdullah@gems.techverx.com hamzah@gems.techverx.com kashif@gems.techverx.com} 
 }
   
 end
