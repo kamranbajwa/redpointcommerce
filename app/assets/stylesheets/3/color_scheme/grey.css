@@ -114,3 +114,16 @@ span.price, #checkout-summary table tr[data-hook="item_total"] td:last-child str
 {
      border-top: 2px solid  #c3725f !important;
 }
+
+.header-box-blog 
+{
+    background: #c3725f none repeat scroll 0 0 !important;
+}
+.blog-bg
+{
+   background:#c3725f !important;
+}
+.blog-bg:hover
+{
+     background:#c3725f !important;
+}

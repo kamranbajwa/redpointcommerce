@@ -535,3 +535,16 @@ background-color: #fad0d0 !important;
 {
      border-top: 2px solid  #c61212 !important;
 }
+
+.header-box-blog 
+{
+    background: #c61212 none repeat scroll 0 0 !important;
+}
+.blog-bg
+{
+   background:#c61212 !important;
+}
+.blog-bg:hover
+{
+     background:#c61212 !important;
+}

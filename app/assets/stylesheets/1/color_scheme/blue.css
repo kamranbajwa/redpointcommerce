@@ -156,3 +156,19 @@ background: rgba(16, 85, 147, 0.44) !important;
 {
      border-top: 2px solid  #105593 !important;
 }
+
+
+.header-box-blog {
+    background: #105593 none repeat scroll 0 0 !important;
+}
+
+.blog-bg
+{
+   background:#105593 !important;
+}
+
+
+.blog-bg:hover
+{
+     background:#105593 !important;
+}

@@ -145,11 +145,15 @@
                   <% if index == 1 %>
                     <li class="dropdown dropdown-small ware-house-dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          More <b class="caret"></b>
+                          More 
+                          <b class="caret">
+                            
+                          </b>
                       </a>
                       <ul class="dropdown-menu">
                   <% end %>
                         <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
+                        <li >  <a href="/blog"  >Blog</a></li>
                   <% if index+1 == @customize_pages.length %>
                       </ul>
                     </li>
@@ -170,6 +174,7 @@
               <li class="">
                 <a href="/messages" class="dropdown-toggle" >Contact Us</a>
               </li>
+              
 
 <%#*<li class="dropdown yamm-fw ">%>
 <%#*<a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Living Rooms</a>%>
