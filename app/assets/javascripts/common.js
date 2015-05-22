@@ -8,8 +8,20 @@
 
 function subcribe_email()
 {
-    
     var email = document.getElementById('blogaddress').value;
+    var rex =/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    if (email == "")
+    {
+      document.getElementById('error_message').innerHTML = 'Please Enter Email';
+      document.getElementById('blogaddress').style.borderColor="red";
+    }
+    else if(!rex.test(email))
+    {
+      document.getElementById('error_message').innerHTML = 'Please Enter Correct Email';
+      document.getElementById('blogaddress').style.borderColor="red";
+    }
+    else
+    {    
         $.ajax({
              type: "POST",
              data: "email="+ email,
@@ -20,6 +32,7 @@ function subcribe_email()
                      document.getElementById('blog_error').innerHTML = 'Subcribed Successfully';
                      $('#blogaddress').hide();
                      $('#blog-sumit').hide();
+                     $('#error_message').hide();
                  }
                  else if (data ==='notinsert'){
                      document.getElementById('blog_error').innerHTML = 'Error occure while subcribe';
@@ -30,9 +43,8 @@ function subcribe_email()
                  else if (data ==='already'){
                     document.getElementById('blog_error').innerHTML = 'Email Already Exist';
                  }
-                 
              }
-            
-     });
+       });
+    }
       
 }
