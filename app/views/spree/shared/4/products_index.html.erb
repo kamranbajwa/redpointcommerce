@@ -1,0 +1,93 @@
+<div class="clear20"></div>
+<%= flash_messages %>
+<%
+paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+paginated_products ||= products
+%>
+<% content_for :head do %>
+<% if paginated_products.respond_to?(:num_pages) %>
+<%= rel_next_prev_link_tags paginated_products %>
+<% end %>
+<% end %>
+<div class="gallery-page clearfix gallery-placing">
+	<div class="container isotope-wrapper">
+		<div class="row">
+			<div class="col-md-3 sidebar-links">
+				<h3 class="text-left">CATEGORIES</h3>
+				<ul class="nav nav-list text-left">
+					<% if "spree/products" == params[:controller] && taxon %>
+					<%= render :partial => 'spree/shared/filters' %>
+					<% else %>
+					<%#= render :partial => "spree/shared/#{@selected_template.template_no}/products_index" %>
+					<% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+
+
+					<% @taxonomies.each do |taxonomy| %>
+					<% cache [I18n.locale, taxonomy, max_level] do %>
+
+					<%= taxons_tree_products_list(taxonomy.root, @taxon) %>
+					<% end %>
+					<% end %>
+					<% end %>
+					<% if @products.present? %>
+			<%= render :partial => 'spree/shared/search_filters' %>
+			<%end%>
+				</ul>
+			</div>
+			<div class="col-md-9">
+				<% if params[:keywords] %>
+				<div data-hook="search_results">
+
+					<% if @products.empty? %>
+					<h6 class="search-results-title min-product-height"><%= Spree.t(:no_products_found) %></h6>
+					<% else %>
+					<%= render :partial => "spree/shared/#{@selected_template.template_no}/products_search", :locals => { :products => @products, :taxon => @taxon } %>
+					<% end %>
+				</div>
+				<%else%>
+				<div class="products">
+
+					<%
+					paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+					paginated_products ||= products
+					%>
+					<% products.each do |product| %>
+					<% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
+					<% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
+					<div class="col-md-3 col-sm-6 col-xs-12 product">
+						<div class="product-box">
+							<!-- <a href="#"><img src="/assets/1.jpg" class="img-responsive center-block"></a> -->
+							<%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:100%" ), url, :itemprop => 'url' %>
+						</div>
+						<div class="product-info">
+							<div class="name">ddfdfd<%#=product.name%></div>
+							<div class="price"><%=product.price%></div>
+							<div class="clear"></div>
+							<%= link_to url, :class => "btn btn-primary add_to_cart cart_popup", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "width: 100%" do %>
+							<i class="fa fa-shopping-cart"></i> ADD TO CART
+							<%end%>
+							<div class="clear20"></div>
+						</div>
+					</div>
+					<% end %>
+					<% end %>
+					<!-- end col-sm-3 -->
+					<%= render :partial => "spree/shared/2/popup_modal" %>
+
+
+
+				</div>
+
+
+
+
+
+
+			</div>
+		</div>
+		<%end%>
+		<% if paginated_products.respond_to?(:num_pages) %>
+		<%= paginate paginated_products%>
+		<% end %>
+	</div>
+</div>

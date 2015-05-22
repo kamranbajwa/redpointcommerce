@@ -1,0 +1,27 @@
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover { color:#0077FF; }
+.navbar-nav a:hover, .navbar-nav a:active, .navbar-nav .active a, .navbar-nav .active { color:#0077FF; }
+.navbar-default .navbar-nav>li>a:hover { color:#0077FF; }
+.store-top-links a:hover { color:#0077FF; }
+.specials ul li .hot { background-color:#0077FF; }
+.product-box .sale { background-color:#0077FF; }
+
+.sub-nav-boxes .current { color: #0077FF; }
+.sub-nav-boxes .current:hover { background-color: #0077FF; border-color:#0077FF; }
+.sub-nav-boxes a:hover { background-color:#0077FF; border:1px solid #0077FF; }
+.product .rating  a { color:#0077FF; }
+.post-link:hover { background-color:#0077FF; border:1px solid #0077FF; color:#fff; }
+.subscribe .frm button:hover { background-color:#0077FF; color:#fff; border-color:#0077FF; }
+
+.sidebar-links h3 { color:#0077FF; }
+.box-heading a { color:#0077FF; }
+
+h1, h2, h3, h4 { color:#0077FF; }
+
+.breadcrumb a { color:#0077FF; }
+.gallery-item-types a { color:#0077FF; }
+.btn-readmore { border: solid 1px #0077FF; background-color: #0077FF; }
+
+.footer .address { color:#91C5FF; }
+.btn-primary {
+	background-color: #2e6da4 !important;
+}

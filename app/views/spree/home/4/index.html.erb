@@ -1,0 +1,93 @@
+<section> 
+  <!-- Header Scroller Starts -->
+  <div class="container-fluid text-center full-screen slider-push">
+  <div id="wrapper">
+    <div class="slider-wrapper theme-default">
+      <div id="slider" class="nivoSlider">
+      <%@selected_template.spree_slider_images.each_with_index do |image,index| %> 
+      <img src="<%= image.slider_image.url(:xlarge)%>" class="img-responsive center-block header-banner" alt=""> 
+      <%end%>  
+      </div>
+    </div>
+  </div>
+  
+  <!-- Header Scroller Ends --> 
+</section>
+<!-- slidere end here --> 
+<div class="clear20"></div>
+<section>
+  <div class="container banners">
+    <div class="row">
+      <div class="col-md-4 col-sm-4"><img src="/assets/4/banner-img-1.jpg" class="img-responsive center-block" alt=""></div>
+      <div class="clear10 visible-xs"></div>
+      <div class="col-md-4 col-sm-4"><img src="/assets/4/banner-img-2.jpg" class="img-responsive center-block" alt=""></div>
+      <div class="clear10 visible-xs"></div>
+      <div class="col-md-4 col-sm-4"><img src="/assets/4/banner-img-3.jpg" class="img-responsive center-block" alt=""></div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="text-center custom-center-wrapper">
+      <div class="custom-center">
+        <div class="caption-bar"></div>
+        <div class="caption">NEW TRENDS</div>
+        <div class="caption-bar"></div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="text-center sub-caption">Most Trendy Shoes</div>
+    <div class="clear20"></div>
+    <ul class="list-unstyled list-inline text-center sub-nav-boxes">
+      <li><a href="#" class="current">NEW ARRIVAL</a></li>
+       <% @taxonomies[0..1].each do |taxonomy| %>
+  
+      <%= taxons_tree_products_shoes(taxonomy.root, @taxon) %>
+  <% end %>
+    </ul>
+  </div>
+</section>
+<div class="clear40"></div>
+<div class="clear40"></div>
+<section>
+ <div class="container">
+    <div class="row products">
+<%= render :partial => "/spree/shared/#{@selected_template.template_no}/products", :locals => { :products => @products, :taxon => @taxon } %>
+</div>
+</div>
+</section>
+<div class="clear40"></div>
+<section>
+  <div class="container-fluid full-screen blog-post">
+    <div class="blog-post-text text-center"> <span class="glyphicon glyphicon-triangle-top"></span>
+      <div class="clearfix"></div>
+      <a href="#" class="post-caption">11 Reasons You Might Be A Hipster</a>
+      <div class="clearfix"></div>
+      <a href="#" class="post-link">DISCOVER NOW</a> </div>
+  </div>
+</section>
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 left-promo">
+        <div class="text-center promotion-1">
+          <div class="caption">Best Winter Collection 2015</div>
+          <div class="details">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</div>
+          <div class="btn"><a href="#" class="post-link">JOIN NOW</a></div>
+        </div>
+      </div>
+      <div class="col-md-6 right-promo">
+        <div class="text-center promotion-2">
+          <div class="caption">PARIS</div>
+          <div class="details">03/2015</div>
+          <div class="btn"><a href="#" class="post-link">PURCHASES</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="clear40"></div>
+<div class="clear40"></div>
+<section>
+<!-- widgets start from here -->
+<%= render :partial => "/spree/home/#{@selected_template.template_no}/widgets", :locals => { :recommended_products => recommended_products,:best_selling_products => best_selling_products, :taxon => @taxon } %>
