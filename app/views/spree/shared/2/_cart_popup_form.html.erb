@@ -35,7 +35,13 @@
           <h6 class="product-section-title"><%= Spree.t(:price) %>:</h6>
           <div>
              <div class="productRowInfo">
-              <span class="price styleSecondColor fsize20"><%= display_price(@product) %></span>
+              <% if @user_group == "Retailer" && @product.retailer_price.present? %>
+               <span class="price styleSecondColor fsize20"><%= @product.retailer_display_price.to_html %></span>
+            <% elsif @user_group == "WholeSaler" && @product.dealer_price.present? %>
+               <span class="price styleSecondColor fsize20"><%= @product.dealer_display_price.to_html %></span>
+              <% else%>
+               <span class="price styleSecondColor fsize20"><%= display_price(@product) %></span>
+            <% end %>
               <span itemprop="priceCurrency" content="<%= @product.currency %>"></span>
             </div>
             <% if @product.master.can_supply? %>
