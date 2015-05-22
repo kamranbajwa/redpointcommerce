@@ -102,5 +102,15 @@ SpreeExample::Application.configure do
  :sender_address => %{"Exception Notification" <shoaib@gems.techverx.com>},
  :exception_recipients => %w{shoaib@gems.techverx.com qubaish@gems.techverx.com usman@gems.techverx.com abdullah@gems.techverx.com hamzah@gems.techverx.com kashif@gems.techverx.com} 
 }
+
+  
+  config.paperclip_defaults = {   
+    :storage => :fog,   
+    :fog_credentials => {    
+      aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],  
+      aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],    
+      provider: ENV['FOG_PROVIDER']   },  
+      fog_directory: ENV['FOG_DIRECTORY']
+  } 
   
 end
