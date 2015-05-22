@@ -55,15 +55,16 @@ module Spree
 
     has_many :prices, -> { order('spree_variants.position, spree_variants.id, currency') }, through: :variants
     has_many :retailer_prices, -> { order('spree_variants.position, spree_variants.id, currency') }, through: :variants
+    has_many :dealer_prices, -> { order('spree_variants.position, spree_variants.id, currency') }, through: :variants
 
     has_many :stock_items, through: :variants_including_master
 
     has_many :line_items, through: :variants_including_master
     has_many :orders, through: :line_items
 
-    delegate_belongs_to :master, :sku, :price, :retailer_price, :currency, :display_amount, :display_price, :weight, :height, :width, :depth, :is_master, :has_default_price?, :cost_currency, :price_in, :amount_in
+    delegate_belongs_to :master, :sku, :price, :currency, :display_amount, :display_price, :weight, :height, :width, :depth, :is_master, :has_default_price?, :cost_currency, :price_in, :retailer_display_price, :amount_in
 
-    delegate_belongs_to :master, :cost_price, :cost_retailer_price
+    delegate_belongs_to :master, :cost_price, :retailer_price, :dealer_display_price, :dealer_price
 
     delegate :images, to: :master, prefix: true
     alias_method :images, :master_images

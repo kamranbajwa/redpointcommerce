@@ -33,6 +33,12 @@ module Spree
       dependent: :destroy,
       inverse_of: :variant
 
+
+    has_many :dealer_prices,
+      class_name: 'Spree::Price',
+      dependent: :destroy,
+      inverse_of: :variant
+
     before_validation :set_cost_currency
 
     validate :check_price
@@ -69,8 +75,12 @@ module Spree
       self[:cost_price] = Spree::LocalizedNumber.parse(price) if price.present?
     end
 
-     def cost_retailer_price=(retailer_price)
-      self[:retailer_price] = Spree::LocalizedNumber.parse(price) if price.present?
+     def retailer_price=(retailer_price)
+      self[:retailer_price] = Spree::LocalizedNumber.parse(retailer_price) if retailer_price.present?
+    end
+
+    def dealer_price=(dealer_price)
+      self[:dealer_price] = Spree::LocalizedNumber.parse(dealer_price) if dealer_price.present?
     end
 
     def weight=(weight)
@@ -163,6 +173,14 @@ module Spree
 
     def price_in(currency)
       prices.select{ |price| price.currency == currency }.first || Spree::Price.new(variant_id: self.id, currency: currency)
+    end
+
+    def retailer_display_price
+      Spree::Money.new(self.retailer_price, currency: self.currency)
+    end
+
+    def dealer_display_price
+      Spree::Money.new(self.dealer_price, currency: self.currency)
     end
 
     def amount_in(currency)
