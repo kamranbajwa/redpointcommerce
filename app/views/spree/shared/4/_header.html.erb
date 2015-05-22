@@ -1,0 +1,129 @@
+<div class="fixed-header navbar-fixed-top"> 
+  <!-- Header Links Section Starts -->
+  <section>
+    <div class="container">
+      <div class="clear10"></div>
+      <div class="row top-links">
+        <div class="col-md-6 welcome-msg">
+          <div class="pull-left">WELCOME TO PSHQ</div>
+        </div>
+        <div class="col-md-6 store-top-links">
+          <ul class="pull-right small-screen-left">
+          <% if spree_user_signed_in? %>
+            <li><a href="/account">MY ACCOUNT</a></li>
+             <li> <%=  link_to 'Sign Out', spree_logout_path %></li>
+             <%else%>
+            <li><a href='/login'>SIGNIN</li>
+            <%end%>
+          </ul>
+        </div>
+      </div>
+      <div class="clear40"></div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="pull-left logo"><a href="/"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>" class="img-responsive" alt=""></a></div>
+        </div>
+        <div class="col-md-8"> 
+          
+          <!-- Visible for Small Devices Starts -->
+          <div class="visible-sm visible-xs">
+            <div class="pull-right responsive-menu">
+              <div class="pull-right menu-icon"> <a href="#" class="menu-link"><span class="glyphicon glyphicon-menu-hamburger"></span></a> </div>
+              <ul id="menu" class="list-unstyled">
+                <li><a href="/products">HOME</a></li>
+                <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> CART</a></li>
+                 <% @customize_pages.each_with_index  do |page, index|%>
+                <% if index >= 2 %>
+                  <% if index == 2 %>
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" href="#">
+                          More <i class="fa fa-angle-down"></i>
+                      </a>
+                      <ul class="dropdown-menu menu_color">
+                  <% end %>
+                        <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
+                  <% if index+1 == @customize_pages.length %>
+                      </ul>
+                    </li>
+                  <% end %>
+                <% else %>
+                  <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
+                <% end %>
+            <% end %>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_us_page.try(:id)%>"> About Us </a> </li>
+				<li><a href="/products">SERVICES</a></li>
+                <li><a href="/blog">BLOG</a></li>
+                <li><a href="/messages">CONTACT US</a></li>
+              </ul>
+            </div>
+            <div class="search-box-2 top-search-box">
+                  <!--   <%= form_tag spree.products_path, class: "input-group pull-right",:method => :get do %>
+              <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search), :class => "form-control" %>
+              <span class="input-group-btn">
+              <%= submit_tag Spree.t(:search), :name => nil,:class => "btn btn-primary notransition" %><i class="fa fa-search"></i>
+               </span>
+            <% end %> -->
+            </div>
+          </div>
+          <!-- Visible for Small Devices Ends --> 
+          
+          <!-- hidden for small devices starts -->
+          <div class="hidden-sm hidden-xs">
+            <div>
+              <nav class="navbar navbar-default">
+                <div>
+                  <ul class="nav navbar-nav navbar-left">
+                    <li class="active"><a href="/">HOME</a></li>
+                    <li><a href='/products'>SERVICES</a></li>
+                    <li><a href="/blog">BLOG</a></li>
+                    <li><a href="/messages">CONTACT US</a></li>
+                    <% @customize_pages.each_with_index  do |page, index|%>
+                <% if index >= 2 %>
+                  <% if index == 2 %>
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" href="#">
+                          More <i class="fa fa-angle-down"></i>
+                      </a>
+                      <ul class="dropdown-menu menu_color">
+                  <% end %>
+                        <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
+                  <% if index+1 == @customize_pages.length %>
+                      </ul>
+                    </li>
+                  <% end %>
+                <% else %>
+                  <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
+                <% end %>
+            <% end %>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_us_page.try(:id)%>"> About Us </a> </li>
+
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+            
+		  <div class="search-box-2 top-search-box">
+            <li class="search"> 
+              <!-- search form -->
+              <%= form_tag spree.products_path, class: "input-group pull-right",:method => :get do %>
+              <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search), :class => "form-control" %>
+              <span class="input-group-btn">
+              <%= submit_tag Spree.t(:search), :name => nil,:class => "btn btn-primary notransition" %><i class="fa fa-search"></i>
+               </span>
+            <% end %>
+            </li>
+            </div>
+            
+          </div>
+          <!-- hidden for small devices ends --> 
+          
+        </div>
+      </div>
+      <div class="clear20"></div>
+    </div>
+  </section>
+  <!-- Header Links Section Ends --> 
+</div>  <!-- header end here -->

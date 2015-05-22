@@ -1,0 +1,69 @@
+<section>
+  <div class="container">
+    <div class="text-center custom-center-wrapper">
+      <div class="custom-center">
+        <div class="caption-bar"></div>
+        <div class="caption">Recummended Products</div>
+        <div class="caption-bar"></div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+</section>
+<div class="clear40"></div>
+<section>
+<div class="container">
+<div class="row products">
+<%recommended_products[0..3].each do |product| %>
+    <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
+      
+        <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
+        <div class="col-md-3 col-sm-6 col-xs-12 product">
+        <div class="product-box"
+          <div class="gallery-img"><%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:100%" ), url, :itemprop => 'url' %>
+            <div class="text-center">
+              <h4><%= link_to truncate(product.name, :length => 25), url, :class => 'info', :itemprop => "name", :title => product.name %></h4>
+              <p><%= display_price(product) %></p>
+            </div>
+          </div>
+        </div>
+
+        <% end %>
+        <%end %>
+      <!-- end col-sm-3 -->
+</div>
+</div>
+<section>
+  <div class="container">
+    <div class="text-center custom-center-wrapper">
+      <div class="custom-center">
+        <div class="caption-bar"></div>
+        <div class="caption">Best Seller Products</div>
+        <div class="caption-bar"></div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+</section>
+<div class="clear40"></div>
+<section>
+<div class="container">
+<div class="row products">
+<%best_selling_products[0..3].each do |product| %>
+  <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
+      
+        <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
+        <div class="col-md-3 col-sm-6 col-xs-12 product">
+        <div class="product-box"
+          <div class="gallery-img"><%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:100%" ), url, :itemprop => 'url' %>
+            <div class="text-center">
+              <h4><%= link_to truncate(product.name, :length => 25), url, :class => 'info', :itemprop => "name", :title => product.name %></h4>
+              <p><%= display_price(product) %></p>
+            </div>
+          </div>
+        </div>
+
+        <% end %>
+        <%end %>
+      <!-- end col-sm-3 -->
+      <%#= render :partial => "spree/shared/4/popup_modal" %>
+</div>
+</div>

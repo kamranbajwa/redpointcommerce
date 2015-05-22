@@ -1,0 +1,63 @@
+<section>
+  <div class="container-fluid footer">
+    <div class="container"><a href="#"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>" class="img-responsive center-block"></a>
+      <div class="footer-text center-block text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</div>
+<div class="text-center icons">
+<a target="_blank" href=<%= @org.facebook_url || '#'%>><i class="fa fa-facebook fa-2x"></i></a>
+<a target="_blank" href=<%= @org.twitter_url || '#'%>><i class="fa fa-twitter fa-2x"></i></a> 
+<a target="_blank" href=<%= @org.google_url ||'#'%>><i class="fa fa-google-plus fa-2x"></i></a>
+<a target="_blank" href=<%= @org.linked_in ||'#'%>><i class="fa fa-linkedin fa-2x"></i></a> 
+<a target="_blank" href=<%= @org.pinterest || '#'%>><i class="fa fa-pinterest fa-2x"></i></a>
+</div>
+      <div class="clear10"></div>
+      <div class="row bottom-links">
+        <div class="col-md-3 col-sm-6">
+          <h4>ABOUT</h4>
+          <div class="seperator"></div>
+          <ul class="list-unstyled">
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Services</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/messages">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="clear10 visible-xs"></div>
+        <div class="col-md-3 col-sm-6">
+          <h4>INFORMATION</h4>
+          <div class="seperator"></div>
+          <ul class="list-unstyled">
+          <% if spree_user_signed_in? %>
+            <li><a href="/account">My Account</a></li>
+            <%end%>
+            <li><a href="/cart">Shopping Cart</a></li>
+          </ul>
+        </div>
+        <div class="clear10 visible-xs"></div>
+        <div class="col-md-3 col-sm-6">
+          <h4>MORE</h4>
+          <div class="seperator"></div>
+          <ul class="list-unstyled">
+            <li><a href="#">Site Map</a></li>
+            <li><a href="#">Sample Link</a></li>
+            <li><a href="#">Sample Link</a></li>
+            <li><a href="#">Sample Link</a></li>
+          </ul>
+        </div>
+        <div class="clear10 visible-xs"></div>
+        <div class="col-md-3 col-sm-6">
+          <h4>SHOP LOCATION</h4>
+          <div class="seperator"></div>
+          <address>
+          <div class="address"><%=org_address[0]|| ""%></div>
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Scripts Start --> 
+<script language="javascript" type="text/javascript" src="/assets/<%= @selected_template.template_no%>/jquery-1.11.3.min.js"></script> 
+<script language="javascript" type="text/javascript" src="/assets/<%= @selected_template.template_no%>/jquery.nivo.slider.js"></script> 
+<script language="javascript" type="text/javascript" src="/assets/bootstrap.min.js"></script> 
+<script language="javascript" type="text/javascript" src="/assets/<%= @selected_template.template_no%>/custom.js"></script> 
+<!-- Scripts End -->

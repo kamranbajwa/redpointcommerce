@@ -1,0 +1,150 @@
+<div class="page-top clearfix">
+  <div class="container"> 
+    <!--page main heading-->
+    <h2 class="entry-title">Shoe Details Page</h2>
+    <nav class="bread-crumb">
+      <ul class="breadcrumb clearfix">
+        <li><a href="/">Home</a></li>
+        <li class="active">Shoe Details</li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <section class="slider">
+          <div id="slider" class="flexslider" style="border:1px solid #ccc; overflow:hidden; padding:4px;">
+            <ul class="slides">
+              <li><%= render :partial => 'image' %></li>
+              <!-- <li><img src="/assets/1.jpg" class="img-responsive"></li>
+              <li><img src="/assets/1.jpg" class="img-responsive"></li>
+              <li><img src="/assets/1.jpg" class="img-responsive"></li>
+              <li><img src="/assets/1.jpg" class="img-responsive"></li>
+              <li><img src="/assets/1.jpg" class="img-responsive"></li> -->
+            </ul>
+          </div>
+          <div id="carousel" class="flexslider" style="border:1px solid #ccc; padding:4px; overflow:hidden;">
+            <ul class="slides">
+              <li><%= render :partial => 'thumbnails' %></li>
+                 
+           <!--    <li><img src="/assets/1.jpg" class="img-responsive"></li>
+              <li><img src="/assets/1.jpg" class="img-responsive"></li>
+              <li><img src="/assets/1.jpg" class="img-responsive"></li>
+              <li><img src="/assets/1.jpg" class="img-responsive"></li>
+              <li><img src="/assets/1.jpg" class="img-responsive"></li> -->
+            </ul>
+          </div>
+        </section>
+      </div>
+      <div class="col-md-5">
+        <h3 class="content-caption"><%= @product.name%></h3>
+        <div class="gallery-item-types"><span class="code">PART NUMBER: <%=@product.sku%></span> </div>
+        <div class="entry-content">
+          <h4>PRICE: <span class="actual-price">$<%= @product.price%></span></h4>
+          
+          <div class="clear10"></div>
+          
+     <div class="add-to-cart">
+             <div id="cart-form" data-hook="cart_form">
+              <%= render :partial => "spree/shared/#{@selected_template.template_no}/cart_form" %>
+            </div>
+          </div>
+
+          <div class="clear10"></div><div class="clear5"></div>
+          
+          <h4>DESCRIPTION</h4>
+          
+          <p> <%= product_description(@product) rescue Spree.t(:product_has_no_description) %></p>
+          
+        </div>
+        
+        
+        <div class="clear20"></div>
+        
+        
+        <div class="social-sharing">
+      <div class="socialApis">
+                      <h3 class="page-header">TELL TO YOUR FRIENDS</h3>
+
+                      <!-- facebook -->
+                      <div class="api">
+                      
+
+                   <div class="fb-like" data-href=<%=request.url%>  data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                      </div>
+                      <!-- twitter -->
+                      <div class="api">
+                        <a href=<%=request.url%> class="twitter-share-button" data-lang="en">Tweet</a>
+                      </div>
+
+                      <!-- google plus -->
+                      <div class="api">
+                        <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="300"></div>
+                      </div>
+
+                    </div>        
+        </div>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+<!-- main container with gallery and product details starts -->
+
+<div class="clear40"></div>
+<div class="clear20"></div>
+<section class="related-items">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        
+        
+        
+        
+        
+<div class="products">
+
+
+      
+
+             <!-- item -->
+                  <%@simlier_product.each do |product|%>
+                   <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
+                <div class="col-md-3 col-sm-6 col-xs-12 product">
+        <div class="product-box">
+      <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:100%" ), url, :itemprop => 'url' %>
+        </div>
+        <div class="product-info">
+          <div class="name"><%=product.name%></div>
+          <div class="price"><%=product.price%></div>
+      <div class="clear"></div>
+      <%= link_to url, :class => "btn btn-primary add_to_cart cart_popup", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "width: 100%" do %>
+                  <i class="fa fa-shopping-cart"></i> ADD TO CART
+               <%end%>
+      <div class="clear20"></div>
+        </div>
+      </div>
+            <%end%>
+              
+      <%= render :partial => "spree/shared/2/popup_modal" %>
+      
+
+      
+
+      
+
+
+
+
+</div>        
+        
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
