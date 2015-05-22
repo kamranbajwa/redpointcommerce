@@ -10,10 +10,8 @@ paginated_products ||= products
           <div class="gallery-img"><%= link_to product_image(product, :itemprop => "image", :class => "img-responsive height-responsive-home",:style=>"width:100%" ), url, :itemprop => 'url' %>
             <div class="text-center">
               <h4><%= link_to truncate(product.name, :length => 25), url, :class => 'info', :itemprop => "name", :title => product.name %></h4>
-              <p><%= display_price(product) %></p>
-            </div>
+<%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p => product, } %>            </div>
           </div>
         </div>
-
         <% end %>
     <% end %>

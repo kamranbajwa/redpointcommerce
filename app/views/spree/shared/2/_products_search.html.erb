@@ -21,10 +21,10 @@
                   <i class="fa fa-shopping-cart"></i> ADD TO CART
                 <% end %>
                 </figure>
-                
+               
                 <div class="item-box-desc">
                   <h4><%=p.name%></h4>
-                  <small class="styleColor"><span>$<%=p.price%></span></small>
+                   <%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p => p, } %>
                 </div>
               </div>
             </div>
