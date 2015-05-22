@@ -20,3 +20,10 @@ h1, h2, h3, h4 { color:#C00; }
 .breadcrumb a { color:#C00; }
 .gallery-item-types a { color:#C00; }
 .btn-readmore { border: solid 1px #C00; background-color: #C00; }
+.btn-primary {
+		background-color:#c61212 !important;
+	}
+	.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+		border:rgba(255,255,255,0) 2px solid;
+		background-color:#b60e0e !important;
+	}

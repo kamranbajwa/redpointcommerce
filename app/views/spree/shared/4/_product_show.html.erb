@@ -13,33 +13,23 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-md-7">
-        <section class="slider">
-          <div id="slider" class="flexslider" style="border:1px solid #ccc; overflow:hidden; padding:4px;">
-            <ul class="slides">
-              <li><%= render :partial => 'image' %></li>
-              <!-- <li><img src="/assets/1.jpg" class="img-responsive"></li>
-              <li><img src="/assets/1.jpg" class="img-responsive"></li>
-              <li><img src="/assets/1.jpg" class="img-responsive"></li>
-              <li><img src="/assets/1.jpg" class="img-responsive"></li>
-              <li><img src="/assets/1.jpg" class="img-responsive"></li> -->
-            </ul>
-          </div>
-          <div id="carousel" class="flexslider" style="border:1px solid #ccc; padding:4px; overflow:hidden;">
-            <ul class="slides">
-              <li><%= render :partial => 'thumbnails' %></li>
-                 
-           <!--    <li><img src="/assets/1.jpg" class="img-responsive"></li>
-              <li><img src="/assets/1.jpg" class="img-responsive"></li>
-              <li><img src="/assets/1.jpg" class="img-responsive"></li>
-              <li><img src="/assets/1.jpg" class="img-responsive"></li>
-              <li><img src="/assets/1.jpg" class="img-responsive"></li> -->
-            </ul>
-          </div>
-        </section>
-      </div>
+        <div class="col-sm-6 col-md-6">
+                  <div id="product-images" data-hook="product_images">
+                    <div id="main-image" class="line-hat" data-hook>
+                      <div class="product-image-wrapper">
+                        <%= render :partial => 'image' %>
+                      </div>
+                    </div>
+                    <div id="thumbnails" data-hook>
+                      <%= render :partial => 'thumbnails' %>
+                    </div>
+                  </div>
+                </div>
       <div class="col-md-5">
         <h3 class="content-caption"><%= @product.name%></h3>
+        <div class="gallery-item-types"> <span class="fa fa-tags"></span> <% @product.taxons.each do |taxon| %>
+        <%= link_to taxon.name, seo_url(taxon) %>
+      <% end %> </div>
         <div class="gallery-item-types"><span class="code">PART NUMBER: <%=@product.sku%></span> </div>
         <div class="entry-content">
           <h4>PRICE: <span class="actual-price">$<%= @product.price%></span></h4>

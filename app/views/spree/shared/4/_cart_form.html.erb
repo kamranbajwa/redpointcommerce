@@ -51,7 +51,7 @@
 
         <div class="add-to-cart">
           <%= number_field_tag :quantity, 1, :class => 'title', :min => 1 %>
-          <%= button_tag :class => 'button gray', :id => 'add-to-cart-button',:style=>"color:white;font-weight: bold;", :type => :submit do %>
+          <%= button_tag :class => 'button gray btn btn-primary', :id => 'add-to-cart-button',:style=>"color:white;font-weight: bold;", :type => :submit do %>
             <%= Spree.t(:add_to_cart) %>
           <% end %>
         </div>

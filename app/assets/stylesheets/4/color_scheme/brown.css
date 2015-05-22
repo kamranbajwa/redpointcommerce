@@ -22,3 +22,7 @@ h1, h2, h3, h4 { color:#C4920D; }
 .btn-readmore { border: solid 1px #C4920D; background-color: #C4920D; }
 
 .footer .address { color:#F8DA8B; }
+.btn-primary {
+    background-color: #c16301 !important;
+    border-color: #c16301 !important;
+}
