@@ -128,7 +128,9 @@
             <div class="logo">
 
 
-              <img src="<%= Spree::Logo.last.avatar.url(:logo)%>" width="240" height="75"> </div>	
+              <img src="<%= Spree::Logo.last.avatar.url(:large)%>" class="img-responsive"> 
+
+              </div>	
           </a><!-- /.navbar-brand -->
           <div class="clearfix"></div>
         </div><!-- /.navbar-header-->
@@ -195,7 +197,7 @@
             <div class="nav-outer">
               <div class="cnt-search">
 
-                <div class="">
+                <div>
                   <%= render :partial => 'spree/shared/nav_bar' %>
 <%#*<input type="text" class="form-control" placeholder="Search here...">%>
 <%#*<span class="input-group-btn">%>

@@ -28,6 +28,7 @@ paginated_products ||= products
       <li id="product_<%= product.id %>" class="col-md-3 product new-width" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
         <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
           <div class="product-image">
+       
             <%= link_to product_image(product, :itemprop => "image", :class => "image-100 height-responsive-home" ), url, :itemprop => 'url' %>
           </div>
           <%= link_to truncate(product.name, :length => 50), url, :class => 'info', :itemprop => "name", :title => product.name %>

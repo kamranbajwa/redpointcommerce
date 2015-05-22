@@ -1,5 +1,6 @@
   <%= javascript_include_tag "common.js" %>
-<div class="container  cont-set top-blog-margin">
+<div class="container  cont-set top-blog-margin top-space">
+<br>
      <div  class="col-md-9">
           <%@blog_post.each do |f|%>
             <div class="">
@@ -10,15 +11,13 @@
                             <% if !f.published_at.blank? %>
                             <b><%= f.published_at.strftime("%b")%> </b>
                             <%  end %>
-                            <br><br>
+                            <br>
                             <span style=" clear: both; font-weight: bold; font-size: 35px;">
                             <% if !f.published_at.blank? %>
                             <%= f.published_at.strftime("%d")%> 
                             <%  end %>
                             </span></time>
-                        <span class="comments_count clearfix entry-comments-link">
-                           
-                        </span>
+                       
                     </div>
                 </div>
                 <div class="col-sm-10">
@@ -55,7 +54,8 @@
      <!--- Catgories  -->
      <div  class="col-md-3">
           <section class="widget widget_categories">
-            <h3 class="title">Categories</h3>
+            <h3 style="margin-top:0px" class="title">Categories</h3>
+
             <ul>
                 <li><a href="#" title="View all posts filed under Environment">Environment</a></li>
                 <br />
