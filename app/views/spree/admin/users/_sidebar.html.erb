@@ -18,7 +18,7 @@
         <%= link_to_with_icon 'edit', Spree.t(:"admin.user.items"), items_admin_user_path(@user) %>
       </li>
       <li<%== ' class="active"' if current == :user_groups %>>
-        <%= link_to_with_icon 'user', "Groups", select_group_admin_user_group_path(@user), :action => :select_group %>
+        <%= link_to_with_icon 'user', "Groups", select_group_admin_user_path(@user) %>
       </li>
     </ul>
 

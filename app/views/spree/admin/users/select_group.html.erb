@@ -1,8 +1,11 @@
+<% content_for :page_title do %>
+  <%= link_to "#{Spree.t(:editing_user)} #{@user.email}", edit_admin_user_url(@user) %>
+<% end %>
 <%= render :partial => 'spree/admin/users/sidebar', :locals => { :current => :user_groups } %>
 <%= render :partial => 'spree/admin/users/user_page_actions' %>
-<%= form_tag(assign_group_admin_user_group_path(@user), method: "get") do %>
-<% if @user.user_group %>
-<h3>Current Group is <%= @user.user_group.name%></h3>
+<%= form_tag(assign_group_admin_user_path(@u), method: "get") do %>
+<% if @u.user_group %>
+<h3>Current Group is <%= @u.user_group.name%></h3>
 <% end %>
 <br><br>
 <label>Select Group </label>

@@ -30,7 +30,9 @@
                   <td class="item-name"><%= item.variant.name %></td>
                   <td class="item-qty"><%= item.quantity %></td>
                   <% if @user_group == "Retailer" %>
-                    <td class="item-price">$<%= item.variant.price %></td>
+                    <td class="item-price">$<%= item.variant.retailer_price %></td>
+                  <% elsif @user_group == "WholeSaler" %>
+                    <td class="item-price">$<%= item.variant.dealer_price %></td>
                   <% else %>
                     <td class="item-price"><%= display_price(item.variant) %></td>
                   <% end %>

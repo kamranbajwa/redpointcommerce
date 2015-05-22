@@ -46,7 +46,7 @@ SpreeExample::Application.routes.draw do
       end
       resources :email_templates
       resources :blogs
-      resources :user_groups do
+      resources :users do
         member { get :select_group }
         member { get :assign_group }
       end
