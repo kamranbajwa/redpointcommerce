@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :check_template
-  before_filter :load_pages
+  before_filter :load_pages, :check_group
   before_filter :load_cart, :home_content, :customize_pages, :static_pages
   
   def after_sign_in_path_for(resource)
@@ -39,5 +39,11 @@ class ApplicationController < ActionController::Base
   end
   def static_pages
     @static_pages = @selected_template.cms_pages.static.order("sort asc").limit(4)
+  end
+  def check_group
+    if spree_current_user
+      @user_group =  spree_current_user.user_group.try(:name)
+      Spree::LineItem.user_role = @user_group
+    end
   end
 end
