@@ -36,10 +36,10 @@
                 <% if index >= 2 %>
                   <% if index == 2 %>
                     <li class="dropdown">
-                      <a class="dropdown-toggle" href="#">
+                      <a class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1" href="#" aria-expanded="true">
                           More <i class="fa fa-angle-down"></i>
                       </a>
-                      <ul class="dropdown-menu menu_color">
+                      <ul class="dropdown-menu"  role="menu" aria-labelledby="dropdownMenu1">
                   <% end %>
                         <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
                   <% if index+1 == @customize_pages.length %>
@@ -47,15 +47,17 @@
                     </li>
                   <% end %>
                 <% else %>
-                  <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
+                  <li> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
                 <% end %>
             <% end %>
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_us_page.try(:id)%>"> About Us </a> </li>
 				<li><a href="/products">SERVICES</a></li>
                 <li><a href="/blog">BLOG</a></li>
-                <li><a href="/messages">CONTACT US</a></li>
+                <li><a href="/messages">CONTACT Us</a></li>
+
               </ul>
             </div>
+
             <div class="search-box-2 top-search-box">
                   <!--   <%= form_tag spree.products_path, class: "input-group pull-right",:method => :get do %>
               <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search), :class => "form-control" %>
@@ -76,15 +78,15 @@
                     <li class="active"><a href="/">HOME</a></li>
                     <li><a href='/products'>SERVICES</a></li>
                     <li><a href="/blog">BLOG</a></li>
-                    <li><a href="/messages">CONTACT US</a></li>
-                    <% @customize_pages.each_with_index  do |page, index|%>
+                    <li><a href="/messages">CONTACT U</a></li>
+                  <% @customize_pages.each_with_index  do |page, index|%>
                 <% if index >= 2 %>
                   <% if index == 2 %>
                     <li class="dropdown">
-                      <a class="dropdown-toggle" href="#">
+                      <a class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1" href="#" aria-expanded="true">
                           More <i class="fa fa-angle-down"></i>
                       </a>
-                      <ul class="dropdown-menu menu_color">
+                      <ul class="dropdown-menu"  role="menu" aria-labelledby="dropdownMenu1">
                   <% end %>
                         <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
                   <% if index+1 == @customize_pages.length %>
@@ -92,7 +94,7 @@
                     </li>
                   <% end %>
                 <% else %>
-                  <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
+                  <li> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
                 <% end %>
             <% end %>
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_us_page.try(:id)%>"> About Us </a> </li>
