@@ -48,7 +48,7 @@
           <h4>SHOP LOCATION</h4>
           <div class="seperator"></div>
           <address>
-          <div class="address"><%=org_address[0]|| ""%></div>
+          <div class="address"><%=org_address[0].gsub(',', '<br>').html_safe || ""%></div>
           </address>
         </div>
       </div>
