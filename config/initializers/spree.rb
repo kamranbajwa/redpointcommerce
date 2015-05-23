@@ -57,6 +57,19 @@ attachment_config.each do |key, value|
 end
 end
 
+if Rails.env.development?
+attachment_config.each do |key, value|
+  Spree::Image.attachment_definitions[:attachment][key.to_sym] = value
+  Spree::Favicon.attachment_definitions[:favicon_image][key.to_sym] = value
+  Spree::SliderImage.attachment_definitions[:slider_image][key.to_sym] = value
+  Spree::Logo.attachment_definitions[:avatar][key.to_sym] = value
+  
+
+end
+end
+
+
+
 SpreeEditor::Config.tap do |config|
   config.current_editor = 'CKEditor'
   config.ids = 'product_description page_body event_body'

@@ -537,3 +537,15 @@ background-color: #f9ecce !important;
 {
      border-top: 2px solid  #ffb502 !important;
 }
+.header-box-blog 
+{
+    background: #ffb502 none repeat scroll 0 0 !important;
+}
+.blog-bg
+{
+   background:#ffb502 !important;
+}
+.blog-bg:hover
+{
+     background:#ffb502 !important;
+}

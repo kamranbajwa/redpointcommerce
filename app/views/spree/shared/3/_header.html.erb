@@ -71,6 +71,7 @@
             <% end %>
             <span class="menu-sep"> <a href="/page/<%= @about_page.first.try(:id)%>"> About Us </a></span>
             <span class="menu-sep"><a href="/messages"> Contact Us</a></span>
+            <span class="menu-sep"><a href="/blog">Blog</a></span>
           </center>
         </div>
         
@@ -118,12 +119,16 @@
                   <% if index == 2 %>
                    <li>
                      <a href="#" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent;">More</a>
-                       <ul class="sub-menu" style="display: none;">
+                     <ul class="sub-menu" style="display: none;">
                   <% end %>
                         <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
+                        <% if index == 2 %>
+                        <li><a href="/blog">Blog</a></li>
+                        <%end%>
                   <% if index+1 == @customize_pages.length %>
                       </ul>
                     </li>
+                   
                   <% end %>
                 <% else %>
                 <li><a href="/page/<%= page.id %>"><%= page.title%></a> </li>

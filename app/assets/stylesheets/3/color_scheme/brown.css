@@ -108,3 +108,16 @@ color: #DA9741;
 {
      border-top: 2px solid  #c16301 !important;
 }
+
+.header-box-blog 
+{
+    background: #c16301 none repeat scroll 0 0 !important;
+}
+.blog-bg
+{
+   background:#c16301 !important;
+}
+.blog-bg:hover
+{
+     background:#c16301 !important;
+}

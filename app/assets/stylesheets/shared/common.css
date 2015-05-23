@@ -99,6 +99,52 @@
     padding: 10px 20px;
     text-decoration: none;
 }
+
+#style_selector_1 {
+background:#c52d2f;
+width: 250px;
+position: fixed;
+right: 55px;
+transition: all .5s ease;
+bottom:0px;
+}
+#style_selector_1 .style-main-title-blog {
+color: #fff;
+font-size: 15px;
+height: 24px;
+line-height: 27px;
+text-align: center;
+
+}
+.contant-boxes-blog{ 
+float: right;
+position: fixed;
+z-index: 99999;
+bottom: -50px;
+width: 250px;
+right: 55px; 
+}
+.header-box-blog{
+background: #c52d2f;
+text-align: center;
+color: #fff;
+padding-top: 12px; padding-right: 18px;
+padding-bottom: 9px;}
+.main-bg-blog{
+    background: #fff; border:solid 1px #ededed; padding: 10px;
+}
+
+.blog-bg
+{
+    width:100%;  ; border: none;
+}
+
+
+.blog-bg:hover
+{
+    width:100%;  ; border: none;
+}
+
 .flash, .errorExplanation {
     overflow-y: hidden;
 }

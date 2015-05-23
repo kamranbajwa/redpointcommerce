@@ -59,3 +59,17 @@ input[type="submit"] {
 {
      border-top: 2px solid  #202020 !important;
 }
+
+.header-box-blog 
+{
+    background: #202020 none repeat scroll 0 0 !important;
+}
+
+.blog-bg
+{
+   background:#202020 !important;
+}
+.blog-bg:hover
+{
+     background:#202020 !important;
+}

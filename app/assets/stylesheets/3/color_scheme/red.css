@@ -110,3 +110,16 @@ ul#products li a.info {
 {
      border-top: 2px solid  #8F0F0F !important;
 }
+
+.header-box-blog 
+{
+    background: #8F0F0F none repeat scroll 0 0 !important;
+}
+.blog-bg
+{
+   background:#8F0F0F !important;
+}
+.blog-bg:hover
+{
+     background:#8F0F0F !important;
+}

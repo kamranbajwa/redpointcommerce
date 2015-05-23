@@ -155,3 +155,19 @@ h4 a{ color:#000;}
 {
      border-top: 2px solid  #638009 !important;
 }
+
+.header-box-blog 
+{
+    background: #638009 none repeat scroll 0 0 !important;
+}
+
+.blog-bg
+{
+   background:#638009 !important;
+}
+
+
+.blog-bg:hover
+{
+     background:#638009 !important;
+}

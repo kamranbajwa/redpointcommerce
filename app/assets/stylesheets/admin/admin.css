@@ -307,3 +307,6 @@ span.page.current:hover {
 .margin_top{
     margin-top: 7px;
 }
+#padding-admin-buttons{
+    margin-left: 5px !important;
+}
