@@ -4944,7 +4944,7 @@ border-radius: 6px !important;
 }
 .wrapper-padding{ padding-top: 80px !important;}
 .responsive-height {height: 200px; width: 100%;}
-.height-responsive-home{min-height: 240px;}
+.height-responsive-home{height: 265px;}
 .pagination-new .current {
   width: 38px;
   height: 35px;
