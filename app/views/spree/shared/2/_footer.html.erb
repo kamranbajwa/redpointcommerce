@@ -10,7 +10,7 @@
           <div class="border-footer-">
             <h3>About Us</h3>
             <p class="footer-text"> 
-            <%= truncate(strip_tags(@about_page.try(:description)), length: 50) || "Sed sed eroe nulla.In
+            <%= truncate(strip_tags(@about_us_page.try(:description).try(:html_safe)), length: 150) || "Sed sed eroe nulla.In
               Fermentum turpis quis sem 
               mollis tempor. Nulla mollis,
               lorem vel commodo dignissim,
@@ -22,10 +22,10 @@
         <div class="column col-md-3 " style="margin-left:0px margin-right:0px" >
           <div class="border-footer-">
             <h3>Contact</h3>
-            <p class="footer-text"> <%=org_address[0]|| ""%></p>
-            <p class="footer-text"> <%=org_address[1]||"" %></p>
+            <p class="footer-text"> <%=org_address[0].gsub(',', '<br>').html_safe || ""%></p>
+            <p class="footer-text"> <%=org_address[1].gsub(',', '<br>').html_safe  ||"" %></p>
             <p class="footer-text"> info@rpc.com</p>
-            <p class="footer-text"> <%=org_address[2]|| ""%></p>
+            <p class="footer-text"> <%=org_address[2].gsub(',', '<br>').html_safe || ""%></p>
           </div>
         </div>
           <div class="column col-md-3 " style="margin-left:0px margin-right:0px" >
