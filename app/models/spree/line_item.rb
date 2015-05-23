@@ -40,7 +40,7 @@ module Spree
       if variant
         if user_role == "Retailer"
           self.price = variant.retailer_price rescue variant.price
-        elsif
+        elsif user_role == "WholeSaler"
           self.price = variant.dealer_price rescue variant.price
         else
           self.price = variant.price if price.nil?
