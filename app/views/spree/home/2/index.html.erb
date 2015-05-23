@@ -62,7 +62,7 @@
         <div class="col-md-3">
         <div class="featured-box nobg border-only border-dot">
             <div class="box-content"> <img width="56" height="40" src="assets/2/icon/<%=  data_pages[index][:img] %>.png">
-              <h4><%= truncate(strip_tags(page.description.html_safe), length: 20) %></h4>
+              <h4><%= truncate(strip_tags(page.title.html_safe), length: 20) %></h4>
               <hr style="margin:2px 0 2px 0">
               <p  style=" line-height:17px;" class="center"> <%= truncate(strip_tags(page.description.html_safe), length: 35) %> </p>
               <span class="pink-text"><a href="/page/<%= page.id%>">Read More...</a></span> </div>
@@ -128,7 +128,7 @@
             <div class="col-lg-9"> <span style="">
               <h4>We are waiting for you. Please make an Appointment here</h4>
               </span></div>
-            <div style="text-align:right" class="col-lg-3 pull-right"><a href="#" class="btn btn-primary btn-lg">Appointment</a></div>
+            <div style="text-align:right" class="col-lg-3 pull-right"><a href="/messages" class="btn btn-primary btn-lg">Appointment</a></div>
           </div>
         </div>
       </div>
