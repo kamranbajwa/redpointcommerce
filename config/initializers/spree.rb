@@ -39,6 +39,8 @@ attachment_config = {
     medium: '300x300>',
     xlarge:  '1300x500!',
     xxlarge: '1280x600!',
+    blarge: '700x500!',
+    xthumb: '100x100>',
     thumb: '6x6#'
   },
 

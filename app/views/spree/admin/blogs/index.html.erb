@@ -27,7 +27,11 @@
               <% @spree_blogs.each do |page| %>
                 <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
                    <td class="align-center"> <%= page.title %></td>
-                   <td class="align-center"> <%= image_tag page.avatar.url(:thumb) %> </td>
+                   <td class="align-center"> 
+                       <% if !page.avatar.url.blank? %>
+                       <%= image_tag page.avatar.url(:xthumb) %> 
+                       <%end%>
+                   </td>
                    <td class="align-center"> <%= page.author %> </td>
                    <td class="align-center"> 
                     <%=  truncate(page.summary, length: 20)%>
