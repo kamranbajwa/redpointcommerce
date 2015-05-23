@@ -345,6 +345,7 @@ float: left;
 height: 36px !important;
 margin-top: -4px !important;
 }
+
 .show_price_inline{
 display: inline-block;
 }
@@ -352,4 +353,10 @@ display: inline-block;
 display: inline-block;
 font-size: 17px;
 }
+
+
+.cart-subtotal, .cart-total{
+ background-color: #EFB013 !important;
+}
+table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd { background-color: #FDF4DD; }
 
