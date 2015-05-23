@@ -1,0 +1,7 @@
+<% if @user_group == "Retailer" && p.retailer_price.present? %>
+    <small class="styleColor"><span><%=p.retailer_display_price.to_html %></span></small>
+<% elsif @user_group == "WholeSaler" && p.dealer_price.present? %>
+    <small class="styleColor"><span><%=p.dealer_display_price.to_html %></span></small>
+<% else %>
+	<small class="styleColor"><span>$<%=p.price%></span></small>
+<% end %>

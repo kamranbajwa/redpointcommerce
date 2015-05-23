@@ -70,7 +70,8 @@ paginated_products ||= products
                 <%= link_to product_image(product, :itemprop => "image", :class => "image-100 responsive-height" ), url, :itemprop => 'url' %>
               </div>
               <%= link_to truncate(product.name, :length => 50), url, :class => 'info', :itemprop => "name", :title => product.name %>
-              <span class="price selling" itemprop="price"><%= display_price(product) %>
+
+              <span class="price selling" itemprop="price"> <%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p=> product} %>
               </span>
             <% end %>
           </li>
