@@ -84,7 +84,7 @@ paginated_products ||= products
 								</figure>
 								
 								<div class="item-box-desc">
-									<h4><%=p.name%></h4>
+									<h4><%=p.name%></h4> <%if p.subscription %> (Subscription Product) <% end %>
                    <%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p => p, } %>
 								</div>
 							</div>
