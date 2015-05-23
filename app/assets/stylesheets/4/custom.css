@@ -336,3 +336,14 @@ float: left;
 .modal-dialog{
   width: 920px !important;
 }
+.add-to-cart .c-input{
+height: 36px !important;
+margin-top: -4px !important;
+}
+.show_price_inline{
+display: inline-block;
+}
+.price_name_inline{
+display: inline-block;
+font-size: 17px;
+}
