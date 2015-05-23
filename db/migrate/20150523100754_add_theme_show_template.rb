@@ -1,4 +1,14 @@
 class AddThemeShowTemplate < ActiveRecord::Migration
- 	tmp=Spree::Template.find_by_template_no "4"
- 	Spree::Theme.create(name: "default", template_id: tmp.try(:id))
+ 	
+  tmp = Spree::Template.where("template_no = ? ", "4").first
+  
+  if !tmp.blank?
+  st = Spree::Theme.new
+  st.name = "default"
+  st.template_id = tmp.id
+  st.save
+  end
+
+  
+  
 end
