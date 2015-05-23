@@ -1,7 +1,11 @@
 <section>
   <div class="container-fluid footer">
-    <div class="container"><a href="#"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>" class="img-responsive center-block"></a>
-      <div class="footer-text center-block text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</div>
+    <div class="container">
+        <a href="#"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>" class="img-responsive center-block"></a>
+        
+        <div class="footer-text center-block text-center">
+          
+        </div>
 <div class="text-center icons">
 <a target="_blank" href=<%= @org.facebook_url || '#'%>><i class="fa fa-facebook fa-2x"></i></a>
 <a target="_blank" href=<%= @org.twitter_url || '#'%>><i class="fa fa-twitter fa-2x"></i></a> 
@@ -37,19 +41,29 @@
           <h4>MORE</h4>
           <div class="seperator"></div>
           <ul class="list-unstyled">
-            <li><a href="#">Site Map</a></li>
-            <li><a href="#">Sample Link</a></li>
-            <li><a href="#">Sample Link</a></li>
-            <li><a href="#">Sample Link</a></li>
+               <li><a href="/">About us</a></li>
+               <% @customize_pages.each_with_index  do |page, index|%>
+                <% if index >= 2 %>
+                <% if index == 2 %>
+                   <% end %>
+                    <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
+                    <% if index+1 == @customize_pages.length %>
+                <% end %>
+                <% else %>
+                <li> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
+                <% end %>
+                <% end %>
           </ul>
         </div>
         <div class="clear10 visible-xs"></div>
         <div class="col-md-3 col-sm-6">
           <h4>SHOP LOCATION</h4>
           <div class="seperator"></div>
-          <address>
-          <div class="address"><%=org_address[0].gsub(',', '<br>').html_safe || ""%></div>
-          </address>
+           <ul class="list-unstyled">
+          <li  style=" color: #7b7b7b; ">
+          <%=org_address[0].gsub(',', ' , ').html_safe || ""%>
+          </li>
+           </ul>
         </div>
       </div>
     </div>
