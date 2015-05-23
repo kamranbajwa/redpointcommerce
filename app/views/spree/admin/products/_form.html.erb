@@ -108,7 +108,7 @@
 
       <div class="alpha  columns">  
         <%= f.field_container :subscription_yearly do %>
-          <%= f.label :subscription_yearly, "Monthly Price" %>
+          <%= f.label :subscription_yearly, "Yearly Price" %>
           <%= f.text_field :subscription_yearly, :value => number_to_currency(@product.subscription_yearly, :unit => '') %>
           <%= f.error_message_on :subscription_yearly %>
         <% end %>

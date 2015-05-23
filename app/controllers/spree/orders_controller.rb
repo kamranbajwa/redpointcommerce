@@ -41,6 +41,12 @@ module Spree
 
     # Adds a new item to the order (creating a new order if none already exists)
     def populate
+#      Add subscription_to_options
+      variant = Spree::Variant.find(params[:variant_id])
+      if variant.product.subscription and params[:subscription]
+        params[:options] = {} unless  params[:options]
+        params[:options][:subscription] = params[:subscription]
+      end
       populator = Spree::OrderPopulator.new(current_order(create_order_if_necessary: true), current_currency)
       if populator.populate(params[:variant_id], params[:quantity], params[:options])
         respond_with(@order) do |format|
