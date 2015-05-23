@@ -5,13 +5,13 @@
       <div class="clear10"></div>
       <div class="row top-links">
         <div class="col-md-6 welcome-msg">
-          <div class="pull-left"><!-- WELCOME TO PSHQ --></div>
+          <div class="pull-left"> WELCOME TO PSHQ </div>
         </div>
         <div class="col-md-6 store-top-links">
           <ul class="pull-right small-screen-left">
             <% if spree_user_signed_in? %>
             <li><a href="/account">MY ACCOUNT</a></li>
-            <li> <%=  link_to 'Sign Out', spree_logout_path %></li>
+            <li> <%=  link_to 'SIGN OUT', spree_logout_path %></li>
             <%else%>
             <li><a href='/login'>SIGN IN</li>
             <%end%>
@@ -41,6 +41,7 @@
                 <li><a href="/products">HOME</a></li>
                 <% @customize_pages.each_with_index  do |page, index|%>
                 <% if index >= 2 %>
+                
                 <% if index == 2 %>
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1" href="#" aria-expanded="true">
@@ -58,7 +59,7 @@
                 <% end %>
                 <% end %>
                 <li class="mega-menu-item mega-menu-two-columns"> 
-                <a href="/page/<%= @about_us_page.try(:id)%>"> About US </a> </li>
+                <a href="/page/<%= @about_us_page.try(:id)%>"> ABOUT US </a> </li>
                 <li><a href="/products">SERVICES</a></li>
                 <li><a href="/blog">BLOG</a></li>
                 <li><a href="/messages">CONTACT US</a></li>
@@ -90,7 +91,7 @@
                     <li class=""><a href="/">HOME</a></li>
                     <li><a href='/products'>SERVICES</a></li>
                     <li><a href="/blog">BLOG</a></li>
-                    <li><a href="/messages">CONTACT Us</a></li>
+                    <li><a href="/messages">CONTACT US</a></li>
                     <% @customize_pages.each_with_index  do |page, index|%>
                     <% if index >= 2 %>
                     <% if index == 2 %>
@@ -109,7 +110,7 @@
                     <li> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
                     <% end %>
                     <% end %>
-                    <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_us_page.try(:id)%>"> About Us </a> </li>
+                    <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_us_page.try(:id)%>"> ABOUT US </a> </li>
 
                   </ul>
                   <ul class="nav navbar-nav navbar-right">

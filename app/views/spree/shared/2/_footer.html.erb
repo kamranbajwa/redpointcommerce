@@ -9,23 +9,18 @@
         <div class="column col-md-3 " style="margin-left:0px margin-right:0px" >
           <div class="border-footer-">
             <h3>About Us</h3>
-            <p class="footer-text"> 
-            <%= truncate(strip_tags(@about_us_page.try(:description).try(:html_safe)), length: 150) || "Sed sed eroe nulla.In
-              Fermentum turpis quis sem 
-              mollis tempor. Nulla mollis,
-              lorem vel commodo dignissim,
-              sapien purus consectetur
-              sapien, sit amet pellentesque
-              enim lectus"%> </p>
+            <div class="footer-text"> 
+<%= truncate(@about_us_page.description.try(:html_safe), length: 150) || "Pakisttan"%> </div>
           </div>
         </div>
         <div class="column col-md-3 " style="margin-left:0px margin-right:0px" >
           <div class="border-footer-">
             <h3>Contact</h3>
-            <p class="footer-text"> <%=org_address[0].gsub(',', '<br>').html_safe || ""%></p>
-            <p class="footer-text"> <%=org_address[1].gsub(',', '<br>').html_safe  ||"" %></p>
-            <p class="footer-text"> info@rpc.com</p>
-            <p class="footer-text"> <%=org_address[2].gsub(',', '<br>').html_safe || ""%></p>
+            <div  class="footer-text">
+             <%=org_address[0].gsub(',', ',').html_safe || ""%>
+             <%=org_address[1].gsub(',', '<br>').html_safe  ||"" %>
+             <%=org_address[2].gsub(',', '<br>').html_safe || ""%>
+            </div>
           </div>
         </div>
           <div class="column col-md-3 " style="margin-left:0px margin-right:0px" >
@@ -44,19 +39,11 @@
           </div>
         </div>
           <div class="column col-md-3 " style="margin-left:0px margin-right:0px" >
-         
           <div class="border-footer-">
             <h3>Footer Menu</h3>
-            <p class="footer-text">
-            </p><ul>
-              <li class="list-style"><a href="/products">Our Services</a></li>
-              <li class="list-style"><a href="#">Staff</a></li>
-              <li class="list-style"><a href="#"> profile</a></li>
-              <li class="list-style"><a href="#"> Photo Gallery</a></li>
-              <li class="list-style"><a href="#">Our Blog</a></li>
-              <li class="list-style"><a href="/messages">Contact Us</a></li>
-            </ul>
-            <p></p>
+               <a href="/products">Our Services</a> <br />
+               <a href="/blog">Our Blog</a><br />
+               <a href="/messages">Contact Us</a>
           </div>
         </div>
         <div class="column col-md-12 ">
