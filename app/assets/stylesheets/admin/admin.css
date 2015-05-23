@@ -310,3 +310,6 @@ span.page.current:hover {
 #padding-admin-buttons{
     margin-left: 5px !important;
 }
+.btn-padding{
+    margin: 0 1px !important;
+}
