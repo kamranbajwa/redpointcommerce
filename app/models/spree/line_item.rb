@@ -29,6 +29,7 @@ module Spree
     after_save :update_inventory
     after_save :update_adjustments
     cattr_accessor :user_role
+    cattr_accessor :subscription_type
 
     after_create :update_tax_charge
 
@@ -38,15 +39,31 @@ module Spree
 
     def copy_price
       if variant
-        if user_role == "Retailer"
-          self.price = variant.retailer_price rescue variant.price
-        elsif user_role == "WholeSaler"
-          self.price = variant.dealer_price rescue variant.price
+        if variant.product.subscription
+          set_subscription_type
         else
-          self.price = variant.price if price.nil?
+          if user_role == "Retailer"
+            self.price = variant.retailer_price rescue variant.price
+          elsif user_role == "WholeSaler"
+            self.price = variant.dealer_price rescue variant.price
+          else
+            self.price = varFViant.price if price.nil?
+          end
         end
         self.cost_price = variant.cost_price if cost_price.nil?
         self.currency = variant.currency if currency.nil?
+      end
+    end
+
+    def set_subscription_type
+      if subscription_type == "weekly"
+        self.price = variant.product.subscription_weekly rescue variant.price
+      elsif subscription_type == "daily"
+        self.price = variant.product.subscription_daily rescue variant.price
+      elsif subscription_type == "monthly"
+        self.price = variant.product.subscription_monthly rescue variant.price
+      elsif subscription_type == "yearly"
+        self.price = variant.product.subscription_yearly rescue variant.price
       end
     end
 
