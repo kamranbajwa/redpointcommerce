@@ -51,6 +51,7 @@ attachment_config.each do |key, value|
   Spree::Favicon.attachment_definitions[:favicon_image][key.to_sym] = value
   Spree::SliderImage.attachment_definitions[:slider_image][key.to_sym] = value
   Spree::Logo.attachment_definitions[:avatar][key.to_sym] = value
+  Spree::Blog.attachment_definitions[:avatar][key.to_sym] = value
   
 
 end
@@ -62,6 +63,7 @@ attachment_config.each do |key, value|
   Spree::Favicon.attachment_definitions[:favicon_image][key.to_sym] = value
   Spree::SliderImage.attachment_definitions[:slider_image][key.to_sym] = value
   Spree::Logo.attachment_definitions[:avatar][key.to_sym] = value
+  Spree::Blog.attachment_definitions[:avatar][key.to_sym] = value
   
 
 end
