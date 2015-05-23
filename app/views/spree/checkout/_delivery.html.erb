@@ -29,13 +29,17 @@
                   <td class="item-image"><%= mini_image(item.variant) %></td>
                   <td class="item-name"><%= item.variant.name %></td>
                   <td class="item-qty"><%= item.quantity %></td>
-                  <% if @user_group == "Retailer" %>
-                    <td class="item-price">$<%= item.variant.retailer_price %></td>
-                  <% elsif @user_group == "WholeSaler" %>
-                    <td class="item-price">$<%= item.variant.dealer_price %></td>
+                  <% if item.variant.product.subscription %>
+                      <td class="item-price">$<%= item.first.price %></td>
                   <% else %>
-                    <td class="item-price"><%= display_price(item.variant) %></td>
-                  <% end %>
+                    <% if @user_group == "Retailer" %>
+                      <td class="item-price">$<%= item.variant.retailer_price %></td>
+                    <% elsif @user_group == "WholeSaler" %>
+                      <td class="item-price">$<%= item.variant.dealer_price %></td>
+                    <% else %>
+                      <td class="item-price"><%= display_price(item.variant) %></td>
+                    <% end %>
+                  <%end %>
                 </tr>
               <% end %>
             </tbody>
