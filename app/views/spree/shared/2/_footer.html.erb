@@ -9,13 +9,14 @@
         <div class="column col-md-3 " style="margin-left:0px margin-right:0px" >
           <div class="border-footer-">
             <h3>About Us</h3>
-            <p class="footer-text"> Sed sed eroe nulla.In
+            <p class="footer-text"> 
+            <%= truncate(strip_tags(@about_page.try(:description)), length: 50) || "Sed sed eroe nulla.In
               Fermentum turpis quis sem 
               mollis tempor. Nulla mollis,
               lorem vel commodo dignissim,
               sapien purus consectetur
               sapien, sit amet pellentesque
-              enim lectus </p>
+              enim lectus"%> </p>
           </div>
         </div>
         <div class="column col-md-3 " style="margin-left:0px margin-right:0px" >
@@ -43,6 +44,7 @@
           </div>
         </div>
           <div class="column col-md-3 " style="margin-left:0px margin-right:0px" >
+         
           <div class="border-footer-">
             <h3>Footer Menu</h3>
             <p class="footer-text">
@@ -58,9 +60,21 @@
           </div>
         </div>
         <div class="column col-md-12 ">
-          <div class="hr-footer"></div>
+        <div class="hr-footer"></div>
+          <div class="text-center">
+          <ul class="footer-social-nav">
+            <a class="footer-social-beauty" target="_blank" href=<%= @org.twitter_url || '#'%>><i class="fa fa-twitter"></i></a>
+            <a class="footer-social-beauty" target="_blank" href=<%= @org.facebook_url || '#'%>><i class="fa fa-facebook"></i></a>
+            <a class="footer-social-beauty" target="_blank" href=<%= @org.google_url || '#'%>><i class="fa fa-google-plus"></i></a>
+             <a class="footer-social-beauty" target="_blank" href=<%= @org.youtube || '#'%>><i class="fa fa-youtube"></i></a>
+            <a class="footer-social-beauty" target="_blank" href=<%= @org.linked_in || '#'%>><i class="fa fa-linkedin"></i></a>
+            <a class="footer-social-beauty" target="_blank" href=<%= @org.pinterest || '#'%>><i class="fa fa-pinterest-square"></i></a>
+          </ul>
+       
+          </div>
+        
           <div style="margin-top:3%;" class="">
-            <p class="footer-text text-center"> <a href="/prodcuts">Our Services</a> | <a href="#">Staff</a> | <a href="#"> profile</a> | <a href="#"> Photo Gallery</a> | <a href="#">Our Blog</a> | <a href="/messages">Contact Us</a>
+            <p class="footer-text text-center"> <a href="/">Home</a> | <a href="/prodcuts">Services</a> | <a href="/blog">Blog</a> | <a href="/messages">Contact Us</a>
               
             </p>
           </div>
