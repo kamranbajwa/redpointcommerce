@@ -27,10 +27,10 @@
   <%else%>
   <li class="tab-with-icon">
   <%end%>
-   <a class="fa fa-wrench icon_link with-tip" href="/admin/organizations/<%= Spree::Organization.first.id%>/edit"><span class="text"> Setting</span></a></li>
+   <a class="fa fa-gear icon_link with-tip" href="/admin/organizations/<%= Spree::Organization.first.id%>/edit"><span class="text"> Setting</span></a></li>
   
   <%#= tab *Spree::BackendConfiguration::CONFIGURATION_TABS, label: 'Blog', icon: 'wrench', url: spree.admin_blogs_path %>
 
-  <li> <a class="fa fa-wrench icon_link with-tip" href="/admin/blogs"><span class="text"> Blog</span></a></li>
+  <li> <a class="fa fa-book icon_link with-tip" href="/admin/blogs"><span class="text"> Blog</span></a></li>
   
 <% end %>

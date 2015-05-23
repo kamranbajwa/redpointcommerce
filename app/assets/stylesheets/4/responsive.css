@@ -116,7 +116,7 @@ body { margin-top:226px; }
 .search-slide { right:11px; top:48px; }
 .secondary-1 { display:none; }
 .navbar-right {margin-top: -90px;}
-.badge { margin-top: -32px;}
+.badge { margin-top: -10px;}
 }
 @media screen and (min-width: 1260px) and (max-width: 1279px) {
 .secondary-2 { display:none; }
