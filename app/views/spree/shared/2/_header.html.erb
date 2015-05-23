@@ -76,7 +76,7 @@
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/blog">Blog</a></li>
             
             <!-- GLOBAL SEARCH -->
-            <li class="search"> 
+            <li class="search phone-hide"> 
               <!-- search form -->
               <%= form_tag spree.products_path, class: "input-group pull-right",:method => :get do %>
               <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search), :class => "form-control" %>
@@ -89,21 +89,27 @@
             
             <!-- QUICK SHOP CART -->
           <li class="mega-menu-item mega-menu-two-columns">
-          <a href="/cart" class="fa fa-shopping-cart cart-align">
-            <span class="badge pull-right custom-badge"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span>
+          <span class="main-hide" ><a href="/cart"> <span> Cart</span> <span class="badge pull-right custom-badge"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %>
+          </span></a></span>
+        <a href="/cart" class="fa fa-shopping-cart cart-align phone-hide">
+         
+            <span class="badge pull-right custom-badge"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %>
+
             </a>
           </li>
             
          
         
-              
+              <li>
+                
+              </li>
         
             <!-- /QUICK SHOP CART -->
             
           </ul>
         </nav>
-      </div>
-      <!-- /Top Nav --> 
+      </div></div>
       
-    </div>
+      
+    
   </header>

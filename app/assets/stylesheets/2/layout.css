@@ -283,7 +283,7 @@ header#topNav a.logo {
 header#topNav button.btn-mobile {
 	color: #fff;
 	display: none;
-	background: #2E363F;
+	
 	padding: 6px 10px;
 	margin-top: 8px;
 	-webkit-border-radius: 0;
