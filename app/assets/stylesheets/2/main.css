@@ -4308,10 +4308,10 @@ input[type="submit"], input[type="button"], input[type="reset"], button, a.butto
 
 
 input[type="button"], input[type="reset"], button, a.button {
-    background-color: #000;
+    
     border-radius: 0px;
     border-top: solid 1px;
-    border: 1px solid #000;
+    
     font-size: 15px;
     font-family: arial;
     font-weight: normal;
@@ -4392,7 +4392,7 @@ text-align: left;
 }
 
 header#topNav div.nav-main-collapse {
-background: #2D343E;
+
 margin: 5px -9px 0 -15px !important;}
 
 
