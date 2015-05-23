@@ -29,11 +29,11 @@
 
   <div class="right four columns omega" data-hook="admin_product_form_right">
     <div data-hook="admin_product_form_price">
-    <%= f.field_container :price do %>
-      <%= f.label :price, raw(Spree.t(:master_price) + content_tag(:span, ' *', :class => "required")) %>
-      <%= f.text_field :price, :value => number_to_currency(@product.price, :unit => ''), :required => true %>
-      <%= f.error_message_on :price %>
-    <% end %>
+      <%= f.field_container :price do %>
+        <%= f.label :price, raw(Spree.t(:master_price) + content_tag(:span, ' *', :class => "required")) %>
+        <%= f.text_field :price, :value => number_to_currency(@product.price, :unit => ''), :required => true %>
+        <%= f.error_message_on :price %>
+      <% end %>
     </div>
 
     <div data-hook="admin_product_form_price">
@@ -88,8 +88,50 @@
     <div class="field" data-hook="admin_product_form_promotionable">
       <%= f.check_box :is_recommended %>
       <%= f.label " Recommended" %>
+    </div>
+
+    <div class="field" data-hook="admin_product_form_promotionable">
+      <%= f.check_box :subscription %>
+      <%= f.label "Subscription" %>
+    </div>
+
+    <div class="clear"></div>
+
+    <div id="product_subscription_fields" style="border: 0.25px solid grey">
+
+      <div class="alpha  columns"> 
+        <%= f.field_container :subscription_daily do %>
+          <%= f.label :subscription_daily, "Daily price" %>
+          <%= f.text_field :subscription_daily, :value => number_to_currency(@product.subscription_daily, :unit => '') %>
+          <%= f.error_message_on :subscription_daily %>
+        <% end %>
       </div>
 
+      <div class="alpha  columns">  
+        <%= f.field_container :subscription_daily do %>
+          <%= f.label :subscription_weekly, "Weekly Price" %>
+          <%= f.text_field :subscription_weekly, :value => number_to_currency(@product.subscription_weekly, :unit => '') %>
+          <%= f.error_message_on :subscription_weekly %>
+        <% end %>
+      </div>
+
+      <div class="alpha  columns"> 
+        <%= f.field_container :subscription_monthly do %>
+          <%= f.label :subscription_monthly, "Monthly Price" %>
+          <%= f.text_field :subscription_monthly, :value => number_to_currency(@product.subscription_monthly, :unit => '') %>
+          <%= f.error_message_on :subscription_monthly %>
+        <% end %>
+      </div>
+
+      <div class="alpha  columns">  
+        <%= f.field_container :subscription_yearly do %>
+          <%= f.label :subscription_yearly, "Yearly Price" %>
+          <%= f.text_field :subscription_yearly, :value => number_to_currency(@product.subscription_yearly, :unit => '') %>
+          <%= f.error_message_on :subscription_yearly %>
+        <% end %>
+      </div>
+    </div>
+    <div class="clear"></div>
     <% if @product.has_variants? %>
       <div data-hook="admin_product_form_multiple_variants">
         <%= f.label :skus, Spree.t(:skus) %>
@@ -117,7 +159,7 @@
           <%= f.text_field :sku, :size => 16 %>
         <% end %>
       </div>
-       
+
       <ul id="shipping_specs">
         <li id="shipping_specs_weight_field" data-hook="admin_product_form_weight" class="field alpha two columns">
           <%= f.label :weight, Spree.t(:weight) %>
@@ -203,6 +245,23 @@
 
 <% unless Rails.env.test? %>
   <script>
-  $('.select2-container').css({width: '20em'})
+    $('.select2-container').css({width: '20em'})
+    $(document).ready(function() {
+      if ($('#product_subscription').is(":checked")) {
+        $('#product_subscription_fields').show();
+      }
+      else {
+        $('#product_subscription_fields').hide();
+      };
+      $('#product_subscription').change(function() {
+        if (this.checked) {
+          $('#product_subscription_fields').fadeIn('slow');
+        }
+        else {
+          $('#product_subscription_fields').fadeOut('slow');
+        }
+      });
+    });
+
   </script>
 <% end %>
