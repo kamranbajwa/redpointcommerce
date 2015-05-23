@@ -140,8 +140,13 @@ h4 { font-size:16px; color:#EFB013; font-weight:bold; }
 /* jQuery rating stars */
 
 .menu-icon { padding:18px 6px 0 0; }
-.menu-icon .glyphicon-menu-hamburger{ color:#EFB013; font-size:32px; padding:2px; border:1px solid #eee; border-radius:4px; }
+.menu-icon .glyphicon-menu-hamburger, 
+.menu-icon .fa-bars { color:#EFB013; font-size:32px; padding:2px 6px 1px 6px; border:1px solid #eee; border-radius:4px; }
 .menu-icon .glyphicon-menu-hamburger:hover { color:#F3C64B; border-color:#ccc; }
+
+.fa-search, .fa-shopping-cart { color:#000; background-color:none; }
+.fa-search:hover, .fa-shopping-cart:hover { color:#EFB013; background-color:transparent; }
+.navbar-right a:hover, .navbar-right li:hover { background-color:transparent; }
 
 #menu { position:absolute; right:68px; top:14px; z-index:99; display:none; }
 #menu li a { background-color:#EFB013; padding:10px 22px 10px 16px; margin-bottom:1px; color:#000; display:block; letter-spacing:2px; }
@@ -283,7 +288,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { font-weight:700; }
 .sidebar-links li a:hover { color:#000; background-color:#eee; letter-spacing:3px; padding-left:18px; }
 .sidebar-links h3 { color:#EFB013; }
 
-.top-search-box input { border:1px solid #EFB013; padding:5px 8px 6px 8px;margin-top: 2px; }
+.top-search-box input { border:1px solid #EFB013; padding:5px 8px 4px 8px;margin-top: 2px; }
 .top-search-box button { background-color:#EFB013; color:#000; border:0; padding:8px 10px 6px 10px; border-radius:4px; }
 .top-search-box button:hover { background-color:#F3C64B; color:#000; }
 .price del { margin-left:10px; font-weight:normal; color:#999; font-style:italic; }
@@ -340,3 +345,11 @@ float: left;
 height: 36px !important;
 margin-top: -4px !important;
 }
+.show_price_inline{
+display: inline-block;
+}
+.price_name_inline{
+display: inline-block;
+font-size: 17px;
+}
+

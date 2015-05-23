@@ -11,6 +11,3 @@ Disallow: /user
 Disallow: /account
 Disallow: /api
 Disallow: /password
-Sitemap: http://www.example.com/sitemap.xml.gz
-Running `echo Sitemap: http://www.example.com/sitemap.xml.gz` attached to terminal... up, run.9568
-Sitemap: http://www.example.com/sitemap.xml.gz

@@ -30,12 +30,15 @@
             
 
             <div class="pull-right responsive-menu">
-              <div class="pull-right menu-icon"> <a href="#" class="menu-link"><span class="glyphicon glyphicon-menu-hamburger"></span></a> </div>
-              <ul id="menu" class="list-unstyled">
+              <div class="pull-right menu-icon"> <a href="#" class="menu-link">
+              <!-- <span class="glyphicon glyphicon-menu-hamburger"></span> -->
+              <i class="fa fa-bars fa-2x"></i>
+
+
+
+              </a> </div>
+                            <ul id="menu" class="list-unstyled">
                 <li><a href="/products">HOME</a></li>
-                <li><a href="/cart" class="fa fa-shopping-cart cart-align">
-            <span class="badge pull-right custom-badge"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span>
-            </a></span> CART</a></li>
                 <% @customize_pages.each_with_index  do |page, index|%>
                 <% if index >= 2 %>
                 <% if index == 2 %>
@@ -55,7 +58,7 @@
                 <% end %>
                 <% end %>
                 <li class="mega-menu-item mega-menu-two-columns"> 
-                <a href="/page/<%= @about_us_page.try(:id)%>"> About US </a> </li>s
+                <a href="/page/<%= @about_us_page.try(:id)%>"> About US </a> </li>
                 <li><a href="/products">SERVICES</a></li>
                 <li><a href="/blog">BLOG</a></li>
                 <li><a href="/messages">CONTACT US</a></li>
@@ -64,7 +67,7 @@
 
               <ul class="nav navbar-nav navbar-right pull-right">
                     <li><a href="#" class="search-container"><span class="fa fa-search fa-fw"></span></a></li>
-                    <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                    <li><a href="/cart"><span class="fa fa-shopping-cart fa-fw"></a></li>
               </ul>
             </div>
                
