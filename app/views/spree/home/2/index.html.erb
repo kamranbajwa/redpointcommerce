@@ -1,3 +1,11 @@
+<div class="main-hide">
+      <%= form_tag spree.products_path, class: "input-group pull-right",:method => :get do %>
+              <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search), :class => "form-control" %>
+              <span class="input-group-btn">
+              <%= submit_tag Spree.t(:search), :name => nil,:class => "btn btn-primary1 notransition" %><i class="fa fa-search"></i>
+               </span>
+            <% end %></div>
+            <div style="clear:both;"></div>
 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-top: 0px !imporatant;">
   <!-- Indicators -->
   
