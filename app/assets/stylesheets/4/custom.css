@@ -340,3 +340,7 @@ float: left;
 height: 36px !important;
 margin-top: -4px !important;
 }
+.cart-subtotal, .cart-total{
+ background-color: #EFB013 !important;
+}
+table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd { background-color: #FDF4DD; }
