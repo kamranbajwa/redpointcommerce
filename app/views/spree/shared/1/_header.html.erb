@@ -128,17 +128,16 @@
             <div class="logo">
 
 
-              <img src="<%= Spree::Logo.last.avatar.url(:logo)%>" width="240" height="75"> </div>	
+              <img src="<%= Spree::Logo.last.avatar.url(:large)%>" class="img-responsive"> 
+
+              </div>	
           </a><!-- /.navbar-brand -->
           <div class="clearfix"></div>
         </div><!-- /.navbar-header-->
         <div class="nav-bg-class no-nav-bg">
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="">
-                <a href="/" class="dropdown-toggle" >Warehouse</a>
-
-              </li>
+             
               <li class="">
                 <a href="/products" class="dropdown-toggle" >Products</a>
 
@@ -148,11 +147,15 @@
                   <% if index == 1 %>
                     <li class="dropdown dropdown-small ware-house-dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          More <b class="caret"></b>
+                          More 
+                          <b class="caret">
+                            
+                          </b>
                       </a>
                       <ul class="dropdown-menu">
                   <% end %>
                         <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
+                        <li >  <a href="/blog"  >Blog</a></li>
                   <% if index+1 == @customize_pages.length %>
                       </ul>
                     </li>
@@ -173,6 +176,7 @@
               <li class="">
                 <a href="/messages" class="dropdown-toggle" >Contact Us</a>
               </li>
+              
 
 <%#*<li class="dropdown yamm-fw ">%>
 <%#*<a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Living Rooms</a>%>
@@ -193,7 +197,7 @@
             <div class="nav-outer">
               <div class="cnt-search">
 
-                <div class="">
+                <div>
                   <%= render :partial => 'spree/shared/nav_bar' %>
 <%#*<input type="text" class="form-control" placeholder="Search here...">%>
 <%#*<span class="input-group-btn">%>

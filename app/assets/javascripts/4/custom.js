@@ -5,6 +5,7 @@ $(document).ready(function(){
      $('#myformcart').submit(function(){
     $("#myModal").hide();
     $('.modal-open').css( "overflow", 'auto');
+    // $('.modal-backdrop.in').css( "opacity", '0');
     $(".a-unique-class").html(" ");
     $('.alert-success').show();
      setTimeout(function() {

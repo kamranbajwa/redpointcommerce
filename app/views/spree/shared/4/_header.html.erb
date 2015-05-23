@@ -5,7 +5,7 @@
       <div class="clear10"></div>
       <div class="row top-links">
         <div class="col-md-6 welcome-msg">
-          <div class="pull-left">WELCOME TO PSHQ</div>
+          <div class="pull-left"><!-- WELCOME TO PSHQ --></div>
         </div>
         <div class="col-md-6 store-top-links">
           <ul class="pull-right small-screen-left">
@@ -13,7 +13,7 @@
             <li><a href="/account">MY ACCOUNT</a></li>
             <li> <%=  link_to 'Sign Out', spree_logout_path %></li>
             <%else%>
-            <li><a href='/login'>SIGNIN</li>
+            <li><a href='/login'>SIGN IN</li>
             <%end%>
           </ul>
         </div>
@@ -27,13 +27,18 @@
 
           <!-- Visible for Small Devices Starts -->
           <div class="visible-sm visible-xs">
+            
+
             <div class="pull-right responsive-menu">
-              <div class="pull-right menu-icon"> <a href="#" class="menu-link"><span class="glyphicon glyphicon-menu-hamburger"></span></a> </div>
-              <ul id="menu" class="list-unstyled">
+              <div class="pull-right menu-icon"> <a href="#" class="menu-link">
+              <!-- <span class="glyphicon glyphicon-menu-hamburger"></span> -->
+              <i class="fa fa-bars fa-2x"></i>
+
+
+
+              </a> </div>
+                            <ul id="menu" class="list-unstyled">
                 <li><a href="/products">HOME</a></li>
-                <li><a href="/cart" class="fa fa-shopping-cart cart-align">
-            <span class="badge pull-right custom-badge"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span>
-            </a></span> CART</a></li>
                 <% @customize_pages.each_with_index  do |page, index|%>
                 <% if index >= 2 %>
                 <% if index == 2 %>
@@ -52,23 +57,25 @@
                 <li> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
                 <% end %>
                 <% end %>
-                <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_us_page.try(:id)%>"> About Us </a> </li>
+                <li class="mega-menu-item mega-menu-two-columns"> 
+                <a href="/page/<%= @about_us_page.try(:id)%>"> About US </a> </li>
                 <li><a href="/products">SERVICES</a></li>
                 <li><a href="/blog">BLOG</a></li>
-                <li><a href="/messages">CONTACT Us</a></li>
+                <li><a href="/messages">CONTACT US</a></li>
 
               </ul>
-              <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" class="search-container"><span class="glyphicon glyphicon-search"></span></a></li>
-                    <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-                  </ul>
+
+              <ul class="nav navbar-nav navbar-right pull-right">
+                    <li><a href="#" class="search-container"><span class="fa fa-search fa-fw"></span></a></li>
+                    <li><a href="/cart"><span class="fa fa-shopping-cart fa-fw"></a></li>
+              </ul>
             </div>
+               
                <div class="top-search-box search-slide">
-                
                <%= form_tag spree.products_path, :method => :get do %>
                <%= search_field_tag :keywords, params[:keywords],:style=>"
                padding-left: 20px;background: transparent;", placeholder: "Search"%>
-               <button><span class="glyphicon glyphicon-search"></span></button>
+               <button><span class="fa fa-search fa-fw"></span></button>
                <%end%>
              </div>
            </div>
@@ -106,7 +113,7 @@
 
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" class="search-container"><span class="glyphicon glyphicon-search"></span></a></li>
+                    <li><a href="#" class="search-container"><span class="fa fa-search fa-fw"></span></a></li>
                          <li class="mega-menu-item mega-menu-two-columns">
           <a href="/cart" class="fa fa-shopping-cart cart-align">
             <span class="badge pull-right custom-badge"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span>
@@ -121,7 +128,7 @@
                <%= form_tag spree.products_path, :method => :get do %>
                <%= search_field_tag :keywords, params[:keywords],:style=>"
                padding-left: 20px;background: transparent;", placeholder: "Search"%>
-               <button><span class="glyphicon glyphicon-search"></span></button>
+               <button><span class="fa fa-search fa-fw"></span></button>
                <%end%>
              </div>
 

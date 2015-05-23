@@ -19,9 +19,10 @@ def index
     @promotion_email = Spree::PromotionEmail.find(params[:id])
   end
 
+  # Subcriber Promotional Email
   def select_user
     @promotion_email = Spree::PromotionEmail.find(params[:id])
-    @users = Spree::User.all
+    @users = Spree::Subscribe.all
   end
 
   def send_emails

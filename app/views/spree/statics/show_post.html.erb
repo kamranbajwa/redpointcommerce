@@ -1,4 +1,5 @@
- <div class="container  cont-set">
+<%= javascript_include_tag "common.js" %>
+<div class="container  cont-set top-blog-margin top-space">
      <div  class="col-md-9">
             <div class="">
                 <!--post date and comments-->
@@ -6,13 +7,11 @@
                     <div class="left_meta clearfix entry-meta">
                         <time class="entry-time updated" datetime="2014-05-10T11:07:36+00:00">
                             <b><%= @blog_post_show.published_at.strftime("%b")%> </b>
-                            <br><br>
+                            <br>
                             <span style=" clear: both; font-weight: bold; font-size: 35px;">
                             <%= @blog_post_show.published_at.strftime("%d")%> 
                             </span></time>
-                        <span class="comments_count clearfix entry-comments-link">
-                           
-                        </span>
+                        
                     </div>
                 </div>
                 <div class="col-sm-10">
@@ -42,7 +41,7 @@
      <!--- Catgories  -->
      <div  class="col-md-3">
           <section class="widget widget_categories">
-            <h3 class="title">Categories</h3>
+            <h3 style="margin-top:0px" class="title">Categories</h3>
             <ul>
                 <li><a href="#" title="View all posts filed under Environment">Environment</a></li>
                 <br />
@@ -56,4 +55,29 @@
      </div>
      <!--- End of Catagories -->     
 </div>
+
+<!-- Start Subscriber -->
+<div class="contant-boxes-blog"  >
+  <a href="#" data-toggle="collapse"  data-target="#demo"><div class="header-box-blog">Subscribe<span style="float:right;"><img src="/assets/subscription/down.png" width="11" height="8"></span></div></a>
+    <div id="demo" class="collapse tab-bg  main-bg-blog ">
+      <div class="cp" style="margin-top:10px;">
+        <p class="text-center" id="blog_error">Please subscribe to newsletter</p>
+        <input type="email" id="blogaddress" placeholder="Subcrption Email"  class="form-control" required />
+        <p style=" text-align: center;  color: red" id="error_message"></p>
+        <p style="text-align:center; margin-top: 5px;">
+          <button type="button" class="btn btn-primary btn-lg" id="blog-sumit" onclick="subcribe_email();" data-target="#demo">Send</button>
+       </p>
+        <br>
+      </div>
+      <br>
+    </div>
+  </div>
+  <div id="style_selector_1" >
+  <div id="style_selector_container">
+    <button type="button"  class="blog-bg" data-toggle="collapse" data-target="#demo" >
+        <div class="style-main-title-blog">Subscribe <span style="float:right; padding-right: 18px;"><img src="/assets/subscription/up.png" width="11" height="8"></span></div>
+    </button>
+  </div>
+</div>
+<!-- End Subscriber -->
 

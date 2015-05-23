@@ -37,7 +37,7 @@ attachment_config = {
        logo: '240x75#',
     square: '200x200#',
     medium: '300x300>',
-    xlarge:  '1280x879#',
+    xlarge:  '1300x500!',
     thumb: '6x6#'
   },
 
@@ -51,14 +51,31 @@ attachment_config.each do |key, value|
   Spree::Favicon.attachment_definitions[:favicon_image][key.to_sym] = value
   Spree::SliderImage.attachment_definitions[:slider_image][key.to_sym] = value
   Spree::Logo.attachment_definitions[:avatar][key.to_sym] = value
+  Spree::Blog.attachment_definitions[:avatar][key.to_sym] = value
   
 
 end
 end
+
+if Rails.env.development?
+attachment_config.each do |key, value|
+  Spree::Image.attachment_definitions[:attachment][key.to_sym] = value
+  Spree::Favicon.attachment_definitions[:favicon_image][key.to_sym] = value
+  Spree::SliderImage.attachment_definitions[:slider_image][key.to_sym] = value
+  Spree::Logo.attachment_definitions[:avatar][key.to_sym] = value
+  Spree::Blog.attachment_definitions[:avatar][key.to_sym] = value
+  
+
+end
+end
+
+
 
 SpreeEditor::Config.tap do |config|
   config.current_editor = 'CKEditor'
   config.ids = 'product_description page_body event_body'
 end
 Spree::PermittedAttributes.checkout_attributes << [:is_recommended ]
-Spree::Api::ApiHelpers.product_attributes.push :is_recommended  
+Spree::Api::ApiHelpers.product_attributes.push :is_recommended
+Spree::Api::ApiHelpers.product_attributes.push :retailer_price
+Spree::Api::ApiHelpers.variant_attributes.push :retailer_price

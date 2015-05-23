@@ -1,4 +1,6 @@
- <div class="container  cont-set">
+  <%= javascript_include_tag "common.js" %>
+<div class="container  cont-set top-blog-margin top-space">
+<br>
      <div  class="col-md-9">
           <%@blog_post.each do |f|%>
             <div class="">
@@ -9,15 +11,13 @@
                             <% if !f.published_at.blank? %>
                             <b><%= f.published_at.strftime("%b")%> </b>
                             <%  end %>
-                            <br><br>
+                            <br>
                             <span style=" clear: both; font-weight: bold; font-size: 35px;">
                             <% if !f.published_at.blank? %>
                             <%= f.published_at.strftime("%d")%> 
                             <%  end %>
                             </span></time>
-                        <span class="comments_count clearfix entry-comments-link">
-                           
-                        </span>
+                       
                     </div>
                 </div>
                 <div class="col-sm-10">
@@ -25,11 +25,11 @@
                         <header class="entry-header">
                             <!--post image-->
                             <figure>
-                                    <%= image_tag f.avatar.url(:large) , class: " wp-post-image" %>
+                                    <%= image_tag f.avatar.url(:blarge) , class: " wp-post-image" %>
                             </figure>
                             <!--post title-->
                             <h3 class="entry-title"><a href="image-post-format.html">
-                               <%= link_to f.title , "/blog/#{f.permalink}" , class: " fa  icon_link with-tip no-text", "data-action" => "show_post"%>
+                               <%= link_to f.title , "/blog/#{f.permalink}" , class: "icon_link with-tip no-text", "data-action" => "show_post"%>
                              </a></h3>
                             <!--author name-->
                                     <span class="entry-author">
@@ -41,8 +41,9 @@
                         <div class="entry-content">
                             <p><%= f.summary.html_safe %> </p>
                         </div>
+                     
                         <!--read more button-->
-                            <%= link_to "Read More" , "/blog/#{f.permalink}" , class: " read-more-button fa  icon_link with-tip no-text", "data-action" => "show_post"%>
+                            <%= link_to "Read More" , "/blog/#{f.permalink}" , class: " read-more-button  icon_link with-tip no-text", "data-action" => "show_post"%>
                     </div>
                 </div>
                
@@ -53,7 +54,8 @@
      <!--- Catgories  -->
      <div  class="col-md-3">
           <section class="widget widget_categories">
-            <h3 class="title">Categories</h3>
+            <h3 style="margin-top:0px" class="title">Categories</h3>
+
             <ul>
                 <li><a href="#" title="View all posts filed under Environment">Environment</a></li>
                 <br />
@@ -64,7 +66,34 @@
                 <li><a href="#" title="View all posts filed under Motivation">Motivation</a></li>
             </ul>
         </section>
+         
+         
+         
      </div>
      <!--- End of Catagories -->     
 </div>
+<!-- Start Subscriber -->
+<div class="contant-boxes-blog"  >
+  <a href="#" data-toggle="collapse"  data-target="#demo"><div class="header-box-blog">Subscribe<span style="float:right;"><img src="/assets/subscription/down.png" width="11" height="8"></span></div></a>
+    <div id="demo" class="collapse tab-bg  main-bg-blog ">
+      <div class="cp" style="margin-top:10px;">
+        <p class="text-center" id="blog_error">Please subscribe to newsletter</p>
+        <input type="email" id="blogaddress" placeholder="Subcrption Email"  class="form-control" required />
+        <p style=" text-align: center;  color: red" id="error_message"></p>
+        <p style="text-align:center; margin-top: 5px;">
+          <button type="button" class="btn btn-primary btn-lg" id="blog-sumit" onclick="subcribe_email();" data-target="#demo">Send</button>
+       </p>
+        <br>
+      </div>
+      <br>
+    </div>
+  </div>
+  <div id="style_selector_1" >
+  <div id="style_selector_container">
+    <button type="button"  class="blog-bg" data-toggle="collapse" data-target="#demo" >
+        <div class="style-main-title-blog">Subscribe <span style="float:right; padding-right: 18px;"><img src="/assets/subscription/up.png" width="11" height="8"></span></div>
+    </button>
+  </div>
+</div>
+<!-- End Subscriber -->
 
