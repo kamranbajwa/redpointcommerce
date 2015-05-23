@@ -38,6 +38,7 @@ attachment_config = {
     square: '200x200#',
     medium: '300x300>',
     xlarge:  '1300x500!',
+    xxlarge: '1280x600!',
     thumb: '6x6#'
   },
 

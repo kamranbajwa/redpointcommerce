@@ -1512,6 +1512,7 @@ header#topNav li.quick-cart.open:before {
 .gallery-img {
 	padding: 4px;
 	border: solid 1px #ddd;
+	height: 337px;
 }
 button::-moz-focus-inner, input::-moz-focus-inner {
  border: 0;
@@ -4942,7 +4943,7 @@ border-radius: 6px !important;
     position: absolute;
 }
 .wrapper-padding{ padding-top: 80px !important;}
-.responsive-height {min-height: 182px;}
+.responsive-height {height: 200px; width: 100%;}
 .height-responsive-home{min-height: 240px;}
 .pagination-new .current {
   width: 38px;

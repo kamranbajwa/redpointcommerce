@@ -3,7 +3,8 @@ class SliderImage < Spree::Base
 	belongs_to :template
 	has_attached_file :slider_image, styles: {
     medium: '300x300!', 
-    xlarge:  '1300x500!'
+    xlarge:  '1300x500!',
+    xxlarge: '1300x600!'
   }
 
   # Validate the attached image is image/jpg, image/png, etc
