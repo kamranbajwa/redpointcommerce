@@ -9,4 +9,6 @@ class AddThemeShowTemplate < ActiveRecord::Migration
   st.save
   end
 
+  
+  
 end
