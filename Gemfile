@@ -2,15 +2,19 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
+
 gem 'pg'
 gem 'exception_notification', '4.1.0.rc1'
 #gem 'sqlite3'
 gem 'execjs'
 gem 'spree_social_products', github: 'spree-contrib/spree_social_products', branch: '2-4-stable'
+
 gem 'therubyracer'
 gem 'rmagick'
 gem 'paperclip'
 gem 'acts-as-taggable-on'
+
+
 gem 'spree', github: 'spree/spree', branch: '2-4-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '2-4-stable'
 #gem 'spree_gateway', branch: '2-4-stable'
@@ -43,13 +47,6 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
-
-# Spree SEO site map 
-gem 'spree_sitemap', github: 'spree-contrib/spree_sitemap', branch: '2-4-stable'
-
-# Fog Gem for site map
-gem 'fog' ,'~> 1.22.0'
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

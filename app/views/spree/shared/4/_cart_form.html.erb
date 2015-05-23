@@ -32,9 +32,9 @@
     <% if @product.price_in(current_currency) and !@product.price.nil? %>
       <div data-hook="product_price" class="columns five <% if !@product.has_variants? %> alpha <% else %> omega <% end %>">
 
-        <div id="product-price">
-          <h6 class="product-section-title"><%= Spree.t(:price) %>:</h6>
-          <div>
+        <div id="product-price" class="price_name_inline">
+          <h6 class="product-section-title price_name_inline"><%= Spree.t(:price) %>:</h6>
+          <div class="show_price_inline">
             <span class="price selling" itemprop="price">
               <%= display_price(@product) %>
             </span>
