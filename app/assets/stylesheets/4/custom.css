@@ -53,7 +53,7 @@ h4 { font-size:16px; color:#EFB013; font-weight:bold; }
 .footer .bottom-links { margin:20px 0 0 0; }
 .footer .bottom-links h4 { color:#fff; font-size:15px; letter-spacing:2px; }
 .footer .bottom-links .seperator { line-height:1px; height:1px; background-color:#444444; max-width:70px; margin:10px 0; }
-.footer .bottom-links ul li { padding:8px 0; }
+.footer .bottom-links ul li { padding:5px 0; }
 .footer .bottom-links ul li a { color:#7b7b7b; font-size:13px; }
 .footer .bottom-links ul li a:hover { color:#666; }
 .footer .address { color:#eeb013; line-height:24px; padding-top:6px; }
@@ -335,4 +335,8 @@ float: left;
 }
 .modal-dialog{
   width: 920px !important;
+}
+.add-to-cart .c-input{
+height: 36px !important;
+margin-top: -4px !important;
 }
