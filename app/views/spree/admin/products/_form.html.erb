@@ -37,16 +37,16 @@
 
     <div data-hook="admin_product_form_price">
     <%= f.field_container :retailer_price do %>
-      <%= f.label :retailer_price, "Retailer Price *" %>
-      <%= f.text_field :retailer_price, :value => number_to_currency(@product.retailer_price, :unit => ''), :required => true %>
+      <%= f.label :retailer_price, "Retailer Price" %>
+      <%= f.text_field :retailer_price, :value => number_to_currency(@product.retailer_price, :unit => '') %>
       <%= f.error_message_on :retailer_price %>
     <% end %>
     </div>
 
     <div data-hook="admin_product_form_price">
     <%= f.field_container :dealer_price do %>
-      <%= f.label :dealer_price, "WholeSaler *" %>
-      <%= f.text_field :dealer_price, :value => number_to_currency(@product.dealer_price, :unit => ''), :required => true %>
+      <%= f.label :dealer_price, "WholeSaler" %>
+      <%= f.text_field :dealer_price, :value => number_to_currency(@product.dealer_price, :unit => '') %>
       <%= f.error_message_on :dealer_price %>
     <% end %>
     </div>

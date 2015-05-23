@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   end
   def customize_pages
     @customize_pages = @cms_pages.reject { |h| h['title'] == "Home" || h['title'] == "About us" || h['title'] == "about us" }
-    @about_page = @cms_pages.select { |h| h['title'] == "About us" }
+    @about_page = @cms_pages.select { |h| h['title'] == "About us" || h['title'] == "About Us"  }
   end
   def static_pages
     @static_pages = @selected_template.cms_pages.static.order("sort asc").limit(4)
