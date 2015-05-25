@@ -18,11 +18,13 @@ module Spree
         end
 
         def update
-          attachment = image_params[:attachment].first
-          alt = image_params[:alt]
-          viewable_id = image_params[:viewable_id]
-          @image = scope.images.accessible_by(current_ability, :update).find(params[:id])
-          @image.update_attributes(alt: alt, viewable_id: viewable_id, attachment: attachment)
+          if image_params[:attachment]
+            attachment = image_params[:attachment].first
+            alt = image_params[:alt]
+            viewable_id = image_params[:viewable_id]
+            @image = scope.images.accessible_by(current_ability, :update).find(params[:id])
+            @image.update_attributes(alt: alt, viewable_id: viewable_id, attachment: attachment)
+          end
           redirect_to :back
         end
 
