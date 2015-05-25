@@ -11,7 +11,7 @@
         <% @users.each do |user|%>
         <tr data-hook="reports_row">
           <td class="align-center"><%= user.subcription_email %></td>
-          <td style="padding-left:3em; width:30% "> <%= check_box_tag "emails[]", user.email, user.email, id: "user_#{user.email}" %></td>
+          <td style="padding-left:3em; width:30% "> <%= check_box_tag "emails[]", user.subcription_email, user.subcription_email, id: "user_#{user.subcription_email}" %></td>
         </tr>
         <% end %>
       </tbody>
