@@ -1,7 +1,7 @@
 /* Custom CSS Styles */
 
 body { margin-top:179px; }
-.fixed-header { background-color:#fff; height:120px;border-bottom:1px solid #CCC; }
+.fixed-header { background-color:#fff; height:120px !important;border-bottom:1px solid #CCC; }
 a, a:hover, img, img:hover, button, button:hover { transition: all 0.3s ease-in-out; }
 a:hover, a:active, a:visited { text-decoration:none; }
 img { border:0; }
