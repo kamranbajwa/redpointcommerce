@@ -12,7 +12,6 @@ function subcribe_email()
     var rex =/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     if (email == "")
     {
-      document.getElementById('error_message').innerHTML = 'Please Enter Email';
       document.getElementById('blogaddress').style.borderColor="red";
     }
     else if(!rex.test(email))
