@@ -25,7 +25,7 @@
                         <header class="entry-header">
                             <!--post image-->
                             <figure>
-                                    <%= image_tag f.avatar.url(:blarge) , class: " wp-post-image" %>
+                                    <%= image_tag f.avatar.try(:url).try(:blarge) , class: " wp-post-image" %>
                             </figure>
                             <!--post title-->
                             <h3 class="entry-title"><a href="image-post-format.html">
