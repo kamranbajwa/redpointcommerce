@@ -33,7 +33,7 @@ attachment_config = {
       mini:     "48x48>",
       small:    "100x100>",
       product:  "240x240!",
-      thumb: '6x6#',
+      thumb: '16x16#',
       xlarge:  '1300x500!',
       blarge: "700x500!",
       xxlarge: '1300x600!',
