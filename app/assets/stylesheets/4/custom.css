@@ -1,7 +1,7 @@
 /* Custom CSS Styles */
 
 body { margin-top:179px; }
-.fixed-header { background-color:#fff; height:179px;border-bottom:1px solid #CCC; }
+.fixed-header { background-color:#fff; height:120px !important;border-bottom:1px solid #CCC; }
 a, a:hover, img, img:hover, button, button:hover { transition: all 0.3s ease-in-out; }
 a:hover, a:active, a:visited { text-decoration:none; }
 img { border:0; }
@@ -370,4 +370,7 @@ table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
 .rate-cost{
     color:#000 !important;
     font-size: 11px;
+}
+.custom-badge{
+  margin-top: -7px !important;
 }
