@@ -1,6 +1,6 @@
 @media screen and (max-width: 320px) {
 body { margin-top:250px; }
-.fixed-header { height:250px; }
+.fixed-header {  }
 .subscribe .frm input { width:200px; }
 .subscribe .frm input, .subscribe .frm button { padding:10px; }
 .product-info { margin-left:6px; }
@@ -27,7 +27,7 @@ body { margin-top:250px; }
 }
 @media screen and (min-width: 320px) and (max-width: 479px) {
 body { margin-top:250px; }
-.fixed-header { height:250px; }
+.fixed-header { }
 .subscribe .frm input { width:200px; }
 .subscribe .frm input, .subscribe .frm button { padding:10px; }
 .product-info { margin-left:6px; }
@@ -56,7 +56,7 @@ body { margin-top:250px; }
 }
 @media screen and (min-width: 480px) and (max-width: 639px) {
 body { margin-top:226px; }
-.fixed-header { height:226px; }
+.fixed-header {  }
 .subscribe .frm input { width:310px; }
 .product-info { margin-left:80px; }
 .product-box .sale { top:10px; left:90px; }
@@ -128,7 +128,7 @@ body { margin-top:226px; }
 }
 @media screen and (min-width: 1366px) and (max-width: 1599px) {
 .secondary-2 { display:none; }
-.badge { margin-top: -32px;}
+.badge { margin-top: -23px;}
 }
 @media screen and (min-width: 1600px) and (max-width: 1679px) {
 .secondary-2 { display:none; }

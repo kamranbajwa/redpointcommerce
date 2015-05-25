@@ -2,8 +2,7 @@
   <!-- Header Links Section Starts -->
   <section>
     <div class="container">
-      <div class="clear10"></div>
-      <div class="row top-links">
+      <div class="top-links clear40">
         <div class="col-md-6 welcome-msg">
           <div class="pull-left"> WELCOME TO PSHQ </div>
         </div>
@@ -11,15 +10,24 @@
           <ul class="pull-right small-screen-left">
             <% if spree_user_signed_in? %>
             <li><a href="/account">MY ACCOUNT</a></li>
+
             <li> <%=  link_to 'SIGN OUT', spree_logout_path %></li>
+              <li><a href="#" class="search-container"><span class="fa fa-search fa-fw icons-fonts-topnav"></span></a></li>
+                        <li class="mega-menu-item mega-menu-two-columns">
+          <a href="/cart" class="fa fa-shopping-cart cart-align icons-fonts-topnav">
+            <span class="badge pull-right custom-badge"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span>
+            </a>
+          </li>
             <%else%>
+            
             <li><a href='/login'>SIGN IN</li>
+           
             <%end%>
           </ul>
         </div>
       </div>
-      <div class="clear40"></div>
-      <div class="row">
+    
+
         <div class="col-md-4">
           <div class="pull-left logo"><a href="/"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>" class="img-responsive" alt=""></a></div>
         </div>
@@ -66,10 +74,7 @@
 
               </ul>
 
-              <ul class="nav navbar-nav navbar-right pull-right">
-                    <li><a href="#" class="search-container"><span class="fa fa-search fa-fw"></span></a></li>
-                    <li><a href="/cart"><span class="fa fa-shopping-cart fa-fw"></a></li>
-              </ul>
+                  
             </div>
                
                <div class="top-search-box search-slide">
@@ -79,6 +84,7 @@
                <button><span class="fa fa-search fa-fw"></span></button>
                <%end%>
              </div>
+
            </div>
            <!-- Visible for Small Devices Ends --> 
 
@@ -87,7 +93,7 @@
             <div>
               <nav class="navbar navbar-default">
                 <div>
-                  <ul class="nav navbar-nav navbar-left">
+                  <ul class="nav navbar-nav navbar-right">
                     <li class=""><a href="/">HOME</a></li>
                     <li><a href='/products'>SERVICES</a></li>
                     <li><a href="/blog">BLOG</a></li>
@@ -114,31 +120,26 @@
 
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" class="search-container"><span class="fa fa-search fa-fw"></span></a></li>
-                         <li class="mega-menu-item mega-menu-two-columns">
-          <a href="/cart" class="fa fa-shopping-cart cart-align">
-            <span class="badge pull-right custom-badge"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span>
-            </a>
-          </li>
+              
+                    
                   </ul>
                 </nav>
               </div>
-
+<div style="">
               <div class="top-search-box search-slide">
-
                <%= form_tag spree.products_path, :method => :get do %>
                <%= search_field_tag :keywords, params[:keywords],:style=>"
                padding-left: 20px;background: transparent;", placeholder: "Search"%>
                <button><span class="fa fa-search fa-fw"></span></button>
                <%end%>
              </div>
-
+</div>  
            </div>
            <!-- hidden for small devices ends --> 
 
          </div>
-       </div>
-       <div class="clear20"></div>
+     
+     
      </div>
    </section>
    <!-- Header Links Section Ends --> 

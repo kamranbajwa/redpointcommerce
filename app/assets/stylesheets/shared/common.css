@@ -107,6 +107,7 @@ position: fixed;
 right: 55px;
 transition: all .5s ease;
 bottom:0px;
+z-index: 999999 ;
 }
 #style_selector_1 .style-main-title-blog {
 color: #fff;
