@@ -155,3 +155,9 @@ padding-bottom: 9px;}
 }
 
 .filter-fix input { margin:0 !important; }
+.truncate-page{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
