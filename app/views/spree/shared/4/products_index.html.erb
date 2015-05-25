@@ -60,8 +60,8 @@ paginated_products ||= products
 							<%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:100%" ), url, :itemprop => 'url' %>
 						</div>
 						<div class="product-info">
-							<div class="name"><%= link_to truncate(product.name, :length => 18), url, :class => 'info', :itemprop => "name", :title => product.name %></div>
-							<div class="price"><%=product.price%></div>
+							<div class="name"><%= link_to truncate(product.name, :length => 18), url, :class => 'info', :itemprop => "name", :title => product.name %></div><%if product.subscription %> (Subscription Product) <% end %>
+							<div class="price"><%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p=> product} %></div>
 							<div class="clear"></div>
 							<%= link_to url, :class => "btn btn-primary add_to_cart cart_popup", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "width: 100%" do %>
 							<i class="fa fa-shopping-cart"></i> ADD TO CART

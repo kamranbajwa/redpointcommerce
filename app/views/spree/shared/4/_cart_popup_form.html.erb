@@ -28,14 +28,14 @@
       <%= hidden_field_tag "variant_id", @product.master.id %>
     <% end %>
 
-    <% if @product.price_in(current_currency) and !@product.price.nil? %>
+    <% if @product.price_in(current_currency) and !@product.price.nil?  and !@product.subscription%>
       <div data-hook="product_price" class="columns five <% if !@product.has_variants? %> alpha <% else %> omega <% end %>">
 
         <div id="product-price">
           <h6 class="product-section-title"><%= Spree.t(:price) %>:</h6>
           <div>
              <div class="productRowInfo">
-              <span class="price styleSecondColor fsize20"><%= display_price(@product) %></span>
+              <span class="price styleSecondColor fsize20"><%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p=> @product} %></span>
               <span itemprop="priceCurrency" content="<%= @product.currency %>"></span>
             </div>
             <% if @product.master.can_supply? %>
@@ -56,6 +56,55 @@ box-shadow: inset 0 0px 0 rgba(255, 255, 255, 0.4);" %></button>
                               </span>
                             </div><!-- /input-group -->
                           </div>
+        </div>
+      </div>
+       <%elsif @product.subscription %>
+    <div data-hook="product_price" class="columns five <% if !@product.has_variants? %> alpha <% else %> omega <% end %>">
+
+        <div id="product-price">
+         <div>
+              
+            <div class="productRowInfo">
+              
+              <%if @product.subscription%>
+              <h6 class="product-section-title">Daily subscription Price:</h6>
+              <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "daily", true %><%= number_to_currency(@product.subscription_daily, :unit => '$') %></span>
+                <h6 class="product-section-title">Weekly subscription Price:</h6>
+              <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "weekly", false %><%= number_to_currency(@product.subscription_weekly, :unit => '$') %></span>
+                <h6 class="product-section-title">Monthly subscription Price:</h6>
+              <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "monthly", false %><%= number_to_currency(@product.subscription_monthly, :unit => '$') %></span>
+                  <h6 class="product-section-title">yearly subscription Price:</h6>
+              <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "yearly", false %><%= number_to_currency(@product.subscription_yearly, :unit => '$') %></span>   
+              <%end%>
+              
+
+              <span itemprop="priceCurrency" content="<%= @product.currency %>"></span>
+            </div>
+
+            <% if @product.master.can_supply? %>
+              <link itemprop="availability" href="http://schema.org/InStock" />
+            <% elsif @product.variants.empty? %>
+              <br />
+              <span class="out-of-stock"><%= Spree.t(:out_of_stock) %></span>
+            <% end %>
+          </div>
+          
+          
+          
+          
+          
+
+          <div class="add-to-cart">
+
+            <div class="addCartBtn">
+              <span class="input-group-btn">
+                <%= number_field_tag :quantity, 1, :class => 'title', :min => 1 %>
+                <button class="btn btn-primary"><i class="fa fa-shopping-cart"></i> <%= f.submit "ADD TO CART",:style=>"background: transparent !important;
+    border: 0px none !important;
+    box-shadow: inset 0 0px 0 rgba(255, 255, 255, 0.4);" %></button> 
+              </span>
+            </div><!-- /input-group -->
+          </div>
         </div>
       </div>
     <% else %>
