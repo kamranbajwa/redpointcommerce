@@ -102,15 +102,5 @@ SpreeExample::Application.configure do
  :sender_address => %{"Exception Notification" <shoaib@gems.techverx.com>},
  :exception_recipients => %w{shoaib@gems.techverx.com qubaish@gems.techverx.com usman@gems.techverx.com abdullah@gems.techverx.com hamzah@gems.techverx.com kashif@gems.techverx.com} 
 }
-
-  
-   config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      access_key_id: 'AKIAJJGUHCUAKNL2LYAQ',
-      secret_access_key: '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',
-      bucket: 'redpoint-commerce'
-    }
-  } 
   
 end
