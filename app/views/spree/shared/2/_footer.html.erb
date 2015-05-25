@@ -10,14 +10,14 @@
           <div class="border-footer-">
             <h3>About Us</h3>
             <div class="footer-text"> 
-<%= truncate(@about_page.first.try(:description).try(:html_safe), length: 150) || ""%> </div>
+          <%= @about_page.first.description.first(150).html_safe || ""%> </div>
           </div>
         </div>
         <div class="column col-md-3 " style="margin-left:0px margin-right:0px" >
           <div class="border-footer-">
             <h3>Contact</h3>
             <div  class="footer-text">
-             <%=org_address[0].gsub(',', ',').html_safe || ""%>
+             <%=org_address[0].gsub(',', '<br>').html_safe || ""%>
              <%=org_address[1].gsub(',', '<br>').html_safe  ||"" %>
              <%=org_address[2].gsub(',', '<br>').html_safe || ""%>
             </div>
