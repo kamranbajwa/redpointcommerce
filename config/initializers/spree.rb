@@ -32,16 +32,16 @@ attachment_config = {
   styles: {
       mini:     "48x48>",
       small:    "100x100>",
-      product:  "240x240!",
-      large:    "600x600>",
-       logo: '240x75#',
-    square: '200x200#',
-    medium: '300x300>',
-    xlarge:  '1300x500!',
-    xxlarge: '1280x600!',
-    blarge: '700x500!',
-    xthumb: '100x100>',
-    thumb: '6x6#'
+      product:  "240x240!"
+    #   large:    "600x600>",
+    #    logo: '240x75#',
+    # square: '200x200#',
+    # medium: '300x300>',
+    # xlarge:  '1300x500!',
+    # xxlarge: '1280x600!',
+    # blarge: '700x500!',
+    # xthumb: '100x100>',
+    # thumb: '6x6#'
   },
 
   path:           "/spree/:class/:id/:style/:basename.:extension",

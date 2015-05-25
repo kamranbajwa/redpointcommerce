@@ -104,13 +104,13 @@ SpreeExample::Application.configure do
 }
 
   
-  config.paperclip_defaults = {   
-    :storage => :fog,   
-    :fog_credentials => {    
-      aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],  
-      aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],    
-      provider: ENV['FOG_PROVIDER']   },  
-      fog_directory: ENV['FOG_DIRECTORY']
+   config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      access_key_id: 'AKIAJJGUHCUAKNL2LYAQ',
+      secret_access_key: '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',
+      bucket: 'redpoint-commerce'
+    }
   } 
   
 end
