@@ -360,3 +360,14 @@ font-size: 17px;
 }
 table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd { background-color: #FDF4DD; }
 
+#shipping_method .shipping-methods {
+  margin-bottom: 58px;
+}
+.rate-name {
+    color:#000 !important;
+    font-size: 11px;
+}
+.rate-cost{
+    color:#000 !important;
+    font-size: 11px;
+}
