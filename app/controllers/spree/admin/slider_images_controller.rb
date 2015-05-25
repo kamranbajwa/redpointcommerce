@@ -28,7 +28,6 @@ class Spree::Admin::SliderImagesController < Spree::Admin::ResourceController
   # POST /slider_images.json
   def create
     @slider_image = Spree::SliderImage.new(slider_image_params)
-
     respond_to do |format|
       if @slider_image.save
         format.html { redirect_to admin_slider_image_path(@slider_image), notice: 'Slider image was successfully created.' }
@@ -46,16 +45,15 @@ class Spree::Admin::SliderImagesController < Spree::Admin::ResourceController
   if  slider_image_params[:slider_image].length > 5
     redirect_to :admin_slider_images , notice: "Sorry more than 5 images can't be uploaded"
     else 
+      
     @selected_template.spree_slider_images.delete_all
-       # puts "sjkfdsdjkf", image.inspect
-          # puts "asdasdsadasdasdasdasdas", slider_image_params.inspect
-          # sdlkfj
     respond_to do |format|
       if slider_image_params.size > 0
+        Thread.new do
         slider_image_params[:slider_image].each do |image|
-       
-        @selected_template.spree_slider_images.create(:slider_image => image)
-      end
+           @selected_template.spree_slider_images.create(:slider_image => image)
+          end
+        end
         format.html { redirect_to admin_slider_images_url , notice: 'Slider image was successfully updated.' }
         format.json { head :no_content }
       else

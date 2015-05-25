@@ -1,4 +1,4 @@
-   <%= render :partial => 'spree/shared/setting_sub_nav_tab' %>
+<%= render :partial => 'spree/shared/setting_sub_nav_tab' %>
 <div id="content-header" data-hook="">
     <div class="container">
       <div class="sixteen columns">
@@ -14,73 +14,43 @@
     <div class="row">
       <div class="with-sidebar " >
        <div class="twelve columns">
-              
 <br>
-
 <hr>
-
-
  <%= form_for(@slider_image,url:  admin_slider_image_path(@slider_image), multipart: true) do |f| %>
   <div class="row">
         <div class="alpha six columns" style="text-align:center;">
-          
-          <img src=/assets/<%=@selected_template.template_no.to_i%>/a.jpg class=""> </div>
-        <div class="omega six columns">
+          <img src=/assets/<%=@selected_template.template_no.to_i%>/a.jpg > </div>
+       <div class="omega six columns">
         <h3><%=@selected_template.name%> </h3>
-       
-          
          <fieldset class="currency no-border-bottom">
             <legend align="center">Add Slider Images</legend>
-             <div data-hook="file" class="field">
-            <%= f.label :slider_image,'Slider Image' %>
-     <%= f.file_field :slider_image, :multiple => true, :accept => "image/*", required: true %>
-     <br><small> <p>Please upload images of size approx. 1876x879.</p> </small>
-    <small> <p>You can upload max 5 slider images. </p> </small>
-     
-    </div>
-
-    
-  
-
-            </fieldset>
-                </div>
-               
-              
-           
-         
-          
+                  <div data-hook="file" class="field">
+                     <%= f.label :slider_image,'Slider Image' %>
+                        <%= f.file_field :slider_image, :multiple => true, :accept => "image/*", required: true %>
+                              <br><small> <p>Please upload images of size approx. 1876x879.</p> </small>
+                              <small> <p>You can upload max 5 slider images. </p> </small>
+                  </div>
+         </fieldset>
+       </div>
            <fieldset>
-  <div class="form-buttons filter-actions actions" data-hook="buttons">
-       
-         <a class="button " href="javascript:void(0)" onclick="window.history.back();"><span class="text" style="
-    color: white" >Back</span></a>
-       
-        <span class="or">or</span>
-        <a class="button remove-border" style="border: 0px solid #000 !important;"><span class="text"><%= f.submit "Save" %></span></a>
-      </div>
-
-    </fieldset>
-
+                    <div class="form-buttons filter-actions actions" data-hook="buttons">
+                      <a class="button " href="javascript:void(0)" onclick="window.history.back();"><span class="text" style="color: white;" >Back</span></a>
+                        <span class="or">or</span>
+                        <a class="button remove-border" style="border: 0px solid #000 !important;"><span class="text"><%= f.submit "Save" %></span></a>
+                   </div>
+          </fieldset>
                <fieldset>
-                <h3>Current Slider Images</h3>
-       <%@slider_images.each do |image|%>
-<p>
-  <img src="<%= image.slider_image.url(:medium)%>">
-</p>
-       <%end%>
-
-    </fieldset>
+                   <h3>Current Slider Images</h3>
+                      <%@slider_images.each do |image|%>
+                        <p>
+                         <img src="<%= image.slider_image.url(:medium)%>">
+                        </p>
+                     <%end%>
+              </fieldset>
         </div>
         <%end%>
       </div>
-
-
-
-
-
-
-
-            </div>
+   </div>
 
 <%=render :partial=>'/spree/admin/templates/side_bar_template'%>
         </div>
