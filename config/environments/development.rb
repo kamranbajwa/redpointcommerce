@@ -15,19 +15,22 @@ SpreeExample::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
   # Raise an error on page load if there are pending migrations
   config.active_record.migration_error = :page_load
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-    config.action_mailer.default_url_options = { :host => 'myt2w.com' }
+  config.action_mailer.default_url_options = { :host => 'redpoint-commerce.herokuapp.com' }
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
@@ -37,5 +40,19 @@ SpreeExample::Application.configure do
     user_name: "shoaib@gems.techverx.com",
     password: "techverx123"
   }
+   config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      access_key_id: 'AKIAJJGUHCUAKNL2LYAQ',
+      secret_access_key: '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',
+      bucket: 'redpoint-commerce'
+    }
+  }
+# Rails.application.config.middleware.use ExceptionNotification::Rack,
+#   :email => {
+#     :email_prefix => "[notifier] ",
+#     :sender_address => %{"notifier" <shoaib@gems.techverx.com>},
+#     :exception_recipients => %w{shoaib@gems.techverx.com}
+#   }
 
 end

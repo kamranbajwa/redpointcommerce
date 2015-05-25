@@ -17,6 +17,15 @@ module Spree
         redirect_to :back, notice: notice
         end
 
+        def update
+          attachment = image_params[:attachment].first
+          alt = image_params[:alt]
+          viewable_id = image_params[:viewable_id]
+          @image = scope.images.accessible_by(current_ability, :update).find(params[:id])
+          @image.update_attributes(alt: alt, viewable_id: viewable_id, attachment: attachment)
+          redirect_to :back
+        end
+
       private
 
         def image_params
@@ -72,9 +81,11 @@ module Spree
        alt = image_params[:alt]
         viewable_id = image_params[:viewable_id]
         if image_params[:attachment].count <= 10
+          Thread.new do 
           image_params[:attachment].each do |attachment|
             @image = scope.images.create(alt: alt, viewable_id: viewable_id, attachment: attachment)
           end
+        end
           return true
         else
           return false

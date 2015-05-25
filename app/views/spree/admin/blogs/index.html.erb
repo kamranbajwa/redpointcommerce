@@ -32,12 +32,12 @@
                        <%= image_tag page.avatar.url(:xthumb) %> 
                        <%end%>
                    </td>
-                   <td class="align-center"> <%= page.author %> </td>
+                   <td class="align-center"> <%= page.try(:author) %> </td>
                    <td class="align-center"> 
-                    <%=  truncate(page.summary, length: 20)%>
+                    <%=  truncate(page.try(:summary), length: 20)%>
                    </td>
-                   <td class="align-center"> <%= page.published_at %>  </td>
-                   <td class="align-center"> <%= page.visible %></td>
+                   <td class="align-center"> <%= page.try(:published_at) %>  </td>
+                   <td class="align-center"> <%= page.try(:visible) %></td>
                   <td class="actions" data-hook="admin_products_index_row_actions">
                     <%= link_to '', edit_admin_blog_path(page), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%> 
                     <%= link_to '', admin_blog_path(page), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash icon_link with-tip no-text", "data-action" => "remove" %>
