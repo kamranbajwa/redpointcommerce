@@ -148,3 +148,10 @@ padding-bottom: 9px;}
 .flash, .errorExplanation {
     overflow-y: hidden;
 }
+.search-sorting{
+  display: inline-block; 
+  /*margin-top: 2px; */
+  vertical-align: bottom;
+}
+
+.filter-fix input { margin:0 !important; }
