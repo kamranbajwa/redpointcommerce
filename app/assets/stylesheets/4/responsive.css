@@ -115,7 +115,7 @@ body { margin-top:226px; }
 .effect:hover a.info { transform:translateY(10px); }
 .search-slide { right:11px; top:48px; }
 .secondary-1 { display:none; }
-.navbar-right {margin-top: -50px;}
+.navbar-right {margin-top: 9px;}
 .badge { margin-top: -10px;}
 }
 @media screen and (min-width: 1260px) and (max-width: 1279px) {
