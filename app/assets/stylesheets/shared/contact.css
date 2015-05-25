@@ -96,3 +96,27 @@ border-right: rgba(255,255,255,0.2) 1px solid;
 		width: 100% !important;
 	}
 }
+.btn-facebook {
+background: #3b5997;
+color: #fff!important;
+}
+.btn-facebook, .btn-twitter, .btn-google-plus {
+font-size: 14px !important;
+height: 40px;
+line-height: 40px;
+display: inline-block;
+text-decoration: none !important;
+margin-bottom: 3px;
+}
+.btn-facebook i.fa, .btn-twitter i.fa, .btn-google-plus i.fa {
+font-size: 23px;
+float: left;
+height: 40px;
+line-height: 40px;
+padding: 0;
+margin: 0 10px 0 0;
+width: 40px;
+text-align: center;
+position: relative;
+border-right: rgba(255,255,255,0.2) 1px solid;
+}
