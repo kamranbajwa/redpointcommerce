@@ -10,7 +10,7 @@
           <div class="border-footer-">
             <h3>About Us</h3>
             <div class="footer-text"> 
-<%= truncate(@about_us_page.description.try(:html_safe), length: 150) || "Pakisttan"%> </div>
+<%= truncate(@about_page.first.try(:description).try(:html_safe), length: 150) || ""%> </div>
           </div>
         </div>
         <div class="column col-md-3 " style="margin-left:0px margin-right:0px" >

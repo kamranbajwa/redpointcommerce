@@ -30,7 +30,7 @@
       <!-- CART MOBILE BUTTON --> 
       
       <!-- LINKS -->
-      <div class="pull-right nav hidden-xs"> <a href="/page/<%= @about_us_page.try(:id)%>"><i class="fa fa-angle-right"></i> About</a> <a href="/messages"><i class="fa fa-angle-right"></i> Contact US</a> </div>
+      <div class="pull-right nav hidden-xs"> <a href="/page/<%= @about_page.first.try(:id)%>"><i class="fa fa-angle-right"></i> About</a> <a href="/messages"><i class="fa fa-angle-right"></i> Contact US</a> </div>
       <!-- /LINKS --> 
       
     </div>
@@ -70,7 +70,7 @@
                   <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
                 <% end %>
             <% end %>
-            <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_us_page.try(:id)%>"> About Us </a> </li>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_page.first.try(:id)%>"> About Us </a> </li>
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/messages"> Contact Us </a> </li>
             <!--Blog link -->
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/blog">Blog</a></li>

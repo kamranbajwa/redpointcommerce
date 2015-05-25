@@ -1,7 +1,7 @@
 <%= render :partial => 'spree/admin/shared/product_sub_menu' %>
 
-<% content_for :page_title do %>
-  <%= Spree.t(:editing_option_type) %> <span class="green">"<%= @option_type.name %>"</span>
+  <% content_for :page_title do %>
+    <%= Spree.t(:editing_option_type) %> <span class="black">"<%= @option_type.name %>"</span>
 <% end %>
 
 <% content_for :page_actions do %>
@@ -10,7 +10,7 @@
       <%= link_to_add_fields Spree.t(:add_option_value), "tbody#option_values", :class => 'button fa fa-plus' %>
     </span>      
   </li>
-  <li>
+  <li class="btn-padding">
     <%= button_link_to Spree.t(:back_to_option_types_list), spree.admin_option_types_path, :icon => 'arrow-left' %>
   </li>
 <% end %>
