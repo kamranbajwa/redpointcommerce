@@ -28,7 +28,7 @@
                 <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
                    <td class="align-center"> <%= page.title %></td>
                    <td class="align-center"> 
-                       <%= image_tag page.avatar.url(:xthumb) %> 
+                       <%= image_tag page.avatar.try(:url).try(:small) %>
                    </td>
                    <td class="align-center"> <%= page.try(:author) %> </td>
                    <td class="align-center"> 
