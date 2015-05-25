@@ -4420,3 +4420,14 @@ left: 0px;
   font-size: 15px;
   margin: 0 3px;
 }
+#shipping_method .shipping-methods {
+  margin-bottom: 58px;
+}
+.rate-name {
+    color:#000 !important;
+    font-size: 11px;
+}
+.rate-cost{
+    color:#000 !important;
+    font-size: 11px;
+}
