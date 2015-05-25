@@ -15,8 +15,8 @@ SpreeExample::Application.routes.draw do
   get '/blog', :to => 'spree/statics#blog'
   get '/blog/(:permalink)', :to => 'spree/statics#show_post'
   # End
-  get '/messages'  ,       :to => 'spree/contacts#new'
-  post '/messages'  ,       :to => 'spree/contacts#create'
+  get '/contact-us'  ,       :to => 'spree/contacts#new'
+  post '/contact-us'  ,       :to => 'spree/contacts#create'
   get 'v1/api/orders',      :to => 'v1/api#orders'
   get 'v1/api/products',      :to => 'v1/api#products'
   get 'v1/api/customers',      :to => 'v1/api#customers'

@@ -1,18 +1,31 @@
  <% if params[:keywords] %>
 	<%= form_tag spree.products_path, :method => :get do %>
 		<h4>Filters</h4>
+<span class="filter-fix">
 		<%#= hidden_field_tag :BM, false %>
+
 		<%if params[:keywords] and (params[:AZ] or params[:ZA] or params[:LH] or params[:HL])%>
-		<%= check_box_tag :BM, checked = true %> Best match</br>
+		
+		<%= check_box_tag :BM, checked = true %> <span class="search-sorting">Best match</span>
+		<DIV class="clear5"></DIV>
 		<%else%>
-		<%= check_box_tag :BM, checked = true, {:checked => "checked"}  %> Best match</br>
+		<%= check_box_tag :BM, checked = true, {:checked => "checked"} %> <span class="search-sorting">Best match</span>
+		<DIV class="clear5"></DIV>
 		<%end%>
 		<%#= hidden_field_tag :AZ, false %>
-		<%= check_box_tag :AZ, true, params[:AZ] %> A-Z sorting</br>
-		<%= check_box_tag :ZA, true, params[:ZA]%>Z-A sorting</br>
-		<%= check_box_tag :LH, true, params[:LH] %> Low to high</br>
+		<%= check_box_tag :AZ, true, params[:AZ] %> <span class="search-sorting">A-Z sorting</span>
+		<DIV class="clear5"></DIV>
+		<%= check_box_tag :ZA, true, params[:ZA]%> <span class="search-sorting">Z-A sorting</span>
+		<DIV class="clear5"></DIV>
+		<%= check_box_tag :LH, true, params[:LH] %> <span class="search-sorting">Low to high</span>
+		<DIV class="clear5"></DIV>
 		<%#= hidden_field_tag :HL, false %>
-		<%= check_box_tag :HL, true, params[:HL] %> High to low</br>
+		<%= check_box_tag :HL, true, params[:HL] %> <span class="search-sorting">High to low</span>
+		<DIV class="clear5"></DIV>
+
+</span>
+
+
 		<%= hidden_field_tag :keywords, params[:keywords] %>
 		<hr class="half-margins">
 
