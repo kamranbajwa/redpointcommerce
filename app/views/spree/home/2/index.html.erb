@@ -64,7 +64,8 @@
             <div class="box-content"> <img width="56" height="40" src="assets/2/icon/<%=  data_pages[index][:img] %>.png">
               <h4><%= truncate(strip_tags(page.title.html_safe), length: 20) %></h4>
               <hr style="margin:2px 0 2px 0">
-              <p  style=" line-height:17px;" class="center"> <%= truncate(strip_tags(page.description.html_safe), length: 35) %> </p>
+              <p  style=" line-height:17px;" class="center"> <%= @about_page.first.description.first(35).html_safe || "" %>
+              </p>
               <span class="pink-text"><a href="/page/<%= page.id%>">Read More...</a></span> </div>
           </div>
         </div>
