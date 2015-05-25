@@ -1,12 +1,12 @@
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-
+<link rel="shortcut icon" type="image/x-icon" href="<%= @selected_template.spree_favicon and @selected_template.spree_favicon.favicon_image ? @selected_template.spree_favicon.favicon_image.url(:thumb) : '/assets/favicon.ico'%>" />
 <%= csrf_meta_tags %>
 
 <title>
   <% if content_for? :title %>
     <%= yield :title %>
   <% else %>
-    <%= "Spree #{Spree.t('administration')}: " %>
+    <%= "#{Spree.t('administration')}: " %>
     <%= Spree.t(controller.controller_name, :default => controller.controller_name.titleize) %>
   <% end %>
 </title>
