@@ -374,3 +374,21 @@ table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
 .custom-badge{
   margin-top: -7px !important;
 }
+
+.fixed-header1 {
+  background-color: #fff;
+  height: 130px !important;
+  border-bottom: 1px solid #CCC;
+}
+@media screen and (min-width: 300px) and (max-width: 1003px) {
+.fixed-header1 {
+  background-color: #fff;
+  height: 130px !important;
+  border-bottom: 0px solid #CCC ;
+
+}
+.list-inline > li {
+  margin:15px auto;
+}
+
+}

@@ -49,11 +49,9 @@ class Spree::Admin::SliderImagesController < Spree::Admin::ResourceController
     @selected_template.spree_slider_images.delete_all
     respond_to do |format|
       if slider_image_params.size > 0
-        Thread.new do
         slider_image_params[:slider_image].each do |image|
        
         @selected_template.spree_slider_images.create(:slider_image => image)
-      end
       end
         format.html { redirect_to admin_slider_images_url , notice: 'Slider image was successfully updated.' }
         format.json { head :no_content }
