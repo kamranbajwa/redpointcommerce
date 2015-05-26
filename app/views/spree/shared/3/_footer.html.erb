@@ -17,11 +17,22 @@
         <section class="widget animated widget-li">
           <h4 class="title text-white">USEFUL LINK</h4>
           <ul>
-            <li> <a href="#">Immunization</a> </li>
+           <% @customize_pages.each_with_index  do |page, index|%>
+                <% if index >= 2 %>
+                <% if index == 2 %>
+                   <% end %>
+                    <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
+                    <% if index+1 == @customize_pages.length %>
+                <% end %>
+                <% else %>
+                <li> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
+                <% end %>
+                <% end %>
+            <!-- <li> <a href="#">Immunization</a> </li>
             <li> <a href="#">Services</a> </li>
             <li> <a href="#">FAQ</a> </li>
             <li> <a href="#">Policy</a> </li>
-            <li> <a href="#">About us</a> </li>
+            <li> <a href="#">About us</a> </li> -->
           </ul>
         </section>
       </div>

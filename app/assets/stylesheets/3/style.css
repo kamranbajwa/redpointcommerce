@@ -4343,5 +4343,8 @@ padding-bottom: 11px;
 .container .four.columns {
 width: 271px;
 }
-
+.section-quote .quote-body {
+margin-top: 30px;
+margin-bottom: 30px;
+}
 

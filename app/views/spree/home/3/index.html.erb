@@ -46,7 +46,9 @@
    <!--    <h3 class=" animated" data-animation="fadeIn" data-animation-delay="200">Welcome to Law irm - Providing Legal Help</h3>
       <div class="quote-name animated" data-animation="fadeIn" data-animation-delay="250">Experience Reliability Ethies </div>
       <div class="separator animated" data-animation="fadeIn" data-animation-delay="300"><i class="fa fa-quote-left"></i></div> -->
-      <p class="quote-role animated" data-animation="fadeIn" data-animation-delay="200"><%=  @home_content.try(:description).try(:html_safe)%></p>
+      <p class="quote-role animated" data-animation="fadeIn" data-animation-delay="200">
+      <%=  @home_content.try(:description).try(:html_safe)%>
+      </p>
      <!--  <div class="u-photo animated" data-animation="pulse" data-animation-delay="450" > <span>Get your free consultation</span> <span style="background: red;
 color: #fff;
 padding: 9px;
@@ -73,8 +75,16 @@ font-size: 25px;">00-000-0000</span> <span>Available 24/7</span> </div> -->
     <div class="col-sm-6 col-md-3 animated" data-animation="flipInY" data-animation-delay=<%= data_pages[index][:animation]%>>
       <div class="h-event"> <img src="/assets/3/<%= data_pages[index][:img]%>.png" alt="">
         <div class="p-name"><%= page.title%></div>
-        <p> <%= truncate(strip_tags(page.description.html_safe), length: 50) %> </p>
-         <span class="dt-start read-more"><a href="/page/<%= page.id%>">Read More</a></span> </div>
+        <p>
+        <%
+                    orig_text = page.description
+                    img_text  = orig_text.match(/<img[^>]+>/).to_s 
+                    body_text = orig_text.gsub(/<[^>]+>/,'') # without br's
+                %>
+               <%= body_text.first(40).html_safe || "" %>
+ 
+        <%#= truncate(strip_tags(page.description.html_safe), length: 50) %> </p>
+         <div class="dt-start read-more"><a href="/page/<%= page.id%>">Read More</a></div> </div>
     </div>
     <% end %>
   </div>
