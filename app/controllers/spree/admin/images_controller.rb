@@ -83,10 +83,8 @@ module Spree
        alt = image_params[:alt]
         viewable_id = image_params[:viewable_id]
         if image_params[:attachment].count <= 10
-          Thread.new do
-            image_params[:attachment].each do |attachment|
-              @image = scope.images.create(alt: alt, viewable_id: viewable_id, attachment: attachment)
-            end
+          image_params[:attachment].each do |attachment|
+            @image = scope.images.create(alt: alt, viewable_id: viewable_id, attachment: attachment)
           end
           return true
         else
