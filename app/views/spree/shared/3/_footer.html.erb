@@ -7,8 +7,7 @@
         <section  class="widget animated widget-li">
           <h3 class="title"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>"></h3>
           <div class="textwidget">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-              tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            <p> <%= @about_page.first.description.first(150).html_safe || ""%></p>
           </div>
         </section>
       </div>
