@@ -1,4 +1,7 @@
+
 <div class="container top-space">
+ <div class="col-md-12" style="padding:0px;">
+<div class="col-md-3" style="padding:0px;">
   <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @spree_user } %>
   <div class="error-messages">
     <%= flash_messages %>
@@ -12,12 +15,14 @@
     <%= form_for Spree::User.new, :as => :spree_user, :url => spree.reset_password_path do |f| %>
       <p>
         <%= f.label :email, Spree.t(:email) %><br />
-        <%= f.email_field :email %>
+        <%= f.email_field :email, :class =>'guest-field' %>
       </p>
       <p>
-        <%= f.submit Spree.t(:reset_password), :class => 'button primary' %>
+        <%= f.submit Spree.t(:reset_password), :class => 'btn btn-primary temp-3-button-width' %>
       </p>
     <% end %>
   </div>
+</div>
+</div>
 </div>
 <br>

@@ -12,18 +12,27 @@
 <a target="_blank" href=<%= @org.google_url ||'#'%>><i class="fa fa-google-plus fa-2x"></i></a>
 <a target="_blank" href=<%= @org.linked_in ||'#'%>><i class="fa fa-linkedin fa-2x"></i></a> 
 <a target="_blank" href=<%= @org.pinterest || '#'%>><i class="fa fa-pinterest fa-2x"></i></a>
+<a target="_blank" href=<%= @org.youtube || '#'%>><i class="fa fa-youtube fa-2x"></i></a>
 </div>
       <div class="clear10"></div>
       <div class="row bottom-links">
         <div class="col-md-3 col-sm-6">
           <h4>ABOUT</h4>
-          <div class="seperator"></div>
-          <ul class="list-unstyled">
-            <li><a href="/">Home</a></li>
-            <li><a href="/products">Services</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/messages">Contact Us</a></li>
+           <ul class="list-unstyled">
+               <li><a href="/">About us</a></li>
+               <% @customize_pages.each_with_index  do |page, index|%>
+                <% if index >= 2 %>
+                <% if index == 2 %>
+                   <% end %>
+                    <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
+                    <% if index+1 == @customize_pages.length %>
+                <% end %>
+                <% else %>
+                <li> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
+                <% end %>
+                <% end %>
           </ul>
+         
         </div>
         <div class="clear10 visible-xs"></div>
         <div class="col-md-3 col-sm-6">
@@ -39,21 +48,14 @@
         <div class="clear10 visible-xs"></div>
         <div class="col-md-3 col-sm-6">
           <h4>MORE</h4>
-          <div class="seperator"></div>
+           <div class="seperator"></div>
           <ul class="list-unstyled">
-               <li><a href="/">About us</a></li>
-               <% @customize_pages.each_with_index  do |page, index|%>
-                <% if index >= 2 %>
-                <% if index == 2 %>
-                   <% end %>
-                    <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
-                    <% if index+1 == @customize_pages.length %>
-                <% end %>
-                <% else %>
-                <li> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
-                <% end %>
-                <% end %>
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Services</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/messages">Contact Us</a></li>
           </ul>
+         
         </div>
         <div class="clear10 visible-xs"></div>
         <div class="col-md-3 col-sm-6">

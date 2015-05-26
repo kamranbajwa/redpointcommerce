@@ -129,3 +129,17 @@ color: #470010;
 {
      background:#470010 !important;
 }
+table thead tr th {
+
+color: #fff !important;
+}
+.temp-3-total{
+    color: #fff !important;
+    font: 18px;
+
+}
+#shipping_method .stock-location {
+
+background-color: #470010;
+
+}
