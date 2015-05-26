@@ -74,7 +74,7 @@ SpreeExample::Application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
-  config.i18n.fallbacks = true
+config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
@@ -96,11 +96,23 @@ SpreeExample::Application.configure do
     user_name: "shoaib@gems.techverx.com",
     password: "techverx123"
   }
- config.middleware.use ExceptionNotification::Rack,
- :email => {
- :email_prefix => "[RPC Error] ",
- :sender_address => %{"Exception Notification" <shoaib@gems.techverx.com>},
- :exception_recipients => %w{shoaib@gems.techverx.com qubaish@gems.techverx.com usman@gems.techverx.com abdullah@gems.techverx.com hamzah@gems.techverx.com kashif@gems.techverx.com} 
-}
+  config.middleware.use ExceptionNotification::Rack,
+  :email => {
+   :email_prefix => "[RPC Error] ",
+   :sender_address => %{"Exception Notification" <shoaib@gems.techverx.com>},
+   :exception_recipients => %w{shoaib@gems.techverx.com qubaish@gems.techverx.com usman@gems.techverx.com abdullah@gems.techverx.com hamzah@gems.techverx.com kashif@gems.techverx.com} 
+ }
+
+ config.paperclip_defaults = {
+  :storage => :s3,
+  s3_credentials: {
+    access_key_id: 'AKIAJJGUHCUAKNL2LYAQ',
+    secret_access_key: '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',
+    bucket: 'redpoint-commerce'
+    },
+    path:           "/spree/:class/:id/:style/:basename.:extension",
+    default_url:    "/spree/:class/:id/:style/:basename.:extension",
+    default_style:  "product"
+  }
   
 end

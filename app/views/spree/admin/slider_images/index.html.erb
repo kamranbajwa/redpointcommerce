@@ -43,7 +43,7 @@
                    <h3>Current Slider Images</h3>
                       <%@slider_images.each do |image|%>
                         <p>
-                         <img src="<%= image.slider_image.url(:product)%>">
+                         <img src="<%= image.slider_image.url(:large) rescue '' %>">
                         </p>
                      <%end%>
               </fieldset>
