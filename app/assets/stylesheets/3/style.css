@@ -4210,3 +4210,16 @@ border: solid 1px #dedede;
 #main-footer h3{
   color: #fff;
 }
+ul#products li a.info {
+  height: 65px;
+}
+.home-law-products{
+  height: 75px;
+  width: 160px;
+}
+.home-law-products h4{
+font-size: 13px;
+}
+.home-law-products a{
+font-size: 13px;
+}
