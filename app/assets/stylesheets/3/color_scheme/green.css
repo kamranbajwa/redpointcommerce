@@ -133,3 +133,19 @@ span.price, #checkout-summary table tr[data-hook="item_total"] td:last-child str
 {
      background:#3F2E04 !important;
 }
+table thead tr th {
+
+color: #fff !important;
+}
+.temp-3-total{
+    color: #fff !important;
+    font: 18px;
+
+}
+
+#shipping_method .stock-location {
+
+background-color: #3F2E04;
+
+
+}

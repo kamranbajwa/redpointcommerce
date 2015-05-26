@@ -19,13 +19,13 @@
             <div data-hook="cart_items"  style="overflow: auto;">
               <%= render :partial => 'form', :locals => { :order_form => order_form } %>
             </div>
-
+                <div class="temp-3-clear"></div>
             <div class="links columns sixteen alpha omega checkout-space pull-right" data-hook="cart_buttons" >
-              <%= order_form.text_field :coupon_code, :size => 10, :placeholder => "Coupon Code" %>
-              <%= button_tag  :class => 'btn btn-primary' ,:style => "color:white !important", :id => 'update-button' do %>
+              <%= order_form.text_field :coupon_code, :size => 10, :placeholder => "Coupon Code",:class => 'temp-3-input' %>
+              <%= button_tag  :class => 'btn btn-primary temp-3-button' ,:style => "color:white !important", :id => 'update-button' do %>
                 <%= Spree.t(:update) %>
               <% end %>
-              <%= button_tag :class => 'btn btn-primary',:style => "color:white !important;", :id => 'checkout-link', :name => 'checkout' do %>
+              <%= button_tag :class => 'btn btn-primary temp-3-button',:style => "color:white !important;", :id => 'checkout-link', :name => 'checkout' do %>
                 <%= Spree.t(:checkout) %>
               <% end %>
             </div>
@@ -38,8 +38,8 @@
         
         <p id="clear_cart_link" data-hook style="margin-top:0px">
             
-            <%= button_tag Spree.t(:empty_cart), :class => 'btn btn-primary',:style => "color:white !important;" %>
-            <%= link_to Spree.t(:continue_shopping), products_path, :class => 'btn btn-primary',:style => "color:white !important;"  %>
+            <%= button_tag Spree.t(:empty_cart), :class => 'btn btn-primary temp-3-button',:style => "color:white !important;" %>
+            <%= link_to Spree.t(:continue_shopping), products_path, :class => 'btn btn-primary temp-3-button',:style => "color:white !important;"  %>
           </p>
         <% end %>
       </div>
