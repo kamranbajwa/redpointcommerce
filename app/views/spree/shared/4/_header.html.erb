@@ -2,7 +2,7 @@
   <!-- Header Links Section Starts -->
   <section>
     <div class="container">
-      <div class="top-links clear40">
+      <div class="top-links clear40 hide-mob-view">
         <div class="col-md-6 welcome-msg">
           <div class="pull-left"> WELCOME TO PSHQ </div>
         </div>
@@ -71,6 +71,16 @@
                 <li><a href="/products">SERVICES</a></li>
                 <li><a href="/blog">BLOG</a></li>
                 <li><a href="/contact-us">CONTACT US</a></li>
+                <span class="mobile-view">
+                 <% if spree_user_signed_in? %>
+                <li><a href="/account">My Account</a></li>
+                <li><%=  link_to 'SIGN OUT', spree_logout_path %></li>
+                 <%else%>
+                 <li><a href='/login'>SIGN IN</li>
+                 <%end%>
+                 </span>
+
+
 
               </ul>
 
@@ -143,4 +153,25 @@
      </div>
    </section>
    <!-- Header Links Section Ends --> 
+   <div class="mobile-view container">
+   
+<div class="pull-right" style="   margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;">
+   <span class="mega-menu-item mega-menu-two-columns">
+          <a href="/cart" class="fa fa-shopping-cart cart-align icons-fonts-topnav">
+            <span class="badge pull-right custom-badge"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span>
+            </a>
+          </span>
+
+</div>
+<div class="" style="">
+     <%= form_tag spree.products_path, :method => :get do %>
+               <%= search_field_tag :keywords, params[:keywords],:style=>"
+               padding-left: 20px;background: transparent;   height: 33px; ", placeholder: "Search"%>
+               <button class="bbtn btn-primary"><span class="fa fa-search fa-fw"></span></button>
+               <%end%>
+
+   </div>
+   </div>
 </div>  <!-- header end here -->

@@ -381,14 +381,21 @@ table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
   border-bottom: 1px solid #CCC;
 }
 @media screen and (min-width: 300px) and (max-width: 1003px) {
+  .container {
+  width: 99% !important;
+}
+.mobile-view { display: block !important;}
 .fixed-header1 {
   background-color: #fff;
-  height: 130px !important;
+  height: auto !important;
   border-bottom: 0px solid #CCC ;
 
 }
+.hide-mob-view{ display: none !important;}
+
 .list-inline > li {
   margin:15px auto;
 }
 
 }
+.mobile-view { display: none;}
