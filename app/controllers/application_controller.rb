@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   def check_template
     @selected_template = Spree::Template.find_by_selected true
     unless @selected_template
-    @selected_template = Spree::Template.find_by_template_no(1) 
+    @selected_template = Spree::Template.find_by_template_no "1" 
     end
     @favi_con = @selected_template.spree_favicon
     @logo_image = @selected_template.spree_logo
