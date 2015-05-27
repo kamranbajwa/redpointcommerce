@@ -17,7 +17,7 @@
           <li><a href="/">home</a></li>
           <li><a href="/page/<%= @about_page.first.try(:id)%>">about us</a></li>
           <li><a href="/products">service</a></li>
-          <li><a href="/messages"> Contacts</a></li>
+          <li><a href="/contact-us"> Contacts</a></li>
            <% if spree_user_signed_in? %>
            <li> <%=  link_to 'Sign Out', spree_logout_path %></li>
           <% else %>
@@ -113,7 +113,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/products">Services</a></li>
              <li><a href="/page/<%= @about_page.first.try(:id)%>">About Us</a></li>
-            <li><a href="/messages"> Contact Us</a> </li>
+            <li><a href="/contact-us"> Contact Us</a> </li>
              <% @customize_pages.each_with_index  do |page, index|%>
                 <% if index >= 2 %>
                   <% if index == 2 %>

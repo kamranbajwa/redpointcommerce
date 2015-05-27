@@ -12,7 +12,7 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
 
   def new
     @cms_page = Spree::CmsPage.new
-    @selected_template = @current_template.first.id
+    @select_template = @current_template.first.id
   end
 
   def edit

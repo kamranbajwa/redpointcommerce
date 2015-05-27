@@ -40,10 +40,24 @@ function subcribe_email()
                     document.getElementById('blog_error').innerHTML = 'Email Field Empty';
                   }
                  else if (data ==='already'){
-                    document.getElementById('blog_error').innerHTML = 'Email Already Exist';
+                    document.getElementById('error_message').innerHTML = 'Email Already Taken';
                  }
              }
        });
     }
       
 }
+
+$(document).ready(function(){
+    $("#sub_id").click(function(){
+         $("#style_selector_1").hide();
+        $("#blg-3").slideDown();
+       
+    });
+    
+      $("#blg_2").click(function(){
+        $("#blg-3").slideUp('slow');
+       
+        $("#style_selector_1").slideUp().delay( 180 ).fadeIn( 600 );
+    });
+    });
