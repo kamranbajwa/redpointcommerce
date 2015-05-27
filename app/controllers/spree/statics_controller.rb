@@ -27,11 +27,17 @@ module Spree
     # Get Blog Main Page
     def blog
       @blog_post = Spree::Blog.all
+      if @blog_post_show.blank?
+        redirect_to root_path
+      end
     end
     
     # Show Every Post
     def show_post
        @blog_post_show = Spree::Blog.find_by_permalink(params[:permalink])
+      if @blog_post_show.blank?
+        redirect_to root_path
+      end
     end
     
     # Start Subcription Email 
