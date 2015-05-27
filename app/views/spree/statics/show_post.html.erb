@@ -1,19 +1,19 @@
-
 <%= javascript_include_tag "common.js" %>
-<%= javascript_include_tag "/assets/shared/jquery.js" %>
 <div class="container  cont-set top-blog-margin top-space">
      <div  class="col-md-9">
             <div class="">
                 <!--post date and comments-->
                 <div class="col-sm-2">
                     <div class="left_meta clearfix entry-meta">
+                        <% if !@blog_post_show.blank? %>
                         <time class="entry-time updated" datetime="2014-05-10T11:07:36+00:00">
                             <b><%= @blog_post_show.published_at.strftime("%b")%> </b>
                             <br>
                             <span style=" clear: both; font-weight: bold; font-size: 35px;">
                             <%= @blog_post_show.published_at.strftime("%d")%> 
-                            </span></time>
-                        
+                            </span>
+                        </time>
+                        <%end%>
                     </div>
                 </div>
                 <div class="col-sm-10">
@@ -36,10 +36,8 @@
                         <!--read more button-->
                     </div>
                 </div>
-               
             </div>
      </div>
-     
      <!--- Catgories  -->
      <div  class="col-md-3">
           <section class="widget widget_categories">
