@@ -4347,4 +4347,7 @@ width: 271px;
 margin-top: 30px;
 margin-bottom: 30px;
 }
-
+.add-to-cart input[type="number"] {
+  height: 35px;
+  margin-bottom: 17px;
+}
