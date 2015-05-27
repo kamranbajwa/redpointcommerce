@@ -14,7 +14,6 @@
   <% if params[:controller]=="spree/home" and params[:action]=="index"%>
 
   <body class="boxed">
- <%= render :partial => "spree/shared/#{@selected_template.template_no}/header" %>
   <style type="text/css">
   #content{ margin-top: 0px; min-height: 0px !important;}
   </style>
@@ -26,6 +25,7 @@ max-width: 100%;
 </style>
   <body>
   <%end %>
+ <%= render :partial => "spree/shared/#{@selected_template.template_no}/header" %>
   <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
