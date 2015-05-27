@@ -33,7 +33,7 @@ class Spree::Admin::LogosController < Spree::Admin::ResourceController
 
     respond_to do |format|
       if @logo.save
-        format.html { redirect_to admin_theme_path, notice: 'Theme was successfully created.' }
+        format.html { redirect_to admin_theme_path, notice: 'Logo was successfully created.' }
         format.json { render action: 'show', status: :created, location: @logo }
       else
         format.html { render action: 'new' }
