@@ -67,7 +67,7 @@
                 <% end %>
                 <% end %>
                 <li class="mega-menu-item mega-menu-two-columns"> 
-                <a href="/page/<%= @about_us.try(:id)%>"> ABOUT US </a> </li>
+                <a href="/page/<%= @about_page.first.try(:id)%>"> ABOUT US </a> </li>
                 <li><a href="/products">PRODUCTS</a></li>
                 <li><a href="/blog">BLOG</a></li>
                 <li><a href="/contact-us">CONTACT US</a></li>
@@ -126,7 +126,7 @@
                     <li> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
                     <% end %>
                     <% end %>
-                    <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_us.try(:id)%>"> ABOUT US </a> </li>
+                    <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_page.first.try(:id)%>"> ABOUT US </a> </li>
 
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
