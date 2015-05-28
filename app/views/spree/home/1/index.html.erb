@@ -80,7 +80,49 @@
         <!-- ============================================== SCROLL TABS : END ============================================== -->
         <div class="wide-banners wow fadeInUp">
           <div class="row">
+           <% if @selected_template.template_images.first %>
+             <div class="col-md-4">
+              <div class="wide-banner cnt-strip">
+                <div class="image">
+                  <img data-echo="<%= @selected_template.template_images.first.avatar.url(:home_image)%>"  alt="">
+                </div>  
+                <div class="strip strip-no-bg">
+                  <div class="strip-inner">
+                    <h5>NEW Warehouse</h5>
+                    <h2>Warehouse</h2>
+                  </div>  
+                </div>
+              </div><!-- /.wide-banner-->
+            </div><!-- /.col -->
 
+            <div class="col-md-4">
+              <div class="wide-banner cnt-strip">
+                <div class="image">
+                  <img data-echo="<%= @selected_template.template_images.second.avatar.url(:home_image)%>"  alt="">
+                </div>  
+                <div class="strip strip-no-bg strip-right-left">
+                  <div class="strip-inner">
+                    <h5>Warehouse</h5>
+                    <h2>Warehouse</h2>
+                  </div>  
+                </div>
+              </div><!-- /.wide-banner-->
+            </div><!-- /.col -->
+          <div class="col-md-4">
+              <div class="wide-banner cnt-strip">
+                <div class="image">
+                  <img data-echo="<%= @selected_template.template_images.third.avatar.url(:home_image)%>"  alt="">
+                </div>  
+                <div class="strip strip-no-bg strip-right-left">
+                  <div class="strip-inner">
+                    <h5>Warehouse</h5>
+                    <h2>Warehouse</h2>
+                  </div>  
+                </div>
+              </div>
+            </div><!-- /.col -->
+
+        <% else %>
             <div class="col-md-4">
               <div class="wide-banner cnt-strip">
                 <div class="image">
@@ -108,7 +150,7 @@
                 </div>
               </div><!-- /.wide-banner-->
             </div><!-- /.col -->
-
+            <% end %>
           </div><!-- /.row -->
         </div><!-- /.wide-banners -->
 
