@@ -13,6 +13,7 @@
 <section>
   <div class="container">
     <div class="row">
+    <div class="custom-alert alert-success" style="display: none;"> Successfully Added </div>
         <div class="col-sm-6 col-md-6">
                   <div id="product-images" data-hook="product_images">
                     <div id="main-image" class="line-hat" data-hook>
@@ -96,41 +97,41 @@
         
         
         
-<div class="products">
+        <div class="products">
 
 
-      
+          
 
-             <!-- item -->
-                  <%@simlier_product.each do |product|%>
-                   <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
-                <div class="col-md-3 col-sm-6 col-xs-12 product">
-        <div class="product-box">
-      <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:100%" ), url, :itemprop => 'url' %>
-        </div>
-        <div class="product-info">
-          <div class="name"><%=product.name%></div>
-          <div class="price"><%=product.price%></div>
-      <div class="clear"></div>
-      <%= link_to url, :class => "btn btn-primary add_to_cart cart_popup", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "width: 100%" do %>
-                  <i class="fa fa-shopping-cart"></i> ADD TO CART
-               <%end%>
-      <div class="clear20"></div>
-        </div>
-      </div>
+         <!-- item -->
+         <%@simlier_product.each do |product|%>
+         <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
+         <div class="col-md-3 col-sm-6 col-xs-12 product">
+          <div class="product-box">
+            <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:100%" ), url, :itemprop => 'url' %>
+          </div>
+          <div class="product-info">
+            <div class="name"><%=product.name%></div>
+            <div class="price"><%=product.price%></div>
+            <div class="clear"></div>
+            <%= link_to url, :class => "btn btn-primary add_to_cart cart_popup", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "width: 100%" do %>
+            <i class="fa fa-shopping-cart"></i> ADD TO CART
             <%end%>
-              
-      <%= render :partial => "spree/shared/2/popup_modal" %>
-      
+            <div class="clear20"></div>
+          </div>
+        </div>
+        <%end%>
+        
+        <%= render :partial => "spree/shared/2/popup_modal" %>
+        
 
-      
+        
 
-      
-
-
+        
 
 
-</div>        
+
+
+      </div>        
         
         
         
