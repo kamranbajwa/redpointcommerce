@@ -1,13 +1,22 @@
 <link href="/assets/<%= @selected_template.template_no%>/main.css" rel="stylesheet">
+                 <div style="clear:both;"></div>
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-top: 0px !imporatant;">
+  <!-- Indicators -->
+  
+ <!-- Indicators -->
+  <ol class="carousel-indicators">
+   <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
+   <% if index == 0 %>
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <%else%>
+     <li data-target="#myCarousel" data-slide-to=<%=index%>></li>
+   <%end%>
+   <%end%>
+  </ol>
 
-<div class="body-container">
-  <div class="error-messages">
-    <%= flash_messages %>
-  </div>
-  <div class="wide-slider">
-    <div id="wide-slider" class="owl-carousel">
-     <div class="carousel-inner" role="listbox">
-<%if @selected_template.spree_slider_images.length==0%>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+  <%if @selected_template.spree_slider_images.length==0%>
   <div class="item active">
       <img src="/assets/default-sliders/1.jpg" alt="" width="1300" height="500">
     </div>
@@ -31,18 +40,26 @@
      <%end%> 
      <%end%>
   </div>
-     <!--  <div class="item">
-        <img class="lazyOwl" src="/assets/slider-images/1.jpg" alt="Furniture  Show 2016">
-        <div class="content caption">
-          <div class="container">
-            <br>
-            <h3 class="large fadeInDown-1">The Warehouse</h3>
-            <h4 class="med fadeInDown-3">where everyone get a bargain.</h4>
-          </div>	
-        </div>
-      </div> -->
 
-    </div><!-- /.wide-slider -->
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<div class="body-container">
+  <div class="error-messages">
+    <%= flash_messages %>
+  </div>
+  <div class="wide-slider">
+    <div id="wide-slider" class="owl-carousel">
+
+
       <!-- ============================================== SCROLL TABS ============================================== -->
       <div id="product-tabs-slider" class="scroll-tabs wow fadeInUp">
         <div class="clearfix"></div>
@@ -63,50 +80,7 @@
         <!-- ============================================== SCROLL TABS : END ============================================== -->
         <div class="wide-banners wow fadeInUp">
           <div class="row">
-          <% if @selected_template.template_images.first %>
-             <div class="col-md-4">
-              <div class="wide-banner cnt-strip">
-                <div class="image">
-                  <img data-echo="<%= @selected_template.template_images.first.avatar.url(:home_image)%>"  alt="">
-                </div>  
-                <div class="strip strip-no-bg">
-                  <div class="strip-inner">
-                    <h5>NEW Warehouse</h5>
-                    <h2>Warehouse</h2>
-                  </div>  
-                </div>
-              </div><!-- /.wide-banner-->
-            </div><!-- /.col -->
 
-            <div class="col-md-4">
-              <div class="wide-banner cnt-strip">
-                <div class="image">
-                  <img data-echo="<%= @selected_template.template_images.second.avatar.url(:home_image)%>"  alt="">
-                </div>  
-                <div class="strip strip-no-bg strip-right-left">
-                  <div class="strip-inner">
-                    <h5>Warehouse</h5>
-                    <h2>Warehouse</h2>
-                  </div>  
-                </div>
-              </div><!-- /.wide-banner-->
-            </div><!-- /.col -->
-          <div class="col-md-4">
-              <div class="wide-banner cnt-strip">
-                <div class="image">
-                  <img data-echo="<%= @selected_template.template_images.third.avatar.url(:home_image)%>"  alt="">
-                </div>  
-                <div class="strip strip-no-bg strip-right-left">
-                  <div class="strip-inner">
-                    <h5>Warehouse</h5>
-                    <h2>Warehouse</h2>
-                  </div>  
-                </div>
-              </div>
-            </div><!-- /.col -->
-
-          </div>
-        <% else %>
             <div class="col-md-4">
               <div class="wide-banner cnt-strip">
                 <div class="image">
@@ -121,10 +95,10 @@
               </div><!-- /.wide-banner-->
             </div><!-- /.col -->
 
-            <div class="col-md-4">
+            <div class="col-md-8">
               <div class="wide-banner cnt-strip">
                 <div class="image">
-                  <img data-echo="/assets/banners/4.jpg"  alt="">
+                  <img data-echo="/assets/banners/5.jpg"  alt="">
                 </div>	
                 <div class="strip strip-no-bg strip-right-left">
                   <div class="strip-inner">
@@ -134,20 +108,7 @@
                 </div>
               </div><!-- /.wide-banner-->
             </div><!-- /.col -->
-          <div class="col-md-4">
-              <div class="wide-banner cnt-strip">
-                <div class="image">
-                  <img data-echo="/assets/banners/4.jpg"  alt="">
-                </div>  
-                <div class="strip strip-no-bg strip-right-left">
-                  <div class="strip-inner">
-                    <h5>Warehouse</h5>
-                    <h2>Warehouse</h2>
-                  </div>  
-                </div>
-              </div>
-            </div><!-- /.col -->
-            <% end %>
+
           </div><!-- /.row -->
         </div><!-- /.wide-banners -->
 
