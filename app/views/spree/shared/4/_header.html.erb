@@ -75,8 +75,13 @@
                  <% if spree_user_signed_in? %>
                 <li><a href="/account">My Account</a></li>
                 <li><%=  link_to 'SIGN OUT', spree_logout_path %></li>
+
                  <%else%>
                  <li><a href='/login'>SIGN IN</a></li>
+
+                  <span class="mobile-view"> <%else%>
+                 <li class="mobile-view"><a href='/login'>SIGN IN</a></li>
+
                  <%end%>
                  </span>
 

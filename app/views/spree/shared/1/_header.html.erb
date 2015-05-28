@@ -1,4 +1,4 @@
-<header class="header-style-1">
+`<header class="header-style-1">
 <%#*<header id="header" class="row" data-hook >%>
 <%#*<div style="margin: 40px;">%>
 <%#*<figure id="logo" class="columns six" data-hook><%= logo %>
@@ -134,14 +134,18 @@
         <div class="nav-bg-class no-nav-bg">
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-             
+             <li>
+                <a href="/" class="dropdown-toggle" >Home</a>
+              </li>
               <li class="">
+                
                 <a href="/products" class="dropdown-toggle" >Products</a>
 
               </li>
+              
             <% @customize_pages.each_with_index do |page, index|%>
-             <% if index >= 1 %>
-                  <% if index == 1 %>
+             <% if index >= 0 %>
+                  <% if index == 0 %>
                     <li class="dropdown dropdown-small ware-house-dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                           More 
