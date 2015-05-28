@@ -4526,7 +4526,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', en
 .logo img{
     max-width: 230px;
     padding-right: 20px;
-    padding-top: 17px;
+    padding-top: 6px;
 
 }
 
@@ -4574,7 +4574,9 @@ height: 40px;
 
  }
 .logo img{
-    margin-top: -16px;
+    margin-top: -7px;
+    width: 180px;
+    height: 50px;
 
     }
     .search-text-area{
