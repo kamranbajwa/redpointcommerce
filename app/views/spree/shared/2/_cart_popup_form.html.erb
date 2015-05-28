@@ -80,10 +80,9 @@ box-shadow: inset 0 0px 0 rgba(255, 255, 255, 0.4);" %></button>
               <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "monthly", false %><%= number_to_currency(@product.subscription_monthly, :unit => '$') %></span>
                   <h6 class="product-section-title">yearly subscription Price:</h6>
               <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "yearly", false %><%= number_to_currency(@product.subscription_yearly, :unit => '$') %></span>   
-              
                  <h6 class="product-section-title">subscription Date:</h6>
-              <span class="price styleSecondColor fsize20"><%= text_field_tag :subscription %></span>   
-    
+              <span class="price styleSecondColor fsize20"><%= text_field_tag :date, nil ,class: 'datepicker'%></span>   
+
               <%end%>
               
 
