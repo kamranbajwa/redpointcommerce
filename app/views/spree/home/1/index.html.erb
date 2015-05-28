@@ -6,33 +6,20 @@
   </div>
   <div class="wide-slider">
     <div id="wide-slider" class="owl-carousel">
-
      <div class="carousel-inner" role="listbox">
-  <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
-   <% if index == 0 %>
-    <div class="item active">
-      <img src="<%= image.slider_image.url(:xxlarge)%>" alt="Chania">
+        <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
+          <% if index == 0 %>
+            <div class="item active">
+              <img src="<%= image.slider_image.url(:xxlarge)%>" alt="Chania">
+            </div>
+          <%else%>
+            <div class="item ">
+              <img src="<%= image.slider_image.url(:xxlarge)%>" alt="Chania">
+            </div>
+          <%end%>
+        <%end%> 
     </div>
-    <%else%>
-      <div class="item ">
-      <img src="<%= image.slider_image.url(:xxlarge)%>" alt="Chania">
-    </div>
-    <%end%>
-
-     <%end%> 
-  </div>
-     <!--  <div class="item">
-        <img class="lazyOwl" src="/assets/slider-images/1.jpg" alt="Furniture  Show 2016">
-        <div class="content caption">
-          <div class="container">
-            <br>
-            <h3 class="large fadeInDown-1">The Warehouse</h3>
-            <h4 class="med fadeInDown-3">where everyone get a bargain.</h4>
-          </div>	
-        </div>
-      </div> -->
-
-    </div><!-- /.wide-slider -->
+  </div><!-- /.wide-slider -->
       <!-- ============================================== SCROLL TABS ============================================== -->
       <div id="product-tabs-slider" class="scroll-tabs wow fadeInUp">
         <div class="clearfix"></div>
@@ -53,7 +40,50 @@
         <!-- ============================================== SCROLL TABS : END ============================================== -->
         <div class="wide-banners wow fadeInUp">
           <div class="row">
+          <% if @selected_template.template_images.first %>
+             <div class="col-md-4">
+              <div class="wide-banner cnt-strip">
+                <div class="image">
+                  <img data-echo="<%= @selected_template.template_images.first.avatar.url(:home_image)%>"  alt="">
+                </div>  
+                <div class="strip strip-no-bg">
+                  <div class="strip-inner">
+                    <h5>NEW Warehouse</h5>
+                    <h2>Warehouse</h2>
+                  </div>  
+                </div>
+              </div><!-- /.wide-banner-->
+            </div><!-- /.col -->
 
+            <div class="col-md-4">
+              <div class="wide-banner cnt-strip">
+                <div class="image">
+                  <img data-echo="<%= @selected_template.template_images.second.avatar.url(:home_image)%>"  alt="">
+                </div>  
+                <div class="strip strip-no-bg strip-right-left">
+                  <div class="strip-inner">
+                    <h5>Warehouse</h5>
+                    <h2>Warehouse</h2>
+                  </div>  
+                </div>
+              </div><!-- /.wide-banner-->
+            </div><!-- /.col -->
+          <div class="col-md-4">
+              <div class="wide-banner cnt-strip">
+                <div class="image">
+                  <img data-echo="<%= @selected_template.template_images.third.avatar.url(:home_image)%>"  alt="">
+                </div>  
+                <div class="strip strip-no-bg strip-right-left">
+                  <div class="strip-inner">
+                    <h5>Warehouse</h5>
+                    <h2>Warehouse</h2>
+                  </div>  
+                </div>
+              </div>
+            </div><!-- /.col -->
+
+          </div>
+        <% else %>
             <div class="col-md-4">
               <div class="wide-banner cnt-strip">
                 <div class="image">
@@ -68,10 +98,10 @@
               </div><!-- /.wide-banner-->
             </div><!-- /.col -->
 
-            <div class="col-md-8">
+            <div class="col-md-4">
               <div class="wide-banner cnt-strip">
                 <div class="image">
-                  <img data-echo="/assets/banners/5.jpg"  alt="">
+                  <img data-echo="/assets/banners/4.jpg"  alt="">
                 </div>	
                 <div class="strip strip-no-bg strip-right-left">
                   <div class="strip-inner">
@@ -81,7 +111,20 @@
                 </div>
               </div><!-- /.wide-banner-->
             </div><!-- /.col -->
-
+          <div class="col-md-4">
+              <div class="wide-banner cnt-strip">
+                <div class="image">
+                  <img data-echo="/assets/banners/4.jpg"  alt="">
+                </div>  
+                <div class="strip strip-no-bg strip-right-left">
+                  <div class="strip-inner">
+                    <h5>Warehouse</h5>
+                    <h2>Warehouse</h2>
+                  </div>  
+                </div>
+              </div>
+            </div><!-- /.col -->
+            <% end %>
           </div><!-- /.row -->
         </div><!-- /.wide-banners -->
 

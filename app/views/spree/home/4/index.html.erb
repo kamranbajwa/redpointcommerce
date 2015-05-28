@@ -18,11 +18,11 @@
 <section>
   <div class="container banners">
     <div class="row">
-      <div class="col-md-4 col-sm-4"><img src="/assets/4/banner-img-1.jpg" class="img-responsive center-block" alt=""></div>
+      <div class="col-md-4 col-sm-4"><img src="<%= @selected_template.template_images.first.avatar.url(:home_image)%>" class="img-responsive center-block" alt=""></div>
       <div class="clear10 visible-xs"></div>
-      <div class="col-md-4 col-sm-4"><img src="/assets/4/banner-img-2.jpg" class="img-responsive center-block" alt=""></div>
+      <div class="col-md-4 col-sm-4"><img src="<%= @selected_template.template_images.second.avatar.url(:home_image)%>" class="img-responsive center-block" alt=""></div>
       <div class="clear10 visible-xs"></div>
-      <div class="col-md-4 col-sm-4"><img src="/assets/4/banner-img-3.jpg" class="img-responsive center-block" alt=""></div>
+      <div class="col-md-4 col-sm-4"><img src="<%= @selected_template.template_images.third.avatar.url(:home_image)%>" class="img-responsive center-block" alt=""></div>
     </div>
   </div>
 </section>

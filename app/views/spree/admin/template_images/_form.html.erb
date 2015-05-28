@@ -1,0 +1,29 @@
+<%= form_for @template_images, url: {action: "create"} , :html => { :multipart => true } do |f| %>
+<div class="container">
+    <div class="row">
+      <div class="with-sidebar " >
+        <div class="twelve columns"> <br>
+          <form   method="post">
+            <div>
+            <fieldset class="general no-border-top">
+            
+              <div class="field" data-hook="admin_general_setting_input_name">
+                <label for="store_name"> Upload Image</label>(max limit 3)
+                <br>
+                <%= f.file_field :avatar ,  class: "fullwidth",  multiple: true, :required => true%>
+              </div>
+               <%=f.hidden_field :template_id , value: @selected_template.try(:id)%>
+              <div class="form-buttons filter-actions actions" data-hook="buttons">
+                  <%#= link_to 'Back', admin_blogs_path %>
+               <a class="button " href="javascript:void(0)" onclick="window.history.back();"><span class="text" >Back</span></a>
+              <span class="or">or</span>
+              <a style="border: 0px solid #000 !important;"><span class="text"><%= f.submit "Save" %></span></a>
+              </div>
+              </fieldset>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<%end%>
