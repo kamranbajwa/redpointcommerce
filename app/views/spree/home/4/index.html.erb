@@ -4,8 +4,15 @@
   <div id="wrapper">
     <div class="slider-wrapper theme-default">
       <div id="slider" class="nivoSlider">
+      <%if @selected_template.spree_slider_images.length==0%>
+      <img src="/assets/default-sliders/1.jpg" alt="" width="1300" height="500">
+      <img src="/assets/default-sliders/2.jpg" alt="" width="1300" height="500">
+      <img src="/assets/default-sliders/3.jpg" alt="" width="1300" height="500">
+      <img src="/assets/default-sliders/4.jpg" alt="" width="1300" height="500">
+    <%else%>
       <%@selected_template.spree_slider_images.each_with_index do |image,index| %> 
       <img src="<%= image.slider_image.url(:xlarge)%>" class="img-responsive center-block header-banner" alt=""> 
+      <%end%>
       <%end%>  
       </div>
     </div>

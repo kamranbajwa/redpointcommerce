@@ -8,18 +8,29 @@
     <div id="wide-slider" class="owl-carousel">
 
      <div class="carousel-inner" role="listbox">
+<%if @selected_template.spree_slider_images.length==0%>
+  <div class="item active">
+      <img src="/assets/default-sliders/1.jpg" alt="" width="1300" height="500">
+    </div>
+    <div class="item ">
+      <img src="/assets/default-sliders/2.jpg" alt="" width="1300" height="500">
+      <img src="/assets/default-sliders/3.jpg" alt="" width="1300" height="500">
+      <img src="/assets/default-sliders/4.jpg" alt="" width="1300" height="500">
+    </div>
+    <%else%>
   <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
    <% if index == 0 %>
     <div class="item active">
-      <img src="<%= image.slider_image.url(:xxlarge)%>" alt="Chania">
+      <img src="<%= image.slider_image.url(:xxlarge)%>" alt="">
     </div>
     <%else%>
       <div class="item ">
-      <img src="<%= image.slider_image.url(:xxlarge)%>" alt="Chania">
+      <img src="<%= image.slider_image.url(:xxlarge)%>" alt="">
     </div>
     <%end%>
 
      <%end%> 
+     <%end%>
   </div>
      <!--  <div class="item">
         <img class="lazyOwl" src="/assets/slider-images/1.jpg" alt="Furniture  Show 2016">
