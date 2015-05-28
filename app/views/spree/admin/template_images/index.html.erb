@@ -1,0 +1,25 @@
+<%=render :partial=>'spree/shared/setting_sub_nav_tab'%>
+<div id="content-header" data-hook="">
+    <div class="container">
+      <div class="sixteen columns">
+        <div class="block-table">
+          <div class="table-cell">
+            <h1 class="page-title ">Template Images</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="with-sidebar " >
+        <div class="twelve columns"> <br>
+         
+<hr />
+<% if @selected_template.template_images%>
+  <img src="<%= @selected_template.template_images.first.avatar.url(:home_image)%>">
+  <img src="<%= @selected_template.template_images.second.avatar.url(:home_image)%>">
+  <img src="<%= @selected_template.template_images.third.avatar.url(:home_image)%>">
+<% end %>
+</div>

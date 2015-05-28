@@ -39,12 +39,12 @@
       <%= render :partial => 'spree/admin/shared/menu' %>
       <%= render :partial => 'spree/admin/shared/sub_menu' %>
       <%= render :partial => 'spree/admin/shared/content_header' %>
-      <%if params[:controller]=="spree/admin/organizations" or params[:controller]=="spree/admin/templates" or params[:controller]=="spree/admin/slider_images" or params[:controller]=="spree/admin/cms_pages" or params[:controller] == "spree/admin/api_users"  or params[:controller]=="spree/admin/promotion_emails" or params[:controller]=="spree/admin/email_templates" or params[:controller]=="spree/admin/blogs" %>
+      <%if params[:controller]=="spree/admin/organizations" or params[:controller]=="spree/admin/templates" or params[:controller]=="spree/admin/slider_images" or params[:controller]=="spree/admin/cms_pages" or params[:controller] == "spree/admin/api_users"  or params[:controller]=="spree/admin/promotion_emails" or params[:controller]=="spree/admin/email_templates" or params[:controller]=="spree/admin/blogs" or params[:controller] == "spree/admin/template_images" or params[:controller] == "spree/admin/template_images/new" %>
       <%else%>
       <div class="container">
       <%end%>
         <div class="row">
-          <%if params[:controller]=="spree/admin/organizations" or params[:controller]=="spree/admin/templates" or params[:controller]=="spree/admin/slider_images" or params[:controller]=="spree/admin/cms_pages" or params[:controller]=="spree/admin/logos" or params[:controller] == "spree/admin/api_users" or params[:controller]=="spree/admin/email_templates" or params[:controller]=="spree/admin/promotion_emails"or params[:controller]=="spree/admin/blogs" %>
+          <%if params[:controller]=="spree/admin/organizations" or params[:controller]=="spree/admin/templates" or params[:controller]=="spree/admin/slider_images" or params[:controller]=="spree/admin/cms_pages" or params[:controller]=="spree/admin/logos" or params[:controller] == "spree/admin/api_users" or params[:controller]=="spree/admin/email_templates" or params[:controller]=="spree/admin/promotion_emails"or params[:controller]=="spree/admin/blogs" or params[:controller] == "spree/admin/template_images" or params[:controller] == "spree/admin/template_images/new"%>
       <div class="<%= 'with-sidebar ' if content_for?(:sidebar)  %>" id="content" style="margin-top:0px"  data-hook>  
       
       <%else%>
