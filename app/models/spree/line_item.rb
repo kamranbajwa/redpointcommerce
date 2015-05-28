@@ -50,6 +50,7 @@ module Spree
             self.price = varFViant.price if price.nil?
           end
         end
+       
         self.cost_price = variant.cost_price if cost_price.nil?
         self.currency = variant.currency if currency.nil?
       end
@@ -58,12 +59,16 @@ module Spree
     def set_subscription_type
       if subscription_type == "weekly"
         self.price = variant.product.subscription_weekly rescue variant.price
+        self.subs_type = subscription_type
       elsif subscription_type == "daily"
         self.price = variant.product.subscription_daily rescue variant.price
+        self.subs_type = subscription_type
       elsif subscription_type == "monthly"
         self.price = variant.product.subscription_monthly rescue variant.price
+        self.subs_type = subscription_type
       elsif subscription_type == "yearly"
         self.price = variant.product.subscription_yearly rescue variant.price
+        self.subs_type = subscription_type
       end
     end
 

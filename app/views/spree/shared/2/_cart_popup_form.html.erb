@@ -1,6 +1,5 @@
 <%= form_for :order, :url => populate_orders_path, remote: true, :html => { :id => "myformcart" }  do |f| %>
   <div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-
     <% if @product.variants_and_option_values(current_currency).any? %>
       <div id="product-variants">
         <h6 class="product-section-title"><%= Spree.t(:variants) %></h6>
@@ -81,6 +80,9 @@ box-shadow: inset 0 0px 0 rgba(255, 255, 255, 0.4);" %></button>
               <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "monthly", false %><%= number_to_currency(@product.subscription_monthly, :unit => '$') %></span>
                   <h6 class="product-section-title">yearly subscription Price:</h6>
               <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "yearly", false %><%= number_to_currency(@product.subscription_yearly, :unit => '$') %></span>   
+                <h6 class="product-section-title">yearly subscription Price:</h6>
+              <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "Date", false %><%= number_to_currency(@product.subscription_yearly, :unit => '$') %></span>   
+    
               <%end%>
               
 
