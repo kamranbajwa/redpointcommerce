@@ -7,19 +7,42 @@
   <div class="wide-slider">
     <div id="wide-slider" class="owl-carousel">
      <div class="carousel-inner" role="listbox">
-        <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
-          <% if index == 0 %>
-            <div class="item active">
-              <img src="<%= image.slider_image.url(:xxlarge)%>" alt="Chania">
-            </div>
-          <%else%>
-            <div class="item ">
-              <img src="<%= image.slider_image.url(:xxlarge)%>" alt="Chania">
-            </div>
-          <%end%>
-        <%end%> 
+<%if @selected_template.spree_slider_images.length==0%>
+  <div class="item active">
+      <img src="/assets/default-sliders/1.jpg" alt="" width="1300" height="500">
     </div>
-  </div><!-- /.wide-slider -->
+    <div class="item ">
+      <img src="/assets/default-sliders/2.jpg" alt="" width="1300" height="500">
+      <img src="/assets/default-sliders/3.jpg" alt="" width="1300" height="500">
+      <img src="/assets/default-sliders/4.jpg" alt="" width="1300" height="500">
+    </div>
+    <%else%>
+  <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
+   <% if index == 0 %>
+    <div class="item active">
+      <img src="<%= image.slider_image.url(:xxlarge)%>" alt="">
+    </div>
+    <%else%>
+      <div class="item ">
+      <img src="<%= image.slider_image.url(:xxlarge)%>" alt="">
+    </div>
+    <%end%>
+
+     <%end%> 
+     <%end%>
+  </div>
+     <!--  <div class="item">
+        <img class="lazyOwl" src="/assets/slider-images/1.jpg" alt="Furniture  Show 2016">
+        <div class="content caption">
+          <div class="container">
+            <br>
+            <h3 class="large fadeInDown-1">The Warehouse</h3>
+            <h4 class="med fadeInDown-3">where everyone get a bargain.</h4>
+          </div>	
+        </div>
+      </div> -->
+
+    </div><!-- /.wide-slider -->
       <!-- ============================================== SCROLL TABS ============================================== -->
       <div id="product-tabs-slider" class="scroll-tabs wow fadeInUp">
         <div class="clearfix"></div>
