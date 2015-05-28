@@ -92,7 +92,7 @@ Starting its journey as a single retail footwear outlet, the brand today has a 4
       <div class="col-md-6 right-promo">
         <div class="text-center promotion-2">
         <a href="/page/<%=@static_pages.second.try(:id)%>">
-          <div class="caption"><%=@static_pages.first.title.html_safe rescue 'USA'%></div>
+          <div class="caption"><%=@static_pages.second.title.html_safe rescue 'USA'%></div>
           <div class="details">
           <%=@static_pages.second.description.first(300).html_safe rescue 'Save Up to 70% Off Clearance Sale'%>
 
