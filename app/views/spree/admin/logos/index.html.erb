@@ -28,7 +28,7 @@
 <div >
               <fieldset class="general no-border-top">
               <h3>Current Logo</h3>
-              <img src="<%#= Spree::Logo.last.avatar.url(:logo)%>">
+              <img src="<%= Spree::Logo.last.avatar.url(:logo)%>">
               </fieldset>
               </div>
 
@@ -55,7 +55,7 @@
          <div >
               <fieldset class="general no-border-top">
               <h3>Current Favicon</h3>
-              <img src="<%#= Spree::Favicon.last.favicon_image.url(:logo)%>">
+              <img src="<%= Spree::Favicon.last.favicon_image.url(:logo)%>">
               </fieldset>
               </div>
         </div>
