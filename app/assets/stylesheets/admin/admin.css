@@ -250,10 +250,10 @@ fieldset {
 }
 .white-text  a { color:#fff !important; font-size: 12px !important; width: 200px !important; }
 .fa-minus{
-    width: 200px;
+    width: auto;
 }
 .fa-plus{
-    width: 200px;
+    width: auto;
 }
 .remove-border
 {
