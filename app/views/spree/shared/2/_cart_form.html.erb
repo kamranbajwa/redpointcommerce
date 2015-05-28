@@ -85,13 +85,16 @@
               <%if @product.subscription%>
               <h6 class="product-section-title">Daily subscription Price:</h6>
               <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "daily", true %><%= number_to_currency(@product.subscription_daily, :unit => '$') %></span>
-                <h6 class="product-section-title">Weekly subscription Price:</h6>
+                <h6 class="product-section-title">Weekly subscription Price :</h6>
               <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "weekly", false %><%= number_to_currency(@product.subscription_weekly, :unit => '$') %></span>
                 <h6 class="product-section-title">Monthly subscription Price:</h6>
               <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "monthly", false %><%= number_to_currency(@product.subscription_monthly, :unit => '$') %></span>
                   <h6 class="product-section-title">yearly subscription Price:</h6>
               <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "yearly", false %><%= number_to_currency(@product.subscription_yearly, :unit => '$') %></span>   
-              <%end%>
+            <h6 class="product-section-title">subscription Date:</h6>
+              <span class="price styleSecondColor fsize20"><%= text_field_tag :date, nil ,class: 'datepicker'%></span>   
+
+             <%end%>
               
 
               <span itemprop="priceCurrency" content="<%= @product.currency %>"></span>
@@ -105,11 +108,6 @@
             <% end %>
           </div>
           
-          
-          
-          
-          
-
           <div class="add-to-cart">
 
             <div class="addCartBtn">

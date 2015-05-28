@@ -28,19 +28,21 @@ module Spree
 
     after_save :update_inventory
     after_save :update_adjustments
+    
+    # Controller attributes access
     cattr_accessor :user_role
     cattr_accessor :subscription_type
-
+    cattr_accessor :date_value
+    
     after_create :update_tax_charge
-
     delegate :name, :description, :sku, :should_track_inventory?, to: :variant
-
     attr_accessor :target_shipment
 
     def copy_price
       if variant
         if variant.product.subscription
           set_subscription_type
+          set_subscrition_date
         else
           if user_role == "Retailer"
             self.price = variant.retailer_price rescue variant.price
@@ -60,17 +62,27 @@ module Spree
       if subscription_type == "weekly"
         self.price = variant.product.subscription_weekly rescue variant.price
         self.subs_type = subscription_type
+        
       elsif subscription_type == "daily"
         self.price = variant.product.subscription_daily rescue variant.price
         self.subs_type = subscription_type
+        
       elsif subscription_type == "monthly"
         self.price = variant.product.subscription_monthly rescue variant.price
         self.subs_type = subscription_type
+        
       elsif subscription_type == "yearly"
         self.price = variant.product.subscription_yearly rescue variant.price
         self.subs_type = subscription_type
+        
       end
     end
+   
+    # Date set to subscription item
+    def set_subscrition_date
+       self.subs_date = date_value.to_datetime rescue '12/12/2012'
+    end
+    # Set date End
 
     def copy_tax_category
       if variant

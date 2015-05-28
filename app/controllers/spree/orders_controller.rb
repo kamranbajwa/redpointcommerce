@@ -47,6 +47,7 @@ module Spree
         params[:options] = {} unless  params[:options]
         params[:options][:subscription] = params[:subscription]
         Spree::LineItem.subscription_type = params[:subscription]
+        Spree::LineItem.date_value = params[:date]
       end
       populator = Spree::OrderPopulator.new(current_order(create_order_if_necessary: true), current_currency)
       if populator.populate(params[:variant_id], params[:quantity], params[:options])
