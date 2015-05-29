@@ -114,6 +114,9 @@ config.i18n.fallbacks = true
 
  config.paperclip_defaults = {
   :storage => :s3,
+  s3_protocol:    "https",
+  s3_headers:     { "Cache-Control" => "max-age=31557600" },
+  url:            ":s3_domain_url",
   s3_credentials: {
     access_key_id: 'AKIAJJGUHCUAKNL2LYAQ',
     secret_access_key: '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',
