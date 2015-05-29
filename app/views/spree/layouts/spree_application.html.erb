@@ -55,7 +55,12 @@ max-width: 100%;
 
   <%= render :partial => "spree/shared/#{@selected_template.template_no}/footer" %>
   <%= javascript_include_tag    "common" %>
-<script type="text/javascript" src="/assets/g_analytics.js"></script>
+<script type="text/javascript" src="/assets/g_analytics.js">
+</script>
+<script type="text/javascript">
+     ga('create', '<%= @org.google_analyitcs  rescue ""%>', 'auto');
+  ga('send', 'pageview');
+    </script>
   <%= render :partial => 'spree/shared/google_analytics' %>
 </body>
 </html>
