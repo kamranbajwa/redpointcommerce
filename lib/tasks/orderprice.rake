@@ -26,7 +26,7 @@
        
       var  =  o.credit_cards.last.gateway_customer_profile_id
         
-      
+      puts"----------------------------------------------------------------------------#{var}"
       if var.include?('cus')
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
@@ -69,7 +69,12 @@
       puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
        
       var  =  o.credit_cards.last.gateway_customer_profile_id
+            puts"--------order_id=#{orderid}-----------amount=#{amount}--------order_number=#{order_number}-----bill-addrreess#{bill_address}"
+      puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
+       
+      var  =  o.credit_cards.last.gateway_customer_profile_id
         
+      puts"----------------------------------------------------------------------------#{var}"  
       
       if var.include?('cus')
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
@@ -114,6 +119,12 @@
        
       var  =  o.credit_cards.last.gateway_customer_profile_id
         
+              puts"--------order_id=#{orderid}-----------amount=#{amount}--------order_number=#{order_number}-----bill-addrreess#{bill_address}"
+      puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
+       
+      var  =  o.credit_cards.last.gateway_customer_profile_id
+        
+      puts"----------------------------------------------------------------------------#{var}"
       
       if var.include?('cus')
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
@@ -155,7 +166,13 @@
       puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
        
       var  =  o.credit_cards.last.gateway_customer_profile_id
+      
+            puts"--------order_id=#{orderid}-----------amount=#{amount}--------order_number=#{order_number}-----bill-addrreess#{bill_address}"
+      puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
+       
+      var  =  o.credit_cards.last.gateway_customer_profile_id
         
+      puts"----------------------------------------------------------------------------#{var}"  
       
       if var.include?('cus')
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
