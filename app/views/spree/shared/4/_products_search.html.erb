@@ -13,7 +13,7 @@
               <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:100%" ), url, :itemprop => 'url' %>
             </div>
             <div class="product-info">
-              <div class="name text-center"><%=product.name%></div><%if product.subscription %> (Subscription Product) <% end %>
+              <div class="name text-center sub-height-pro"><%=product.name%></div><%if product.subscription %> (Subscription Product) <% end %>
               <div class="price text-center"><%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p=> product} %></div>
               <div class="clear"></div>
               <%= link_to url, :class => "btn btn-primary add_to_cart cart_popup image-product", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "" do %>
