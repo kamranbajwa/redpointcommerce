@@ -399,3 +399,4 @@ table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
 
 }
 .mobile-view { display: none;}
+.sub-height { height: 100px;}
