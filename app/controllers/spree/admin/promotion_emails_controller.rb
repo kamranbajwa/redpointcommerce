@@ -62,7 +62,7 @@ def index
         #format.html { redirect_to :back, notice: 'Promotion email was successfully updated.' }
         
       else
-        redirect_to :back
+        redirect_to :back, notice: "Email with empty body or title can't be sent"
       end
   end
 
