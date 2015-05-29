@@ -1,74 +1,183 @@
-
   desc "Rake Tasks"
   task task_order: :environment do
     
     daily  = Spree::LineItem.where("subs_type = ?", 'daily')
     weekly = Spree::LineItem.where("subs_type = ?", 'weekly')
-    
     monthly= Spree::LineItem.where("subs_type = ?", 'monthly')
     yearly = Spree::LineItem.where("subs_type = ?", 'yearly')
     
     
     daily.each do |f|
-      puts"sssssssssssssssssssssssssssssssssssssssssssss daily------- #{f.order_id}"
-      puts"00000000000000000------------------#{f.price}"
-      puts"price #{f.price}"
-      puts"current#{f.currency}"
-      puts"cost-price #{f.cost_price}"
-      puts"opoopoooppopoop-- Tax include total#{f.included_tax_total}"
-      puts"pre tax amount ---------#{f.pre_tax_amount}"
-      puts"subcription type ---------#{f.subs_type}"
+       o  = Spree::Order.find(f.order_id)
+        orderid = o.id
+        amount = (o.total)*100
+        order_number = o.number
+        curnc = o.currency
+        bill_address = o.bill_address_id
+        subsc_type = f.subs_type
+        user = o.user_id
+        item_price = o.item_total
+        ship_address = o.ship_address_id
+        items = o.item_count
+        store = o.store_id
+        
+      puts"--------order_id=#{orderid}-----------amount=#{amount}--------order_number=#{order_number}-----bill-addrreess#{bill_address}"
+      puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
+       
+      var  =  o.credit_cards.last.gateway_customer_profile_id
+        
       
-     o = Spree::Order.find_by_id(f.order_id)
-     
-    card =  o.credit_cards
-    if card.blank?
-         puts"---------------------------------------------"
-    else
-#         stripe_customer_id = card.first.gateway_customer_profile_id
-#         stripe_customer = Stripe::Customer.retrieve(stripe_customer_id)
-#         charge_user = Stripe::Charge.create(:amount => (200*100), :currency => 'usd', :customer => 'cus_6HZCcTakrybDhv')
-#      
+      if var.include?('cus')
+        Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
+        stripe_customer = Stripe::Customer.retrieve(var)
+        charge = Stripe::Charge.create(:amount => amount , :currency => 'usd', :customer => stripe_customer )
+         transction = Spree::SubscritionTransctions.new
+        transction.order_id = orderid
+        transction.price = amount
+        transction.currency = curnc
+        transction.subs_type =  subsc_type
+        transction.user_id =  user
+        transction.ref_number =  order_number
+        transction.item_price = item_price
+        transction.bill_address_id =  bill_address
+        transction.ship_address_id = ship_address
+        transction.item_count = items
+        transction.store_id = store
+         transction.save
+      end
+        
+      
     end
+    
+    
+    weekly.each do |f|
+      
+         o  = Spree::Order.find(f.order_id)
+        orderid = o.id
+        amount = (o.total)*100
+        order_number = o.number
+        curnc = o.currency
+        bill_address = o.bill_address_id
+        subsc_type = f.subs_type
+        user = o.user_id
+        item_price = o.item_total
+        ship_address = o.ship_address_id
+        items = o.item_count
+        store = o.store_id
+        
+      puts"--------order_id=#{orderid}-----------amount=#{amount}--------order_number=#{order_number}-----bill-addrreess#{bill_address}"
+      puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
+       
+      var  =  o.credit_cards.last.gateway_customer_profile_id
+        
+      
+      if var.include?('cus')
+        Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
+        stripe_customer = Stripe::Customer.retrieve(var)
+        charge = Stripe::Charge.create(:amount => amount , :currency => 'usd', :customer => stripe_customer )
+        transction = Spree::SubscritionTransctions.new
+        transction.order_id = orderid
+        transction.price = amount
+        transction.currency = curnc
+        transction.subs_type =  subsc_type
+        transction.user_id =  user
+        transction.ref_number =  order_number
+        transction.item_price = item_price
+        transction.bill_address_id =  bill_address
+        transction.ship_address_id = ship_address
+        transction.item_count = items
+        transction.store_id = store
+         transction.save
+      end
+  
+     
+    end
+    
+ 
 
-
+    monthly.each do |f|
+       o  = Spree::Order.find(f.order_id)
+        orderid = o.id
+        amount = (o.total)*100
+        order_number = o.number
+        curnc = o.currency
+        bill_address = o.bill_address_id
+        subsc_type = f.subs_type
+        user = o.user_id
+        item_price = o.item_total
+        ship_address = o.ship_address_id
+        items = o.item_count
+        store = o.store_id
+        
+      puts"--------order_id=#{orderid}-----------amount=#{amount}--------order_number=#{order_number}-----bill-addrreess#{bill_address}"
+      puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
+       
+      var  =  o.credit_cards.last.gateway_customer_profile_id
+        
+      
+      if var.include?('cus')
+        Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
+        stripe_customer = Stripe::Customer.retrieve(var)
+        charge = Stripe::Charge.create(:amount => amount , :currency => 'usd', :customer => stripe_customer )
+      transction = Spree::SubscritionTransctions.new
+        transction.order_id = orderid
+        transction.price = amount
+        transction.currency = curnc
+        transction.subs_type =  subsc_type
+        transction.user_id =  user
+        transction.ref_number =  order_number
+        transction.item_price = item_price
+        transction.bill_address_id =  bill_address
+        transction.ship_address_id = ship_address
+        transction.item_count = items
+        transction.store_id = store
+         transction.save
+      end
    
       
     end
     
-    weekly.each do |f|
-      puts"sssssssssssssssssssssssssssssssssssssssssssss  weekly-------#{f.order_id}"
-      puts"00000000000000000------------------#{f.price}"
-      puts"price #{f.price}"
-      puts"current#{f.currency}"
-      puts"cost-price #{f.cost_price}"
-      puts"opoopoooppopoop-- Tax include total#{f.included_tax_total}"
-      puts"pre tax amount ---------#{f.pre_tax_amount}"
-      puts"subcription type ---------#{f.subs_type}"
-    end
-    
-    monthly.each do |f|
-      puts"sssssssssssssssssssssssssssssssssssssssssssss  monthly--------#{f.order_id}"
-      puts"00000000000000000------------------#{f.price}"
-      puts"price #{f.price}"
-      puts"current#{f.currency}"
-      puts"cost-price #{f.cost_price}"
-      puts"opoopoooppopoop-- Tax include total#{f.included_tax_total}"
-      puts"pre tax amount ---------#{f.pre_tax_amount}"
-      puts"subcription type ---------#{f.subs_type}"
-      
-       
-    end
-    
     yearly.each do |f|
-      puts"sssssssssssssssssssssssssssssssssssssssssssss  yearly--------#{f.order_id}"
-      puts"00000000000000000------------------#{f.price}"
-      puts"price #{f.price}"
-      puts"current#{f.currency}"
-      puts"cost-price #{f.cost_price}"
-      puts"opoopoooppopoop-- Tax include total#{f.included_tax_total}"
-      puts"pre tax amount ---------#{f.pre_tax_amount}"
-      puts"subcription type ---------#{f.subs_type}"
+        o  = Spree::Order.find(f.order_id)
+        orderid = o.id
+        amount = (o.total)*100
+        order_number = o.number
+        curnc = o.currency
+        bill_address = o.bill_address_id
+        subsc_type = f.subs_type
+        user = o.user_id
+        item_price = o.item_total
+        ship_address = o.ship_address_id
+        items = o.item_count
+        store = o.store_id
+        
+      puts"--------order_id=#{orderid}-----------amount=#{amount}--------order_number=#{order_number}-----bill-addrreess#{bill_address}"
+      puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
+       
+      var  =  o.credit_cards.last.gateway_customer_profile_id
+        
+      
+      if var.include?('cus')
+        Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
+        stripe_customer = Stripe::Customer.retrieve(var)
+        charge = Stripe::Charge.create(:amount => amount , :currency => 'usd', :customer => stripe_customer )
+     
+        transction = Spree::SubscritionTransctions.new
+        transction.order_id = orderid
+        transction.price = amount
+        transction.currency = curnc
+        transction.subs_type =  subsc_type
+        transction.user_id =  user
+        transction.ref_number =  order_number
+        transction.item_price = item_price
+        transction.bill_address_id =  bill_address
+        transction.ship_address_id = ship_address
+        transction.item_count = items
+        transction.store_id = store
+         transction.save
+      end
+    
+
     end
     
   end
