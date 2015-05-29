@@ -87,19 +87,28 @@ config.i18n.fallbacks = true
   config.log_formatter = ::Logger::Formatter.new
   
   config.action_mailer.default_url_options = { host: 'http://redpoint-commerce.herokuapp.com/' }
-  config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: 'gmail.com',
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: "shoaib@gems.techverx.com",
-    password: "techverx123"
-  }
+  # config.action_mailer.smtp_settings = {
+  #   address: "smtp.gmail.com",
+  #   port: 587,
+  #   domain: 'gmail.com',
+  #   authentication: "plain",
+  #   enable_starttls_auto: true,
+  #   user_name: "shoaib@gems.techverx.com",
+  #   password: "techverx123"
+  # }
+  ActionMailer::Base.smtp_settings = {
+  :user_name => 'redpointrack',
+  :password => 'p00pybutt',
+  :domain => 'redpoint-commerce.herokuapp.com',
+  :address => 'smtp.sendgrid.net',
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
+}
   config.middleware.use ExceptionNotification::Rack,
   :email => {
    :email_prefix => "[RPC Error] ",
-   :sender_address => %{"Exception Notification" <shoaib@gems.techverx.com>},
+   :sender_address => %{"Exception Notification" <admin@PSHQ.com>},
    :exception_recipients => %w{shoaib@gems.techverx.com qubaish@gems.techverx.com usman@gems.techverx.com abdullah@gems.techverx.com hamzah@gems.techverx.com kashif@gems.techverx.com} 
  }
 

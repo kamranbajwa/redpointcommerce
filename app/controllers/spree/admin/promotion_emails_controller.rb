@@ -62,7 +62,7 @@ def index
         #format.html { redirect_to :back, notice: 'Promotion email was successfully updated.' }
         
       else
-        redirect_to :back
+        redirect_to :back, notice: "Email with empty body or title can't be sent"
       end
   end
 
@@ -85,6 +85,6 @@ def index
     # Never trust parameters from the scary internet, only allow the white list through.
     def promotion_email_params
       #params[:promotion_email]
-      params.require(:promotion_email).permit(:title)
+      params.require(:promotion_email).permit(:title,:body )
     end
 end
