@@ -85,6 +85,6 @@ def index
     # Never trust parameters from the scary internet, only allow the white list through.
     def promotion_email_params
       #params[:promotion_email]
-      params.require(:promotion_email).permit(:title)
+      params.require(:promotion_email).permit(:title,:body )
     end
 end

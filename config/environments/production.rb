@@ -108,7 +108,7 @@ config.i18n.fallbacks = true
   config.middleware.use ExceptionNotification::Rack,
   :email => {
    :email_prefix => "[RPC Error] ",
-   :sender_address => %{"Exception Notification" <shoaib@gems.techverx.com>},
+   :sender_address => %{"Exception Notification" <admin@PSHQ.com>},
    :exception_recipients => %w{shoaib@gems.techverx.com qubaish@gems.techverx.com usman@gems.techverx.com abdullah@gems.techverx.com hamzah@gems.techverx.com kashif@gems.techverx.com} 
  }
 
