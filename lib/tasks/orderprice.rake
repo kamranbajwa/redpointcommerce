@@ -2,9 +2,8 @@
   task task_order: :environment do
     
     daily  = Spree::LineItem.where("subs_type = ?", 'daily')
-    weekly = Spree::LineItem.where("subs_type = ?", 'weekly')
-    monthly= Spree::LineItem.where("subs_type = ?", 'monthly')
-    yearly = Spree::LineItem.where("subs_type = ?", 'yearly')
+   
+   
     
     
     daily.each do |f|
@@ -27,7 +26,6 @@
       var  =  o.credit_cards.last.gateway_customer_profile_id
         
       
-      if var.include?('cus')
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
         charge = Stripe::Charge.create(:amount => amount , :currency => 'usd', :customer => stripe_customer )
@@ -44,14 +42,15 @@
         transction.item_count = items
         transction.store_id = store
          transction.save
-      end
-        
-      
     end
     
-    
+  end
+  
+  
+
+  task task_weekly: :environment do
+     weekly = Spree::LineItem.where("subs_type = ?", 'weekly')
     weekly.each do |f|
-      
          o  = Spree::Order.find(f.order_id)
         orderid = o.id
         amount = (o.total)*100
@@ -71,7 +70,6 @@
       var  =  o.credit_cards.last.gateway_customer_profile_id
         
       
-      if var.include?('cus')
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
         charge = Stripe::Charge.create(:amount => amount , :currency => 'usd', :customer => stripe_customer )
@@ -88,13 +86,17 @@
         transction.item_count = items
         transction.store_id = store
          transction.save
-      end
+      
   
      
     end
+  end
+  
+  
+  
+  task task_monthly: :environment do
+  monthly= Spree::LineItem.where("subs_type = ?", 'monthly')
     
- 
-
     monthly.each do |f|
        o  = Spree::Order.find(f.order_id)
         orderid = o.id
@@ -136,7 +138,10 @@
    
       
     end
-    
+  end
+  
+  task task_yearly: :environment do
+   yearly = Spree::LineItem.where("subs_type = ?", 'yearly')
     yearly.each do |f|
         o  = Spree::Order.find(f.order_id)
         orderid = o.id
@@ -157,7 +162,6 @@
       var  =  o.credit_cards.last.gateway_customer_profile_id
         
       
-      if var.include?('cus')
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
         charge = Stripe::Charge.create(:amount => amount , :currency => 'usd', :customer => stripe_customer )
@@ -175,9 +179,8 @@
         transction.item_count = items
         transction.store_id = store
          transction.save
-      end
-    
 
     end
-    
   end
+  
+  
