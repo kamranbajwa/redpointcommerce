@@ -10,11 +10,15 @@
 
 <table class="index" id="listing_users" data-hook>
   <colgroup>
-    <col style="width: 85%">
-    <col style="width: 15%">
+  <col style="width: 17%">
+  <col style="width: 17%">
+    <col style="width: 50%">
+      <col style="width: 15%">
   </colgroup>
   <thead>
     <tr data-hook="admin_users_index_headers">
+    <th> <%= sort_link @search,:first_name, Spree.t(:first_name), {}, {:title => 'users_first_name_title'} %></th>
+      <th> <%= sort_link @search,:last_name, Spree.t(:last_name), {}, {:title => 'users_last_name_title'} %></th>
       <th><%= sort_link @search,:email, Spree.t(:user), {}, {:title => 'users_email_title'} %></th>
       <th data-hook="admin_users_index_header_actions" class="actions"></th>
     </tr>
@@ -22,6 +26,8 @@
   <tbody>
     <% @users.each do |user|%>
       <tr id="<%= spree_dom_id user %>" data-hook="admin_users_index_rows" class="<%= cycle('odd', 'even')%>">
+      <td> <%=user.first_name%></td>
+      <td> <%=user.last_name%></td>
         <td class='user_email'><%=link_to user.email, edit_admin_user_url(user) %></td>
         <td data-hook="admin_users_index_row_actions" class="actions">
           <%= link_to_edit user, :no_text => true %>
@@ -44,6 +50,14 @@
       <div class="field">
         <%= f.label :email_cont, Spree.t(:email) %> <br>
         <%= f.text_field :email_cont, :class => 'fullwidth' %>
+      </div>
+      <div class="field">
+        <%= f.label :first_name_cont, Spree.t(:first_name) %> <br>
+        <%= f.text_field :first_name_cont, :class => 'fullwidth' %>
+      </div>
+      <div class="field">
+        <%= f.label :last_name_cont, Spree.t(:last_name) %> <br>
+        <%= f.text_field :last_name_cont, :class => 'fullwidth' %>
       </div>
       <div data-hook="admin_users_index_search_buttons">
         <%= button Spree.t(:search), 'search' %>
