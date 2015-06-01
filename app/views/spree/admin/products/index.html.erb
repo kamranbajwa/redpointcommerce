@@ -1,19 +1,22 @@
 <% content_for :page_title do %>
   <%= Spree.t(:listing_products) %>
 <% end %>
-<fieldset>
-      <legend align="center">  Upload CSV
+
+<fieldset class="box-border">
+      <legend align="center">  Upload Prodcuts via csv
 </legend>
 <%= form_tag p_import_admin_imports_path  , multipart: true do %>
 <div class="field center-product-csv">
- <label for="file">Select a File</label>
+ <label for="file">Select a csv File</label>
   <%= file_field_tag :file,  :accept=>"*.csv", required: true%>
   </div>
-  <div class="form-buttons actions filter-actions" data-hook="admin_products_index_search_buttons">
-          <button class="fa button remove-border"><%= submit_tag "Create Products" %></button>
+  <div class="form-buttons actions" >
+          <button class="fa button remove-border setHeight"><%= submit_tag "Upload Products" %></button>
         </div>
+
 <% end %>
 </fieldset>
+
 <% content_for :page_actions do %>
   <li id="new_product_link">
     <%= button_link_to Spree.t(:new_product), new_object_url, { :remote => true, :icon => 'plus', :id => 'admin_new_product' } %>

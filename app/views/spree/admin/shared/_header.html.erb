@@ -4,11 +4,19 @@
     <figure data-hook="logo-wrapper" class="columns five">
       <a class="navbar-brand" href="/admin">
         <div class="logo">
-          <img src="/assets/color-logo.png" width="240" height="75"> </div>	
-      </a><!-- /.navbar-brand -->
+         <img src="<%= Spree::Logo.last.avatar.url(:logo)%>" class="img-responsive">
+        <!--   <img src="/assets/color-logo.png" width="240" height="75"> --> 
+        </div>	
+      </a>
+      <!-- /.navbar-brand -->
 <%#= link_to image_tag(Spree::Config[:admin_interface_logo], :id => 'logo'), spree.admin_path %>
     </figure>
-
-    <nav data-hook="admin_login_navigation_bar" class="columns eleven"></nav>
+<!-- <ul class="pull-left">
+    <li >
+    	<%=@org.company_name rescue ''%>
+    	</li>
+    	</ul> -->
+    <nav data-hook="admin_login_navigation_bar" class="columns eleven ">
+    </nav>
   </div>
 </header>

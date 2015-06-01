@@ -18,7 +18,7 @@
           <li class=""><a href="/admin/cms_pages">Cms Pages</a></li>
           <% end %>
           <li class=""><a href=<%= admin_api_users_path %>>Api Users</a></li>
-          <li class=""><a href="/">Cart Checkout</a></li>
+          <li class=""><a href="#">Cart Checkout</a></li>
           <% if params[:controller]=="spree/admin/email_templates"and (params[:action]=="edit" or params[:action]=="index" or params[:action] == "new")%>
           <li class="selected"><a href=<%= admin_email_templates_path %>>Emails Templates</a></li>
           <%else%>
