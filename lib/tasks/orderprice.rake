@@ -24,7 +24,7 @@
       Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
       
 
-       if var.include?("cus")
+       if var.to_s.include?("cus")
         stripe_customer = Stripe::Customer.retrieve(var)
         charge = Stripe::Charge.create(:amount => amount.to_i , :currency => 'usd', :customer => stripe_customer )
       
@@ -69,7 +69,7 @@
        
       var  =  o.credit_cards.last.gateway_customer_profile_id
 
-      if var.include?("cus")
+      if var.to_s.include?("cus")
 
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
@@ -116,7 +116,7 @@
        
       var  =  o.credit_cards.last.gateway_customer_profile_id
         
-        if var.include?("cus")
+        if var.to_s.include?("cus")
      
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
@@ -157,7 +157,7 @@
         
        
       var  =  o.credit_cards.last.gateway_customer_profile_id
-      if var.include?("cus")
+      if var.to_s.include?("cus")
    
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
