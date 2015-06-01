@@ -21,8 +21,7 @@
       puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
        
       var  =  o.credit_cards.last.gateway_customer_profile_id
-        
-      
+
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
         charge = Stripe::Charge.create(:amount => amount , :currency => 'usd', :customer => stripe_customer )
@@ -65,7 +64,7 @@
       puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
        
       var  =  o.credit_cards.last.gateway_customer_profile_id
-     
+
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
         charge = Stripe::Charge.create(:amount => amount , :currency => 'usd', :customer => stripe_customer )
@@ -112,8 +111,12 @@
        
       var  =  o.credit_cards.last.gateway_customer_profile_id
         
-      
-      if var.include?('cus')
+              puts"--------order_id=#{orderid}-----------amount=#{amount}--------order_number=#{order_number}-----bill-addrreess#{bill_address}"
+      puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
+       
+      var  =  o.credit_cards.last.gateway_customer_profile_id
+        
+     
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
         charge = Stripe::Charge.create(:amount => amount , :currency => 'usd', :customer => stripe_customer )
@@ -130,8 +133,7 @@
         transction.item_count = items
         transction.store_id = store
          transction.save
-      end
-   
+    
     end
   end
   
@@ -155,8 +157,7 @@
       puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
        
       var  =  o.credit_cards.last.gateway_customer_profile_id
-        
-      
+   
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
         charge = Stripe::Charge.create(:amount => amount , :currency => 'usd', :customer => stripe_customer )
