@@ -4,7 +4,7 @@
     <div class="container">
       <div class="top-links clear40 hide-mob-view">
         <div class="col-md-6 welcome-msg">
-          <div class="pull-left"> WELCOME TO PSHQ </div>
+          <div class="pull-left"> WELCOME TO <%=@org.company_name rescue 'PSHQ'%> </div>
         </div>
         <div class="col-md-6 store-top-links">
           <ul class="pull-right small-screen-left">
@@ -67,16 +67,21 @@
                 <% end %>
                 <% end %>
                 <li class="mega-menu-item mega-menu-two-columns"> 
-                <a href="/page/<%= @about_us.try(:id)%>"> ABOUT US </a> </li>
-                <li><a href="/products">SERVICES</a></li>
+                <a href="/page/<%= @about_page.first.try(:id)%>"> ABOUT US </a> </li>
+                <li><a href="/products">PRODUCTS</a></li>
                 <li><a href="/blog">BLOG</a></li>
                 <li><a href="/contact-us">CONTACT US</a></li>
                 <span class="mobile-view">
                  <% if spree_user_signed_in? %>
                 <li><a href="/account">My Account</a></li>
                 <li><%=  link_to 'SIGN OUT', spree_logout_path %></li>
+
                  <%else%>
                  <li><a href='/login'>SIGN IN</a></li>
+
+                  <span class="mobile-view">
+                 <li class="mobile-view"><a href='/login'>SIGN IN</a></li>
+
                  <%end%>
                  </span>
 
@@ -105,7 +110,7 @@
                 <div>
                   <ul class="nav navbar-nav navbar-right">
                     <li class=""><a href="/">HOME</a></li>
-                    <li><a href='/products'>SERVICES</a></li>
+                    <li><a href='/products'>PRODUCTS</a></li>
                     <li><a href="/blog">BLOG</a></li>
                     <li><a href="/contact-us">CONTACT US</a></li>
                     <% @customize_pages.each_with_index  do |page, index|%>
@@ -126,7 +131,7 @@
                     <li> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
                     <% end %>
                     <% end %>
-                    <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_us.try(:id)%>"> ABOUT US </a> </li>
+                    <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_page.first.try(:id)%>"> ABOUT US </a> </li>
 
                   </ul>
                   <ul class="nav navbar-nav navbar-right">

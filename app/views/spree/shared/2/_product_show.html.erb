@@ -1,7 +1,7 @@
 
         <section class="container margintop">
           <div class="row">
-
+          <div class="custom-alert alert-success" style="display: none;"> Successfully Added to cart </div>
             <div class="col-md-9">
 
               <div class="row">
@@ -15,121 +15,72 @@
                     <div id="thumbnails" data-hook>
                       <%= render :partial => 'thumbnails' %>
                     </div>
+                    <div data-hook="product_properties" class="details-titles">
+                      <%= render :partial => 'properties' %>
+                    </div>
+                    <div data-hook="promotions">
+                      <%= render :partial => 'promotions' %>
+                    </div>
                   </div>
                 </div>
 
                 <div class="col-sm-6 col-md-6">
+                  <input type="hidden" name="action" value="cart_add" />
+                  <input type="hidden" name="product_id" value="1" />
 
-                  <!-- product detail -->
+                  <h2 class="product-title"><%= @product.name%></h2>
+
+                  <span class="code">PART NUMBER: <%=@product.sku%></span>
+
+                <div id="cart-form" data-hook="cart_form">
+                  <%= render :partial => "spree/shared/#{@selected_template.template_no}/cart_form" %>
+                </div>
+                <div class="desc">
+                  <h3 class="page-header">DESCRIPTION</h3>
+                  <p>
+                   <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
+                 </p>
+               </div>
+
+               <div class="socialApis">
+                <h3 class="page-header">TELL TO YOUR FRIENDS</h3>
+
+                <div class="api">
                   
 
-                    <!-- hidden fields -->
-                    <input type="hidden" name="action" value="cart_add" />
-                    <input type="hidden" name="product_id" value="1" />
+                 <div class="fb-like" data-href=<%=request.url%>  data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+               </div>
+               <div class="api">
+                <a href=<%=request.url%> class="twitter-share-button" data-lang="en">Tweet</a>
+              </div>
 
-                    <h2 class="product-title"><%= @product.name%></h2>
+              <div class="api">
+                <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="300"></div>
+              </div>
 
-                    <!-- product unique code -->
-                    <span class="code">PART NUMBER: <%=@product.sku%></span>
-                    <!-- /product unique code -->
-
-                    <!-- product price -->
-                    <!-- <div class="productRowInfo">
-                      <span class="price styleSecondColor fsize20">$ --><%#=@product.price%></span>
-                      <!-- <span class="oldprice">$43.00</span> -->
-                  <!--   </div> -->
-                    <!-- /product price -->
-
-  <div id="cart-form" data-hook="cart_form">
-              <%= render :partial => "spree/shared/#{@selected_template.template_no}/cart_form" %>
             </div>
-
-
-
-                    <!-- <div class="row">
- -->
-                      <!-- quantity + add to cart -->
-                      <!-- <div class="row">
-                        <div class="col-md-7 col-sm-12">
-
-                          <div class="addCartBtn">
-                            <div class="input-group">
-                              <input type="text" name="product_qty" id="product_qty" class="text-center form-control" value="1" placeholder="Qty" />
-                              <span class="input-group-btn">
-                                
-                                <a href="shop-cart.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> ADD TO CART</a>
-                              </span>
-                            </div><! /input-group -->
-                          <!-- </div> -->
-
-                        <!-- </div> -->
-                      <!-- </div>  -->
-                      <!-- /quantity + add to cart -->
-
-             <!--        </div> -->
-
-                    <!-- product description -->
-                    <div class="desc">
-                      <h3 class="page-header">DESCRIPTION</h3>
-                      <p>
-                         <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
-                      </p>
-                    </div>
-                    <!-- /product description -->
-
-                    <div class="socialApis">
-                      <h3 class="page-header">TELL TO YOUR FRIENDS</h3>
-
-                      <!-- facebook -->
-                      <div class="api">
-                      
-
-                   <div class="fb-like" data-href=<%=request.url%>  data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-                      </div>
-                      <!-- twitter -->
-                      <div class="api">
-                        <a href=<%=request.url%> class="twitter-share-button" data-lang="en">Tweet</a>
-                      </div>
-
-                      <!-- google plus -->
-                      <div class="api">
-                        <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="300"></div>
-                      </div>
-
-                    </div>
-
-   
-                  <!-- product detail -->
 
                 </div>
               </div>
-
-
             
             </div>
 
             <aside class="col-md-3">
-
-              <h3>CATEGORIES</h3><!-- h3 - have no margin-top -->
+              <h3>CATEGORIES</h3>
               <ul class="nav nav-list">
-
                 <% @product.taxons.each do |taxon| %>
-        <li><%= link_to taxon.name, seo_url(taxon) %></li>
-      <% end %>
+                  <li><%= link_to taxon.name, seo_url(taxon) %></li>
+                <% end %>
               </ul>
-
-          
-
             </aside>
             <div class="col-md-12">
                 <hr />
               <%= render :partial => "spree/shared/common/related_products" %>
             </div>
-
           </div>
-
         </section>
-
       </div>
     </div>
+    <%= render :partial => "spree/shared/2/popup_modal" %>
+
     

@@ -70,8 +70,8 @@ class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
     # Use callbacks to share common setup or constraints between actions.
     def set_template
       @template = Spree::Template.find(params[:id])
-      puts "ddsfsfsdfsdf",@template.inspect
-      puts "ddsfsfsdfsdf",@template.inspect
+      # puts "ddsfsfsdfsdf",@template.inspect
+      # puts "ddsfsfsdfsdf",@template.inspect
       # put
     end
 

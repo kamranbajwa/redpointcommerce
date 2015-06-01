@@ -4370,7 +4370,7 @@ input[type="submit"].gray, input[type="button"].gray, input[type="reset"].gray, 
     margin-bottom: 10px;
 }
 .wrapper-padding{ padding-top: 80px ;}
-#content{ margin-top: 25px;}
+#content{ margin-top: 104px;}
 
 .product-image {
 margin-left: 5px;
@@ -4526,7 +4526,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', en
 .logo img{
     max-width: 230px;
     padding-right: 20px;
-    padding-top: 17px;
+    padding-top: 6px;
 
 }
 
@@ -4574,7 +4574,9 @@ height: 40px;
 
  }
 .logo img{
-    margin-top: -16px;
+    margin-top: -7px;
+    width: 180px;
+    height: 50px;
 
     }
     .search-text-area{
@@ -4672,3 +4674,5 @@ margin-top: 110px !important;
 }
 
 .dropdown-menu{ background-color: transparent !important; }
+.category-new ul li { float: none;}
+#myCarousel li { float: none;}

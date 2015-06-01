@@ -102,7 +102,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .select2-container .select2-choice {
     background-image: none !important;
-    background-color: #717176;
+    background-color: #000;
 
     color: white !important;
 
@@ -250,10 +250,10 @@ fieldset {
 }
 .white-text  a { color:#fff !important; font-size: 12px !important; width: 200px !important; }
 .fa-minus{
-    width: 200px;
+    width: auto;
 }
 .fa-plus{
-    width: 200px;
+    width: auto;
 }
 .remove-border
 {
@@ -312,4 +312,10 @@ span.page.current:hover {
 }
 .btn-padding{
     margin: 0 1px !important;
+}
+.set-cat-product-new{
+    margin-top: -66px;
+}
+.set-recomend-product-new{
+    margin-top: -31px;
 }

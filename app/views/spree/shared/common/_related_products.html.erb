@@ -1,29 +1,34 @@
     <!-- RELATED -->
-              <h3><strong>Related</strong> Products</h3>
-              <div class="row">
-             <!-- item -->
-                  <%@simlier_product.each do |p|%>
-                   <div class="col-sm-6 col-md-3">
-                   <% url = product_path(p) %>
-              <div class="item-box">
-                <figure>
-                  <a class="item-hover" href="<%=url%>">
-                    <span class="overlay color2"></span>
-                    <span class="inner">
-                    </span>
-                  </a>
-                 
-                  <%= link_to product_image(p, :itemprop => "image", :class => "img-responsive",:style=>"width:100%;" )%>
+    <h3><strong>Related</strong> Products</h3>
+    <div class="row">
+     <!-- item -->
+     <%@simlier_product.each do |p|%>
+     <div class="col-sm-6 col-md-3"><!-- item -->
 
-                  <div class="btn btn-primary add_to_cart btn-space" style="width:100%"><i class="fa fa-shopping-cart"></i> ADD TO CART</div>
-                </figure>
-                <div class="item-box-desc text-align-center">
-                  <h4><%=p.name%></h4>
-                  <small class="styleColor"><span>$<%=p.price%></span></small>
-                </div>
-              </div>
-              </div>
-            <%end%>
-              
-              <!-- /RELATED -->
-              </div>
+       <% url = product_path(p) %>
+       <div class="item-box">
+        <figure>
+          <a class="item-hover" href="<%=url%>">
+            <span class="overlay color2"></span>
+            <span class="inner">
+              <span class="block fa fa-plus fsize20"></span>
+              <strong>PRODUCT</strong> DETAIL
+            </span>
+          </a>
+          <!-- <img src="/assets/1.jpg" class = "img-responsive"> -->
+          <%= link_to product_image(p, :itemprop => "image", :class => "img-responsive responsive-height",:style=>"max-width:100%;", rel: 'shadowbox' )%>
+          <%= link_to url, :class => "btn btn-primary add_to_cart cart_popup", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "width: 100%" do %>
+          <i class="fa fa-shopping-cart"></i> ADD TO CART
+          <% end %>
+        </figure>
+
+        <div class="item-box-desc">
+          <h4><%=p.name%></h4> <%if p.subscription %> (Subscription Product) <% end %>
+          <%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p => p, } %>
+        </div>
+      </div>
+    </div>
+    <%end%>
+
+    <!-- /RELATED -->
+  </div>

@@ -1,8 +1,7 @@
 module Spree
   class BaseMailer < ActionMailer::Base
-
     def from_address
-      Spree::Config[:mails_from]
+      Spree::Store.first[:mail_from_address] rescue 'admin@PSHQ.com'
     end
 
     def money(amount, currency = Spree::Config[:currency])

@@ -21,7 +21,6 @@
         ship_address = o.ship_address_id
         items = o.item_count
         store = o.store_id
-    
         var  =  o.credit_cards.last.gateway_customer_profile_id
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         
@@ -33,7 +32,6 @@
           Stripe::Charge.create(:amount => amount.to_i , :currency => 'usd', :customer => stripe_customer ) 
           rescue Stripe::CardError => e
         end
-        
         transction = Spree::SubscritionTransctions.new
         transction.order_id = orderid
         transction.price = amount
@@ -46,13 +44,12 @@
         transction.ship_address_id = ship_address
         transction.item_count = items
         transction.store_id = store
-         transction.save
+        transction.save
        else
          
        end
      end
    end
-    
   end
   
   
@@ -78,13 +75,14 @@
          var  =  o.credit_cards.last.gateway_customer_profile_id
         
        if var.to_s.include?("cus")
-
+    
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
           charge = begin
           Stripe::Charge.create(:amount => amount.to_i , :currency => 'usd', :customer => stripe_customer ) 
           rescue Stripe::CardError => e
           end
+      
         transction = Spree::SubscritionTransctions.new
         transction.order_id = orderid
         transction.price = amount
@@ -98,7 +96,6 @@
         transction.item_count = items
         transction.store_id = store
          transction.save
-      
        else
        end
       end
@@ -127,17 +124,15 @@
         ship_address = o.ship_address_id
         items = o.item_count
         store = o.store_id
-            
-        var  =  o.credit_cards.last.gateway_customer_profile_id
+
+       
+      var  =  o.credit_cards.last.gateway_customer_profile_id
         
         if var.to_s.include?("cus")
-          Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
-          stripe_customer = Stripe::Customer.retrieve(var)
-        
-          charge = begin
-          Stripe::Charge.create(:amount => amount.to_i , :currency => 'usd', :customer => stripe_customer ) 
-          rescue Stripe::CardError => e
-          end
+     
+        Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
+        stripe_customer = Stripe::Customer.retrieve(var)
+        charge = Stripe::Charge.create(:amount => amount.to_i , :currency => 'usd', :customer => stripe_customer )
         transction = Spree::SubscritionTransctions.new
         transction.order_id = orderid
         transction.price = amount
@@ -178,18 +173,17 @@
         ship_address = o.ship_address_id
         items = o.item_count
         store = o.store_id
-      
         var  =  o.credit_cards.last.gateway_customer_profile_id
    
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         
        if var.include?("cus")
         stripe_customer = Stripe::Customer.retrieve(var)
-       
          charge = begin
           Stripe::Charge.create(:amount => amount.to_i , :currency => 'usd', :customer => stripe_customer ) 
           rescue Stripe::CardError => e
         end
+      
         transction = Spree::SubscritionTransctions.new
         transction.order_id = orderid
         transction.price = amount

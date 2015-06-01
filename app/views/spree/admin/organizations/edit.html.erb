@@ -36,7 +36,12 @@
                 <span class="button fa fa-plus ">
                  <%=link_to_add_fields_o "Add a new address", f, :org_addresses%>
                  </span>
-                
+                 
+                <div class="field" data-hook="admin_general_setting_mail_from_address">
+                    <%= f.label :google_analyitcs,'Google Analytics ID' %>
+                  <br>
+                  <%= f.text_field :google_analyitcs, :class => 'fullwidth' %>
+                </div>
                 <div class="field" data-hook="admin_general_setting_mail_from_address">
                     <%= f.label :facebook_url,'Facebook Link' %>
                   <br>
