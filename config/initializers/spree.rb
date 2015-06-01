@@ -77,4 +77,7 @@ end
 Spree::PermittedAttributes.checkout_attributes << [:is_recommended ]
 Spree::Api::ApiHelpers.product_attributes.push :retailer_price
 Spree::Api::ApiHelpers.variant_attributes.push :retailer_price
-Spree::Api::ApiHelpers.product_attributes.push :is_recommended, :subscription, :subscription_type
+Spree::PermittedAttributes.user_attributes << :first_name
+Spree::PermittedAttributes.user_attributes << :last_name
+
+
