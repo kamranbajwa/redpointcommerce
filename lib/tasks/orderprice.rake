@@ -32,22 +32,24 @@
           Stripe::Charge.create(:amount => amount.to_i , :currency => 'usd', :customer => stripe_customer ) 
           rescue Stripe::CardError => e
         end
-        transction = Spree::SubscritionTransctions.new
-        transction.order_id = orderid
-        transction.price = amount
-        transction.currency = curnc
-        transction.subs_type =  subsc_type
-        transction.user_id =  user
-        transction.ref_number =  order_number
-        transction.item_price = item_price
-        transction.bill_address_id =  bill_address
-        transction.ship_address_id = ship_address
-        transction.item_count = items
-        transction.store_id = store
-        transction.save
+        if amount == charge.amount
+           transction = Spree::SubscritionTransctions.new
+           transction.order_id = orderid
+           transction.price = (amount/100).to_i
+           transction.currency = curnc
+           transction.subs_type =  subsc_type
+           transction.user_id =  user
+           transction.ref_number =  order_number
+           transction.item_price = item_price
+           transction.bill_address_id =  bill_address
+           transction.ship_address_id = ship_address
+           transction.item_count = items
+           transction.store_id = store
+           transction.save
+        end
        else
-         
-       end
+
+        end
      end
    end
   end
@@ -82,10 +84,10 @@
           Stripe::Charge.create(:amount => amount.to_i , :currency => 'usd', :customer => stripe_customer ) 
           rescue Stripe::CardError => e
           end
-      
+       if amount == charge.amount
         transction = Spree::SubscritionTransctions.new
         transction.order_id = orderid
-        transction.price = amount
+        transction.price = (amount/100).to_i
         transction.currency = curnc
         transction.subs_type =  subsc_type
         transction.user_id =  user
@@ -96,7 +98,9 @@
         transction.item_count = items
         transction.store_id = store
          transction.save
+       end
        else
+
        end
       end
     end
@@ -124,43 +128,44 @@
         ship_address = o.ship_address_id
         items = o.item_count
         store = o.store_id
-
        
-      var  =  o.credit_cards.last.gateway_customer_profile_id
-        
+        var  =  o.credit_cards.last.gateway_customer_profile_id
         if var.to_s.include?("cus")
-     
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
-        charge = Stripe::Charge.create(:amount => amount.to_i , :currency => 'usd', :customer => stripe_customer )
-        transction = Spree::SubscritionTransctions.new
-        transction.order_id = orderid
-        transction.price = amount
-        transction.currency = curnc
-        transction.subs_type =  subsc_type
-        transction.user_id =  user
-        transction.ref_number =  order_number
-        transction.item_price = item_price
-        transction.bill_address_id =  bill_address
-        transction.ship_address_id = ship_address
-        transction.item_count = items
-        transction.store_id = store
-        transction.save
-         else
-         end
+        
+           charge = begin
+           Stripe::Charge.create(:amount => amount.to_i , :currency => 'usd', :customer => stripe_customer ) 
+           rescue Stripe::CardError => e
+           end 
+          if amount == charge.amount
+            transction = Spree::SubscritionTransctions.new
+            transction.order_id = orderid
+            transction.price = (amount/100).to_i
+            transction.currency = curnc
+            transction.subs_type =  subsc_type
+            transction.user_id =  user
+            transction.ref_number =  order_number
+            transction.item_price = item_price
+            transction.bill_address_id =  bill_address
+            transction.ship_address_id = ship_address
+            transction.item_count = items
+            transction.store_id = store
+            transction.save
+          end
+        else
+
+        end
       end
     end
   end
   
   task task_yearly: :environment do
     yearly = Spree::LineItem.where("subs_type = ?", 'yearly')
-   
-    yearly.to_s.each do |f|
+    yearly.each do |f|
         start_date = f.subs_date 
-      todate_date = DateTime.now
-      
+        todate_date = DateTime.now
       if start_date > todate_date
-        
         o  = Spree::Order.find(f.order_id)
         orderid = o.id
         amount = (o.total)*100
@@ -183,21 +188,23 @@
           Stripe::Charge.create(:amount => amount.to_i , :currency => 'usd', :customer => stripe_customer ) 
           rescue Stripe::CardError => e
         end
-      
-        transction = Spree::SubscritionTransctions.new
-        transction.order_id = orderid
-        transction.price = amount
-        transction.currency = curnc
-        transction.subs_type =  subsc_type
-        transction.user_id =  user
-        transction.ref_number =  order_number
-        transction.item_price = item_price
-        transction.bill_address_id =  bill_address
-        transction.ship_address_id = ship_address
-        transction.item_count = items
-        transction.store_id = store
-         transction.save
+         if amount == charge.amount
+            transction = Spree::SubscritionTransctions.new
+            transction.order_id = orderid
+            transction.price = (amount/100).to_i
+            transction.currency = curnc
+            transction.subs_type =  subsc_type
+            transction.user_id =  user
+            transction.ref_number =  order_number
+            transction.item_price = item_price
+            transction.bill_address_id =  bill_address
+            transction.ship_address_id = ship_address
+            transction.item_count = items
+            transction.store_id = store
+            transction.save
+         end
        else
+
        end
       end
     end
