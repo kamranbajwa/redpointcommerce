@@ -1,9 +1,9 @@
 <div data-hook="admin_user_form_fields" class="row">
   <div class="alpha six columns">
-    <%= f.label :first_name%>
-    <%= f.text_field :first_name, :class => 'fullwidth' %>
-    <%= f.label :last_name%>
-    <%= f.text_field :last_name, :class => 'fullwidth' %>
+    <%= f.label :first_name%><span class="required">*</span>
+    <%= f.text_field :first_name, :class => 'fullwidth', required: true %>
+    <%= f.label :last_name%><span class="required">*</span>
+    <%= f.text_field :last_name, :class => 'fullwidth' , required: true%>
     <%= f.field_container :email do %>
       <%= f.label :email, Spree.t(:email) %>
       <%= f.email_field :email, :class => 'fullwidth' %>
