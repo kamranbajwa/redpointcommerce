@@ -1,13 +1,13 @@
-<fieldset>
-<legend align="center">  Upload CSV
+<fieldset class="box-border">
+<legend align="center">  Upload Categories & Sub Categories VIA CSV
 </legend>
 <%= form_tag cat_import_admin_imports_path  , multipart: true do %>
 <div class="field center-product-csv">
  <label for="file">Select a File</label>
   <%= file_field_tag :file,  :accept=>"*.csv", required: true%>
   </div>
-  <div class="form-buttons actions filter-actions" data-hook="admin_products_index_search_buttons">
-          <button class="fa button remove-border"><%= submit_tag "Create Taxonomies" %></button>
+  <div class="form-buttons actions" data-hook="admin_products_index_search_buttons">
+          <button class="fa button remove-border setHeight"><%= submit_tag "Upload Categories" %></button>
         </div>
 <% end %>
 </fieldset>
