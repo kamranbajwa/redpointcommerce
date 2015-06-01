@@ -333,3 +333,12 @@ span.page.current:hover {
 /*#sub_nav li:active{
     background-color: gray;
 }*/
+ul.inline-menu li {
+  margin-left: 3px;
+}
+form.button_to {
+  margin-top: 3px;
+}
+.social_list li {
+    float: none;
+}

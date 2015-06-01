@@ -14,13 +14,8 @@ module Spree
       end
 
       def assign_group
-        puts "================================================="
         @u = Spree::User.find(params[:id])
-        puts "========================= User ======================"
-        puts @u.inspect
         @group = Spree::UserGroup.find(params[:post][:group_id])
-        puts "========================= Group ======================"
-        puts @group.inspect
         if @group.present?
           @group.users << @u
         end
