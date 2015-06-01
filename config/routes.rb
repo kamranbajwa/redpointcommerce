@@ -41,6 +41,7 @@ SpreeExample::Application.routes.draw do
       resources :slider_images
       resources :organizations
       resources :templates
+      resources :template_images
       resources :cms_pages
       resources :api_users
       resources :promotion_emails do 

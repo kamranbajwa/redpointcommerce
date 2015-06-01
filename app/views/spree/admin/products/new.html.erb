@@ -61,22 +61,21 @@
         <% end %>
       </div>
 
-    </div>
 
-    <div class='row'>
-      <div data-hook="new_product_shipping_category" class="alpha four columns">
+      <div data-hook="new_product_shipping_category" class="alpha four columns set-cat-product-new">
         <%= f.field_container :shipping_category do %>
           <%= f.label :shipping_category_id, Spree.t(:shipping_categories) %><span class="required">*</span><br />
           <%= f.collection_select(:shipping_category_id, @shipping_categories, :id, :name, { :include_blank => Spree.t('match_choices.none') }, { :class => 'select2 fullwidth', :required => true }) %>
           <%= f.error_message_on :shipping_category_id %>
         <% end %>
       </div>
-    </div>
 
-    <span>
+    <div data-hook="new_product_shipping_category" class="alpha four columns set-recomend-product-new">
     <%= f.check_box :is_recommended %>
  <%= f.label " Recommended" %>
-    </span>
+    </div>
+    </div>
+
 
 
 

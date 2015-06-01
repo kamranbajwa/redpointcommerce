@@ -4,8 +4,15 @@
   <div id="wrapper">
     <div class="slider-wrapper theme-default">
       <div id="slider" class="nivoSlider">
+      <%if @selected_template.spree_slider_images.length==0%>
+      <img src="/assets/default-sliders/1.jpg" alt="" width="1300" height="500">
+      <img src="/assets/default-sliders/2.jpg" alt="" width="1300" height="500">
+      <img src="/assets/default-sliders/3.jpg" alt="" width="1300" height="500">
+      <img src="/assets/default-sliders/4.jpg" alt="" width="1300" height="500">
+    <%else%>
       <%@selected_template.spree_slider_images.each_with_index do |image,index| %> 
       <img src="<%= image.slider_image.url(:xlarge)%>" class="img-responsive center-block header-banner" alt=""> 
+      <%end%>
       <%end%>  
       </div>
     </div>
@@ -18,11 +25,19 @@
 <section>
   <div class="container banners">
     <div class="row">
+    <% if @selected_template.template_images.first %>
+      <div class="col-md-4 col-sm-4"><img src="<%= @selected_template.template_images.first.avatar.url(:home_image)%>" class="img-responsive center-block" alt=""></div>
+      <div class="clear10 visible-xs"></div>
+      <div class="col-md-4 col-sm-4"><img src="<%= @selected_template.template_images.second.avatar.url(:home_image)%>" class="img-responsive center-block" alt=""></div>
+      <div class="clear10 visible-xs"></div>
+      <div class="col-md-4 col-sm-4"><img src="<%= @selected_template.template_images.third.avatar.url(:home_image)%>" class="img-responsive center-block" alt=""></div>
+      <% else %>
       <div class="col-md-4 col-sm-4"><img src="/assets/4/banner-img-1.jpg" class="img-responsive center-block" alt=""></div>
       <div class="clear10 visible-xs"></div>
       <div class="col-md-4 col-sm-4"><img src="/assets/4/banner-img-2.jpg" class="img-responsive center-block" alt=""></div>
       <div class="clear10 visible-xs"></div>
       <div class="col-md-4 col-sm-4"><img src="/assets/4/banner-img-3.jpg" class="img-responsive center-block" alt=""></div>
+      <% end %>
     </div>
   </div>
 </section>
@@ -61,7 +76,7 @@
   <div class="container-fluid full-screen blog-post">
     <div class="blog-post-text text-center"> <span class="glyphicon glyphicon-triangle-top"></span>
       <div class="clearfix"></div>
-      <a href="#" class="post-caption">50 Years of Casual Styles</a>
+      <a href="/page/<%= @about_page.first.try(:id)%>" class="post-caption"><%= @about_page.first.title rescue '50 Years of Casual Styles'%></a>
       <div class="clearfix"></div>
       <!-- <a href="#" class="post-link">DISCOVER NOW</a> --> </div>
   </div>
@@ -71,10 +86,12 @@
     <div class="row">
       <div class="col-md-6 left-promo">
         <div class="text-center promotion-1">
-          <div class="caption">Best Winter Collection 2015</div>
-          <div class="details">Welcome to USA’s leading footwear brand and retailer.
+        <a href="/page/<%=@static_pages.first.try(:id)%>">
+          <div class="caption"><%=@static_pages.first.title.html_safe rescue 'Best Winter Collection 2015'%></div>
+          </a>
+          <div class="details"><%=@static_pages.first.description.first(300).html_safe rescue 'Welcome to USA’s leading footwear brand and retailer.
 
-Starting its journey as a single retail footwear outlet, the brand today has a 450+ stores presence in Pakistan, 2000+ dealer-base, and a growing international footprint in Europe, Middle East, and many other regions of the world.
+Starting its journey as a single retail footwear outlet, the brand today has a 450+ stores presence in Pakistan, 2000+ dealer-base, and a growing international footprint in Europe, Middle East, and many other regions of the world.'%>
 
 </div>
           <div class="btn"><!-- <a href="#" class="post-link">JOIN NOW</a> --></div>
@@ -82,8 +99,12 @@ Starting its journey as a single retail footwear outlet, the brand today has a 4
       </div>
       <div class="col-md-6 right-promo">
         <div class="text-center promotion-2">
-          <div class="caption">USA</div>
-          <div class="details">Save Up to 70% Off Clearance Sale</div>
+        <a href="/page/<%=@static_pages.second.try(:id)%>">
+          <div class="caption"><%=@static_pages.second.title.html_safe rescue 'USA'%></div>
+          <div class="details">
+          <%=@static_pages.second.description.first(300).html_safe rescue 'Save Up to 70% Off Clearance Sale'%>
+
+          </div>
           <div class="btn"><!-- <a href="#" class="post-link">PURCHASES</a> --></div>
         </div>
       </div>

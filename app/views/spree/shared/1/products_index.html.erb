@@ -1,6 +1,19 @@
-<div class="container top-space">
+<div class="container">
   <br>
   <%= flash_messages %>
+  <%
+paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+paginated_products ||= products
+%>
+
+<% content_for :head do %>
+  <% if paginated_products.respond_to?(:num_pages) %>
+    <%= rel_next_prev_link_tags paginated_products %>
+<% end %>
+<% end %>
+<div class="row">
+
+    <aside class="col-md-3">
    <div class="col-sm-12 col-md-12 no-padding" style="padding-left:0px" >
           <%if Spree::Product.count>12 and params[:controller]=="spree/products" and !params[:keywords].present?%>
             <%if params[:page]%>
@@ -11,18 +24,34 @@
               <%end%>
               <%end%>
             </div>
+  <h3>CATEGORIES</h3><!-- h3 - have no margin-top -->
+  <div class="category-new">
+  <ul class="nav nav-list">
+  <% if "spree/products" == params[:controller] && @taxon %>
+  <%= render :partial => 'spree/shared/filters' %>
+  <% else %>
+  <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
 
-  <% if params[:keywords] %>
-    <aside class="col-md-3">
-    <% if "spree/products" == params[:controller] && @taxon %>
-      <%= render :partial => 'spree/shared/filters' %>
-    <% else %>
-      <%= render :partial => 'spree/shared/taxonomies_products' %>
+
+  <% @taxonomies.each do |taxonomy| %>
+    <% cache [I18n.locale, taxonomy, max_level] do %>
+
+      <%= taxons_tree_products_list(taxonomy.root, @taxon) %>
+     
     <% end %>
-  <% if @products.present? %> 
+  <% end %>
+  <%#= render :partial => 'spree/shared/taxonomies_products' %>
+  <% end %>
+
+  </ul>
+  </div>
+    
+    <% if @products.present? %> 
     <%= render :partial => 'spree/shared/search_filters' %>
     <%end%>
      </aside>
+  <div class="col-md-9">
+   <% if params[:keywords] %>
   <div data-hook="search_results">
       <% if @products.empty? %>
         <h6 class="search-results-title min-product-height"><%= Spree.t(:no_products_found) %></h6>
@@ -32,26 +61,17 @@
         </div>
       <% end %>
 
-    </div>
-
   <% else %>
+    
     <% if "spree/products" == params[:controller] && @taxon %>
       <%= render :partial => 'spree/shared/filters' %>
     <% else %>
-      <%= render :partial => 'spree/shared/taxonomies_products' %>
+      <%#= render :partial => 'spree/shared/taxonomies_products' %>
     <% end %>
-  </div>
-<div data-hook="homepage_products">
-<%
-paginated_products = @searcher.retrieve_products if params.key?(:keywords)
-paginated_products ||= products
-%>
 
-<% content_for :head do %>
-  <% if paginated_products.respond_to?(:num_pages) %>
-    <%= rel_next_prev_link_tags paginated_products %>
-  <% end %>
-<% end %>
+<div data-hook="homepage_products">
+
+
 
 <div data-hook="products_search_results_heading">
   <% if products.empty? %>
@@ -64,7 +84,6 @@ paginated_products ||= products
     </div>
   <% end %>
 </div>
-
 <% if products.any? %>
   <ul id="products" class="inline product-listing" data-hook>
     <% products.each do |product| %>
@@ -74,7 +93,7 @@ paginated_products ||= products
           <div class="product-image">
             <%= link_to product_image(product, :itemprop => "image", :class => "image-100 responsive-height" ), url, :itemprop => 'url' %>
           </div>
-          <%= link_to truncate(product.name, :length => 50), url, :class => 'info', :itemprop => "name", :title => product.name %>
+          <%= link_to truncate(product.name, :length => 50), url, :class => 'info', :itemprop => "name", :title => product.name %><%if product.subscription %> (Subscription Product) <% end %>
           <span class="price selling" itemprop="price"> <%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p=> product} %>
           </span>
         <% end %>
@@ -87,6 +106,7 @@ paginated_products ||= products
 <% if paginated_products.respond_to?(:num_pages) %>
   <%= paginate paginated_products%>
 <% end %>
+</div>
 </div>
 <% end %>
 </div>

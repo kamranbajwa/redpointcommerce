@@ -13,7 +13,7 @@
 
   <body class="boxed">
   <style type="text/css">
-  #content{ margin-top: 0px; min-height: 0px !important;}
+  #content{ margin-top: 0px !important; min-height: 0px !important;}
   </style>
   <%else%>
   <style>.main-body, header {
@@ -55,8 +55,10 @@ max-width: 100%;
 
   <%= render :partial => "spree/shared/#{@selected_template.template_no}/footer" %>
   <%= javascript_include_tag    "common" %>
-<script type="text/javascript" src="/assets/g_analytics.js"></script>
+   
   <%= render :partial => 'spree/shared/google_analytics' %>
+
+
 </body>
 </html>
   

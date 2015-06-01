@@ -7,17 +7,16 @@
              <li><a href="/admin/templates">Templates</a></li>
               <% end %>
               <% if params[:controller]=="spree/admin/templates"and params[:action]=="edit" %>
-              <li class="active" ><a href="/admin/templates/<%=@selected_template.id
-%>/edit">Themes</a></li>
+              <li class="active" ><a href="/admin/templates/<%=@selected_template.id%>/edit">Themes</a></li>
 <%else%>
-<li><a href="/admin/templates/<%=@selected_template.id
-%>/edit">Themes</a></li>
+<li><a href="/admin/templates/<%=@selected_template.id%>/edit">Themes</a></li>
 <%end%>
  <% if params[:controller]=="spree/admin/slider_images"and params[:action]=="index" %>
               <li class="active"><a href="/admin/slider_images">Sliders</a></li>
               <%else%>
               <li><a href="/admin/slider_images">Sliders</a></li>
               <%end%>
+              <li><a href="<%= new_admin_template_image_path %>">Images</a></li>
             </ul>
           </nav>
         </aside>

@@ -12,6 +12,7 @@ paginated_products ||= products
 <div class="gallery-page clearfix gallery-placing">
 	<div class="container isotope-wrapper">
 		<div class="row">
+		 <div class="custom-alert alert-success" style="display: none;"> Successfully Added </div>
 			<div class="col-md-3 sidebar-links">
 				<h3 class="text-left">CATEGORIES</h3>
 				<ul class="nav nav-list text-left">
@@ -60,7 +61,7 @@ paginated_products ||= products
 							<%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:100%" ), url, :itemprop => 'url' %>
 						</div>
 						<div class="product-info">
-							<div class="text-center"><%= link_to truncate(product.name, :length => 18), url, :class => 'info', :itemprop => "name", :title => product.name %></div><%if product.subscription %> (Subscription Product) <% end %>
+							<div class="text-center sub-height-pro"><%= link_to truncate(product.name, :length => 18), url, :class => 'info', :itemprop => "name", :title => product.name %><%if product.subscription %> (Subscription Product) <% end %></div>
 							<div class="price text-center"><%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p=> product} %></div>
 							<div class="clear"></div>
 							<%= link_to url, :class => "btn btn-primary add_to_cart cart_popup image-bottom", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "" do %>
