@@ -3,9 +3,6 @@
     
     daily  = Spree::LineItem.where("subs_type = ?", 'daily')
    
-   
-    
-    
     daily.each do |f|
        o  = Spree::Order.find(f.order_id)
         orderid = o.id
@@ -68,8 +65,7 @@
       puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
        
       var  =  o.credit_cards.last.gateway_customer_profile_id
-        
-      
+     
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
         charge = Stripe::Charge.create(:amount => amount , :currency => 'usd', :customer => stripe_customer )
@@ -136,7 +132,6 @@
          transction.save
       end
    
-      
     end
   end
   
@@ -179,7 +174,6 @@
         transction.item_count = items
         transction.store_id = store
          transction.save
-
     end
   end
   
