@@ -17,15 +17,18 @@
         items = o.item_count
         store = o.store_id
         
-      puts"--------order_id=#{orderid}-----------amount=#{amount}--------order_number=#{order_number}-----bill-addrreess#{bill_address}"
-      puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
        
       var  =  o.credit_cards.last.gateway_customer_profile_id
 
-        Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
+       require "stripe"
+      Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
+      
+
+       if var.include?("cus")
         stripe_customer = Stripe::Customer.retrieve(var)
-        charge = Stripe::Charge.create(:amount => amount , :currency => 'usd', :customer => stripe_customer )
-         transction = Spree::SubscritionTransctions.new
+        charge = Stripe::Charge.create(:amount => amount.to_i , :currency => 'usd', :customer => stripe_customer )
+      
+        transction = Spree::SubscritionTransctions.new
         transction.order_id = orderid
         transction.price = amount
         transction.currency = curnc
@@ -37,7 +40,11 @@
         transction.ship_address_id = ship_address
         transction.item_count = items
         transction.store_id = store
-         transction.save
+        transction.save
+
+       else
+
+       end
     end
     
   end
@@ -59,15 +66,14 @@
         ship_address = o.ship_address_id
         items = o.item_count
         store = o.store_id
-        
-      puts"--------order_id=#{orderid}-----------amount=#{amount}--------order_number=#{order_number}-----bill-addrreess#{bill_address}"
-      puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
        
       var  =  o.credit_cards.last.gateway_customer_profile_id
 
+      if var.include?("cus")
+
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
-        charge = Stripe::Charge.create(:amount => amount , :currency => 'usd', :customer => stripe_customer )
+        charge = Stripe::Charge.create(:amount => amount.to_i , :currency => 'usd', :customer => stripe_customer )
         transction = Spree::SubscritionTransctions.new
         transction.order_id = orderid
         transction.price = amount
@@ -81,6 +87,8 @@
         transction.item_count = items
         transction.store_id = store
          transction.save
+       else
+       end
       
   
      
@@ -105,21 +113,14 @@
         ship_address = o.ship_address_id
         items = o.item_count
         store = o.store_id
-        
-      puts"--------order_id=#{orderid}-----------amount=#{amount}--------order_number=#{order_number}-----bill-addrreess#{bill_address}"
-      puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
        
       var  =  o.credit_cards.last.gateway_customer_profile_id
         
-              puts"--------order_id=#{orderid}-----------amount=#{amount}--------order_number=#{order_number}-----bill-addrreess#{bill_address}"
-      puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
-       
-      var  =  o.credit_cards.last.gateway_customer_profile_id
-        
+        if var.include?("cus")
      
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
-        charge = Stripe::Charge.create(:amount => amount , :currency => 'usd', :customer => stripe_customer )
+        charge = Stripe::Charge.create(:amount => amount.to_i , :currency => 'usd', :customer => stripe_customer )
       transction = Spree::SubscritionTransctions.new
         transction.order_id = orderid
         transction.price = amount
@@ -133,7 +134,8 @@
         transction.item_count = items
         transction.store_id = store
          transction.save
-    
+       else
+       end
     end
   end
   
@@ -153,14 +155,13 @@
         items = o.item_count
         store = o.store_id
         
-      puts"--------order_id=#{orderid}-----------amount=#{amount}--------order_number=#{order_number}-----bill-addrreess#{bill_address}"
-      puts"-------Subtype#{subsc_type}------user=#{user}------itme_price=#{item_price}------shipadd=#{ship_address}-----item=#{items}---------store=#{store}" 
        
       var  =  o.credit_cards.last.gateway_customer_profile_id
+      if var.include?("cus")
    
         Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         stripe_customer = Stripe::Customer.retrieve(var)
-        charge = Stripe::Charge.create(:amount => amount , :currency => 'usd', :customer => stripe_customer )
+        charge = Stripe::Charge.create(:amount => amount.to_i , :currency => 'usd', :customer => stripe_customer )
      
         transction = Spree::SubscritionTransctions.new
         transction.order_id = orderid
@@ -175,6 +176,8 @@
         transction.item_count = items
         transction.store_id = store
          transction.save
+       else
+       end
     end
   end
   
