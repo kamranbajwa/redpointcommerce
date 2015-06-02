@@ -188,6 +188,20 @@ def link_to_remove_fields_o(name, f)
               end
             end
 
+            def taxons_tree_products_list_doctor(root_taxon, current_taxon, max_level = 1)
+            return '' if max_level < 1 || root_taxon.children.empty?
+            content_tag :ul, class: 'nav-cat nav-list text-left' do
+                root_taxon.children.map do |taxon|
+                  content_tag :li do
+                    content_tag :i, class: 'fa fa-circle-o' do
+                    link_to(taxon.name, seo_url(taxon)) +
+                      taxons_tree(taxon, current_taxon, max_level - 1)
+                    end
+                  end
+                end.join().html_safe
+              end
+            end
+
             def available_countries
               checkout_zone = Zone.find_by(name: Spree::Config[:checkout_zone])
 

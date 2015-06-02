@@ -1,0 +1,190 @@
+<div class="home-slider clearfix">
+  <div class="flexslider">
+    <ul class="slides">
+      <!--slide start-->
+      <%if @selected_template.spree_slider_images.length==0%>
+      <li class="flex-active-slide"> <img src="/assets/<%= @selected_template.template_no%>/temp-images/slide-one.jpg" alt="" draggable="false">
+        <div class="content-wrapper clearfix">
+          <div class="container">
+            <div class="slide-content clearfix">
+              <h1>Medical Services <span>That You Can Trust</span></h1>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit sed diam nonummy nibh euismod.</p>
+              <a class="slider-button" href="#">Read More</a> </div>
+          </div>
+        </div>
+      </li>
+      <!--slide end--> 
+      
+      <!--slide start-->
+      <li> <img src="/assets/<%= @selected_template.template_no%>/temp-images/slide-two.jpg" alt="" draggable="false">
+        <div class="content-wrapper clearfix">
+          <div class="container">
+            <div class="slide-content clearfix ">
+              <h1>We <span>Care</span> for <span>You</span></h1>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+              <a class="slider-button" href="#">Read More</a> </div>
+          </div>
+        </div>
+      </li>
+      <!--slide end-->
+       <li> <img src="/assets/<%= @selected_template.template_no%>/temp-images/slide-three.jpg" alt="" draggable="false">
+        <div class="content-wrapper clearfix">
+          <div class="container">
+            <div class="slide-content clearfix ">
+              <h1>We <span>Care</span> for <span>You</span></h1>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+              <a class="slider-button" href="#">Read More</a> </div>
+          </div>
+        </div>
+      </li>
+      <% else %>
+         <%@selected_template.spree_slider_images.each_with_index do |image,index| %> 
+          <li> <img src="<%= image.slider_image.url(:xlarge)%>" alt="" draggable="false">
+          <div class="content-wrapper clearfix">
+            <div class="container">
+              <div class="slide-content clearfix ">
+                <h1>We <span>Care</span> for <span>You</span></h1>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                <a class="slider-button" href="#">Read More</a> </div>
+            </div>
+          </div>
+        </li>
+        <% end %>
+      <% end %>
+      <!--slide end-->
+    </ul>
+    <!--directional nav-->
+    <ul class="flex-direction-nav">
+      <li><a class="flex-prev" href="#">Previous</a></li>
+      <li><a class="flex-next" href="#">Next</a></li>
+    </ul>
+  </div>
+</div>
+<div class="home-features clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="slogan-section animated fadeInUp clearfix ae-animation-fadeInUp">
+          <h2 class="blue-color"> Medical<span> & </span> Healthy </h2>
+        </div>
+      </div>
+      <div class="col-md-4  text-center">
+        <div class="features-intro clearfix">
+          <div class="icon-wrapper"> <i class="fa fa-user-md fa-custom"></i> </div>
+          <h4>Qualified Doctors</h4>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
+          <button class="btn btn-readmore">READ MORE</button>
+        </div>
+      </div>
+      <div class="col-md-4  text-center">
+        <div class="features-intro clearfix">
+          <div class="icon-wrapper"> <i class="fa fa-ambulance fa-custom"></i> </div>
+          <h4>Emergency Services</h4>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
+          <button class="btn btn-readmore">READ MORE</button>
+        </div>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="features-intro clearfix">
+          <div class="icon-wrapper"> <i class="fa fa-medkit fa-custom"></i> </div>
+          <h4>Medical Counseling</h4>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
+          <button class="btn btn-readmore">READ MORE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<!--doctors section-->
+<div class="home-doctors  clearfix">
+  <div class="container">
+    <div class="col-md-9 text-left">
+      <h4 >DEPARTMENTS</h4>
+      <div class="col-md-6">
+        <div class="img-responsive"><img src="/assets/<%= @selected_template.template_no%>/temp-images/news-2-732x447.jpg" alt=""></div>
+        <h4>Nutritional Personal Consultation</h4>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+        <button class="btn btn-readmore">READ MORE</button>
+      </div>
+      <div class="col-md-6">
+        <div class="img-responsive"><img src="/assets/<%= @selected_template.template_no%>/temp-images/gallery-1.jpg" alt="" ></div>
+        <h4>Nutritional Personal Consultation</h4>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+        <button class="btn btn-readmore">READ MORE</button>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <h4>MEET THE DOCTOR</h4>
+      <div class="img-responsive"> <img class="img-circle" src="/assets/<%= @selected_template.template_no%>/temp-images/author-11-130x130.jpg" alt="" draggable="false"> </div>
+      <h4>Nutritional Personal Consultation</h4>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+      <button class="btn btn-readmore">READ MORE</button>
+    </div>
+  </div>
+</div>
+<!--doctors section end-->
+<hr>
+<!--blog posts section-->
+<div class="home-blog text-center clearfix">
+  <div class="container">
+    <div class="slogan-section animated  clearfix">
+      <h2>Latest News from <span>Health and Medical</span></h2>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+      <% products.take(4).each do |product| %>
+        <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
+        <div class="col-md-3 ">
+          <div class="spacer ">
+            <h3><a href="#"><%= product.name %></a></h3>
+            <div class="vm-product-media-container"> <a href="#">
+              <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:100%; height: 200px;" ), url, :itemprop => 'url' %>
+            </a>
+              <div class="clear"></div>
+            </div>
+            <div class="addtocart-area mar-botton">
+              <div class="col-md-6"> <span class="price-red">$160.00</span> </div>
+              <div class="col-md-6">
+              <a href="<%= url %>">
+                <button class="btn btn-products">Add to Cart</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <br>
+  <a href="/products">
+  <button class="btn btn-products">More Products...</button>
+  </a>
+</div>
+<!--blog posts section end-->
+<hr>
+<!--testimonials section-->
+
+<div class="home-blog  clearfix">
+  <div class="container">
+    <div class="slogan-section animated  clearfix">
+      <h2>FROM <span>THE BLOGS</span></h2>
+      <div class="col-md-12">
+      <% @blog_post.take(3).each do |f|%>
+        <div class="col-md-4 text-left">
+          <div class="img-responsive"><img src="<%= f.avatar.url(:blarge) %>" alt=""></div>
+          <h4><%= f.title%></h4>
+          <p><%= f.published_at.strftime("%d %b %Y")%> </p>
+          <hr>
+          <p><%= truncate(strip_tags(f.body.html_safe), length: 200) %> </p>
+          <br>
+          <a href=<%= "/blog/#{f.permalink}" %>>
+          <button class="btn btn-readmore">READ MORE</button></a>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

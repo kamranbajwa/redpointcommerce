@@ -1,0 +1,55 @@
+<div class="gallery-page clearfix">
+   
+    <div class="container isotope-wrapper text-center">
+        <div class="row">
+        <div class="col-md-3">
+        <aside class="col-md-12">
+              <h3>CATEGORIES</h3><!-- h3 - have no margin-top -->
+      					<% if "spree/products" == params[:controller] && taxon %>
+                  <%= render :partial => 'spree/shared/filters' %>
+                <% else %>
+                  <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+                  <% @taxonomies.each do |taxonomy| %>
+                    <% cache [I18n.locale, taxonomy, max_level] do %>
+                      <%= taxons_tree_products_list_doctor(taxonomy.root, @taxon) %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+						</aside>
+        </div>
+
+         <div class="col-md-9">
+            <div id="isotope-container" class="clearfix">
+                <!--column start-->
+                <% products.each do |product| %>
+                  <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
+                  <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
+                    <div class="isotope-item advanced-technology free-facilities col-md-4 col-sm-6 ">
+                        <article class="common clearfix hentry ">
+                            <figure class="overlay-effect">
+                                <a href="#" title="Medical Record Keeping">
+                                   <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:100%; height: 250px;" ), url, :itemprop => 'url' %>
+                                </a>
+                                <a class="overlay" href="<%= url %>"></a>
+                            </figure>
+                            <div class="content clearfix">
+                                <h4><a href="gallery-single-record.html"><%= link_to truncate(product.name, :length => 18), url, :class => 'info', :itemprop => "name", :title => product.name %><%if product.subscription %> (Subscription Product) <% end %></a></h4>
+
+                                <div class="gallery-item-types">
+                                    <a href="#">Advanced Technology</a>,
+                                    <a href="#"></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                  <% end %>
+                <% end %>
+                <!--column end-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
