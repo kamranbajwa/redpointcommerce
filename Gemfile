@@ -13,7 +13,7 @@ gem 'therubyracer'
 gem 'rmagick'
 gem 'paperclip'
 gem 'acts-as-taggable-on'
-
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
 gem 'spree', github: 'spree/spree', branch: '2-4-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '2-4-stable'
@@ -62,4 +62,4 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
- gem 'debugger', group: [:development, :test]
+# gem 'debugger', group: [:development, :test]
