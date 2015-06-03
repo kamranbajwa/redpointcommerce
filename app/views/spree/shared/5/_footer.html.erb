@@ -1,0 +1,92 @@
+<footer id="main-footer" class="site-footer clearfix">
+  <div class="container">
+    <div class="row"> 
+      
+      <!--about widget-->
+      <div class="col-md-3 col-sm-6">
+        <section  class="widget animated ">
+          <h3 class="title"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>"></h3>
+          <div class="textwidget">
+            <p><%= @about_page.first.description.first(150).html_safe || ""%></p>
+          </div>
+        </section>
+      </div>
+      
+      <!--general services-->
+      <div class="col-md-4 col-sm-6  ">
+        <section class="widget animated ">
+          <h3 class="title">USEFUL LINK</h3>
+          <ul>
+            <% @static_pages.take(3).each do |s_page| %>
+            <li> <a href="/page/<%= s_page.id %>"><%= s_page.title %></a> </li>
+          <% end %>
+          <% @default_pages.try(:each) do |d_page| %>
+            <li> <a href="/page/<%= d_page.id %>"><%= d_page.title %></a> </li>
+          <% end %>
+          </ul>
+        </section>
+      </div>
+      <div class="clearfix visible-sm"></div>
+      
+      <!--recent posts-->
+      <div class="col-md-3 col-sm-6  ">
+        <section  class="widget animated ">
+          <h3 class="title">GET INVOLVED</h3>
+          <ul>
+            <li> <a href="#">Hello world!</a> </li>
+            <li> <a href="#">Image Post Format</a> </li>
+            <li> <a href="#">Quote Post Format</a> </li>
+            <li> <a href="#">Gallery Post Format</a> </li>
+            <li> <a href="#">How to Live a Healthier Life</a> </li>
+          </ul>
+        </section>
+      </div>
+      <!--subscription form-->
+      <div class="col-md-2 col-sm-6  ">
+        <section  class="widget animated ">
+          <h3 class="title">OPENING HOURS</h3>
+          <div class="textwidget">
+             <% if @org.opening_day.present? %>
+            <p><%= @org.opening_day  %> - <%= @org.closing_day %> </p>
+            <% else %>
+            <p> Monday - Sunday </p>
+            <% end %>
+            <% if @org.opening_hour.present? %>
+            <p><%= @org.opening_hour %> - <%= @org.closing_hour%> </p>
+             <% else %>
+            <p> 11:00 am - 12:00 pm</p>
+            <% end %>
+          </div>
+          <div> </div>
+        </section>
+      </div>
+    </div>
+    <div class="footer-bottom   clearfix">
+      <div class="row">
+        <div class="col-sm-7">
+          <p>&copy; Copyright 2015. All Rights Reserved </p>
+        </div>
+        <!--footer social icons-->
+        <div class="col-sm-5 clearfix">
+          <ul class="footer-social-nav">
+            <li><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a target="_blank" href="#"><i class="fa fa-google-plus"></i></a></li>
+             <li><a target="_blank" href="#"><i class="fa fa-youtube"></i></a></li>
+           <li><a target="_blank" href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a target="_blank" href="#"><i class="fa fa-pinterest-square"></i></a></li>
+           <!--
+            <li><a target="_blank" href="skype:skypeusername?add"><i class="fa fa-skype"></i></a></li>
+            <li><a target="_blank" href="#"><i class="fa fa-rss"></i></a></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script type='text/javascript' src='/assets/<%= @selected_template.template_no%>/jquery-1.11.1.min.js'></script> 
+<script type='text/javascript' src='/assets/<%= @selected_template.template_no%>/bootstrap.min.js'></script> 
+<script type='text/javascript' src='/assets/<%= @selected_template.template_no%>/jquery.flexslider-min.js'></script> 
+<script type='text/javascript' src='/assets/<%= @selected_template.template_no%>/jquery.meanmenu.min.js'></script> 
+<script type='text/javascript' src='/assets/<%= @selected_template.template_no%>/jquery-migrate-1.2.1.min.js'></script> 
+<script type='text/javascript' src='/assets/<%= @selected_template.template_no%>/custom.js'></script>

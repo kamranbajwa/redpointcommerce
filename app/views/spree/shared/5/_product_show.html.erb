@@ -1,0 +1,150 @@
+<div class="page-top clearfix">
+  <div class="container"> 
+    <!--page main heading-->
+    <h2 class="entry-title">Details Page</h2>
+    <nav class="bread-crumb">
+      <ul class="breadcrumb clearfix">
+        <li><a href="/">Home</a></li>
+        <li class="active">Details</li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="custom-alert alert-success" style="display: none;"> Successfully Added </div>
+      <div class="col-sm-6 col-md-6">
+        <div id="product-images" data-hook="product_images">
+          <div id="main-image" class="line-hat" data-hook>
+            <div class="product-image-wrapper">
+              <%= render :partial => 'image' %>
+            </div>
+          </div>
+          <div id="thumbnails" data-hook>
+            <%= render :partial => 'thumbnails' %>
+          </div>
+          <div data-hook="product_properties" class="details-titles">
+            <%= render :partial => 'properties' %>
+          </div>
+          <div data-hook="promotions">
+            <%= render :partial => 'promotions' %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <h3 class="content-caption"><%= @product.name%></h3>
+        <div class="gallery-item-types"> <span class="fa fa-tags"></span> <% @product.taxons.each do |taxon| %>
+          <%= link_to taxon.name, seo_url(taxon) %>
+          <% end %> </div>
+          <div class="gallery-item-types"><span class="code">PART NUMBER: <%=@product.sku%></span> </div>
+          <div class="entry-content">
+            <!-- <h4>PRICE: <span class="actual-price">$<%= @product.price%></span></h4> -->
+            <div class="clear10"></div>
+            <div class="add-to-cart">
+             <div id="cart-form" data-hook="cart_form">
+              <%= render :partial => "spree/shared/#{@selected_template.template_no}/cart_form" %>
+            </div>
+          </div>
+          <div class="clear10"></div><div class="clear5"></div>
+          <h4>DESCRIPTION</h4>
+          <p> <%= product_description(@product) rescue Spree.t(:product_has_no_description) %></p>
+        </div>
+        <div class="clear20"></div>
+        <div class="social-sharing">
+          <div class="socialApis">
+            <h3 class="page-header">TELL TO YOUR FRIENDS</h3>
+            <!-- facebook -->
+            <div class="api">
+             <div class="fb-like" data-href=<%=request.url%>  data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+           </div>
+           <!-- twitter -->
+           <div class="api">
+            <a href=<%=request.url%> class="twitter-share-button" data-lang="en">Tweet</a>
+          </div>
+          <!-- google plus -->
+          <div class="api">
+            <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="300"></div>
+          </div>
+        </div>        
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- main container with gallery and product details starts -->
+
+<div class="clear40"></div>
+<div class="clear20"></div>
+
+    <div class="container">
+        <div class="clearfix">
+            <div class="slogan-section text-left clearfix">
+                <h2>Related <span>Gallery Items</span></h2>
+                <p>This text is about related gallery items and it is coming from theme options.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="related-gallery-items container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <article class="common clearfix hentry">
+                    <figure class="overlay-effect">
+                        <a href="#" title="Advanced Lab">
+                            <img src="/assets/5/temp-images/doctor-5.jpg" alt="gallery-6">
+                        </a>
+                        <a class="overlay" href="images/temp-images/gallery-5.jpg"></a>
+                    </figure>
+                    <div class="content clearfix">
+                        <h5><a href="#">Health Counseling</a></h5>
+
+                        <div class="gallery-item-types">
+                            <a href="#">Health Counseling</a>, <a href="#">Patient Care</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 ">
+                <article class="common clearfix hentry">
+                    <figure class="overlay-effect">
+                        <a href="#" title="Blood Pressure Checkup">
+                            <img src="/assets/5/temp-images/doctor-6.jpg" alt="gallery-4">
+                        </a>
+                        <a class="overlay" href="images/temp-images/gallery-7.jpg"></a>
+                    </figure>
+                    <div class="content clearfix">
+                        <h5><a href="#">Well Trained Staff</a></h5>
+
+                        <div class="gallery-item-types">
+                            <a href="#">Patient Care</a>,
+                            <a href="#">Professional Staff</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="visible-sm clearfix"></div>
+            <div class="col-lg-3 col-md-4 col-sm-6 ">
+                <article class="common clearfix hentry">
+                    <figure class="overlay-effect">
+                        <a href="#" title="Blood Pressure Checkup">
+                            <img src="/assets/5/temp-images/doctor-5.jpg" alt="gallery-4">
+                        </a>
+                        <a class="overlay" href="images/temp-images/gallery-11.jpg"></a>
+                    </figure>
+                    <div class="content clearfix">
+                        <h5><a href="#">Medical Record Keeping</a></h5>
+
+                        <div class="gallery-item-types">
+                            <a href="#">Advanced Technology</a>,
+                            <a href="#">Free Facilities</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>

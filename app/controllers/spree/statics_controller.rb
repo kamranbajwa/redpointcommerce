@@ -26,7 +26,6 @@ module Spree
     end
     # Get Blog Main Page
     def blog
-      @blog_post = Spree::Blog.all
     end
     
     # Show Every Post
