@@ -22,6 +22,16 @@
         </div>
 
          <div class="col-md-9">
+         <% if params[:keywords] %>
+        <div data-hook="search_results">
+
+          <% if @products.empty? %>
+          <h6 class="search-results-title min-product-height"><%= Spree.t(:no_products_found) %></h6>
+          <% else %>
+          <%= render :partial => "spree/shared/#{@selected_template.template_no}/products_search", :locals => { :products => @products, :taxon => @taxon } %>
+          <% end %>
+        </div>
+        <%else%>
             <div id="isotope-container" class="clearfix">
                 <!--column start-->
                 <% products.each do |product| %>
@@ -38,10 +48,10 @@
                             <div class="content clearfix">
                                 <h4><a href="gallery-single-record.html"><%= link_to truncate(product.name, :length => 18), url, :class => 'info', :itemprop => "name", :title => product.name %><%if product.subscription %> (Subscription Product) <% end %></a></h4>
 
-                                <div class="gallery-item-types">
+                               <!--  <div class="gallery-item-types">
                                     <a href="#">Advanced Technology</a>,
                                     <a href="#"></a>
-                                </div>
+                                </div> -->
                             </div>
                         </article>
                     </div>
@@ -49,6 +59,7 @@
                 <% end %>
                 <!--column end-->
                 </div>
+                <% end %>
             </div>
         </div>
         <% if paginated_products.respond_to?(:num_pages) %>

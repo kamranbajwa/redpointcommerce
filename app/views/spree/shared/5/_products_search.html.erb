@@ -1,0 +1,27 @@
+ <div id="isotope-container" class="clearfix">
+    <!--column start-->
+    <%
+    paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+    paginated_products ||= products
+    %>
+    <% products.each do |product| %>
+    <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
+    <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
+    <div class="isotope-item advanced-technology free-facilities col-md-4 col-sm-6 ">
+        <article class="common clearfix hentry ">
+            <figure class="overlay-effect">
+                <a href="#" title="Medical Record Keeping">
+                   <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:100%; height: 250px;" ), url, :itemprop => 'url' %>
+               </a>
+               <a class="overlay" href="<%= url %>"></a>
+           </figure>
+           <div class="content clearfix">
+            <h4><a href="gallery-single-record.html"><%= link_to truncate(product.name, :length => 18), url, :class => 'info', :itemprop => "name", :title => product.name %><%if product.subscription %> (Subscription Product) <% end %></a></h4>
+
+        </div>
+    </article>
+</div>
+<% end %>
+<% end %>
+<!--column end-->
+</div>
