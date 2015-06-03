@@ -134,7 +134,7 @@
               <div class="clear"></div>
             </div>
             <div class="addtocart-area mar-botton">
-              <div class="col-md-6"> <span class="price-red">$160.00</span> </div>
+              <div class="col-md-6"> <span class="price-red"><%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p=> product} %></span> </div>
               <div class="col-md-6">
               <a href="<%= url %>">
                 <button class="btn btn-products">Add to Cart</button></a>
