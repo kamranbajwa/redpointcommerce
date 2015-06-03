@@ -5,7 +5,14 @@
        <div class="col-lg-6"> <% if spree_user_signed_in? %> <%=  link_to 'Sign out', spree_logout_path %> <% else %><a href="/login">Login <i class="fa fa-key"></i></a> <% end %>| <a href="/signup">Registration <i class="fa fa-users"></i></a> | <a href="/cart">Cart <i class="fa fa-shopping-cart"></i></a> </div>
         <div class="col-lg-6"></div>
        <div class="pull-right">
-        <div id="cart"> <span class="total-price"><input type="text" placeholder="Search" class="border-search" ></span><a href="#"><i class="fa fa-search"></i></a> </div>
+        <div id="cart"> 
+        <span class="total-price">
+         <%= form_tag spree.products_path, :method => :get, class: "search-form" do %>
+               <%= search_field_tag :keywords, params[:keywords], class: "border-search search-input1", placeholder: "Search"%>
+               <a href="#" class="search-anc"><i class="fa fa-search"></i></a>
+               <%end%>
+
+        </span> </div>
       </div>
       </div>
     </div>
