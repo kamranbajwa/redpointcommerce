@@ -59,7 +59,7 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
    end
 
    def cms_page_params
-      params.require(:cms_page).permit(:title, :description, :template_id, :meta_tags, :meta_description, :tag_list, :sort, :static_flag, :avatar)
+      params.require(:cms_page).permit(:title, :description, :template_id, :meta_tags, :meta_description, :tag_list, :sort, :default_flag, :static_flag, :avatar)
    end
 
    def get_templates

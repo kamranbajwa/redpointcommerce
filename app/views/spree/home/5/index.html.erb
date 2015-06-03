@@ -167,7 +167,7 @@
           <h4><%= f.title%></h4>
           <p><%= f.published_at.strftime("%d %b %Y")%> </p>
           <hr>
-          <p><%= truncate(strip_tags(f.body.html_safe), length: 200) %> </p>
+          <p class="static-des-height"><%= truncate(strip_tags(f.body.html_safe), length: 200) %> </p>
           <br>
           <a href=<%= "/blog/#{f.permalink}" %>>
           <button class="btn btn-readmore">READ MORE</button></a>
