@@ -69,12 +69,12 @@
         <!--footer social icons-->
         <div class="col-sm-5 clearfix">
           <ul class="footer-social-nav">
-            <li><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a target="_blank" href="#"><i class="fa fa-google-plus"></i></a></li>
-             <li><a target="_blank" href="#"><i class="fa fa-youtube"></i></a></li>
-           <li><a target="_blank" href="#"><i class="fa fa-linkedin"></i></a></li>
-            <li><a target="_blank" href="#"><i class="fa fa-pinterest-square"></i></a></li>
+            <li><a target="_blank" href=<%= @org.twitter_url || '#'%>><i class="fa fa-twitter"></i></a></li>
+            <li><a target="_blank" href=<%= @org.facebook_url || '#'%>><i class="fa fa-facebook"></i></a></li>
+            <li><a target="_blank" href=<%= @org.google_url || '#'%>><i class="fa fa-google-plus"></i></a></li>
+             <li><a target="_blank" href=<%= @org.youtube || '#'%>><i class="fa fa-youtube"></i></a></li>
+           <li><a target="_blank" href=<%= @org.linked_in || '#'%>><i class="fa fa-linkedin"></i></a></li>
+            <li><a target="_blank" href=<%= @org.pinterest || '#'%>><i class="fa fa-pinterest-square"></i></a></li>
            <!--
             <li><a target="_blank" href="skype:skypeusername?add"><i class="fa fa-skype"></i></a></li>
             <li><a target="_blank" href="#"><i class="fa fa-rss"></i></a></li>-->
