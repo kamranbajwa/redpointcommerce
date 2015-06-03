@@ -22,7 +22,9 @@
                   <td class="align-center"><%= page.title %></td>
                   <td class="actions" data-hook="admin_products_index_row_actions">
                     <%= link_to '', edit_admin_cms_page_path(page), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%> 
+                    <% unless page.check_default? %>
                     <%= link_to '', admin_cms_page_path(page), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash icon_link with-tip no-text", "data-action" => "remove" %>
+                    <% end %>
                   </td>
                 </tr>
               <% end %>

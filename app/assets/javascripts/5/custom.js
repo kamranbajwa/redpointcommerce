@@ -340,13 +340,13 @@
     });
 
 
-        $.validator.addMethod("placeholder", function (value, element) {
-            if (value == $(element).attr('placeholder')) {
-                return false;
-            } else {
-                return true;
-            }
-        });
+        // $.validator.addMethod("placeholder", function (value, element) {
+        //     if (value == $(element).attr('placeholder')) {
+        //         return false;
+        //     } else {
+        //         return true;
+        //     }
+        // });
 
 
         /*----------------------------------------------------------------------------------*/
@@ -636,7 +636,7 @@
     /*-----------------------------------------------------------------*/
     /* Animations Effects
     /*-----------------------------------------------------------------*/
-    $('.animated').appear();
+    // $('.animated').appear();
 
     $(document.body).on('appear', '.fade', function () {
         $(this).each(function () {

@@ -68,30 +68,17 @@
           <h2 class="blue-color"> Medical<span> & </span> Healthy </h2>
         </div>
       </div>
+      <% @static_pages.take(3).each do |s_page| %>
       <div class="col-md-4  text-center">
         <div class="features-intro clearfix">
           <div class="icon-wrapper"> <i class="fa fa-user-md fa-custom"></i> </div>
-          <h4>Qualified Doctors</h4>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
-          <button class="btn btn-readmore">READ MORE</button>
+          <h4><%= s_page.title %></h4>
+          <p class="static-des-height"><%= truncate(strip_tags(s_page.description.html_safe), length: 200) %></p>
+          <a href="/page/<%= s_page.id %>">
+          <button class="btn btn-readmore">READ MORE</button></a>
         </div>
       </div>
-      <div class="col-md-4  text-center">
-        <div class="features-intro clearfix">
-          <div class="icon-wrapper"> <i class="fa fa-ambulance fa-custom"></i> </div>
-          <h4>Emergency Services</h4>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
-          <button class="btn btn-readmore">READ MORE</button>
-        </div>
-      </div>
-      <div class="col-md-4 text-center">
-        <div class="features-intro clearfix">
-          <div class="icon-wrapper"> <i class="fa fa-medkit fa-custom"></i> </div>
-          <h4>Medical Counseling</h4>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
-          <button class="btn btn-readmore">READ MORE</button>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -101,25 +88,27 @@
   <div class="container">
     <div class="col-md-9 text-left">
       <h4 >DEPARTMENTS</h4>
+      <% @default_pages.try(:each) do |d_page| %>
       <div class="col-md-6">
-        <div class="img-responsive"><img src="/assets/<%= @selected_template.template_no%>/temp-images/news-2-732x447.jpg" alt=""></div>
-        <h4>Nutritional Personal Consultation</h4>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-        <button class="btn btn-readmore">READ MORE</button>
+        <% if d_page.avatar.exists?(:home_image) %>
+        <div class="img-responsive"><img src="<%= d_page.avatar.url(:home_image)%>" alt=""></div>
+        <% else %>
+        <div class="img-responsive"><img src="/assets/no-image.jpg" alt=""></div>
+        <% end %>
+        <h4><%= d_page.title %></h4>
+        <p><%= truncate(strip_tags(d_page.description.html_safe), length: 200) %></p>
+        <a href="/page/<%= d_page.id%>">
+        <button class="btn btn-readmore">READ MORE</button></a>
       </div>
-      <div class="col-md-6">
-        <div class="img-responsive"><img src="/assets/<%= @selected_template.template_no%>/temp-images/gallery-1.jpg" alt="" ></div>
-        <h4>Nutritional Personal Consultation</h4>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-        <button class="btn btn-readmore">READ MORE</button>
-      </div>
+      <% end %>
     </div>
     <div class="col-md-3 text-center">
       <h4>MEET THE DOCTOR</h4>
       <div class="img-responsive"> <img class="img-circle" src="/assets/<%= @selected_template.template_no%>/temp-images/author-11-130x130.jpg" alt="" draggable="false"> </div>
       <h4>Nutritional Personal Consultation</h4>
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-      <button class="btn btn-readmore">READ MORE</button>
+      <a href="/contact-us">
+      <button class="btn btn-readmore">READ MORE</button></a>
     </div>
   </div>
 </div>

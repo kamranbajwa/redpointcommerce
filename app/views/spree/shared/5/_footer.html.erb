@@ -5,24 +5,24 @@
       <!--about widget-->
       <div class="col-md-3 col-sm-6">
         <section  class="widget animated ">
-          <h3 class="title"><img src="images/footer-logo.png"></h3>
+          <h3 class="title"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>"></h3>
           <div class="textwidget">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-              tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            <p><%= @about_page.first.description.first(150).html_safe || ""%></p>
           </div>
         </section>
       </div>
       
       <!--general services-->
-      <div class="col-md-3 col-sm-6  ">
+      <div class="col-md-4 col-sm-6  ">
         <section class="widget animated ">
           <h3 class="title">USEFUL LINK</h3>
           <ul>
-            <li> <a href="#">Immunization</a> </li>
-            <li> <a href="#">Medical Services</a> </li>
-            <li> <a href="#">Surgical</a> </li>
-            <li> <a href="#">Diagnostic Services</a> </li>
-            <li> <a href="#">Pharmacy</a> </li>
+            <% @static_pages.take(3).each do |s_page| %>
+            <li> <a href="/page/<%= s_page.id %>"><%= s_page.title %></a> </li>
+          <% end %>
+          <% @default_pages.try(:each) do |d_page| %>
+            <li> <a href="/page/<%= d_page.id %>"><%= d_page.title %></a> </li>
+          <% end %>
           </ul>
         </section>
       </div>
@@ -42,12 +42,20 @@
         </section>
       </div>
       <!--subscription form-->
-      <div class="col-md-3 col-sm-6  ">
+      <div class="col-md-2 col-sm-6  ">
         <section  class="widget animated ">
           <h3 class="title">OPENING HOURS</h3>
           <div class="textwidget">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-              tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+             <% if @org.opening_day.present? %>
+            <p><%= @org.opening_day  %> - <%= @org.closing_day %> </p>
+            <% else %>
+            <p> Monday - Sunday </p>
+            <% end %>
+            <% if @org.opening_hour.present? %>
+            <p><%= @org.opening_hour %> - <%= @org.closing_hour%> </p>
+             <% else %>
+            <p> 11:00 am - 12:00 pm</p>
+            <% end %>
           </div>
           <div> </div>
         </section>
