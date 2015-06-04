@@ -33,12 +33,16 @@ a:visited:hover {
 
 
 #admin-menu {
-    background-color: #2b2b2b;
+    background-color: whitesmoke;
 }
 #admin-menu li a:hover, #admin-menu li.selected a {
     background-color: #000;
 }
-#admin-menu li a:hover:after, #admin-menu li.selected a:after {
+#admin-menu li a:hover:after, #admin-menu li.selected  span, #admin-menu li:hover span {
+    color: white !important;
+}
+icon #admin-menu li a:hover:after, #admin-menu li.selected a:after {
+    
     content: '';
     position: absolute;
     border-left: 10px solid transparent;
@@ -49,6 +53,7 @@ a:visited:hover {
     left: 50%;
     margin-left: -10px;
     z-index: 1;
+    color: #fff;
 }
 
 
@@ -68,6 +73,7 @@ a:visited:hover {
     left: 50%;
     margin-left: -10px;
     z-index: 1;
+    color: #fff !important
 }
 
 
@@ -215,7 +221,7 @@ input[type="text"]:focus, .select2-search input:focus, .select2-container-multi 
 
 }
 span {
-    color: #717176
+    color: #000;
 }
 
 nav.menu ul li.active a {
@@ -357,3 +363,5 @@ color: white !important;
   margin-left: -10px;
   z-index: 1;
 }
+.tab-with-icon.selected a:before, .tab-with-icon:hover a:before  { color: white !important; }
+.tab-with-icon a:before{color: black !important;}
