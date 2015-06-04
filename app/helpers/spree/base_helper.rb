@@ -1,5 +1,12 @@
 module Spree
   module BaseHelper
+  
+  def options_for_shipment_states
+    [["Back Order", "backorder"], ["Canceled", "canceled"], ["Partial", "partial"], ["Pending", "pending"],["Ready", "ready"],["Pending", "pending"],["Shipped", "shipped"]]
+  end
+  def options_for_payment_states
+    [["Balance Due", "balance_due"], ["Checkout", "checkout"], ["Completed", "completed"], ["Credit Owed", "credit_owed"],["Failed", "failed"],["Pending", "pending"],["Processing", "processing"],["Void", "void"]]
+  end
     def org_address
       address=Spree::OrgAddress.first
       arr_add=[]

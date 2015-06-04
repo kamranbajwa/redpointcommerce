@@ -33,6 +33,10 @@
           <%= label_tag :q_state_eq, Spree.t(:status) %>
           <%= f.select :state_eq, Spree::Order.state_machines[:state].states.collect {|s| [Spree.t("order_state.#{s.name}"), s.value]}, {:include_blank => true}, :class => 'select2' %>
         </div>
+         <div class="field">
+          <%= label_tag :q_payment_state_eq, Spree.t(:payment_state) %>
+            <%= f.select :payment_state_eq, options_for_payment_states, {:include_blank => true}, :class => 'select2' %>
+        </div>
 
         <div class="field">
           <%= label_tag :q_promotions_id_in, Spree.t(:promotion) %>
@@ -65,6 +69,10 @@
         <div class="field">
           <%= label_tag :q_bill_address_lastname_start, Spree.t(:last_name_begins_with) %>
           <%= f.text_field :bill_address_lastname_start, :size => 25%>
+        </div>
+        <div class="field">
+         <%= label_tag :q_shipment_state_eq, Spree.t(:shipment_state) %>
+          <%= f.select :shipment_state_eq, options_for_shipment_states, {:include_blank => true}, :class => 'select2' %>
         </div>
       </div>
 
