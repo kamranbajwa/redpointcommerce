@@ -345,3 +345,15 @@ form.button_to {
 .fa-remove >span {
 color: white !important;
 }
+#admin-menu li a:hover:after, #admin-menu li.selected a:after{
+  content: '';
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 5px solid #000;
+  bottom: 0px;
+  margin-bottom: -5px;
+  left: 50%;
+  margin-left: -10px;
+  z-index: 1;
+}
