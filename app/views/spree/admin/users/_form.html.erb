@@ -9,14 +9,14 @@
       <%= f.email_field :email, :class => 'fullwidth' %>
       <%= error_message_on :user, :email %>
     <% end %>
-    <%= f.label :customer_number%><span class="required">*</span>
-    <%= f.text_field :customer_number, :class => 'fullwidth', required: true %>
-    <%= f.label :credit_limit%><span class="required">*</span>
-    <%= f.text_field :credit_limit, :class => 'fullwidth', required: true %>
-    <%= f.label :curr_acc_blnc%><span class="required">*</span>
-    <%= f.text_field :curr_acc_blnc, :class => 'fullwidth', required: true %>
-    <%= f.label :balnce_date%><span class="required">*</span>
-    <%= f.text_field :balnce_date, :class => ' datepicker datepicker-from fullwidth', required: true %>
+    <%= f.label :customer_number%>
+    <%= f.text_field :customer_number, :class => 'fullwidth' %>
+    <%= f.label :credit_limit%>
+    <%= f.text_field :credit_limit, :class => 'fullwidth' %>
+    <%= f.label :curr_acc_blnc%>
+    <%= f.text_field :curr_acc_blnc, :class => 'fullwidth'  %>
+    <%= f.label :balnce_date%>
+    <%= f.text_field :balnce_date, :class => ' datepicker datepicker-from fullwidth' %>
 <div class="field">
 <label>Allow purchase on account</label>
       <%= f.label :purchase_on_account do %>
