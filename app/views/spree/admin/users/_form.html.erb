@@ -9,7 +9,26 @@
       <%= f.email_field :email, :class => 'fullwidth' %>
       <%= error_message_on :user, :email %>
     <% end %>
-
+    <%= f.label :customer_number%><span class="required">*</span>
+    <%= f.text_field :customer_number, :class => 'fullwidth', required: true %>
+    <%= f.label :credit_limit%><span class="required">*</span>
+    <%= f.text_field :credit_limit, :class => 'fullwidth', required: true %>
+    <%= f.label :curr_acc_blnc%><span class="required">*</span>
+    <%= f.text_field :curr_acc_blnc, :class => 'fullwidth', required: true %>
+    <%= f.label :balnce_date%><span class="required">*</span>
+    <%= f.text_field :balnce_date, :class => ' datepicker datepicker-from fullwidth', required: true %>
+<div class="field">
+<label>Allow purchase on account</label>
+      <%= f.label :purchase_on_account do %>
+      <ul>
+          <li>
+            <%=f.check_box :purchase_on_account%> Allowed
+          </li>
+        
+      </ul>
+      <% end %>
+    </div>
+    <br>
     <div data-hook="admin_user_form_roles" class="field">
       <%= label_tag nil, Spree.t(:roles) %>
       <ul>
