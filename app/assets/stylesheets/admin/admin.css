@@ -356,3 +356,9 @@ color: white !important;
 .tab-with-icon a:before{color: black !important;}
 
 .tab-with-icon:hover a span:after  { color: white !important; }
+#new_image_link > span,.inline-menu>span{
+    color: white !important
+}
+.inline-menu li a span {
+    color: white !important
+}
