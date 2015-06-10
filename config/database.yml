@@ -1,10 +1,12 @@
 production:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
+  reconnect: false
   database: phsqcommerece1
-  pool: 10
+  pool: 200
   username: phsqcommerece1
   password: phsqcommerece1
   host: phsqcommerece1.c3t8ly8irobc.us-east-1.rds.amazonaws.com
   # port: 5432
   # socket: /tmp/postgresql.sock
+#heroku config:add DATABASE_URL="postgresql://phsqcommerece1:phsqcommerece1@phsqcommerece1.c3t8ly8irobc.us-east-1.rds.amazonaws.com/phsqcommerece1?sslca=amazon-rds-ca-cert.pem -a pshqcomerce1
