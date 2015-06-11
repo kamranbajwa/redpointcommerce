@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 
-#gem 'pg'
+gem 'pg'
 gem 'exception_notification', '4.1.0.rc1'
 #gem 'sqlite3'
 gem 'execjs'
