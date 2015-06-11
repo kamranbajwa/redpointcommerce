@@ -3,10 +3,11 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 
-gem 'pg'
+#gem 'pg'
 gem 'exception_notification', '4.1.0.rc1'
 #gem 'sqlite3'
 gem 'execjs'
+gem 'delayed_job_active_record'
 gem 'spree_social_products', github: 'spree-contrib/spree_social_products', branch: '2-4-stable'
 
 gem 'therubyracer'
@@ -62,4 +63,4 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+ gem 'debugger', group: [:development, :test]
