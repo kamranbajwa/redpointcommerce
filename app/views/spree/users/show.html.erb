@@ -11,6 +11,9 @@ text-align: center !important;
     <dl id="user-info">
       <dt><%= Spree.t(:email) %></dt>
       <dd><%= @user.email %> (<%= link_to Spree.t(:edit), spree.edit_account_path %>)</dd>
+      <%if @user.purchase_on_account==true%>
+       <b>Your current Balance is: </b>$<%=@user.curr_acc_blnc%> as of <%=@user.balnce_date%><br>
+       <%end%>
     </dl>
   </div>
 
