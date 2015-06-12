@@ -16,8 +16,8 @@ module Spree
       @order = order.respond_to?(:id) ? order : Spree::Order.find(order)
       subject = (resend ? "[#{Spree.t(:resend).upcase}] " : '')
       subject += "#{Spree::Store.current.name} #{Spree.t('order_mailer.cancel_email.subject')} ##{@order.number}"
-      email_template=Spree::EmailTemplate.find_by_title("Order Cancellation Email")
-      cc_and_tos=mailt_to_and_cc_emails(email_template, @order.email)
+      @email_template=Spree::EmailTemplate.find_by_title("Order Cancellation Email")
+      cc_and_tos=mailt_to_and_cc_emails( @email_template, @order.email)
       mail(to: cc_and_tos[0], from: from_address, cc:cc_and_tos[1], subject: subject)
     end
   end

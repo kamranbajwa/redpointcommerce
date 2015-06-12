@@ -106,7 +106,6 @@ module Spree
     end
 
     def admin_price
-      sdjfjlsdjfkjsd
     end
 
     def tax_category

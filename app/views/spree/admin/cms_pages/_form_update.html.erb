@@ -1,4 +1,4 @@
- <%= form_for @cms_page , url: {action: "update"} do |f| %>
+ <%= form_for @cms_page , url: {action: "update"}, :html => { :multipart => true } do |f| %>
   <div class="container">
     <div class="row">
       <div class="with-sidebar " >
@@ -28,10 +28,20 @@
                 <br>
                 <%= f.text_field :sort, class: "fullwidth" %>
               </div>
-              <div class="field" data-hook="admin_general_setting_input_name">
+              <div class="field" data-hook="admin_general_setting_input_name" id="static-flag">
                 <label for="store_name">Static</label>
                 <br>
                 <%= f.check_box :static_flag %>
+              </div>
+               <div class="field" data-hook="admin_general_setting_input_name" id="cms-static-image" style="display:none;">
+                <label for="store_name">Static</label>
+                <br>
+                <%= f.file_field :avatar %>
+              </div>
+               <div class="field" data-hook="admin_general_setting_input_name" id="cms-static-image">
+               <% if @cms_page.avatar.exists?(:home_image) %>
+               <img src="<%= @cms_page.avatar.url(:home_image)%>" width="300" height="200">
+               <% end %>
               </div>
                <div class="field" data-hook="admin_general_setting_input_name">
                 <label for="store_name">Meta Tag</label>
@@ -56,3 +66,9 @@
     </div>
   </div>
  <% end %>
+ <script type="text/javascript">
+ $("#static-flag").click(function(){
+    $("#cms-static-image").toggle("slow");
+});
+ $("#cms-static-image").toggle(this.checked);
+ </script>

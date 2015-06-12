@@ -1,5 +1,12 @@
 module Spree
   module BaseHelper
+  
+  def options_for_shipment_states
+    [["Back Order", "backorder"], ["Canceled", "canceled"], ["Partial", "partial"],["Ready", "ready"],["Pending", "pending"],["Shipped", "shipped"]]
+  end
+  def options_for_payment_states
+    [["Balance Due", "balance_due"], ["Checkout", "checkout"], ["Paid", "paid"],["Completed", "completed"], ["Credit Owed", "credit_owed"],["Failed", "failed"],["Pending", "pending"],["Processing", "processing"],["Void", "void"]]
+  end
     def org_address
       address=Spree::OrgAddress.first
       arr_add=[]
@@ -181,6 +188,20 @@ def link_to_remove_fields_o(name, f)
                   content_tag :li do
                     content_tag :i,style: 'color:#ddd', class: 'fa fa-circle-o' do
                     link_to(taxon.name, seo_url(taxon),:class => "cat123 fontstyle",:style=>"margin-left:4px;") +
+                      taxons_tree(taxon, current_taxon, max_level - 1)
+                    end
+                  end
+                end.join().html_safe
+              end
+            end
+
+            def taxons_tree_products_list_doctor(root_taxon, current_taxon, max_level = 1)
+            return '' if max_level < 1 || root_taxon.children.empty?
+            content_tag :ul, class: 'nav-cat nav-list text-left' do
+                root_taxon.children.map do |taxon|
+                  content_tag :li do
+                    content_tag :i, class: 'fa fa-circle-o' do
+                    link_to(taxon.name, seo_url(taxon)) +
                       taxons_tree(taxon, current_taxon, max_level - 1)
                     end
                   end

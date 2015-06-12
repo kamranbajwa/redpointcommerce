@@ -1,0 +1,78 @@
+<div class="header-top clearfix">
+  <div class="container">
+    <div class="row">
+       <div class="col-md-12  ">
+       <div class="col-lg-6"> <% if spree_user_signed_in? %> <%=  link_to 'Sign out', spree_logout_path %> <% else %><a href="/login">Login <i class="fa fa-key"></i></a> <% end %>| <a href="/signup">Registration <i class="fa fa-users"></i></a> | <a href="/cart">Cart <i class="fa fa-shopping-cart"></i></a> </div>
+        <div class="col-lg-6"></div>
+       <div class="pull-right">
+        <div id="cart"> 
+        <span class="total-price">
+         <%= form_tag spree.products_path, :method => :get, class: "search-form" do %>
+               <%= search_field_tag :keywords, params[:keywords], class: "border-search search-input1", placeholder: "Search"%>
+               <a href="#" class="search-anc"><i class="fa fa-search"></i></a>
+               <%end%>
+
+        </span> </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<header id="header">
+  <div class="container">
+  <!-- Website Logo -->
+  <div class="logo clearfix"> <a href="index.html"> <img src="<%= Spree::Logo.last.avatar.url(:logo)%>" alt=""> </a> </div>
+  <div class=" pull-right ipad-left " style="margin-top:2%;">
+    <div id="zo2-position-0" class="">
+      <!-- Virtuemart 2 Ajax Card -->
+      <div id="zt_top_cart" class="">
+        <div id="cart">
+        <a href="/cart"><i class="fa fa-shopping-cart"></i>
+        <span class="total-item" id="link-to-cart" data-hook> <noscript>
+          <%= link_to "Item", '/cart' %>
+          </noscript></span></a>
+        <script>Spree.fetch_cart()</script>
+        </div>
+      </div>
+    </div>
+    <!-- Main Navigation --> 
+  </div>
+  <div id="responsive-menu-container"></div>
+</div></header>
+<div style="clear:both"  ></div>
+<div class="clearfix"  >
+  <div class="nav-bg">
+    <div class="container">
+      <nav class="main-menu">
+        <ul class="header-nav clearfix" id="menu-main-menu">
+          <li class="current-menu-item page_item"> <a href="/">Home</a> </li>
+          <li> <a href="/products">Doctors</a> </li>
+           <% @customize_pages.each_with_index  do |page, index|%>
+              <% if index >= 1 %>
+                  <% if index == 1 %>
+                    <li  class="dropdown" id="menu1">
+                     <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">More <i class="fa fa-angle-down"></i></a>
+                      <ul class="dropdown-menu">
+                  <% end %>
+                        <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
+                  <% if index+1 == @customize_pages.length %>
+                      </ul>
+                    </li>
+                  <% end %>
+                <% else %>
+                  <li> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
+                <% end %>
+            <% end %>
+           <li> <a href="/page/<%= @about_page.first.try(:id)%>">About Us</a> </li>
+           <li> <a href="/blog">Blog</a> </li>
+          <li> <a href="/contact-us">Contact</a> </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.dropdown-toggle').dropdown();
+  });
+</script>

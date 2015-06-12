@@ -33,6 +33,10 @@
           <%= label_tag :q_state_eq, Spree.t(:status) %>
           <%= f.select :state_eq, Spree::Order.state_machines[:state].states.collect {|s| [Spree.t("order_state.#{s.name}"), s.value]}, {:include_blank => true}, :class => 'select2' %>
         </div>
+         <div class="field">
+          <%= label_tag :q_payment_state_eq, Spree.t(:payment_state) %>
+            <%= f.select :payment_state_eq, options_for_payment_states, {:include_blank => true}, :class => 'select2' %>
+        </div>
 
         <div class="field">
           <%= label_tag :q_promotions_id_in, Spree.t(:promotion) %>
@@ -66,6 +70,10 @@
           <%= label_tag :q_bill_address_lastname_start, Spree.t(:last_name_begins_with) %>
           <%= f.text_field :bill_address_lastname_start, :size => 25%>
         </div>
+        <div class="field">
+         <%= label_tag :q_shipment_state_eq, Spree.t(:shipment_state) %>
+          <%= f.select :shipment_state_eq, options_for_shipment_states, {:include_blank => true}, :class => 'select2' %>
+        </div>
       </div>
 
       <div class="omega four columns">
@@ -97,20 +105,22 @@
 <% if @orders.any? %>
   <table class="index responsive" id="listing_orders" data-hook>
     <colgroup>
-       <col style="width: 13%;">
+      <col style="width: 20%;">
        <col style="width: 10%;">
        <col style="width: 10%;">
-       <col style="width: 12%;">
+       <col style="width: 10%;">
+       <col style="width: 10%;">
        <% if Spree::Order.checkout_step_names.include?(:delivery) %>
          <col style="width: 12%;">
        <% end %>
-       <col style="width: 25%;">
+       <col style="width: 20%;">
        <col style="width: 10%;">
        <col style="width: 8%;">
     </colgroup>
     <thead>
       <tr data-hook="admin_orders_index_headers">
         <% if @show_only_completed %>
+        <th><%= sort_link @search, :bill_address_firstname%></th>
           <th><%= sort_link @search, :completed_at,   I18n.t(:completed_at, :scope => 'activerecord.attributes.spree/order') %></th>
         <% else %>
           <th><%= sort_link @search, :created_at,     I18n.t(:created_at, :scope => 'activerecord.attributes.spree/order') %></th>
@@ -130,6 +140,9 @@
     <tbody>
     <% @orders.each do |order| %>
       <tr data-hook="admin_orders_index_rows" class="state-<%= order.state.downcase %> <%= cycle('odd', 'even') %>">
+      <td>
+            <%=order.bill_address.first_name rescue ''%>
+          </td>
         <td class="align-center"><%= l (@show_only_completed ? order.completed_at : order.created_at).to_date %></td>
         <td class="align-center"><%= link_to order.number, edit_admin_order_path(order) %></td>
         <td class="align-center"><span class="state <%= order.considered_risky ? 'considered_risky' : 'considered_safe' %>"></span></td>

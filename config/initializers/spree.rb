@@ -74,7 +74,4 @@ SpreeEditor::Config.tap do |config|
   config.current_editor = 'CKEditor'
   config.ids = 'product_description page_body event_body'
 end
-Spree::PermittedAttributes.checkout_attributes << [:is_recommended ]
-Spree::Api::ApiHelpers.product_attributes.push :retailer_price
-Spree::Api::ApiHelpers.variant_attributes.push :retailer_price
-Spree::Api::ApiHelpers.product_attributes.push :is_recommended, :subscription, :subscription_type
+

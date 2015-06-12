@@ -1,3 +1,4 @@
+<%if @adjustments.present?%>
 <table class="index adjustments" data-hook="adjustments">
   <thead data-hook="adjustmment_head">
     <tr>
@@ -23,3 +24,6 @@
     </tr>
   </tbody>
 </table>
+<%else%>
+<h1> No adjustment found</h1>
+<%end%>
