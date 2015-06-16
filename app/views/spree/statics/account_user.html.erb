@@ -1,0 +1,37 @@
+<script src="https://js.stripe.com/v2/"></script>
+<%= form_tag "/account_charge", :id => "new_subscription" do  %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<%=hidden_field_tag :stripe_card_token %>
+<%=hidden_field_tag :t_amount %>
+ 
+  <div class="field">
+      <%= label_tag :card_number, "Credit Card Number " %>
+      <%= text_field_tag :card_number, nil, name: nil %>
+  </div>
+  <div class="field">
+      <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+      <%= text_field_tag :card_code, nil, name: nil %>
+  </div>
+   <div class="field">
+      <%= label_tag :amount, "Amount" %>
+      <%= text_field_tag :amount, "#{current_order.total}" %>
+  </div>
+  <div class="field">
+    <%= label_tag :card_month, "Card Expiration" %>
+    <%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%>
+    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%>
+  </div>
+  <button type="submit">Pay</button>
+<% end %>
+ <script type="text/javascript" src="/assets/account_stripe.js"></script>

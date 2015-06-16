@@ -12,7 +12,9 @@ text-align: center !important;
       <dt><%= Spree.t(:email) %></dt>
       <dd><%= @user.email %> (<%= link_to Spree.t(:edit), spree.edit_account_path %>)</dd>
       <%if @user.purchase_on_account==true%>
-       <b>Your current Balance is: </b>$<%=@user.curr_acc_blnc%> as of <%=@user.balnce_date%><br>
+      <dt>Account Info</dt>
+       <dd>Your current Balance is: <b>$<%=@user.curr_acc_blnc%> as of <%=@user.balnce_date%></b></dd>
+       <a href="/account_user" class="btn btn-primary btn-lg">pay from account</a>
        <%end%>
     </dl>
   </div>
@@ -36,7 +38,7 @@ text-align: center !important;
           <% @orders.each do |order| %>
             <tr class="<%= cycle('even', 'odd') %>">
               <td class="order-number"><%= link_to order.number, order_url(order) %></td>
-              <td class="order-date"><%= l order.completed_at.to_date %></td>
+              <td class="order-date"><%=  order.completed_at.to_date %></td>
               <td class="order-status"><%= Spree.t("order_state.#{order.state}").titleize %></td>
               <td class="order-payment-state"><%= Spree.t("payment_states.#{order.payment_state}").titleize if order.payment_state %></td>
               <td class="order-shipment-state"><%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
@@ -52,3 +54,21 @@ text-align: center !important;
 
   </div>
 </div>
+<script type="text/javascript">
+  function stripeResponseHandler(status, response) {
+  var $form = $('#payment-form');
+
+  if (response.error) {
+    // Show the errors on the form
+    $form.find('.payment-errors').text(response.error.message);
+    $form.find('button').prop('disabled', false);
+  } else {
+    // response contains id and card, which contains additional card details
+    var token = response.id;
+    // Insert the token into the form so it gets submitted to the server
+    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+    // and submit
+    $form.get(0).submit();
+  }
+};
+</script>
