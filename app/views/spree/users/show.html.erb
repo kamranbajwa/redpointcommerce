@@ -59,6 +59,7 @@ text-align: center !important;
             <th class="order-payment-state"><%= Spree.t(:payment_state) %></th>
             <th class="order-shipment-state"><%= Spree.t(:shipment_state) %></th>
             <th class="order-total"><%= Spree.t(:total) %></th>
+            <th class="order-total">Make Payments</th>
           </tr>
         </thead>
         <tbody>
@@ -70,6 +71,9 @@ text-align: center !important;
               <td class="order-payment-state"><%= Spree.t("payment_states.#{order.payment_state}").titleize if order.payment_state %></td>
               <td class="order-shipment-state"><%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
               <td class="order-total"><%= order.display_total %></td>
+              <%if  order.payments.last.try(:payment_method).try(:type)=="Spree::Gateway::Bogus" and order.payment_state=="pending" %>
+             <td><button type="button" class="btn btn-info btn-primary" data-toggle="modal" data-target="#myModal" data-yourParameter=<%=order.id%>>Make Payment</button></td>
+              <%end%>
             </tr>
           <% end %>
         </tbody>
@@ -83,6 +87,11 @@ text-align: center !important;
 </div>
 <script type="text/javascript">
 $(document).ready(function(){
+  
+  $('#myModal').on('show.bs.modal',function(e) {
+     yourParameter = e.relatedTarget.dataset.yourparameter;
+     $('#order_id').val(yourParameter)
+  });
 
 });
 </script>
