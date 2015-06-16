@@ -1,3 +1,8 @@
+
+<% if payment_method.name=="Account"%>
+
+<%= render :partial => "spree/checkout/payment/account",:locals => { :payment_method => payment_method } %>
+<%else%>
 <%= image_tag 'credit_cards/credit_card.gif', :id => 'credit-card-image' %>
 <% param_prefix = "payment_source[#{payment_method.id}]" %>
 
@@ -30,3 +35,4 @@
 </p>
 
 <%= hidden_field_tag "#{param_prefix}[cc_type]", '', :id => "cc_type", :class => 'ccType' %>
+<%end%>

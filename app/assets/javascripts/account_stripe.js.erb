@@ -1,0 +1,38 @@
+$(document).ready(function(){
+  var subscription;
+  $("form").on('submit.blocker', function(e) {
+    e.preventDefault();
+ //  Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key]
+ // %>');
+  Stripe.setPublishableKey("pk_test_89NlblSjEhYqfmvth4DbCvdf")
+   return subscription.setupForm();
+});
+
+subscription = {
+  setupForm: function() {
+      $('input[type=submit]').attr('disabled', true);
+      return subscription.processCard();
+  },
+  processCard: function() {
+    var card;
+    card = {
+      number: $('#card_number').val(),
+      cvc: $('#card_code').val(),
+      expMonth: $('#card_month').val(),
+      expYear: $('#card_year').val()
+    };
+     
+    a=Stripe.createToken(card, subscription.handleStripeResponse);
+  },
+  handleStripeResponse: function(status, response) {
+    if (status === 200) {
+      $('#stripe_card_token').val(response.id)
+     amt = $('#amount').val();
+     $('#t_amount').val(amt);
+       $("form").off("submit.blocker").trigger("submit");
+    } else {
+      return alert(response.error.message);
+    }
+  }
+};
+});

@@ -1005,6 +1005,7 @@ en:
     payment_state: Payment State
     payment_states:
       balance_due: balance due
+      Account: Account
       checkout: checkout
       completed: completed
       credit_owed: credit owed

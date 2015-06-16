@@ -1,6 +1,5 @@
 <%= form_for :order, :url => populate_orders_path, remote: true, :html => { :id => "myformcart" }  do |f| %>
   <div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-
     <% if @product.variants_and_option_values(current_currency).any? %>
       <div id="product-variants">
         <h6 class="product-section-title"><%= Spree.t(:variants) %></h6>
@@ -61,7 +60,7 @@ border: 0px none !important;
 box-shadow: inset 0 0px 0 rgba(255, 255, 255, 0.4);" %></button> 
                               </span>
                             </div><!-- /input-group -->
-                          </div>
+         </div>
         </div>
       </div>
        <%elsif @product.subscription %>
@@ -81,6 +80,9 @@ box-shadow: inset 0 0px 0 rgba(255, 255, 255, 0.4);" %></button>
               <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "monthly", false %><%= number_to_currency(@product.subscription_monthly, :unit => '$') %></span>
                   <h6 class="product-section-title">yearly subscription Price:</h6>
               <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "yearly", false %><%= number_to_currency(@product.subscription_yearly, :unit => '$') %></span>   
+                 <h6 class="product-section-title">subscription Date:</h6>
+               <span class="price styleSecondColor fsize20"><%= text_field_tag :date, nil ,class: '', id: "datepicker", :required => true%></span>   
+         
               <%end%>
               
 
@@ -122,3 +124,12 @@ box-shadow: inset 0 0px 0 rgba(255, 255, 255, 0.4);" %></button>
   </div>
 <% end %>
 <script type="text/javascript" src="/assets/<%= @selected_template.template_no%>/layout.js"></script>
+
+
+<style>
+  .ui-datepicker-calendar{ z-index:999999999;
+  position: absolute; background: #fff; border: solid 1px #dedede}
+  #ui-datepicker-div{ background: #fff !important; width: 280px;}
+  .ui-datepicker-next { float: right !important; left: 255px !important;  }
+    
+</style>

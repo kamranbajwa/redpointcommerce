@@ -36,8 +36,15 @@
         <% @order.available_payment_methods.each do |method| %>
           <p>
             <label>
+            <%if @order.user.purchase_on_account==true%>
               <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first %>
-              <%= Spree.t(method.name, :scope => :payment_methods, :default => method.name) %>
+                <%= Spree.t(method.name, :scope => :payment_methods, :default => method.name) %>
+                <%else%>
+                <%unless method.name=="Account"%>
+                <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first %>
+                <%= Spree.t(method.name, :scope => :payment_methods, :default => method.name) %>
+                <%end%>
+                <%end%>
             </label>
           </p>
         <% end %>
@@ -66,3 +73,4 @@
     <%= submit_tag Spree.t(:save_and_continue), :class => 'gray btn btn-primary',:style => "color:white !important;" %>
     <script>Spree.disableSaveOnClick();</script>
   </div>
+
