@@ -5,7 +5,6 @@ module Spree
   # is waranted.
   class CheckoutController < Spree::StoreController
     ssl_required
-
     before_action :load_order_with_lock
     before_filter :ensure_valid_state_lock_version, only: [:update]
     before_filter :set_state_if_present
@@ -73,8 +72,9 @@ module Spree
             user.save
             Spree::Api::Config[:requires_authentication]=false
             @order.completed_at=Date.today
+            order_payment_state
             #@order.payment_method_id = payment_method_id
-            @order.payment_state="Account"
+            #@order.payment_state="Account"
 
         end
       end
@@ -124,7 +124,16 @@ module Spree
           @order.state = params[:state]
         end
       end
+      def order_payment_state
+        usr=@order.user
+        amnt=usr.curr_acc_blnc.to_f+@order.total
+        if amnt<0
+          @order.payment_state="Unpaid"
+        else
+          @order.payment_state="paid"
+        end
 
+        end
       def ensure_checkout_allowed
         unless @order.checkout_allowed?
           redirect_to spree.cart_path
