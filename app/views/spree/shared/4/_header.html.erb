@@ -28,7 +28,7 @@
     
 
         <div class="col-md-4">
-          <div class="pull-left logo"><a href="/"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>" class="img-responsive" alt=""></a></div>
+          <div class="pull-left logo"><a href="/"><img src="<%= Spree::Logo.last.avatar.url(:logo) rescue ''%>" class="img-responsive" alt=""></a></div>
         </div>
         <div class="col-md-8"> 
 
