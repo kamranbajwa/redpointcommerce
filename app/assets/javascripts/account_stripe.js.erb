@@ -1,11 +1,10 @@
 $(document).ready(function(){
   var subscription;
-  
   $("form").on('submit.blocker', function(e) {
     e.preventDefault();
-    a=$('meta[name="stripe-key"]').attr('content');
-  Stripe.setPublishableKey(a);
-  console.log(a);
+ //  Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key]
+ // %>');
+  Stripe.setPublishableKey("pk_test_89NlblSjEhYqfmvth4DbCvdf")
    return subscription.setupForm();
 });
 
