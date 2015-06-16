@@ -16,6 +16,7 @@ text-align: center !important;
       <%if @user.purchase_on_account==true%>
       <dt>Account Info</dt>
        <dd>Your current Balance is: <b>$<%=@user.curr_acc_blnc%> as of <%=@user.balnce_date%></b></dd>
+       <dd>Your alance after order: <b>$<%=@user.curr_acc_blnc.to_f-current_order.total rescue ''%></b></dd>
        <!-- Trigger the modal with a button -->
 <button type="button" class="btn btn-info btn-primary" data-toggle="modal" data-target="#myModal">pay from account</button>
 
