@@ -20,7 +20,7 @@ text-align: center !important;
        <dd>Your alance after order: <b>$<%=@user.curr_acc_blnc.to_f-current_order.total rescue ''%></b></dd>
        <%end%>
        <!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-primary" data-toggle="modal" data-target="#myModal">pay from account</button>
+<button type="button" class="btn btn-info btn-primary" data-toggle="modal" data-target="#myModal">Make Payment</button>
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -30,7 +30,7 @@ text-align: center !important;
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Make Payment</h4>
+        <h4 class="modal-title">Account Recharge</h4>
       </div>
       <div class="modal-body">
         <%=render :partial=>"/spree/statics/account_user"%>
@@ -72,8 +72,11 @@ text-align: center !important;
               <td class="order-shipment-state"><%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
               <td class="order-total"><%= order.display_total %></td>
               <%if  order.payments.last.try(:payment_method).try(:type)=="Spree::Gateway::Bogus" and order.payment_state=="pending" %>
-             <td><button type="button" class="btn btn-info btn-primary" data-toggle="modal" data-target="#myModal" data-yourParameter=<%=order.id%>>Make Payment</button></td>
+             <td class="order-total"><button type="button" class="btn btn-info btn-primary" data-toggle="modal" data-target="#myModal" data-yourParameter=<%=order.id%>>Make Payment</button></td>
+              <%else%>
+              <td class="order-total"></td>
               <%end%>
+
             </tr>
           <% end %>
         </tbody>
