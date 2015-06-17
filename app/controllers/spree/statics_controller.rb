@@ -46,12 +46,8 @@ module Spree
           user.curr_acc_blnc=(user.curr_acc_blnc.to_f+charge_amount).to_s
           user.balnce_date=Date.today
           user.save!
-          #transction = Spree::AccountTransaction.create(:user_id=> user.id,:transaction_type=>"creadit",:)
-
-
+          user.account_transactions.create(:transaction_type=>"credit",:current_balance=>user.curr_acc_blnc,:amount=>charge_amount)
           flash[:notice] = "You have rechanrged you account successfuly!"
-          
-
          end
         redirect_to :back
     

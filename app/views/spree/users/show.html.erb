@@ -30,7 +30,7 @@ text-align: center !important;
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Account Recharge</h4>
+        <h4 class="modal-title">Make Payment</h4>
       </div>
       <div class="modal-body">
         <%=render :partial=>"/spree/statics/account_user"%>
@@ -45,7 +45,7 @@ text-align: center !important;
        <%end%>
     </dl>
   </div>
-
+ <%=render :partial=>"/spree/shared/account_history"%>
   <div data-hook="account_my_orders" class="account-my-orders">
 
     <h3><%= Spree.t(:my_orders) %></h3>
@@ -89,8 +89,8 @@ text-align: center !important;
 $(document).ready(function(){
   
   $('#myModal').on('show.bs.modal',function(e) {
-     // yourParameter = e.relatedTarget.dataset.yourparameter;
-     // $('#order_id').val(yourParameter)
+     yourParameter = e.relatedTarget.dataset.yourparameter;
+     $('#order_id').val(yourParameter)
   });
 
 });

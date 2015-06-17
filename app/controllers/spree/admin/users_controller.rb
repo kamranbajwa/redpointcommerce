@@ -56,7 +56,11 @@ module Spree
         if params[:user]
           roles = params[:user].delete("spree_role_ids")
         end
-
+        if @user.curr_acc_blnc.to_i!=params[:user][:curr_acc_blnc].to_i
+          charge_amount=params[:user][:curr_acc_blnc].to_i-@user.curr_acc_blnc.to_i
+          current_balance_after_update=charge_amount+@user.curr_acc_blnc.to_i
+          @user.account_transactions.create(:transaction_type=>"credit",:current_balance=>current_balance_after_update,:amount=>charge_amount)
+        end
         if @user.update_attributes(user_params)
           if roles
             @user.spree_roles = roles.reject(&:blank?).collect{|r| Spree::Role.find(r)}

@@ -1,0 +1,46 @@
+<!-- javasript is include in account_strip.js file -->
+<div class="col-md-12" >
+    <div class="panel panel-default">
+       <div class="panel-heading">
+          <h3 class="panel-title">Show Account History</h3>
+          <span class="pull-right clickable"><i class="fa fa-chevron-up"></i></span>
+      </div>
+      <div class="panel-body">
+          <table class="order-summary">
+            <thead>
+                <tr>
+                    <th class="order-number">Refrence Number</th>
+                    <th class="order-date">Transaction Date</th>
+                    <th class="order-status">Transaction Type</th>
+                    <th class="order-status">Transaction Amount</th>
+                    <th class="order-status">Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% spree_current_user.account_transactions.each do |transaction| %>
+                <tr class="<%= cycle('even', 'odd') %>">
+                  <td class="order-number"><%= transaction.refrence_number%></td>
+                  <td class="order-date"><%= transaction.created_at.to_date %></td>
+                  <td class="order-payment-state"><%= transaction.transaction_type %></td>
+                  <td class="order-payment-state"><%= transaction.amount %></td>
+                  <td class="order-payment-state"><%= transaction.current_balance %></td>
+              </tr>
+              <% end %>
+          </tbody>
+      </table>
+  </div>
+</div>
+
+<style>
+.panel-heading span {
+    margin-top: -20px;
+    font-size: 15px;
+}
+.row {
+    margin-top: 40px;
+    padding: 0 10px;
+}
+.panel-heading {
+    cursor: pointer;
+}    
+</style>

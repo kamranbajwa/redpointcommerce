@@ -70,8 +70,10 @@ module Spree
             user.curr_acc_blnc=user.curr_acc_blnc.to_f-@order.total.to_f
             user.balnce_date=Date.today
             user.save
+            user.account_transactions.create(:transaction_type=>"debit",:current_balance=>user.curr_acc_blnc,:amount=>@order.total.to_f)
             Spree::Api::Config[:requires_authentication]=false
             @order.completed_at=Date.today
+            @order.shipment_state="pending"
             order_payment_state
             #@order.payment_method_id = payment_method_id
             #@order.payment_state="Account"
