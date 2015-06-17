@@ -128,7 +128,7 @@ module Spree
         usr=@order.user
         amnt=usr.curr_acc_blnc.to_f+@order.total
         if amnt<0
-          @order.payment_state="Unpaid"
+          @order.payment_state="pedning"
         else
           @order.payment_state="paid"
         end
