@@ -45,8 +45,10 @@ text-align: center !important;
        <%end%>
     </dl>
   </div>
+  <%if @user.purchase_on_account==true%>
  <%=render :partial=>"/spree/shared/account_history"%>
   <div data-hook="account_my_orders" class="account-my-orders">
+  <%end%>
 
     <h3><%= Spree.t(:my_orders) %></h3>
     <% if @orders.present? %>
@@ -71,7 +73,7 @@ text-align: center !important;
               <td class="order-payment-state"><%= Spree.t("payment_states.#{order.payment_state}").titleize if order.payment_state %></td>
               <td class="order-shipment-state"><%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
               <td class="order-total"><%= order.display_total %></td>
-              <%if  order.payments.last.try(:payment_method).try(:type)=="Spree::Gateway::Bogus" and order.payment_state=="pending" %>
+              <%if  order.payments.last.try(:payment_method).try(:type)=="Spree::Gateway::Bogus" and order.payment_state=="pending" and order.user.purchase_on_account==true  %>
              <td class="order-total"><button type="button" class="btn btn-info btn-primary" data-toggle="modal" data-target="#myModal" data-yourParameter=<%=order.id%>>Make Payment</button></td>
               <%else%>
               <td class="order-total"></td>

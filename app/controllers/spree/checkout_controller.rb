@@ -70,7 +70,7 @@ module Spree
             user.curr_acc_blnc=user.curr_acc_blnc.to_f-@order.total.to_f
             user.balnce_date=Date.today
             user.save
-            user.account_transactions.create(:transaction_type=>"debit",:current_balance=>user.curr_acc_blnc,:amount=>@order.total.to_f)
+            user.account_transactions.create(:transaction_type=>"debit",:current_balance=>user.curr_acc_blnc,:amount=> @order.total.to_f)
             Spree::Api::Config[:requires_authentication]=false
             @order.completed_at=Date.today
             @order.shipment_state="pending"
@@ -130,7 +130,7 @@ module Spree
         usr=@order.user
         amnt=usr.curr_acc_blnc.to_f+@order.total
         if amnt<0
-          @order.payment_state="pedning"
+          @order.payment_state="pending"
         else
           @order.payment_state="paid"
         end
