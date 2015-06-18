@@ -1,33 +1,32 @@
- <%= form_for @promotion_email , url: {action: "update"} do |f| %>
-  <div class="container">
-    <div class="row">
-      <div class="with-sidebar " >
-        <div class="twelve columns"> <br>
-           <form   method="post">
-            <div>
-              <fieldset class="general no-border-top">
-             <div class="field" data-hook="admin_general_setting_input_name">
-                <label for="store_name">Template Title *</label>
-                <br>
-                <%= f.text_field :title, class: "fullwidth", required: true %>
-              </div>
-                 <label for="store_name">Email Body *</label>
-                <br>
-                <%= f.cktext_area :body, class: "fullwidth", required: true %>
-              </div>
-              <div class="form-buttons filter-actions actions" data-hook="buttons">
-               <a class="button " href="javascript:void(0)" onclick="window.history.back();"><span class="text white_color" >Back</span></a>
-              <span class="or">or</span>
-              <a class="" style="border: 0px solid #000 !important;"><span class="text"><%= f.submit "Save" %></span></a>
-              
-              
-              </div>
-
-              </fieldset>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+<div class="portlet box blue">
+ <div class="portlet-title">
+  <div class="caption">
+    <i class="fa fa-gift"></i> Update Template
   </div>
+  <div class="tools">
+    <a href="" class="collapse" data-original-title="" title="">
+    </a>
+  </div>
+</div>
+<div class="portlet-body form">
+ <%= form_for @promotion_email , url: {action: "update"} do |f| %>
+ <div class="form-body">
+
+   <div class="field" data-hook="admin_general_setting_input_name">
+    <label for="store_name">Template Title *</label>
+    <br>
+    <%= f.text_field :title, class: "form-control", required: true %>
+  </div>
+  <label for="store_name">Email Body *</label>
+  <br>
+  <%= f.cktext_area :body, class: "form-control", required: true %>
+</div>
+<div class="form-buttons filter-actions actions form-actions" data-hook="buttons">
+ <a class="btn blue " href="javascript:void(0)" onclick="window.history.back();"><span class="text white_color" >Back</span></a>
+ <span class="or">or</span>
+ <button type="submit" class="btn blue">Save</button>
+</div>
+
  <% end %>
+ </div>
+ </div>

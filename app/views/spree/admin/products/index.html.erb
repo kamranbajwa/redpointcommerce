@@ -2,120 +2,150 @@
   <%= Spree.t(:listing_products) %>
 <% end %>
 
-<fieldset class="box-border">
-      <legend align="center">  Upload Prodcuts via csv
-</legend>
-<%= form_tag p_import_admin_imports_path  , multipart: true do %>
-<div class="field center-product-csv">
- <label for="file">Select a csv File</label>
-  <%= file_field_tag :file,  :accept=>"*.csv", required: true%>
-  </div>
-  <div class="form-buttons actions" >
-          <button class="fa button remove-border setHeight"><%= submit_tag "Upload Products" %></button>
-        </div>
-
-<% end %>
-</fieldset>
 
 <% content_for :page_actions do %>
   <li id="new_product_link">
-    <%= button_link_to Spree.t(:new_product), new_object_url, { :remote => true, :icon => 'plus', :id => 'admin_new_product' } %>
+    <%= link_to new_object_url, { :remote => true, :icon => 'plus', :id => 'admin_new_product', class: "btn blue" } do %> <i class="fa fa-plus"></i><%= Spree.t(:new_product) %> <% end %>
   </li>
 <% end if can?(:create, Spree::Product) %>
 
-<%= render :partial => 'spree/admin/shared/product_sub_menu' %>
-
-<% content_for :table_filter_title do %>
-  <%= Spree.t(:search) %>
-<% end %>
-
+<%#= render :partial => 'spree/admin/shared/product_sub_menu' %>
+<div class="" id="upload-product">
+  <div class="portlet box blue">
+    <div class="portlet-title">
+      <div class="caption">
+        <i class="fa fa-gift"></i>Upload Products Via csv
+      </div>
+      <div class="tools">
+        <a href="javascript:;" class="expand" data-original-title="" title="">
+        </a>
+      </div>
+    </div>
+    <div class="portlet-body form" style="display:none;">
+      <!-- BEGIN FORM-->
+      <%= form_tag p_import_admin_imports_path  , class: "form-horizontal", multipart: true do %>
+      <div class="form-body">
+        <div class="form-group">
+          <label class="col-md-3 control-label">Select a csv File</label>
+          <div class="col-md-4">
+            <%= file_field_tag :file,  :accept=>"*.csv", class: "form-control", required: true%>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <div class="row">
+          <div class="col-md-offset-3 col-md-9">
+            <button type="submit" class="btn btn-circle blue">Submit</button>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <!-- END FORM-->
+    </div>
+  </div>
+</div>
 <% content_for :table_filter do %>
-  <div data-hook="admin_products_sidebar">
-
+<div data-hook="admin_products_sidebar" class="portlet light">
+  <div class="portlet-title">
+    <div class="caption font-red-sunglo">
+      <i class="icon-settings font-red-sunglo"></i>
+      <span class="caption-subject bold uppercase"> Search</span>
+    </div>
+  </div>
+  <div class="portlet-body form">
     <%= search_form_for [:admin, @search] do |f| %>
-
-        <%- locals = {:f => f} %>
-
-        <div data-hook="admin_products_index_search">
-          <div class="alpha four columns">
-            <div class="field">
-              <%= f.label :name_cont, Spree.t(:name) %>
-              <%= f.text_field :name_cont, :size => 15 %>
-            </div>
-          </div>
-           <div class="four columns">
-            <div class="field">
-              <%= f.label :description_cont, "Description"%>
-              <%= f.text_field :description_cont, :size => 35 %>
-            </div>
-          </div>
-          <div class="four columns">
-            <div class="field">
-              <%= f.label :variants_including_master_sku_cont, Spree.t(:sku) %>
-              <%= f.text_field :variants_including_master_sku_cont, :size => 15 %>
-            </div>
-          </div>
-          <div class="three columns omega">
-            <div class="field checkbox">
-              <label>
-                <%= f.check_box :deleted_at_null, {:checked => params[:q][:deleted_at_null] == '0'}, '0', '1' %>
-                <%= Spree.t(:show_deleted) %>
-              </label>
+    <div class="form-body">
+      <%- locals = {:f => f} %>
+      <div class="form-group form-md-line-input col-md-4">
+        <%= f.text_field :name_cont, :size => 15, class: "form-control" %>
+        <%= f.label :name_cont, Spree.t(:name) %>
+        <span class="help-block">Name goes here...</span>
+      </div>
+      <div class="form-group form-md-line-input col-md-4">
+        <%= f.text_field :description_cont, :size => 35, class: "form-control" %>
+        <%= f.label :description_cont, "Description"%>
+        <span class="help-block">Description goes here...</span>
+      </div>
+      <div class="form-group form-md-line-input col-md-4">
+        <%= f.text_field :variants_including_master_sku_cont, :size => 15, class: "form-control" %>
+        <%= f.label :variants_including_master_sku_cont, Spree.t(:sku) %>
+        <span class="help-block">Sku goes here...</span>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group form-md-checkboxes">
+          <div clasd="md-checkbox-list">
+            <div class="md-checkbox" >
+              <%= f.check_box :deleted_at_null, {:checked => params[:q][:deleted_at_null] == '0', class: "md-check", id: "delete_check"}, '0', '1' %>
+              <label for="delete_check">
+                <span class="inc"></span>
+                <span class="check"></span>
+                <span class="box"></span>
+                <%= Spree.t(:show_deleted) %></label>
+              </div>
             </div>
           </div>
         </div>
-
         <div class="clear"></div>
-
-        <div class="form-buttons actions filter-actions" data-hook="admin_products_index_search_buttons">
-          <%= button Spree.t(:search), 'search' %>
+        <div class="form-actions">
+          <div data-hook="admin_orders_index_search_buttons">
+            <button type="submit" class="btn blue"><%= Spree.t(:search) %></button>
+          </div>
         </div>
-    <% end %>
+      </div>
+      <% end %>
+    </div>
   </div>
 <% end %>
+<div class="">
+  <div id="new_product_wrapper" data-hook></div>
 
-<div id="new_product_wrapper" data-hook></div>
-
-<% if @collection.any? %>
-  <table class="index" id="listing_products">
-    <colgroup>
-       <col style="width: 15%;">
-       <col style="width: 10%;">
-       <col style="width: 48%;">
-       <col style="width: 10%;">
-       <col style="width: 17%;">
-    </colgroup>
-    <thead>
-      <tr data-hook="admin_products_index_headers">
-        <th><%= Spree.t(:sku) %></th>
-        <th colspan="2"><%= sort_link @search,:name, Spree.t(:name), { :default_order => "desc" }, {:title => 'admin_products_listing_name_title'} %></th>
-        <th><%= sort_link @search,:master_default_price_amount, Spree.t(:master_price), {}, {:title => 'admin_products_listing_price_title'} %></th>
-        <th data-hook="admin_products_index_header_actions" class="actions"></th>
+  <% if @collection.any? %>
+  <div class="portlet box blue">
+    <div class="portlet-title">
+      <div class="caption">
+        <i class="fa fa-cogs"></i>Products
+      </div>
+      <div class="tools">
+        <a href="javascript:;" class="collapse" data-original-title="" title="">
+        </a>
+      </div>
+    </div>
+    <div class="portlet-body flip-scroll">
+      <table class="table table-bordered table-striped table-condensed flip-content">
+        <thead class="flip-content">
+         <tr data-hook="admin_products_index_headers">
+          <th><%= Spree.t(:sku) %></th>
+          <th colspan="2"><%= sort_link @search,:name, Spree.t(:name), { :default_order => "desc" }, {:title => 'admin_products_listing_name_title'} %></th>
+          <th><%= sort_link @search,:master_default_price_amount, Spree.t(:master_price), {}, {:title => 'admin_products_listing_price_title'} %></th>
+          <th data-hook="admin_products_index_header_actions" class="actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+       <% @collection.each do |product| %>
+       <tr <%== "style='color: red;'" if product.deleted? %> id="<%= spree_dom_id product %>" data-hook="admin_products_index_rows" class="<%= cycle('odd', 'even') %>">
+        <td class="align-center"><%= product.sku rescue '' %></td>
+        <td class="align-center"><%= mini_image(product) %></td>
+        <td><%= link_to product.try(:name), edit_admin_product_path(product) %></td>
+        <td class="align-center"><%= product.display_price.to_html rescue '' %></td>
+        <td class="actions" data-hook="admin_products_index_row_actions">
+          <%= link_to_edit product, :no_text => true, :class => 'edit' if can?(:edit, product) && !product.deleted? %>
+          &nbsp;
+          <%= link_to_clone product, :no_text => true, :class => 'clone' if can?(:clone, product) %>
+          &nbsp;
+          <%= link_to_delete product, :no_text => true if can?(:delete, product) && !product.deleted? %>
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      <% @collection.each do |product| %>
-          <tr <%== "style='color: red;'" if product.deleted? %> id="<%= spree_dom_id product %>" data-hook="admin_products_index_rows" class="<%= cycle('odd', 'even') %>">
-            <td class="align-center"><%= product.sku rescue '' %></td>
-            <td class="align-center"><%= mini_image(product) %></td>
-            <td><%= link_to product.try(:name), edit_admin_product_path(product) %></td>
-            <td class="align-center"><%= product.display_price.to_html rescue '' %></td>
-            <td class="actions" data-hook="admin_products_index_row_actions">
-              <%= link_to_edit product, :no_text => true, :class => 'edit' if can?(:edit, product) && !product.deleted? %>
-              &nbsp;
-              <%= link_to_clone product, :no_text => true, :class => 'clone' if can?(:clone, product) %>
-              &nbsp;
-              <%= link_to_delete product, :no_text => true if can?(:delete, product) && !product.deleted? %>
-            </td>
-          </tr>
       <% end %>
     </tbody>
   </table>
-<% else %>
-  <div class="alpha twelve columns no-objects-found">
-    <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/product')) %>,
-    <%= link_to Spree.t(:add_one), spree.new_admin_product_path %>!
-  </div>
-<% end %>
+</div>
+</div>
+  <% else %>
+    <div class="alpha twelve columns no-objects-found">
+      <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/product')) %>,
+      <%= link_to Spree.t(:add_one), spree.new_admin_product_path %>!
+    </div>
+  <% end %>
+</div>
 
 <%= paginate @collection %>

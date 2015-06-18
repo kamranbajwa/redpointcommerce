@@ -32,6 +32,7 @@ SpreeExample::Application.routes.draw do
   # end
   Spree::Core::Engine.add_routes do
     namespace :admin do
+      resources :dashboard
       resources :logos
       resources :imports do
         collection { post :p_import }

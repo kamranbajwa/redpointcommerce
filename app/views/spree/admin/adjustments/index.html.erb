@@ -1,14 +1,15 @@
-<%= render :partial => 'spree/admin/shared/order_tabs', :locals => { :current => 'Adjustments' } %>
 
 <% content_for :page_title do %>
    <i class="fa fa-arrow-right"></i> <%= Spree.t(:adjustments) %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <li><%= button_link_to Spree.t(:new_adjustment), new_admin_order_adjustment_url(@order), :icon => 'plus' %></li>
-  <li><%= button_link_to Spree.t(:back_to_orders_list), admin_orders_path, :icon => 'arrow-left' %></li>
+  <li><%= link_to new_admin_order_adjustment_url(@order), class: "btn blue" do %>
+  <i class="fa fa-plus"></i>  <%= Spree.t(:new_adjustment) %><% end %></li>
+  <li><%= link_to admin_orders_path, class: "btn blue"  do %>
+  <i class="fa fa-arrow-left"></i> <%= Spree.t(:back_to_orders_list)%><% end %></li>
 <% end %>
-
+<div class="col-md-9">
 <%= render :partial => 'adjustments_table' %>
 
 <% if @order.can_add_coupon? %>
@@ -17,6 +18,9 @@
     <%= button Spree.t(:add_coupon_code), 'plus', 'submit', :id => "add_coupon_code" %>
   </div>
 <% end %>
+</div>
+<%= render :partial => 'spree/admin/shared/order_tabs', :locals => { :current => 'Adjustments' } %>
+
 <%= javascript_tag do -%>
   var order_number = '<%= @order.number %>';
 <% end -%>

@@ -1,5 +1,3 @@
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
-
 <%= render :partial => 'js_head' %>
 
 <% content_for :page_title do %>
@@ -8,14 +6,26 @@
 
 <% content_for :page_actions do %>
   <li>
-    <%= button_link_to Spree.t(:back_to_taxonomies_list), spree.admin_taxonomies_path, :icon => 'arrow-left' %>
+    <%= link_to spree.admin_taxonomies_path, class: "btn blue" do %><i class="fa fa-arrow-left"></i>
+      <%= Spree.t(:back_to_taxonomies_list)%>
+    <% end %>
   </li>
 <% end %>
-
+ <div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+       Edit Category
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
 <div id="ajax_error" class="errorExplanation" style="display:none;"></div>
 
 <%= form_for [:admin, @taxonomy] do |f| %>
-  <fieldset class="no-border-top">
+  <div class="form-body">
     <%= render :partial => 'form', :locals => { :f => f } %>
     <div>
       <%= label_tag nil, Spree.t(:tree) %><br />
@@ -25,7 +35,6 @@
         Spree.routes.jstree_theme_path = "<%= stylesheet_path("jquery.jstree/themes/apple/style.css") %>";
       </script>
       <div id="taxonomy_tree" class="tree"></div>
-    </div>
     <div id="progress" style="display:none;">
       <%= image_tag 'select2-spinner.gif', :title => 'Spinner', :style => "vertical-align:bottom;" %> <%= Spree.t(:updating) %>..
     </div>
@@ -33,11 +42,13 @@
     <div class="info"><%= Spree.t(:taxonomy_tree_instruction) %></div>
 
     <br>
+  </div>
 
-    <div class="filter-actions actions">
+    <div class="filter-actions actions form-actions">
       <%= button Spree.t('actions.update'), 'refresh' %>
       <span class="or"><%= Spree.t(:or) %></span>
       <%= button_link_to Spree.t('actions.cancel'), admin_taxonomies_path, :icon => 'remove' %>
     </div>
-  </fieldset>
 <% end %>
+</div>
+</div>

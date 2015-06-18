@@ -1,5 +1,3 @@
-<%= render 'spree/admin/shared/configuration_menu' %>
-
 <% content_for :page_title do %>
   <%= Spree.t(:listing_countries) %>
 <% end %>
@@ -7,37 +5,45 @@
 <% content_for :page_actions do %>
   <ul class="actions inline-menu">
     <li>
-      <%= button_link_to Spree.t(:new_country), new_object_url, { :icon => 'plus', :id => 'admin_new_country' } %>
+      <%= link_to new_object_url, { :icon => 'plus', :id => 'admin_new_country', class: "btn blue"} do %> <i class="fa fa-plus"></i> <%= Spree.t(:new_country) %><% end %>
     </li>
   </ul>
 <% end %>
-
-<table class="index" id='listing_countries' data-hook>
-  <colgroup>
-    <col style="width: 35%" />
-    <col style="width: 35%" />
-    <col style="width: 20%" />
-    <col style="width: 10%" />
-  </colgroup>
-  <thead>
-    <tr data-hook="tax_header">
-      <th><%= Spree.t(:country_name) %></th>
-      <th><%= Spree.t(:iso_name) %></th>
-      <th><%= Spree.t(:states_required) %></th>
-      <th class="actions"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @countries.each do |country| %>
-      <tr id="<%= spree_dom_id country %>" data-hook="country_row" class="<%= cycle('odd', 'even')%>">
-        <td><%= country.name %></td>
-        <td><%= country.iso_name %></td>
-        <td class="align-center"><%= country.states_required? ? Spree.t(:say_yes) : Spree.t(:say_no) %></td>
-        <td class="actions">
-          <%= link_to_edit country, :no_text => true %>
-          <%= link_to_delete country, :no_text => true %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="col-md-12">
+  <div class="portlet box blue">
+    <div class="portlet-title">
+      <div class="caption">
+        <i class="fa fa-cogs"></i>Countries
+      </div>
+      <div class="tools">
+        <a href="javascript:;" class="collapse" data-original-title="" title="">
+        </a>
+      </div>
+    </div>
+    <div class="portlet-body flip-scroll">
+      <table class="table table-bordered table-striped table-condensed flip-content" id='listing_countries' data-hook>
+        <thead class="flip-content">
+          <tr data-hook="tax_header">
+            <th><%= Spree.t(:country_name) %></th>
+            <th><%= Spree.t(:iso_name) %></th>
+            <th><%= Spree.t(:states_required) %></th>
+            <th class="actions"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @countries.each do |country| %>
+          <tr id="<%= spree_dom_id country %>" data-hook="country_row" class="<%= cycle('odd', 'even')%>">
+            <td><%= country.name %></td>
+            <td><%= country.iso_name %></td>
+            <td class="align-center"><%= country.states_required? ? Spree.t(:say_yes) : Spree.t(:say_no) %></td>
+            <td class="actions">
+              <%= link_to_edit country, :no_text => true %>
+              <%= link_to_delete country, :no_text => true %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

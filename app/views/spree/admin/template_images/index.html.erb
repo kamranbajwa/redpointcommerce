@@ -1,25 +1,13 @@
-<%=render :partial=>'spree/shared/setting_sub_nav_tab'%>
-<div id="content-header" data-hook="">
-    <div class="container">
-      <div class="sixteen columns">
-        <div class="block-table">
-          <div class="table-cell">
-            <h1 class="page-title ">Template Images</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<% content_for :page_title do %>
+  Template Images
+<% end %>
 
-  <div class="container">
-    <div class="row">
-      <div class="with-sidebar " >
-        <div class="twelve columns"> <br>
+        <div class="col-md-9"> 
          
-<hr />
-<% if @selected_template.template_images%>
+<% if @selected_template.template_images.first%>
   <img src="<%= @selected_template.template_images.first.avatar.url(:home_image)%>">
   <img src="<%= @selected_template.template_images.second.avatar.url(:home_image)%>">
   <img src="<%= @selected_template.template_images.third.avatar.url(:home_image)%>">
 <% end %>
 </div>
+    <%=render :partial=>'/spree/admin/templates/side_bar_template'%>

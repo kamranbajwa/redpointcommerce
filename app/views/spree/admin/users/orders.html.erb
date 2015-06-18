@@ -2,33 +2,32 @@
   <%= link_to "#{Spree.t(:"admin.user.order_history")} #{@user.email}", edit_admin_user_url(@user) %>
 <% end %>
 
-<%= render :partial => 'spree/admin/users/sidebar', :locals => { :current => :orders } %>
 <%= render :partial => 'spree/admin/users/user_page_actions' %>
 
-<fieldset data-hook="admin_user_order_history" class="alpha twelve columns">
-  <legend><%= Spree.t(:"admin.user.order_history") %></legend>
-
-  <%= paginate @orders %>
-
+<div data-hook="admin_user_order_history" class="col-md-9">
   <% if @orders.any? %>
-    <%# TODO add search interface %>
-    <table class="index responsive" id="listing_orders" data-hook>
-      <colgroup>
-         <col style="width: 25%;">
-         <col style="width: 25%;">
-         <col style="width: 25%;">
-         <col style="width: 25%;">
-      </colgroup>
-      <thead>
-        <tr data-hook="admin_orders_index_headers">
+  <div class="portlet box blue">
+    <div class="portlet-title">
+      <div class="caption">
+        <%= Spree.t(:"admin.user.order_history") %>
+      </div>
+      <div class="tools">
+        <a href="javascript:;" class="collapse" data-original-title="" title="">
+        </a>
+      </div>
+    </div>
+    <div class="portlet-body flip-scroll">
+      <table class="table table-bordered table-striped table-condensed flip-content" id="listing_orders" data-hook>
+        <thead class="flip-content">
+          <tr data-hook="admin_orders_index_headers">
           <th><%= sort_link @search, :completed_at,   I18n.t(:completed_at, :scope => 'activerecord.attributes.spree/order'), {}, {:title => 'orders_completed_at_title'} %></th>
           <th><%= sort_link @search, :number,         I18n.t(:number, :scope => 'activerecord.attributes.spree/order'), {}, {:title => 'orders_number_title'} %></th>
           <th><%= sort_link @search, :state,          I18n.t(:state, :scope => 'activerecord.attributes.spree/order'), {}, {:title => 'orders_state_title'} %></th>
           <th><%= sort_link @search, :total,          I18n.t(:total, :scope => 'activerecord.attributes.spree/order'), {}, {:title => 'orders_total_title'} %></th>
         </tr>
-      </thead>
-      <tbody>
-      <% @orders.each do |order| %>
+        </thead>
+        <tbody>
+            <% @orders.each do |order| %>
         <tr data-hook="admin_orders_index_rows" class="state-<%= order.state.downcase %> <%= cycle('odd', 'even') %>">
           <td class="align-center order-completed-at"><%= l(order.completed_at.to_date) if order.completed_at %></td>
           <td class="align-center order-number"><%= link_to order.number, edit_admin_order_path(order) %></td>
@@ -44,8 +43,14 @@
           <td class="align-center order-total"><%= order.display_total.to_html %></td>
         </tr>
       <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+  
   <% else %>
     <div class="alpha twelve columns no-objects-found">
       <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/order')) %>,
@@ -54,4 +59,6 @@
   <% end %>
 
   <%= paginate @orders %>
-</fieldset>
+</div>
+<%= render :partial => 'spree/admin/users/sidebar', :locals => { :current => :orders } %>
+

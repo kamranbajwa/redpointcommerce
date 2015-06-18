@@ -4,30 +4,38 @@
 
 <% content_for :page_actions do %>
   <li>
-    <%= button_link_to Spree.t(:new_promotion_category), spree.new_admin_promotion_category_path, :icon => 'plus' %>
+    <%= link_to spree.new_admin_promotion_category_path, :icon => 'plus', class: "btn blue" do %> <i class="fa fa-plus"></i><%= Spree.t(:new_promotion_category) %><% end %>
   </li>
 <% end %>
-
-<%= render 'spree/admin/shared/promotion_sub_menu' %>
-
-<table>
-  <colgroup>
-    <col style="width: 85%">
-    <col style="width: 15%">
-  </colgroup>
-  <thead>
-    <th><%= Spree::PromotionCategory.human_attribute_name :name %></th>
-    <th class='actions'></th>
-  </thead>
-  <tbody>
-    <% @promotion_categories.each do |promotion_category| %>
-      <tr>
-        <td><%= promotion_category.name %></td>
-        <td class="actions">
-          <%= link_to_edit promotion_category, :no_text => true %>
-          <%= link_to_delete promotion_category, :no_text => true %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="col-md-12">
+  <div class="portlet box blue">
+    <div class="portlet-title">
+      <div class="caption">
+        <i class="fa fa-cogs"></i>Promotion Categories
+      </div>
+      <div class="tools">
+        <a href="javascript:;" class="collapse" data-original-title="" title="">
+        </a>
+      </div>
+    </div>
+    <div class="portlet-body flip-scroll">
+      <table class="table table-bordered table-striped table-condensed flip-content">
+        <thead class="flip-content">
+          <th><%= Spree::PromotionCategory.human_attribute_name :name %></th>
+          <th class='actions'></th>
+        </thead>
+        <tbody>
+         <% @promotion_categories.each do |promotion_category| %>
+         <tr>
+          <td><%= promotion_category.name %></td>
+          <td class="actions">
+            <%= link_to_edit promotion_category, :no_text => true %>
+            <%= link_to_delete promotion_category, :no_text => true %>
+          </td>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,20 @@
+ <div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+       <%= Spree.t(:new_variant) %>
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @variant } %>
 
 <%= form_for [:admin, @product, @variant] do |f| %>
-  <fieldset data-hook="admin_variant_new_form">
-    <legend align="center"><%= Spree.t(:new_variant) %></legend>
+  <div data-hook="admin_variant_new_form" class="form-body">
     <%= render :partial => 'form', :locals => { :f => f } %>
+  </div>
     <%= render :partial => 'spree/admin/shared/new_resource_links' %>
-  </fieldset>
 <% end %>
+</div>

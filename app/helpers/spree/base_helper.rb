@@ -1,5 +1,8 @@
 module Spree
   module BaseHelper
+    def is_active?(link_path)
+    current_page?(link_path) ? "active" : ""
+    end
     def org_address
       address=Spree::OrgAddress.first
       arr_add=[]

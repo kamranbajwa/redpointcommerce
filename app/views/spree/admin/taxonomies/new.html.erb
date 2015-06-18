@@ -1,24 +1,32 @@
-<%= render 'spree/admin/shared/configuration_menu' %>
-
 <% content_for :page_title do %>
   <%= Spree.t(:new_taxonomy) %>
 <% end %>
 
 <% content_for :page_actions do %>
   <li>
-    <%= button_link_to Spree.t(:back_to_taxonomies_list), spree.admin_taxonomies_path, :icon => 'arrow-left' %>
+    <%= link_to spree.admin_taxonomies_path, class: "btn blue" do %><i class="fa fa-arrow-left"></i> <%= Spree.t(:back_to_taxonomies_list)%><% end %>
   </li>
 <% end %>
 
-<%= render 'spree/admin/shared/product_sub_menu' %>
-
-<%= form_for [:admin, @taxonomy], multipart: true do |f| %>
-
-  <%= render :partial => 'form', :locals => { :f => f } %>
-  <fieldset class="no-border-top">
-    <br>
-    <div class="filter-actions actions" data-hook="buttons">
-      <%= button Spree.t(:create), 'ok' %>
+ <div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+       <%= Spree.t(:new_taxonomy) %>
     </div>
-  </fieldset>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
+<%= form_for [:admin, @taxonomy], multipart: true do |f| %>
+  <div class="form-body">
+    <%= render :partial => 'form', :locals => { :f => f } %>
+  </div>
+  <div class="clear"></div>
+  <div class="filter-actions actions form-actions" data-hook="buttons">
+    <%= button Spree.t(:create), 'ok' %>
+  </div>
 <% end %>
+</div>
+</div>

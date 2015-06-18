@@ -1,16 +1,9 @@
-<%=render :partial=>'spree/shared/setting_sub_nav_tab'%>
-<div id="content-header" data-hook="">
-  <div class="container">
-    <div class="sixteen columns">
-      <div class="block-table">
-        <div class="table-cell">
-          <h1 class="page-title ">Promotion Emails</h1>
-        </div>
-         <% if params[:action]=="index" %>
-        <%= link_to "Add Template", new_admin_promotion_email_path, class: 'button fa fa-plus add-page', icon: "plus" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-<hr />
+<% content_for :page_title do %>
+Promotion Emails
+<% end %>
+<% content_for :page_actions do %>
+<li >
+  <%= link_to new_admin_promotion_email_path, class: 'btn blue', icon: "plus" do %><i class="fa fa-plus"></i>Add Template
+  <% end %>
+</li>
+<% end%>

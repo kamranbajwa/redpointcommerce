@@ -1,11 +1,10 @@
-<aside  data-hook="" class="four columns"> <br>
-  <nav class="menu">
-    <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
-      <li><a href="/admin/cms_pages">Pages</a></li>
-      <hr>
+ <div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+      <ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+      <h3 class="form-section" align="center">Pages</h3>
       <% @pages.each do |page| %>
-        <li><a href="/page/<%= page.id %>"><%= page.title %></a></li>
+        <li style="border-bottom: 1px solid #eee;"><a href="/page/<%= page.id %>"><span><%= page.title %></span></a></li>
       <% end %>
-    </ul>
-  </nav>
-</aside>
+      </ul>
+    </div>
+  </div>

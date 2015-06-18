@@ -1,0 +1,203 @@
+	<div class="page-sidebar-wrapper">
+		<div class="page-sidebar navbar-collapse collapse">
+			<ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+				<li class=" start <%= is_active?('/admin/dashboard') %>">
+					<a href="/admin/dashboard">
+					<i class="icon-home"></i>
+					<span class="title">Dashboard</span>
+					</a>
+				</li>
+				<li class=" start <%= is_active?('/admin/orders') %>">
+					<a href="/admin/orders">
+					<i class="icon-basket"></i>
+					<span class="title">Orders</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+					<i class="icon-handbag"></i>
+					<span class="title">Products</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li class=" <%= is_active?('/admin/products') %>">
+							<a href="/admin/products">
+							Products</a>
+						</li>
+						<li class=" <%= is_active?('/admin/option_types') %>">
+							<a href="/admin/option_types">
+							Option Types</a>
+						</li>
+						<li class="<%= is_active?('/admin/properties') %>">
+							<a href="/admin/properties">
+							Properties
+							</a>
+						</li>
+						<li class="<%= is_active?('/admin/prototypes') %>" >
+							<a href="/admin/prototypes">
+							Prototypes</a>
+						</li>
+						<li class="<%= is_active?('/admin/taxonomies') %>" >
+							<a href="/admin/taxonomies">
+							Categories</a>
+						</li>
+						<li class="<%= is_active?('/admin/taxons') %>">
+							<a href="/admin/taxons">
+							Sorting</a>
+						</li>
+					</ul>
+				</li>
+				<li class="start <%= is_active?('/admin/reports') %>">
+					<a href="/admin/reports">
+					<i class="fa fa-file-text"></i>
+					<span class="title">Reports</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+					<i class="fa fa-cogs"></i>
+					<span class="title">Configurations</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li class="<%= is_active?(edit_admin_general_settings_path) %>">
+							<a href="<%= edit_admin_general_settings_path %>">
+							General Settings</a>
+						</li>
+						<li class="<%= is_active?(admin_tax_categories_path) %>">
+							<a href="<%= admin_tax_categories_path %>">
+							Tax Categories</a>
+						</li>
+						<li class="<%= is_active?(admin_tax_rates_path) %>">
+							<a href="<%= admin_tax_rates_path %>">
+							Tax Rates</a>
+						</li>
+						<li class="<%= is_active?(admin_zones_path) %>">
+							<a href="<%= admin_zones_path %>">
+							Zones</a>
+						</li>
+						<li class="<%= is_active?(admin_countries_path) %>">
+							<a href="<%= admin_countries_path %>">
+							Countries</a>
+						</li>
+						 <% if country = Spree::Country.find_by_id(Spree::Config[:default_country_id]) || Spree::Country.first %>
+						<li class="<%= is_active?(admin_country_states_path(country)) %>">
+							<a href="<%= admin_country_states_path(country) %>">
+							States</a>
+						</li>
+						<% end %>
+						<li class="<%= is_active?(admin_payment_methods_path) %>">
+							<a href="<%= admin_payment_methods_path%>">
+							Payment Methods</a>
+						</li>
+						<li class="<%= is_active?(admin_shipping_methods_path) %>">
+							<a href="<%= admin_shipping_methods_path %>">
+							Shipping Methods</a>
+						</li>
+						<li class="<%= is_active?(admin_shipping_categories_path) %>">
+							<a href="<%= admin_shipping_categories_path %>">
+							Shipping Categories</a>
+						</li>
+						<li class="<%= is_active?(admin_stock_transfers_path) %>">
+							<a href="<%= admin_stock_transfers_path %>">
+							Stock Transfers</a>
+						</li>
+						<li class="<%= is_active?(admin_stock_locations_path) %>">
+							<a href="<%= admin_stock_locations_path %>">
+							Stock Locations</a>
+						</li>
+						<li class="<%= is_active?(admin_trackers_path) %>">
+							<a href="<%= admin_trackers_path %>">
+							Analytics Trackers</a>
+						</li>
+						<li class="<%= is_active?(admin_refund_reasons_path) %>">
+							<a href="<%= admin_refund_reasons_path %>">
+							Refund Reasons</a>
+						</li>
+						<li class="<%= is_active?(admin_reimbursement_types_path) %>">
+							<a href="<%= admin_reimbursement_types_path %>">
+							Reimbursement Types</a>
+						</li>
+						<li class="<%= is_active?(admin_return_authorization_reasons_path) %>">
+							<a href="<%= admin_return_authorization_reasons_path %>">
+							Return Authorization Reasons</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:;">
+					<i class="icon-present"></i>
+					<span class="title">Promotions</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li class="<%= is_active?('/admin/promotions') %>">
+							<a href="/admin/promotions">
+							Promotions</a>
+						</li>
+						<li class="<%= is_active?('/admin/promotion_categories') %>">
+							<a href="/admin/promotion_categories">
+							Promotion Categories</a>
+						</li>
+					</ul>
+				</li>
+				<li class="start <%= is_active?('/admin/users')%>">
+					<a href="/admin/users">
+					<i class="fa fa-user"></i>
+					<span class="title">Users</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+					<i class="fa fa-wrench"></i>
+					<span class="title">Settings</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li class="<%= is_active?('/admin/organizations/#{Spree::Organization.first.id}/edit') %>">
+							<a href="/admin/organizations/<%= Spree::Organization.first.id%>/edit">
+							Organization Info</a>
+						</li>
+						<li class="<%= is_active?('/admin/templates') %>">
+							<a href="/admin/templates">
+							Templates</a>
+						</li>
+						<li class="<%= is_active?('/admin/cms_pages') %>">
+							<a href="/admin/cms_pages">
+							Cms Pages</a>
+						</li>
+							<li class="<%= is_active?('/admin/api_users') %>">
+							<a href="/admin/api_users">
+							Api Users</a>
+						</li>
+							<li class="<%= is_active?('/admin/email_templates') %>">
+							<a href="/admin/email_templates">
+							Email Templates</a>
+						</li>
+							<li class="<%= is_active?('/admin/promotion_emails') %>">
+							<a href="/admin/promotion_emails">
+							Promotion Emails</a>
+						</li>
+					</ul>
+				</li>
+				<li class="start <%= is_active?('/admin/blogs') %>">
+					<a href="/admin/blogs">
+					<i class="fa fa-globe"></i>
+					<span class="title">Blog</span>
+					</a>
+				</li>
+
+			</ul>
+			<!-- END SIDEBAR MENU -->
+		</div>
+	</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		if ($(".active").parent().hasClass("sub-menu"))
+		{
+      $(".active").parent().css("display", "block");
+      $(".active").parent().parent().addClass("open");
+      $(".active").parent().parent().find(".arrow").addClass("open");
+    }
+  });
+</script>

@@ -4,7 +4,8 @@
 
 <% content_for :page_actions do %>
   <li>
-    <%= button_link_to Spree.t(:back_to_users_list), spree.admin_users_path, :icon => 'arrow-left' %>
+    <%= link_to spree.admin_users_path, class: "btn blue" do %> <i class="fa fa-arrow-left"></i> <%= Spree.t(:back_to_users_list)%>
+    <% end %>
   </li>
 <% end %>
 
@@ -12,12 +13,27 @@
   <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @user } %>
 </div>
 
-<div data-hook="admin_user_new_form">
-  <%= form_for [:admin, @user], url: admin_users_url, method: :post do |f| %>
-    <%= render :partial => 'form', :locals => { :f => f } %>
-
-    <div data-hook="admin_user_new_form_buttons">
-      <%= render :partial => 'spree/admin/shared/new_resource_links' %>
+<div data-hook="admin_user_new_form" class="col-md-12">
+ <div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+       New User
     </div>
-  <% end %>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
+    <%= form_for [:admin, @user], url: admin_users_url, method: :post do |f| %>
+    <div class="form-body">
+      <%= render :partial => 'form', :locals => { :f => f } %>
+    </div>
+
+    <div data-hook="admin_user_new_form_buttons" class="form-actions">
+        <%= render :partial => 'spree/admin/shared/new_resource_links' %>
+      </div>
+    <% end %>
+  </div>
+</div>
 </div>

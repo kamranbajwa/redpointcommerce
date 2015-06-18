@@ -1,5 +1,3 @@
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
-
 <% content_for :page_title do %>
   <%= Spree.t(:stock_locations) %>
 <% end %>
@@ -7,36 +5,42 @@
 <% content_for :page_actions do %>
   <ul class="actions inline-menu">
     <li>
-      <%= button_link_to Spree.t(:new_stock_location), new_object_url, { :icon => 'plus', :id => 'admin_new_stock_location' } %>
+      <%= link_to new_object_url, { :icon => 'plus', :id => 'admin_new_stock_location', class: "btn blue" } do %><i class="fa fa-plus"></i><%= Spree.t(:new_stock_location)%><% end %>
     </li>
     <li>
-      <%= button_link_to Spree.t(:new_stock_transfer), new_admin_stock_transfer_path, { :icon => 'forward' } %>
+      <%= link_to new_admin_stock_transfer_path, { :icon => 'forward', class: "btn blue" } do %><i class="fa fa-forward"></i><%= Spree.t(:new_stock_transfer)%><% end %>
     </li>
   </ul>
 <% end %>
-
+<div class="col-md-12">
 <% if @stock_locations.any? %>
-  <table class="index" id='listing_stock_locations' data-hook>
-    <colgroup>
-      <col style="width: 40%" />
-      <col style="width: 15%" />
-      <col style="width: 30%" />
-      <col style="width: 15%" />
-    </colgroup>
-    <thead>
-      <tr data-hook="stock_locations_header">
+<div class="portlet box blue">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-cogs"></i>Stock Locations
+    </div>
+    <div class="tools">
+      <a href="javascript:;" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body flip-scroll">
+    <div id="new_state" data-hook></div>
+    <table class="table table-bordered table-striped table-condensed flip-content" id='listing_stock_locations' data-hook>
+      <thead class="flip-content">
+       <tr data-hook="stock_locations_header">
         <th><%= Spree.t(:name) %></th>
         <th><%= Spree.t(:state) %></th>
         <th><%= Spree.t(:stock_movements) %></th>
         <th class="actions"></th>
       </tr>
-    </thead>
-    <tbody>
-      <% @stock_locations.each do |stock_location|
-           @edit_url = edit_admin_stock_location_path(stock_location)
-           @delete_url = admin_stock_location_path(stock_location)
-      %>
-        <tr id="<%= spree_dom_id stock_location %>" data-hook="stock_location_row" class="<%= cycle('odd', 'even')%>">
+      </thead>
+      <tbody>
+        <% @stock_locations.each do |stock_location|
+         @edit_url = edit_admin_stock_location_path(stock_location)
+         @delete_url = admin_stock_location_path(stock_location)
+         %>
+         <tr id="<%= spree_dom_id stock_location %>" data-hook="stock_location_row" class="<%= cycle('odd', 'even')%>">
           <td class="align-center"><%= display_name(stock_location) %></td>
           <td class="align-center"><span class="state <%= state(stock_location) %>"><%= Spree.t(state(stock_location)) %></span></td>
           <td class="align-center"><%= link_to Spree.t(:stock_movements), admin_stock_location_stock_movements_path(stock_location.id) %> </td>
@@ -45,12 +49,15 @@
             <%= link_to_delete stock_location, :no_text => true %>
           </td>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 <% else %>
   <div class="alpha twelve columns no-objects-found">
     <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/stock_location')) %>,
     <%= link_to Spree.t(:add_one), spree.new_admin_stock_location_path %>!
   </div>
 <% end %>
+</div>

@@ -1,67 +1,68 @@
- <%= form_for @cms_page, url: {action: "create"}, :html => { :multipart => true } do |f| %>
-  <div class="container">
-    <div class="row">
-      <div class="with-sidebar " >
-        <div class="twelve columns"> <br>
-          <form   method="post">
-            <div>
-              <fieldset class="general no-border-top">
-             <div class="field" data-hook="admin_general_setting_input_name">
-                <label for="store_name">Page Title *</label>
-                <br>
-                <%= f.text_field :title, class: "fullwidth" %>
-              </div>
-               <div class="field" data-hook="admin_general_setting_input_meta_keywords" >
-                <label for="store_name">Select Template</label>
-                  <br>
-              <div class="field" tyle="border-radius: 3px; padding: 7px 10px; border: 1px solid #cee1f4; color: #5498da;
-                  font-size: 90%;" >
-              <%= f.select :template_id, @templates, {:selected => @select_template}, { class: "fullwidth"} %>
-            </div>
-            </div>
-              <div class="field" data-hook="admin_general_setting_input_name">
-                <label for="store_name">Description</label>
-                <br>
-                <%= f.cktext_area :description, class: "fullwidth" %>
-              </div>
-               <div class="field" data-hook="admin_general_setting_input_name">
-                <label for="store_name">Set Page Order</label>
-                <br>
-                <%= f.text_field :sort, class: "fullwidth" %>
-              </div>
-               <div class="field" data-hook="admin_general_setting_input_name" id="static-flag">
-                <label for="store_name">Static</label>
-                <br>
-                <%= f.check_box :static_flag %>
-              </div>
-              <div class="field" data-hook="admin_general_setting_input_name" id="cms-static-image" style="display:none;">
-                <label for="store_name">Image</label>
-                <br>
-                <%= f.file_field :avatar %>
-              </div>
-               <div class="field" data-hook="admin_general_setting_input_name">
-                <label for="store_name">Meta Tag</label>
-                <br>
-                <%= f.text_field :tag_list, class: "fullwidth" %>
-              </div>
-              <div class="field" data-hook="admin_general_setting_input_name">
-                <label for="store_name">Meta Description</label>
-                <br>
-                <%= f.text_field :meta_description, class: "fullwidth" %>
-              </div>
-              <div class="form-buttons filter-actions actions" data-hook="buttons">
-               <a class="button " href="javascript:void(0)" onclick="window.history.back();"><span class="text" >Back</span></a>
-              <span class="or">or</span>
-              <a class="" style="border: 0px solid #000 !important;"><span class="text"><%= f.submit "Save" %></span></a>
-              </div>
-              </fieldset>
-            </div>
-          </form>
-        </div>
-      </div>
+<div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-gift"></i> New Page
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
     </div>
   </div>
+  <div class="portlet-body form">
+ <%= form_for @cms_page, url: {action: "create"}, :html => { :multipart => true } do |f| %>
+  <div class="form-body">
+       <div class="field" data-hook="admin_general_setting_input_name">
+        <label for="store_name">Page Title *</label>
+        <br>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="field" data-hook="admin_general_setting_input_meta_keywords" >
+        <label for="store_name">Select Template</label>
+        <br>
+        <div class="field" tyle="border-radius: 3px; padding: 7px 10px; border: 1px solid #cee1f4; color: #5498da;
+        font-size: 90%;" >
+        <%= f.select :template_id, @templates, {:selected => @select_template}, { class: "form-control"} %>
+      </div>
+    </div>
+    <div class="field" data-hook="admin_general_setting_input_name">
+      <label for="store_name">Description</label>
+      <br>
+      <%= f.cktext_area :description, class: "form-control" %>
+    </div>
+    <div class="field" data-hook="admin_general_setting_input_name">
+      <label for="store_name">Set Page Order</label>
+      <br>
+      <%= f.text_field :sort, class: "form-control" %>
+    </div>
+    <div class="field" data-hook="admin_general_setting_input_name" id="static-flag">
+      <label for="store_name">Static</label>
+      <br>
+      <%= f.check_box :static_flag %>
+    </div>
+    <div class="field" data-hook="admin_general_setting_input_name" id="cms-static-image" style="display:none;">
+      <label for="store_name">Image</label>
+      <br>
+      <%= f.file_field :avatar %>
+    </div>
+    <div class="field" data-hook="admin_general_setting_input_name">
+      <label for="store_name">Meta Tag</label>
+      <br>
+      <%= f.text_field :tag_list, class: "form-control" %>
+    </div>
+    <div class="field" data-hook="admin_general_setting_input_name">
+      <label for="store_name">Meta Description</label>
+      <br>
+      <%= f.text_field :meta_description, class: "form-control" %>
+    </div>
+  </div>
+    <div class="form-buttons filter-actions actions form-actions" data-hook="buttons">
+     <a class="btn blue " href="javascript:void(0)" onclick="window.history.back();"><span class="text" >Back</span></a>
+     <span class="or">or</span>
+     <button type="submit" class="btn blue"> Save</button>
+   </div>
  <% end %>
+ </div>
+ </div>
  <script type="text/javascript">
  $("#static-flag").click(function(){
     $("#cms-static-image").toggle("slow");

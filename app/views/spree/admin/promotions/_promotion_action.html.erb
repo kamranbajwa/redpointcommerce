@@ -1,4 +1,4 @@
-<div class="promotion_action promotion-block <%= promotion_action.type.to_s.demodulize.underscore %>" id="<%= dom_id promotion_action %>">
+<div class="promotion_action promotion-block col-md-10 <%= promotion_action.type.to_s.demodulize.underscore %>" id="<%= dom_id promotion_action %>" style="margin-left: 18px; margin-top: -8px;">
   <% type_name = promotion_action.class.name.demodulize.underscore %>
   <h6 class="promotion-title"><%= Spree.t("promotion_action_types.#{type_name}.description") %></h6>
   <%= link_to_with_icon 'trash', '', spree.admin_promotion_promotion_action_path(@promotion, promotion_action), :remote => true, :method => :delete, :class => 'delete' %>

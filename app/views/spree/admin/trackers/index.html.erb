@@ -1,34 +1,40 @@
-<%= render 'spree/admin/shared/configuration_menu' %>
-
 <% content_for :page_title do %>
   <%= Spree.t(:analytics_trackers) %>
 <% end %>
 
 <% content_for :page_actions do %>
   <li>
-    <%= button_link_to Spree.t(:new_tracker), new_object_url, :icon => 'plus', :id => 'admin_new_tracker_link' %>
+    <%= link_to new_object_url, :icon => 'plus', class: "btn blue", :id => 'admin_new_tracker_link' do %> <i class="fa fa-plus"></i> <%= Spree.t(:new_tracker)%><% end %>
   </li>
 <% end %>
 
+<div class="col-md-12">
 <% if @trackers.any? %>
-  <table class="index">
-    <colgroup>
-      <col style="width: 30%">
-      <col style="width: 40%">
-      <col style="width: 15%">
-      <col style="width: 15%">
-    </colgroup>
-    <thead>
-      <tr data-hook="admin_trackers_index_headers">
-        <th><%= Spree.t(:google_analytics_id) %></th>
-        <th><%= Spree.t(:environment) %></th>
-        <th><%= Spree.t(:active) %></th>
-        <th class="actions"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @trackers.each do |tracker|%>
-        <tr id="<%= spree_dom_id tracker %>" data-hook="admin_trackers_index_rows" class="<%= cycle('odd', 'even')%>">
+<div class="col-md-12">
+  <div class="portlet box blue">
+    <div class="portlet-title">
+      <div class="caption">
+        <i class="fa fa-cogs"></i>Countries
+      </div>
+      <div class="tools">
+        <a href="javascript:;" class="collapse" data-original-title="" title="">
+        </a>
+      </div>
+    </div>
+    <div class="portlet-body flip-scroll">
+      <div id="new_state" data-hook></div>
+      <table class="table table-bordered table-striped table-condensed flip-content">
+        <thead class="flip-content">
+         <tr data-hook="admin_trackers_index_headers">
+          <th><%= Spree.t(:google_analytics_id) %></th>
+          <th><%= Spree.t(:environment) %></th>
+          <th><%= Spree.t(:active) %></th>
+          <th class="actions"></th>
+        </tr>
+        </thead>
+        <tbody>
+         <% @trackers.each do |tracker|%>
+         <tr id="<%= spree_dom_id tracker %>" data-hook="admin_trackers_index_rows" class="<%= cycle('odd', 'even')%>">
           <td class="align-center"><%= tracker.analytics_id %></td>
           <td class="align-center"><%= tracker.environment.to_s.titleize %></td>
           <td class="align-center"><%= tracker.active ? Spree.t(:say_yes) : Spree.t(:say_no) %></td>
@@ -37,12 +43,15 @@
             <%= link_to_delete tracker, :no_text => true %>
           </td>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 <% else %>
   <div class="no-objects-found">
     <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/tracker')) %>,
     <%= link_to Spree.t(:add_one), new_object_url %>!
   </div>
 <% end %>
+</div>

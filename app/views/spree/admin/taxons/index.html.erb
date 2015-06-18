@@ -1,7 +1,8 @@
 <% content_for :page_title do %>
   <%= Spree.t(:taxons) %>
 <% end %>
-
+<div class="portlet light">
+<div class="portlet-body form">
 <% content_for :table_filter_title do %>
 <label>Choose a category to sort product for</label>
 <% end %>
@@ -14,7 +15,11 @@
 
 <%= render :partial => 'spree/admin/shared/product_sub_menu' %>
 <span id='sorting_explanation' style='display:none'><%= Spree.t(:click_and_drag_on_the_products_to_sort_them) %></span>
-<ul id='taxon_products'></ul>
+<div class="text-center">
+<ul id='taxon_products' class="list-unstyled list-inline"></ul>
+</div>
+</div>
+</div>
 
 <%= render :partial => "spree/admin/products/autocomplete", :formats => :js %>
 

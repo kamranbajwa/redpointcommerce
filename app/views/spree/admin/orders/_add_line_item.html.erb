@@ -3,16 +3,24 @@
 <%= render :partial => "spree/admin/variants/autocomplete_line_items_stock", :formats => :js %>
 
 
-<div id="add-line-item" data-hook>
-  <fieldset class="no-border-bottom">
-    <legend align="center"><%= Spree.t(:add_product) %></legend>
+<div id="add-line-item" class="portlet box blue" data-hook>
+  <div class="portlet-title">
+   <div class="caption">
+    <i class="fa fa-gift"></i><%= Spree.t(:add_product) %>
+  </div>
+  <div class="tools">
+    <a href="" class="collapse" data-original-title="" title="">
+    </a>
+  </div>
+</div>
+<div class="portlet-body form">
+<div data-hook="add_product_name" class="form-body">
+    <%= label_tag :add_line_item_variant_id, Spree.t(:name_or_sku) %>
+    <%= hidden_field_tag :add_line_item_variant_id, "", :class => "variant_autocomplete fullwidth" %>
+  </div>
 
-    <div data-hook="add_product_name" class="field twelve columns alpha">
-      <%= label_tag :add_line_item_variant_id, Spree.t(:name_or_sku) %>
-      <%= hidden_field_tag :add_line_item_variant_id, "", :class => "variant_autocomplete fullwidth" %>
-    </div>
 
-  </fieldset>
+</div>
+  <div id="stock_details" class="portlet-body flip-scroll"></div>
 
-  <div id="stock_details"></div>
 </div>

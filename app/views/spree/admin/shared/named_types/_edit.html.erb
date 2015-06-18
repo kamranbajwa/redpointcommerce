@@ -4,14 +4,26 @@
 <% end %>
 
 <% content_for :page_actions do %>
-  <li><%= link_to_with_icon 'arrow-left', back_button_text, collection_url, :class => 'button' %></li>
+  <li><%= link_to collection_url, :class => 'btn blue' do %><i class="fa fa-arrow-left"></i> <%= back_button_text%><% end %></li>
 <% end %>
-
+<div class="portlet box blue">
+ <div class="portlet-title">
+  <div class="caption">
+    <i class="fa fa-gift"></i> <%= page_title %>
+  </div>
+  <div class="tools">
+    <a href="" class="collapse" data-original-title="" title="">
+    </a>
+  </div>
+</div>
+<div class="portlet-body form">
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @object } %>
 
 <%= form_for [:admin, @object] do |f| %>
-  <fieldset class="no-border-top">
+  <div class="form-body">
     <%= render :partial => 'spree/admin/shared/named_types/form', :locals => { :f => f } %>
+  </div>
     <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
-  </fieldset>
 <% end %>
+</div>
+</div>

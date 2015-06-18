@@ -1,18 +1,28 @@
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
-
 <% content_for :page_title do %>
   <%= Spree.t(:new_country) %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <li><%= link_to_with_icon 'arrow-left', Spree.t(:back_to_countries_list), admin_countries_path, :class => 'button' %></li>
+  <li><%= link_to admin_countries_path, :class => 'btn blue' do %><i class="fa fa-arrow-left"></i><%= Spree.t(:back_to_countries_list)%><% end %></li>
 <% end %>
-
+<div class="portlet box blue">
+ <div class="portlet-title">
+  <div class="caption">
+    <i class="fa fa-gift"></i> <%= Spree.t(:new_country) %>
+  </div>
+  <div class="tools">
+    <a href="" class="collapse" data-original-title="" title="">
+    </a>
+  </div>
+</div>
+<div class="portlet-body form">
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @countries } %>
 
 <%= form_for [:admin, @country] do |f| %>
-  <fieldset class="no-border-top">
+  <div class="form-body">
     <%= render :partial => 'form', :locals => { :f => f } %>
+  </div>
     <%= render :partial => 'spree/admin/shared/new_resource_links' %>
-  </fieldset>
 <% end %>
+</div>
+</div>

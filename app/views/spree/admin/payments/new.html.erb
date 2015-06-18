@@ -1,26 +1,41 @@
-<%= render :partial => 'spree/admin/shared/order_tabs', :locals => { :current => 'Payments' } %>
-
 <% content_for :page_title do %>
   <i class="fa fa-arrow-right"></i> <%= Spree.t(:new_payment) %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <li><%= button_link_to Spree.t(:back_to_payments_list), spree.admin_order_payments_url(@order), :icon => 'arrow-left' %></li>
+  <li><%= link_to spree.admin_order_payments_url(@order), class: "btn blue" do %>
+  <i class="fa fa-arrow-left"></i><%= Spree.t(:back_to_payments_list)%><% end %>
+  </li>
 <% end %>
 
+<div class="col-md-9">
 <% if @payment_methods.any? %>
   <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @payment } %>
-
+  <div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-gift"></i> New Payment
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
   <%= form_for @payment, :url => admin_order_payments_path(@order) do |f| %>
-    <fieldset class="no-border-top">
+    <div class="form-body">
       <%= render :partial => 'form', :locals => { :f => f } %>
-
-      <div class="filter-actions actions" data-hook="buttons">
-        <%= button @order.cart? ? Spree.t('actions.continue') : Spree.t('actions.update'), @order.cart? ? 'arrow-right' : 'refresh' %>
       </div>
-    </fieldset>
+      
+      <div class="filter-actions actions form-actions" data-hook="buttons">
+        <%= button @order.cart? ? Spree.t('actions.continue') : Spree.t('actions.update'), @order.cart? ? 'arrow-right' : 'refresh' %>
+    </div>
+    </div>
+    </div>
   <% end %>
 <% else %>
   <%= Spree.t(:cannot_create_payment_without_payment_methods) %>
   <%= link_to Spree.t(:please_define_payment_methods), admin_payment_methods_url %>
 <% end %>
+</div>
+<%= render :partial => 'spree/admin/shared/order_tabs', :locals => { :current => 'Payments' } %>

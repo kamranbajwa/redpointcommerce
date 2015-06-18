@@ -1,33 +1,34 @@
 <div data-hook="admin_shipping_method_form_fields" class="alpha twelve columns">
-  <div data-hook="admin_shipping_method_form_name_field" class="alpha six columns">
+ <div class="row">
+  <div data-hook="admin_shipping_method_form_name_field" class="col-md-6">
     <%= f.field_container :name do %>
       <%= f.label :name, Spree.t(:name) %><br />
-      <%= f.text_field :name, :class => 'fullwidth' %>
+      <%= f.text_field :name, :class => 'form-control' %>
       <%= error_message_on :shipping_method, :name %>
     <% end %>
   </div>
 
-  <div data-hook="admin_shipping_method_form_display_field" class="omega six columns">
+  <div data-hook="admin_shipping_method_form_display_field" class="col-md-6">
     <%= f.field_container :display_on do %>
       <%= f.label :display_on, Spree.t(:display) %><br />
-      <%= select(:shipping_method, :display_on, Spree::ShippingMethod::DISPLAY.collect { |display| [Spree.t(display), display == :both ? nil : display.to_s] }, {}, {:class => 'select2 fullwidth'}) %>
+      <%= select(:shipping_method, :display_on, Spree::ShippingMethod::DISPLAY.collect { |display| [Spree.t(display), display == :both ? nil : display.to_s] }, {}, {:class => 'select2 form-control'}) %>
       <%= error_message_on :shipping_method, :display_on %>
     <% end %>
   </div>
-
-  <div class="alpha omega twelve columns">
-    <div data-hook="admin_shipping_method_form_internal_name_field" class="alpha six columns">
+</div>
+  <div class="row">
+    <div data-hook="admin_shipping_method_form_internal_name_field" class="col-md-6">
       <%= f.field_container :admin_name do %>
         <%= f.label :admin_name, Spree.t(:internal_name) %><br />
-        <%= f.text_field :admin_name, :class => 'fullwidth', :label => false  %>
+        <%= f.text_field :admin_name, :class => 'form-control', :label => false  %>
         <%= error_message_on :shipping_method, :admin_name %>
       <% end %>
     </div>
 
-    <div data-hook="admin_shipping_method_form_code" class="omega six columns">
+    <div data-hook="admin_shipping_method_form_code" class="col-md-6">
       <%= f.field_container :code do %>
         <%= f.label :code, Spree.t(:code) %><br />
-        <%= f.text_field :code, :class => 'fullwidth', :label => false  %>
+        <%= f.text_field :code, :class => 'form-control', :label => false  %>
         <%= error_message_on :shipping_method, :code %>
       <% end %>
     </div>
@@ -36,15 +37,15 @@
   <div data-hook="admin_shipping_method_form_tracking_url_field" class="alpha twelve columns">
     <%= f.field_container :tracking_url do %>
       <%= f.label :tracking_url, Spree.t(:tracking_url) %><br />
-      <%= f.text_field :tracking_url, :class => 'fullwidth', :placeholder => Spree.t(:tracking_url_placeholder) %>
+      <%= f.text_field :tracking_url, :class => 'form-control', :placeholder => Spree.t(:tracking_url_placeholder) %>
       <%= error_message_on :shipping_method, :tracking_url %>
     <% end %>
   </div>
 </div>
 
-<div class="alpha six columns">
-  <div data-hook="admin_shipping_method_form_availability_fields" class="alpha six columns">
-    <fieldset class="categories no-border-bottom">
+<div class="row">
+  <div data-hook="admin_shipping_method_form_availability_fields" class="col-md-6">
+    <div class="categories no-border-bottom">
       <legend align="center"><%= Spree.t(:shipping_categories) %></legend>
           <%= f.field_container :categories do %>
         <% Spree::ShippingCategory.all.each do |category| %>
@@ -55,11 +56,11 @@
         <% end %>
         <%= error_message_on :shipping_method, :shipping_category_id %>
       <% end %>
-    </fieldset>
+    </div>
   </div>
 
-  <div class="alpha six columns">
-    <fieldset class="no-border-bottom">
+  <div class="col-md-6">
+    <div class="no-border-bottom">
       <legend align="center"><%= Spree.t(:zones) %></legend>
       <%= f.field_container :zones do %>
         <% shipping_method_zones = @shipping_method.zones.to_a %>
@@ -72,23 +73,24 @@
         <% end %>
         <%= error_message_on :shipping_method, :zone_id %>
       <% end %>
-    </fieldset>
+    </div>
   </div>
 </div>
-
-<div data-hook="admin_shipping_method_form_calculator_fields" class="omega six columns">
+<div class="row">
+<div data-hook="admin_shipping_method_form_calculator_fields" class="col-md-6">
   <%= render :partial => 'spree/admin/shared/calculator_fields', :locals => { :f => f } %>
 </div>
 
-<div class="alpha six columns">
-  <div class="alpha six columns">
-    <fieldset class="tax_categories no-border-bottom">
+<div class="col-md-6">
+  <div style="margin-top: 5px;">
+    <div class="tax_categories no-border-bottom">
       <legend align="center"><%= Spree.t(:tax_category) %></legend>
         <%= f.field_container :categories do %>
-          <%= f.select :tax_category_id, @tax_categories.map { |tc| [tc.name, tc.id] }, {include_blank: true}, class: "select2 fullwidth" %>
+          <%= f.select :tax_category_id, @tax_categories.map { |tc| [tc.name, tc.id] }, {include_blank: true}, class: "select2 form-control" %>
           <%= error_message_on :shipping_method, :tax_category_id %>
         <% end %>
-    </fieldset>
+    </div>
   </div>
+</div>
 </div>
 

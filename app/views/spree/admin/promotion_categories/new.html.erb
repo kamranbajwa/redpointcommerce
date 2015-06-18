@@ -2,11 +2,22 @@
   <%= Spree.t(:new_promotion_category) %>
 <% end %>
 
-<%= render 'spree/admin/shared/promotion_sub_menu' %>
-
+<div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-gift"></i> New Promotion Category
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
 <%= form_for :promotion_category, :url => collection_url do |f| %>
-  <fieldset class="no-border-top">
+  <div class="form-body">
     <%= render :partial => 'form', :locals => { :f => f } %>
+    </div>
     <%= render :partial => 'spree/admin/shared/new_resource_links' %>
-  </fieldset>
 <% end %>
+</div>
+</div>

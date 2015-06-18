@@ -4,60 +4,67 @@
 
 <% content_for :page_actions do %>
   <li id="new_property_link">
-    <%= button_link_to Spree.t(:new_property), new_admin_property_url, { :remote => true, :icon => 'plus', 'data-update' => 'new_property', :id => 'new_property_link' } %>
+    <%= link_to new_admin_property_url, { :remote => true, :icon => 'plus', 'data-update' => 'new_property', :id => 'new_property_link', class: "btn blue"} do %> <i class="fa fa-plus"></i><%= Spree.t(:new_property) %> <% end %>
   </li>
 <% end %>
-
-<%= render 'spree/admin/shared/product_sub_menu' %>
-
-<% content_for :table_filter_title do %>
-  <%= Spree.t(:search) %>
-<% end %>
-
 <% content_for :table_filter do %>
-  <div data-hook="admin_property_sidebar">
+<div data-hook="admin_products_sidebar" class="portlet light">
+  <div class="portlet-title">
+    <div class="caption font-red-sunglo">
+      <i class="icon-settings font-red-sunglo"></i>
+      <span class="caption-subject bold uppercase"> Search</span>
+    </div>
+  </div>
+  <div class="portlet-body form">
 
     <%= search_form_for [:admin, @search] do |f| %>
+    <div class="form-body">
 
-        <%- locals = {:f => f} %>
+      <%- locals = {:f => f} %>
 
-        <div data-hook="admin_property_index_search">
-          <div class="alpha eight columns">
-            <div class="field">
-              <%= f.label :name_cont, Spree.t(:name) %>
-              <%= f.text_field :name_cont, :size => 15 %>
-            </div>
-          </div>
+      <div class="form-group form-md-line-input col-md-12">
+        <%= f.text_field :name_cont, :size => 15, class: "form-control" %>
+        <%= f.label :name_cont, Spree.t(:name) %>
+        <span class="help-block">Name goes here...</span>
+      </div>
+
+      <div class="clear"></div>
+      <div class="form-actions">
+        <div data-hook="admin_pproperties_index_search_buttons">
+          <button type="submit" class="btn blue"><%= Spree.t(:search) %></button>
         </div>
-
-        <div class="clear"></div>
-
-        <div class="form-buttons actions filter-actions" data-hook="admin_pproperties_index_search_buttons">
-          <%= button Spree.t(:search), 'search' %>
-        </div>
+      </div>
+    </div>
     <% end %>
   </div>
+</div>
 <% end %>
-
+<div class="">
 <div id="new_property"></div>
 
 <% if @properties.any? %>
-<table class="index" id='listing_properties' data-hook>
-  <colgroup>
-    <col style="width: 40%">
-    <col style="width: 45%">
-    <col style="width: 15%">
-  </colgroup>
-  <thead>
-    <tr data-hook="listing_properties_header">
+<div class="portlet box blue">
+    <div class="portlet-title">
+      <div class="caption">
+        <i class="fa fa-cogs"></i>Properties
+      </div>
+      <div class="tools">
+        <a href="javascript:;" class="collapse" data-original-title="" title="">
+        </a>
+      </div>
+    </div>
+    <div class="portlet-body flip-scroll">
+      <table class="table table-bordered table-striped table-condensed flip-content">
+        <thead class="flip-content">
+         <tr data-hook="listing_properties_header">
       <th><%= Spree.t(:name) %></th>
       <th><%= Spree.t(:presentation) %></th>
       <th class="actions"></th>
     </tr>
-  </thead>
-  <tbody>
-    <% @properties.each do |property| %>
-      <tr id="<%= spree_dom_id property %>" data-hook="listing_properties_row" class="<%= cycle('odd', 'even')%>">
+        </thead>
+        <tbody>
+           <% @properties.each do |property| %>
+      <tr id="<%= spree_dom_id property %>" data-hook="listing_properties_row">
         <td style="padding-left:1em"><%= property.name %></td>
         <td style="padding-left:1em"><%= property.presentation %></td>
         <td class="actions">
@@ -66,13 +73,15 @@
         </td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+        </tbody>
+        </table>
+        </div>
+        </div>
 <% else %>
   <div class="alpha twelve columns no-objects-found">
     <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/property')) %>,
     <%= link_to Spree.t(:add_one), spree.new_admin_property_path %>!
   </div>
 <% end %>
-
+</div>
 <%= paginate @collection %>

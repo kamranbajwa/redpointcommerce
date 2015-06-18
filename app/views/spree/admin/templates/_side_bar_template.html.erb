@@ -1,22 +1,36 @@
- <aside  data-hook="" class="four columns"> <br>
-          <nav class="menu">
-            <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
-             <% if params[:controller]=="spree/admin/templates"and params[:action]=="index"%>
-             <li class="active" ><a href="/admin/templates">Templates</a></li>
-             <% else %>
-             <li><a href="/admin/templates">Templates</a></li>
-              <% end %>
-              <% if params[:controller]=="spree/admin/templates"and params[:action]=="edit" %>
-              <li class="active" ><a href="/admin/templates/<%=@selected_template.id%>/edit">Themes</a></li>
-<%else%>
-<li><a href="/admin/templates/<%=@selected_template.id%>/edit">Themes</a></li>
-<%end%>
- <% if params[:controller]=="spree/admin/slider_images"and params[:action]=="index" %>
-              <li class="active"><a href="/admin/slider_images">Sliders</a></li>
-              <%else%>
-              <li><a href="/admin/slider_images">Sliders</a></li>
-              <%end%>
-              <li><a href="<%= new_admin_template_image_path %>">Images</a></li>
-            </ul>
-          </nav>
-        </aside>
+ <div class="col-md-3">
+    <ul class="ver-inline-menu tabbable margin-bottom-10">
+      <li class="<%= is_active?('/admin/templates') %>">
+        <a href="/admin/templates" aria-expanded="true">
+         <i class="fa fa-book"></i>
+          Templates
+       </a>
+       <span class="after">
+        </span>
+     </li>
+      <li class="<%= is_active?("/admin/templates/#{@selected_template.id}/edit") %>">
+        <a href="/admin/templates/<%=@selected_template.id%>/edit" aria-expanded="true">
+         <i class="fa fa-book"></i>
+          Themes
+       </a>
+       <span class="after">
+        </span>
+     </li>
+     <li class="<%= is_active?('/admin/slider_images') %>">
+        <a href="/admin/slider_images" aria-expanded="true">
+         <i class="fa fa-book"></i>
+          Slider Images
+       </a>
+       <span class="after">
+        </span>
+     </li>
+      <li class="<%= is_active?(new_admin_template_image_path) %>">
+        <a href="<%= new_admin_template_image_path %>" aria-expanded="true">
+         <i class="fa fa-book"></i>
+          Template Images
+       </a>
+       <span class="after">
+        </span>
+     </li>
+</ul>
+  </div>

@@ -1,5 +1,4 @@
 <% s_or_b = type.chars.first %>
-
 <div id="<%= type %>" data-hook="address_fields">
   <div class="field <%= "#{type}-row" %>">
     <%= f.label :firstname, Spree.t(:first_name) %>
@@ -60,7 +59,6 @@
     <%= f.phone_field :phone, :class => 'fullwidth' %>
   </div>
 </div>
-
 <% content_for :head do %>
   <%= javascript_tag do -%>
     $(document).ready(function(){

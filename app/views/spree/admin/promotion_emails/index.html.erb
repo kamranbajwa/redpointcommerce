@@ -1,45 +1,49 @@
 <%=render :partial=>'promotion_emails_nav'%>
-<div class="container">
-  <div class="row">
-    <div class="with-sidebar " >
-      <div class="twelve columns"> <br>
-        <div class="row">
-        <br>
-        <br>
-          <table class="index" id="listing_products">
-            <colgroup>
-              <col style="width: 50%;">
-            </colgroup>
-            <thead>
-              <tr data-hook="admin_products_index_headers">
-                <th>Title</th>
-                <th data-hook="admin_products_index_header_actions" class="actions"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <%@promotion_emails.each do |emailtmp| %>
-                <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
-                  <td class="align-center"><%= emailtmp.title %></td>
-                  <td class="actions" data-hook="admin_products_index_row_actions">
-                    <%= link_to '', edit_admin_promotion_email_path(emailtmp), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%>
-                 <!--    <button name="button" class="fa fa-email button">Resend</button>  -->
-                    <%= link_to '', admin_promotion_email_path(emailtmp), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash icon_link with-tip no-text", "data-action" => "remove" %>
-                    <%= link_to '', select_user_admin_promotion_email_path(emailtmp), class: "fa fa-envelope icon_link with-tip no-text"%>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
+<div class="col-md-9">
+  <div class="portlet box blue">
+    <div class="portlet-title">
+      <div class="caption">
+        <i class="fa fa-cogs"></i>Users
       </div>
-<aside  data-hook="" class="four columns"> <br>
-  <nav class="menu">
-    <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
-      <li><a href="/admin/cms_pages">Promotions Emails Template</a></li>
-      <hr>
+      <div class="tools">
+        <a href="javascript:;" class="collapse" data-original-title="" title="">
+        </a>
+      </div>
+    </div>
+    <div class="portlet-body flip-scroll">
+      <table class="table table-bordered table-striped table-condensed flip-content">
+        <thead class="flip-content">
+          <tr>
+            <th width="80%">Title</th>
+            <th data-hook="admin_products_index_header_actions" class="actions"></th>
+          </tr>
+        </thead>
+        <tbody>
+         <%@promotion_emails.each do |emailtmp| %>
+         <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
+          <td class="align-center"><%= emailtmp.title %></td>
+          <td class="actions" data-hook="admin_products_index_row_actions">
+            <%= link_to '', edit_admin_promotion_email_path(emailtmp), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%>
+            <!--    <button name="button" class="fa fa-email button">Resend</button>  -->
+            <%= link_to '', admin_promotion_email_path(emailtmp), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash icon_link with-tip no-text", "data-action" => "remove" %>
+            <%= link_to '', select_user_admin_promotion_email_path(emailtmp), class: "fa fa-envelope icon_link with-tip no-text"%>
+          </td>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="col-md-3">
+ <div class="page-sidebar-wrapper">
+  <div class="page-sidebar navbar-collapse collapse">
+    <ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+      <h3 class="form-section" align="center">Promotions Emails Template</h3>
       <% @promotion_emails.each do |promotion| %>
-        <li><a href="/admin/promotion_emails/<%= promotion.id %>/edit"><%= promotion.title %></a></li>
+      <li style="border-bottom: 1px solid #eee;"><a href="/admin/promotion_emails/<%= promotion.id %>/edit"><span><%= promotion.title %></span></a></li>
       <% end %>
     </ul>
-  </nav>
-</aside>
+  </div>
+</div>
+</div>

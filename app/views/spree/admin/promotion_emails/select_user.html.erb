@@ -1,5 +1,17 @@
     <%=render :partial=>'promotion_emails_nav'%>
+    <div class="portlet box blue">
+ <div class="portlet-title">
+  <div class="caption">
+    <i class="fa fa-gift"></i> Select User
+  </div>
+  <div class="tools">
+    <a href="" class="collapse" data-original-title="" title="">
+    </a>
+  </div>
+</div>
+<div class="portlet-body form">
     <%= form_tag(send_emails_admin_promotion_email_path, method: "get") do %>
+    <div class="form-body">
     <table class="ptable">
       <thead>
         <tr data-hook="promotion_email_header">
@@ -16,17 +28,19 @@
         <% end %>
       </tbody>
     </table>
-    <fieldset>
-      <div class="form-buttons filter-actions actions" data-hook="buttons">
+    </div>
+         <div class="form-buttons filter-actions actions form-actions" data-hook="buttons">
        
-       <a class="button" href="javascript:void(0)" onclick="window.history.back();"><span class="text white_color">Back</span></a>
+       <a class="btn blue" href="javascript:void(0)" onclick="window.history.back();"><span class="text white_color">Back</span></a>
        
        <span class="or">or</span>
-       <a class="button remove-border"><span class="text"><%= submit_tag("Send email") %></span></a>
+       <button type="submit" class="btn blue">Send Email</button>
      </div>
 
    </fieldset>
    <%end%>
+   </div>
+   </div>
    <script type="text/javascript">
     $(document).ready(function(){
      $(':checkbox').attr('checked',true);
@@ -37,12 +51,4 @@
         checkboxes[i].checked = source.checked;
       }
     }
-//   $('#select-all').click(function(event) {   
-//     if(this.checked) {
-//         // Iterate each checkbox
-//         $(':checkbox').each(function() {
-//             this.checked = true;                        
-//         });
-//     }
-// });
   </script>

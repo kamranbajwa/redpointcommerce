@@ -1,15 +1,24 @@
 <% content_for :page_actions do %>
-  <li><%= button_link_to Spree.t(:back_to_products_list), session[:return_to] || admin_products_url, :icon => 'arrow-left' %></li>
+  <li><%= link_to session[:return_to] || admin_products_url, class: "btn blue" do %><i class="fa fa-arrow-left"></i> <%= Spree.t(:back_to_products_list) %><% end %></li>
 <% end %>
 
-<%= render :partial => 'spree/admin/shared/product_sub_menu' %>
-<%= render :partial => 'spree/admin/shared/product_tabs', :locals => { :current => 'Stock Management' } %>
+<div class="col-md-9">
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @product } %>
-
+ <div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+       <%= Spree.t(:add_stock_management) %>
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+ <div class="portlet-body form">
 <div id="add_stock_form">
   <%= render 'add_stock_form' %>
 </div>
-
+ <div class="form-body">
 <table class="index" id="listing_product_stock">
   <colgroup>
     <col style="width: 25%" />
@@ -89,3 +98,10 @@
     <% end %>
   </tbody>
 </table>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<%= render :partial => 'spree/admin/shared/product_tabs', :locals => { :current => 'Stock Management' } %>
+</div>

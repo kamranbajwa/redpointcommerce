@@ -1,20 +1,34 @@
 <% content_for :page_actions do %>
-  <li class="btn-padding"><%= button_link_to Spree.t(:back_to_products_list), session[:return_to] || admin_products_url, :icon => 'arrow-left' %></li>
+  <li class="btn-padding"><%= link_to session[:return_to] || admin_products_url, class: "btn blue" do %><i class="fa fa-arrow-left"></i><%= Spree.t(:back_to_products_list)%> <% end %></li>
   <% if can?(:create, Spree::Product) %>
     <li id="new_product_link">
-      <%= button_link_to Spree.t(:new_product), new_object_url, { :icon => 'plus', :id => 'admin_new_product' } %>
+      <%= link_to new_object_url, { class: "btn blue", :id => 'admin_new_product' } do %><i class="fa fa-plus"></i><%= Spree.t(:new_product)%><% end %>
     </li>
   <% end %>
 <% end %>
 
-<%= render :partial => 'spree/admin/shared/product_sub_menu' %>
 
-<%= render :partial => 'spree/admin/shared/product_tabs', :locals => { :current => 'Product Details' } %>
+ <div class="portlet box blue col-md-9">
+   <div class="portlet-title">
+    <div class="caption">
+       <%= Spree.t(:new_product) %>
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @product } %>
 
 <%= form_for [:admin, @product], :method => :put, :html => { :multipart => true } do |f| %>
-  <fieldset class="no-border-top">
+  <div class="form-body">
     <%= render :partial => 'form', :locals => { :f => f } %>
+  </div>
     <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
-  </fieldset>
 <% end %>
+</div>
+</div>
+<div class="col-md-3">
+  <%= render :partial => 'spree/admin/shared/product_tabs', :locals => { :current => 'Product Details' } %>
+</div>

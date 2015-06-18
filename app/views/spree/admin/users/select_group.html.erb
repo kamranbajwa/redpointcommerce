@@ -1,19 +1,39 @@
 <% content_for :page_title do %>
   <%= link_to "#{Spree.t(:editing_user)} #{@user.email}", edit_admin_user_url(@user) %>
 <% end %>
+<div class="col-md-9">
+	<div class="portlet box blue">
+		<div class="portlet-title">
+			<div class="caption">
+       Assign Group
+			</div>
+			<div class="tools">
+				<a href="" class="collapse" data-original-title="" title="">
+				</a>
+			</div>
+		</div>
+		<div class="portlet-body form">
+      <%= form_tag(assign_group_admin_user_path(@u), method: "get") do %>
+      <div class="form-body">
+      <% if @u.user_group %>
+      <h3>Current Group is <%= @u.user_group.name%></h3>
+      <% end %>
+     <div class="form-group">
+      <label>Select Group </label>
+      <div class="input-icon">
+      <%= select("post", "group_id", Spree::UserGroup.all.collect {|p| [ p.name, p.id ] }, {},{class: "form-control"})%>
+      </div>
+      </div>
+     </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn blue">Assign group</button>
+       </div>
+     <% end %>
+		</div>
+	</div>
+</div>
+
+
 <%= render :partial => 'spree/admin/users/sidebar', :locals => { :current => :user_groups } %>
 <%= render :partial => 'spree/admin/users/user_page_actions' %>
-<%= form_tag(assign_group_admin_user_path(@u), method: "get") do %>
-<% if @u.user_group %>
-<h3>Current Group is <%= @u.user_group.name%></h3>
-<% end %>
-<br><br>
-<label>Select Group </label>
-<%= select("post", "group_id", Spree::UserGroup.all.collect {|p| [ p.name, p.id ] })%>
-<br><br>
-<fieldset>
-  <div class="form-buttons filter-actions actions" data-hook="buttons">
-   <a class="button remove-border"><span class="text"><%= submit_tag("Assign User") %></span></a>
- </div>
-</fieldset>
-<% end %>

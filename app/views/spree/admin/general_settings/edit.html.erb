@@ -1,130 +1,157 @@
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
-
 <% content_for :page_title do %>
   <%= Spree.t(:general_settings) %>
 <% end %>
-
-<%= form_tag admin_general_settings_path, :method => :put do %>
-  <div id="preferences" data-hook>
-
-    <fieldset class="general no-border-top">
-
-      <%= fields_for :store do |f| %>
-        <div class="field" data-hook="admin_general_setting_input_name">
-          <%= f.label :name %>
-          <br />
-          <%= f.text_field :name, class: 'fullwidth' %>
-        </div>
-
-        <div class="field" data-hook="admin_general_setting_input_seo_title">
-          <%= f.label :seo_title %>
-          <br />
-          <%= f.text_field :seo_title, class: 'fullwidth'  %>
-        </div>
-
-        <div class="field" data-hook="admin_general_setting_input_meta_keywords">
-          <%= f.label :meta_keywords %>
-          <br />
-          <%= f.text_field :meta_keywords, class: 'fullwidth'  %>
-        </div>
-
-        <div class="field" data-hook="admin_general_setting_input_meta_description">
-          <%= f.label :meta_description %>
-          <br />
-          <%= f.text_field :meta_description, class: 'fullwidth'  %>
-        </div>
-
-        <div class="field" data-hook="admin_general_setting_input_url">
-          <%= f.label :url %>
-          <br />
-          <%= f.text_field :url, class: 'fullwidth'  %>
-        </div>
-
-        <div class="field" data-hook="admin_general_setting_mail_from_address">
-          <%= f.label :mail_from_address %>
-          <br />
-          <%= f.text_field :mail_from_address, class: 'fullwidth'  %>
-        </div>
-      <% end %>
-
+<div class="col-md-12">
+  <div class="portlet light bordered">
+    <div class="portlet-title">
+      <div class="caption">
+        <i class="icon-equalizer font-red-sunglo"></i>
+        <span class="caption-subject font-red-sunglo bold uppercase">General Settings</span>
+        <span class="caption-helper">Store settings here .....</span>
+      </div>
+      <div class="tools">
+        <a href="" class="collapse" data-original-title="" title="">
+        </a>
+      </div>
+    </div>
+  <div class="portlet-body form">
+  <%= form_tag admin_general_settings_path, class: "form-horizontal", :method => :put do %>
+  <div id="preferences" class="form-body" data-hook>
+  <h3 class="form-section">Settings</h3>
+    <%= fields_for :store do |f| %>
       <div class="row">
-        <div class="alpha six columns">
-          <fieldset class="security no-border-bottom">
-            <legend align="center"><%= Spree.t(:security_settings)%></legend>
-            <% @preferences_security.each do |key|
-                type = Spree::Config.preference_type(key) %>
-                <div class="field">
-                  <%= label_tag(key, Spree.t(key)) + tag(:br) if type != :boolean %>
-                  <%= preference_field_tag(key, Spree::Config[key], :type => type) %>
-                  <%= label_tag(key, Spree.t(key)) + tag(:br) if type == :boolean %>
-                </div>
-            <% end %>
-          </fieldset>
-          <fieldset class="no-border-bottom">
-            <legend align="center"><%= Spree.t(:clear_cache)%></legend>
-            <div>
-              <%= Spree.t(:clear_cache_warning) %>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :name , class: "control-label col-md-3"%>
+            <div class="col-md-9">
+              <%= f.text_field :name, class: 'form-control' %>
             </div>
-            <div class="field" data-hook="general_settings_clear_cache">
-              <%= button Spree.t(:clear_cache), '', 'button', id: "clear_cache" %>
-            </div>
-          </fieldset>
+          </div>
         </div>
-        <div class="omega six columns">
-          <fieldset class="currency no-border-bottom">
-            <legend align="center"><%= Spree.t(:currency_settings)%></legend>
-            <% @preferences_currency.each do |key|
-                type = Spree::Config.preference_type(key) %>
-                <div class="field">
-                  <%= label_tag(key, Spree.t(key)) + tag(:br) if type != :boolean %>
-                  <%= preference_field_tag(key, Spree::Config[key], :type => type) %>
-                  <%= label_tag(key, Spree.t(key)) + tag(:br) if type == :boolean %>
-                </div>
-            <% end %>
-            <div class="field">
-              <%= label_tag :currency, Spree.t(:choose_currency) %><br>
-              <%= select_tag :currency, currency_options, :class => 'fullwidth' %>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :seo_title , class: "control-label col-md-3"%>
+            <div class="col-md-9">
+              <%= f.text_field :seo_title, class: 'form-control' %>
             </div>
-            <div class="field">
-              <%= label_tag Spree.t(:currency_symbol_position) %><br>
-              <div class="choices">
-                <ul>
-                  <li>
-                    <%= radio_button_tag :currency_symbol_position, "before", Spree::Config[:currency_symbol_position] == "before" %>
-                    <%= label_tag :currency_symbol_position_before, Spree::Money.new(10, :symbol_position => "before") %>
-                  </li>
-                  <li class="white-space-nowrap">
-                    <%= radio_button_tag :currency_symbol_position, "after", Spree::Config[:currency_symbol_position] == "after" %>
-                    <%= label_tag :currency_symbol_position_after, Spree::Money.new(10, :symbol_position => "after") %>
-                  </li>
-                </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :meta_keywords , class: "control-label col-md-3"%>
+            <div class="col-md-9">
+              <%= f.text_field :meta_keywords, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :meta_description , class: "control-label col-md-3"%>
+            <div class="col-md-9">
+              <%= f.text_field :meta_description, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :url , class: "control-label col-md-3"%>
+            <div class="col-md-9">
+              <%= f.text_field :url, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :mail_from_address , class: "control-label col-md-3"%>
+            <div class="col-md-9">
+              <%= f.text_field :mail_from_address, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <h3 class="form-section"><%= Spree.t(:security_settings)%></h3>
+        <div class="row">
+          <div class="col-md-12">
+            <% @preferences_security.each do |key|
+              type = Spree::Config.preference_type(key) %>
+              <div class="field">
+                <%= label_tag(key, Spree.t(key)) + tag(:br) if type != :boolean %>
+                <%= preference_field_tag(key, Spree::Config[key], :type => type) %>
+                <%= label_tag(key, Spree.t(key)) + tag(:br) if type == :boolean %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+          <h3 class="form-section"><%= Spree.t(:clear_cache)%></h3>
+          <div class="row">
+            <div class="col-md-12">
+            <p>
+                <%= Spree.t(:clear_cache_warning) %>
+              </p>
+              <div class="field" data-hook="general_settings_clear_cache">
+              <button type="submit" class="btn green" id="clear_cache"><%= Spree.t(:clear_cache)%></button>
               </div>
             </div>
-            <div class="field">
-              <%= label_tag :currency_decimal_mark, Spree.t(:currency_decimal_mark) %><br>
-              <%= text_field_tag :currency_decimal_mark, Spree::Config[:currency_decimal_mark], :size => 3 %>
+          </div>
+          <h3 class="form-section"><%= Spree.t(:currency_settings)%></h3>
+          <div class="row">
+            <div class="col-md-12">
+              <% @preferences_currency.each do |key|
+                type = Spree::Config.preference_type(key) %>
+                <div class="field">
+                  <%= label_tag(key, Spree.t(key)) + tag(:br) if type != :boolean %>
+                  <%= preference_field_tag(key, Spree::Config[key], :type => type) %>
+                  <%= label_tag(key, Spree.t(key)) + tag(:br) if type == :boolean %>
+                </div>
+                <% end %>
+              </div>
             </div>
-            <div class="field">
-              <%= label_tag :currency_thousands_separator, Spree.t(:currency_thousands_separator) %><br>
-              <%= text_field_tag :currency_thousands_separator, Spree::Config[:currency_thousands_separator], :size => 3 %>
+            <div class="row">
+            <div class="col-md-12">
+                  <%= label_tag :currency, Spree.t(:choose_currency) %><br>
+                  <%= select_tag :currency, currency_options, :class => 'fullwidth' %>
+              </div>
             </div>
-          </fieldset>
+            <h3 class="form-section"><%= Spree.t(:currency_symbol_position)%></h3>
+            <div class="row">
+              <div class="col-md-6">
+                <%= radio_button_tag :currency_symbol_position, "before", Spree::Config[:currency_symbol_position] == "before", style: "margin-left: 1px !important;"%>
+                <%= label_tag :currency_symbol_position_before, Spree::Money.new(10, :symbol_position => "before") %>
+                
+                <%= radio_button_tag :currency_symbol_position, "after", Spree::Config[:currency_symbol_position] == "after", style: "margin-left: 1px !important;" %>
+                <%= label_tag :currency_symbol_position_after, Spree::Money.new(10, :symbol_position => "after") %>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <%= label_tag :currency_decimal_mark, Spree.t(:currency_decimal_mark) %><br>
+            <%= text_field_tag :currency_decimal_mark, Spree::Config[:currency_decimal_mark], :size => 3 %>
+          </div>
+          <div class="field">
+            <%= label_tag :currency_thousands_separator, Spree.t(:currency_thousands_separator) %><br>
+            <%= text_field_tag :currency_thousands_separator, Spree::Config[:currency_thousands_separator], :size => 3 %>
+          </div>
         </div>
+
+          <div class="form-buttons filter-actions actions" data-hook="buttons">
+            <button type="submit" class="btn green">Update</button>
+            <span class="or"><%= Spree.t(:or) %></span>
+            <%= link_to edit_admin_general_settings_url, :class => 'btn default' do %>
+            <%= Spree.t('actions.cancel') %>
+            <% end %>
+          </div>
+
       </div>
 
-      <div class="form-buttons filter-actions actions" data-hook="buttons">
-        <%= button Spree.t('actions.update'), 'refresh' %>
-        <span class="or"><%= Spree.t(:or) %></span>
-        <%= link_to_with_icon 'remove', Spree.t('actions.cancel'), edit_admin_general_settings_url, :class => 'button' %>
-      </div>
-
-    </fieldset>
-
+      <% end %>
+    </div>
   </div>
-
-
-<% end %>
-
+</div>
 <script>
   $('#store_default_currency').select2();
   $('#currency').select2();

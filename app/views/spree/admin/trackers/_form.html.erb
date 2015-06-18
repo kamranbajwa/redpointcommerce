@@ -1,14 +1,14 @@
-<div data-hook="admin_tracker_form_fields" class="row">
+<div data-hook="admin_tracker_form_fields" class="">
   <div class="alpha four columns">
     <div data-hook="analytics_id" class="field">
       <%= label_tag :tracker_analytics_id, Spree.t(:google_analytics_id) %>
-      <%= text_field :tracker, :analytics_id, :class => 'fullwidth' %>
+      <%= text_field :tracker, :analytics_id, :class => 'form-control' %>
     </div>
   </div>
   <div class="four columns">
     <div data-hook="environment" class="field">
       <%= label_tag :tracker_environment, Spree.t(:environment) %>
-      <%= collection_select(:tracker, :environment, rails_environments, :to_s, :titleize, {}, {:id => 'tracker-env', :class => 'select2 fullwidth'}) %>
+      <%= collection_select(:tracker, :environment, rails_environments, :to_s, :titleize, {}, {:id => 'tracker-env', :class => 'select2 form-control'}) %>
     </div>
   </div>
   <div class="omega four columns">

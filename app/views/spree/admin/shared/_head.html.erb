@@ -11,14 +11,36 @@
   <% end %>
 </title>
 
+<!-- Old assets  -->
 
 <%= stylesheet_link_tag 'spree/backend/all' %>
-<%= stylesheet_link_tag "admin/admin.css" %>
 <%= stylesheet_link_tag "admin/main.css" %>
+<%= stylesheet_link_tag "/assets/jquery.timepicker" %>
 <%= javascript_include_tag 'spree/backend/all' %>
 <script src="/assets/jquery.timepicker.js"></script> 
-<link href="/assets/jquery.timepicker.css" rel="stylesheet" type="text/css" />
 <%= render "spree/admin/shared/translations" %>
+
+ <!-- Knee themes assets  -->
+
+ <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+ <%= stylesheet_link_tag "/assets/plugins/font-awesome/css/font-awesome.min" %>
+ <%= stylesheet_link_tag "/assets/plugins/simple-line-icons/simple-line-icons.min" %>
+ <%= stylesheet_link_tag "/assets/plugins/bootstrap/css/bootstrap.min" %>
+ <%= stylesheet_link_tag "/assets/plugins/uniform/css/uniform.default" %>
+ <%= stylesheet_link_tag "/assets/plugins/bootstrap-switch/css/bootstrap-switch.min" %>
+
+ <%= stylesheet_link_tag "/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3" %>
+ <%= stylesheet_link_tag "/assets/plugins/fullcalendar/fullcalendar.min" %>
+ <%= stylesheet_link_tag "/assets/plugins/morris/morris" %>
+ <%= stylesheet_link_tag "/assets/kneetheme/tasks" %>
+
+ <%= stylesheet_link_tag "/assets/kneetheme/components-rounded" %>
+ <%= stylesheet_link_tag "/assets/kneetheme/plugins" %>
+ <%= stylesheet_link_tag "/assets/kneetheme/layout" %>
+ <%= stylesheet_link_tag "/assets/kneetheme/light" %>
+ <%= stylesheet_link_tag "/assets/kneetheme/custom" %>
+
+ <!-- End  -->
 
 <%= javascript_tag do -%>
   jQuery.alerts.dialogClass = 'spree';

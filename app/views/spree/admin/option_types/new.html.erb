@@ -1,11 +1,21 @@
-<%= render :partial => 'spree/admin/shared/product_sub_menu' %>
-
+ <div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+       <%= Spree.t(:new_option_type) %>
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @option_type } %>
 
 <%= form_for [:admin, @option_type] do |f| %>
-  <fieldset>
-    <legend align="center"><%= Spree.t(:new_option_type) %></legend>
+  <div class="form-body">
     <%= render :partial => 'form', :locals => { :f => f } %>
+  </div>
     <%= render :partial => 'spree/admin/shared/new_resource_links' %>
-  </fieldset>
 <% end %>
+</div>
+</div>

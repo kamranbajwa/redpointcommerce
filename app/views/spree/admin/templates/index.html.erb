@@ -1,35 +1,15 @@
-<%=render :partial=>'spree/shared/setting_sub_nav_tab'%>
-<div id="content-header" data-hook="">
-    <div class="container">
-      <div class="sixteen columns">
-        <div class="block-table">
-          <div class="table-cell">
-            <h1 class="page-title ">Templates</h1>
-          </div>
-        </div>
+ <% content_for :page_title do %>
+  Templates
+ <% end %>
+ <div class="row">
+   <div class="col-md-9" style="background-color: #fff;">
+    <%Spree::Template.all.sort_by(&:template_no).each do |temp|%>
+    <a href="/admin/templates/<%=temp.id%>/edit">
+      <div class="col-md-4" style="margin-bottom:10px; margin-top: 10px;"> 
+        <img src="/assets/<%= temp.template_no%>/a.jpg" class="" />
       </div>
-    </div>
+    </a>
+    <%end%>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="with-sidebar " >
-        <div class="twelve columns"> <br>
-         
-<hr />
-
-
-
-  <div class="row">
-        <div class="alpha ">
-        <%Spree::Template.all.sort_by(&:template_no).each do |temp|%>
-        <a href="/admin/templates/<%=temp.id
-%>/edit"><div class="two column" style="margin-bottom:10px;"> <img src="/assets/<%= temp.template_no%>/a.jpg" class="" /></div></a>
-<%end%>
-            
-          </div>
-       
-      </div>
-
-
-        </div>
-        <%=render :partial=>'/spree/admin/templates/side_bar_template'%>
+    <%=render :partial=>'/spree/admin/templates/side_bar_template'%>
+</div>

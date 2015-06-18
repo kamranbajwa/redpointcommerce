@@ -1,17 +1,9 @@
-
-<div id="content-header" data-hook="">
-<div class="container">
-  <div class="">
-    <div class="">
-      <div class="block-table">
-        <div class="table-cell">
-          <h1 class="page-title "> Blog Posts</h1>
-        </div>
-        <% if params[:action]=="index" %>
-             <%= link_to 'New Post', new_admin_blog_path ,  class: 'button fa fa-plus add-page', icon: "plus" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+<% content_for :page_title do %>
+Blog Posts
+<% end %>
+<% content_for :page_actions do %>
+<li >
+  <%= link_to new_admin_blog_path, class: 'btn blue', icon: "plus" do %><i class="fa fa-plus"></i>New Post
+  <% end %>
+</li>
+<% end%>

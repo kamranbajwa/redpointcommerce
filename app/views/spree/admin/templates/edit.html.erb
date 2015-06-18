@@ -1,82 +1,59 @@
-   <%= render :partial => 'spree/shared/setting_sub_nav_tab' %>
-  <div id="content-header" data-hook="">
-    <div class="container">
-      <div class="sixteen columns">
-        <div class="block-table">
-          <div class="table-cell">
-            <h1 class="page-title "> Themes </h1>
-          </div>
-        </div>
-      </div>
+<% content_for :page_title do %>
+  Themes
+<% end %>
+<div class="col-md-9">
+  <div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-gift"></i> Select Theme
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
     </div>
   </div>
-    <div class="container">
-    <div class="row">
-      <div class="with-sidebar " >
-       <div class="twelve columns">
-              
-<br>
+  <div class="portlet-body form">
+   <%= form_for(@template,url:  admin_template_path) do |f| %>
+   <div class="form-body">
+   <div class="row">
+    <div class="col-md-6" style="text-align:center;">
+      <img src="/assets/<%= @template.template_no%>/a.jpg" class=""> 
 
-<hr>
-
-
- <%= form_for(@template,url:  admin_template_path) do |f| %>
-  <div class="row">
-        <div class="alpha six columns" style="text-align:center;">
-          <img src="/assets/<%= @template.template_no%>/a.jpg" class=""> 
-
-          </div>
-        <div class="omega six columns">
-        <p>
-        </p><h3><%= @template.name %></h3>
-        <%unless @template.name == "Ware house" %>
-          <fieldset class="currency no-border-bottom">
-            <legend align="center">Color Themes</legend>
-            
-            <div class="field" data-hook="admin_general_setting_input_meta_keywords">
-     		
-         
-          <div class="field" >
-                <%= f.select :theme_color, @template.themes.collect {|p| [ p.name, p.name ] }, :prompt => 'Select One' , :class => 'fullwidth'
-                %>
-            </div>
-                
-        
-        </div>
-         </fieldset>
-         <%end%>
-         
-               
-              
-           
-        
-          
-           <fieldset>
-  <div class="form-buttons filter-actions actions" data-hook="buttons">
-       
-         <a class="button" href="/admin/templates"><span class="text white_color">Back</span></a>
-       
-        <span class="or">or</span>
-        <a class="button remove-border"><span class="text"><%= f.submit "Save" %></span></a>
-      </div>
-
-    </fieldset>
-        </div>
-      </div>
-<%end%> 
-
-
-
-
-
-
-            </div>
-
-
-        </div>
-       <%=render :partial=>'/spree/admin/templates/side_bar_template'%>
-      </div>
     </div>
+    <div class="col-md-6">
+      <p>
+      </p><h3><%= @template.name %></h3>
+      <%unless @template.name == "Ware house" %>
+      <fieldset class="currency no-border-bottom">
+        <legend align="center">Color Themes</legend>
 
+        <div class="field" data-hook="admin_general_setting_input_meta_keywords">
+
+
+          <div class="field" >
+            <%= f.select :theme_color, @template.themes.collect {|p| [ p.name, p.name ] }, {}, {:prompt => 'Select One' , :class => 'form-control'}
+            %>
+          </div>
+
+
+        </div>
+      </fieldset>
+ </div>
+ </div>
+   </div>
+      <%end%>
+        <div class="form-buttons filter-actions actions form-actions" data-hook="buttons">
+         <a class="btn blue" href="/admin/templates"><span class="text white_color">Back</span></a>
+
+         <span class="or">or</span>
+         <button type="submit" class="btn blue">Save</button>
+       </div>
+
+ <%end%> 
+</div>
+</div>
+</div>
+       <%=render :partial=>'/spree/admin/templates/side_bar_template'%>
+    
 
 

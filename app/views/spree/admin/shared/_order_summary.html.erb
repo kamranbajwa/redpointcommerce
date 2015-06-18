@@ -1,4 +1,10 @@
-<header id="order_tab_summary" data-hook>
+<div id="order_tab_summary" data-hook class="portlet blue-hoki box">
+<div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-cogs"></i>Order Information
+    </div>
+  </div>
+  <div class="portlet-body">
   <dl class="additional-info">
     <dt id="order_status" data-hook><%= Spree.t(:status) %>:</dt>
     <dd><span class="state <%= @order.state %>"><%= Spree.t(@order.state, :scope => :order_state) %></span></dd>
@@ -45,4 +51,5 @@
       <dd><%= pretty_time(@order.canceled_at) %></dd>
     <% end %>
   </dl>
-</header>
+  </div>
+</div>

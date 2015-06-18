@@ -1,22 +1,30 @@
-<fieldset id="rule_fields" class ="alpha eight columns no-border-bottom no-border-top">
+<div id="rule_fields" class ="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-gift"></i> Rules
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
 
   <%= form_tag spree.admin_promotion_promotion_rules_path(@promotion), :remote => true, :id => 'new_product_rule_form' do %>
-    <fieldset>
-      <legend align="center"><%= Spree.t(:rules) %></legend>
-
+  <div class="form-body">
       <div class="field">
         <%= label_tag :promotion_rule_type, Spree.t(:add_rule_of_type) %>  
         <%= select_tag('promotion_rule[type]', options_for_promotion_rule_types(@promotion), :class => 'select2 fullwidth') %>
       </div>
-      <div class="filter-actions actions">
+      </div>
+      <div class="filter-actions actions form-actions">
         <%= button Spree.t(:add), 'plus' %>
       </div>
-    </fieldset>
   <% end %>
 
   
     <%= form_for @promotion, :url => object_url, :method => :put do |f| %>
-      <fieldset class="no-border-top">
+    <div class="form-body">
         <div id="promotion-pilicy-select" class="align-center row">
           <% Spree::Promotion::MATCH_POLICIES.each do |policy| %>
             <div class="alpha four columns">
@@ -34,12 +42,11 @@
             </div>
           <% end %>
         </div>
-
-        <div class="promotion-update filter-actions actions">
+        </div>
+        <div class="promotion-update filter-actions actions form-actions">
           <%= button Spree.t('actions.update'), 'refresh' %>
         </div>
-      </fieldset>
     <% end %>
   
-
-</fieldset>
+</div>
+</div>

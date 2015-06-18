@@ -33,7 +33,7 @@
     <%= f.text_field :phone_no, :class => 'fullwidth',:pattern => '[0-9]{1,13}',:title=>"Only Number" %>
   </div>
   <div class="field">
-        <span class="button fa fa-minus ">
+        <span class="btn blue fa fa-minus ">
          <span class="white-text">
             <%= f.hidden_field :_destroy %>
             <%=link_to_remove_fields_o "Remove address", f  %>

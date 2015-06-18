@@ -1,20 +1,14 @@
 <script type='text/template' id='variant_line_items_autocomplete_stock_template'>
-  <fieldset>
-    <legend align="center"><%= Spree.t(:select_stock) %></legend>
-    <table class="stock-levels" data-hook="stock-levels">
-      <colgroup>
-        <col style="width: 30%;" />
-        <col style="width: 40%;" />
-        <col style="width: 30%;" />
-      </colgroup>
-      <thead>
-        <th><%= Spree.t(:name) %></th>
-        <th><%= Spree.t(:count_on_hand) %></th>
-        <th><%= Spree.t(:quantity) %></th>
-        <th class="actions"></th>
-      </thead>
-      <tbody>
-        <tr>
+    <h3 align="form-section"><%= Spree.t(:select_stock) %></h3>
+      <table class="table table-bordered table-striped table-condensed flip-content stock-levels" data-hook="stock-levels">
+        <thead class="flip-content">
+          <th><%= Spree.t(:name) %></th>
+          <th><%= Spree.t(:count_on_hand) %></th>
+          <th><%= Spree.t(:quantity) %></th>
+          <th class="actions"></th>
+        </thead>
+        <tbody>
+          <tr>
           <td>{{variant.name}}</td>
           {{#unless variant.track_inventory}}
             <td>
@@ -43,7 +37,6 @@
             {{/if}}
           {{/unless}}
         </tr>
-      </tbody>
-    </table>
-  </fieldset>
+        </tbody>
+        </table>
 </script>

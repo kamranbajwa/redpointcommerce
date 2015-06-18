@@ -1,21 +1,30 @@
-<fieldset id="action_fields" class="eight columns omega no-border-top">
+<div id="action_fields" class ="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-gift"></i> Actions
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
 
   <%= form_tag spree.admin_promotion_promotion_actions_path(@promotion), :remote => true, :id => 'new_promotion_action_form' do %>
+  <div class="form-body">
     <% options = options_for_select(  Rails.application.config.spree.promotions.actions.map(&:name).map {|name| [ Spree.t("promotion_action_types.#{name.demodulize.underscore}.name"), name] } ) %>
-    <fieldset>
-      <legend align="center"><%= Spree.t(:promotion_actions) %></legend>
       <div class="field">
         <%= label_tag :action_type, Spree.t(:add_action_of_type)%>
-        <%= select_tag 'action_type', options, :class => 'select2 fullwidth' %>  
+        <%= select_tag 'action_type', options, :class => 'select2 form-control' %>  
       </div>
-      <div class="filter-actions actions">
+      </div>
+      <div class="filter-actions actions form-actions">
         <%= button Spree.t(:add), 'plus' %>
       </div>
-    </fieldset>
   <% end %>
 
   <%= form_for @promotion, :url => spree.admin_promotion_path(@promotion), :method => :put do |f| %>
-    <div id="actions" class="filter_list">
+    <div id="actions" class="filter_list form-body">
       <% if @promotion.actions.any? %>
         <%= render :partial => 'promotion_action',  :collection => @promotion.actions %>
       <% else %>
@@ -24,9 +33,10 @@
         </div>
       <% end %>
     </div>
-    <div class="filter-actions actions promotion-update">
+    <div class="filter-actions actions promotion-update form-actions">
       <%= button Spree.t('actions.update'), 'refresh' %>
     </div>
   <% end %>
 
-</fieldset>
+</div>
+</div>

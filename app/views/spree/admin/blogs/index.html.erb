@@ -1,49 +1,47 @@
 <%=render :partial=>'blog_sub_nav'%>
-<div class="container">
-  <div class="row">
-    <div class="with-sidebar " >
-      <div class="twelve columns"> <br>
-        <div class="row">
-        <br>
-        <br>
-        <% if @spree_blogs.size >0 %>
-        
-          <table class="index" id="listing_products">
-            <colgroup>
-              <col style="width: 50%;">
-            </colgroup>
-            <thead>
-              <tr data-hook="admin_products_index_headers">
-                <th>Title</th>
-                <th> Images</th>
-                 <th>Author</th>
-                <th>Summary</th>
-                <th>Published</th>
-                <th>Visiblity</th>
-                <th data-hook="admin_products_index_header_actions" class="actions"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @spree_blogs.each do |page| %>
-                <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
-                   <td class="align-center"> <%= page.title %></td>
-                   <td class="align-center">
-                       <%= image_tag page.avatar.url(:small) %>
-                   </td>
-                   <td class="align-center"> <%= page.try(:author) %> </td>
-                   <td class="align-center"> 
-                    <%=  truncate(page.try(:summary), length: 20)%>
-                   </td>
-                   <td class="align-center"> <%= page.try(:published_at) %>  </td>
-                   <td class="align-center"> <%= page.try(:visible) %></td>
-                  <td class="actions" data-hook="admin_products_index_row_actions">
-                    <%= link_to '', edit_admin_blog_path(page), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%> 
-                    <%= link_to '', admin_blog_path(page), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash icon_link with-tip no-text", "data-action" => "remove" %>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-          <%end%>
-        </div>
-      </div>
+<div class="portlet box blue">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-cogs"></i>Users
+    </div>
+    <div class="tools">
+      <a href="javascript:;" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body flip-scroll">
+    <table class="table table-bordered table-striped table-condensed flip-content">
+      <thead class="flip-content">
+       <tr data-hook="admin_products_index_headers">
+        <th>Title</th>
+        <th> Images</th>
+        <th>Author</th>
+        <th>Summary</th>
+        <th>Published</th>
+        <th>Visiblity</th>
+        <th data-hook="admin_products_index_header_actions" class="actions"></th>
+      </tr>
+      </thead>
+      <tbody>
+        <% @spree_blogs.each do |page| %>
+        <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
+         <td class="align-center"> <%= page.title %></td>
+         <td class="align-center">
+           <%= image_tag page.avatar.url(:small) %>
+         </td>
+         <td class="align-center"> <%= page.try(:author) %> </td>
+         <td class="align-center"> 
+          <%=  truncate(page.try(:summary), length: 20)%>
+        </td>
+        <td class="align-center"> <%= page.try(:published_at) %>  </td>
+        <td class="align-center"> <%= page.try(:visible) %></td>
+        <td class="actions" data-hook="admin_products_index_row_actions">
+          <%= link_to '', edit_admin_blog_path(page), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%> 
+          <%= link_to '', admin_blog_path(page), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash icon_link with-tip no-text", "data-action" => "remove" %>
+        </td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

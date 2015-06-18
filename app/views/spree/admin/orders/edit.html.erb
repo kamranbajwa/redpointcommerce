@@ -3,16 +3,15 @@
     <li><%= event_links %></li>
   <% end %>
   <% if can?(:resend, @order) %>
-    <li><%= button_link_to Spree.t(:resend), resend_admin_order_url(@order), method: :post, icon: 'email',id: "padding-admin-buttons" %></li>
+    <li><%= link_to resend_admin_order_url(@order), method: :post ,id: "padding-admin-buttons", class: "btn blue" do %><i class="fa fa-email"></i><%= Spree.t(:resend)%> <% end %> </li>
   <% end %>
   <% if can?(:admin, Spree::Order) %>
-    <li><%= button_link_to Spree.t(:back_to_orders_list), admin_orders_path, icon: 'arrow-left', 
-          id: "padding-admin-buttons" %></li>
+    <li><%= link_to admin_orders_path, class: "btn blue",
+          id: "padding-admin-buttons" do %> <i class="fa fa-arrow-left"></i> <%= Spree.t(:back_to_orders_list)%> <% end %> </li>
   <% end %>
 <% end %>
 
-<%= render :partial => 'spree/admin/shared/order_tabs', :locals => { :current => 'Shipments' } %>
-
+<div class="col-md-9">
 <div data-hook="admin_order_edit_header">
   <%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
 </div>
@@ -34,6 +33,8 @@
     <%= render partial: 'form', locals: { order: @order } %>
   </div>
 </div>
+</div>
+<%= render :partial => 'spree/admin/shared/order_tabs', :locals => { :current => 'Shipments' } %>
 
 <% content_for :head do %>
   <%= javascript_tag 'var expand_variants = true;' %>

@@ -1,23 +1,38 @@
-<%= render :partial => 'spree/admin/shared/order_tabs', :locals => { :current => 'Adjustments' } %>
 
 <% content_for :page_title do %>
   <i class="fa fa-arrow-right"></i> <%= Spree.t(:new_adjustment) %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <li><%= button_link_to Spree.t(:back_to_adjustments_list), spree.admin_order_adjustments_url(@order), :icon => 'arrow-left' %></li>
+  <li><%= link_to spree.admin_order_adjustments_url(@order), class: "btn blue" do %><i class="fa fa-arrow-left"></i>
+  <%= Spree.t(:back_to_adjustments_list)%><% end %></li>
 <% end %>
 
+<div class="col-md-9">
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @adjustment } %>
 
+ <div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-gift"></i> New Adjustment
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
 <%= form_for @adjustment, :url => admin_order_adjustments_path do |f| %>
-  <fieldset class="no-border-top">
+  <div class="form-body">
     <%= render :partial => 'form', :locals => { :f => f } %>
-
-    <div class="filter-actions actions" data-hook="buttons">
-      <%= button Spree.t(:continue), 'arrow-right' %>
+    </div>
+    <div class="filter-actions form-actions" data-hook="buttons">
+      <%= button Spree.t(:continue), 'arrow-right',class: "btn blue" %>
       <span class="or"><%= Spree.t(:or) %></span>
       <%= button_link_to Spree.t('actions.cancel'), admin_order_adjustments_url(@order), :icon => 'remove' %>
     </div>
-  </fieldset>
 <% end %>
+</div>
+</div>
+</div>
+<%= render :partial => 'spree/admin/shared/order_tabs', :locals => { :current => 'Adjustments' } %>

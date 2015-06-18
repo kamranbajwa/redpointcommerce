@@ -1,29 +1,30 @@
-<%= render 'spree/admin/shared/configuration_menu' %>
-
 <% content_for :page_title do %>
   <%= Spree.t(:tax_rates) %>
 <% end %>
 
 <% content_for :page_actions do %>
   <li>
-    <%= button_link_to Spree.t(:new_tax_rate), new_object_url, :icon => 'plus' %>
+    <%= link_to new_object_url, :icon => 'plus', class: "btn blue" do %>
+    <i class="fa fa-plus"></i><%= Spree.t(:new_tax_rate)%>
+    <% end %>
   </li>
 <% end %>
-
+<div class="col-md-12">
 <% if @tax_rates.any? %>
-  <table class="index">
-    <colgroup>
-      <col style="width: 15%">
-      <col style="width: 15%">
-      <col style="width: 10%">
-      <col style="width: 10%">
-      <col style="width: 10%">
-      <col style="width: 10%">
-      <col style="width: 15%">
-      <col style="width: 15%">
-    </colgroup>
-    <thead>
-      <tr data-hook="rate_header">
+<div class="portlet box blue">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-cogs"></i>Tax Categories
+    </div>
+    <div class="tools">
+      <a href="javascript:;" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body flip-scroll">
+    <table class="table table-bordered table-striped table-condensed flip-content">
+      <thead class="flip-content">
+       <tr data-hook="rate_header">
         <th><%= Spree.t(:zone) %></th>
         <th><%= Spree.t(:name) %></th>
         <th><%= Spree.t(:category) %></th>
@@ -33,10 +34,10 @@
         <th><%= Spree.t(:calculator) %></th>
         <th class="actions"></th>
       </tr>
-    </thead>
-    <tbody>
-      <% @tax_rates.each do |tax_rate|%>
-      <tr id="<%= spree_dom_id tax_rate %>" data-hook="rate_row" class="<%= cycle('odd', 'even')%>">
+      </thead>
+      <tbody>
+       <% @tax_rates.each do |tax_rate|%>
+       <tr id="<%= spree_dom_id tax_rate %>" data-hook="rate_row" class="<%= cycle('odd', 'even')%>">
         <td class="align-center"><%=tax_rate.zone.try(:name) || Spree.t(:not_available) %></td>
         <td class="align-center"><%=tax_rate.name %></td>
         <td class="align-center"><%=tax_rate.tax_category.try(:name) || Spree.t(:not_available) %></td>
@@ -50,11 +51,14 @@
         </td>
       </tr>
       <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
+</div>
 <% else %>
   <div class="alpha twelve columns no-objects-found">
     <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/tax_rate')) %>,
     <%= link_to Spree.t(:add_one), spree.new_admin_tax_rate_path %>!
   </div>
 <% end %>
+</div>

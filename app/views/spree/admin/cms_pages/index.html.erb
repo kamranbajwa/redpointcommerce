@@ -1,35 +1,40 @@
 <%=render :partial=>'cms_pages_sub_nav'%>
-<div class="container">
-  <div class="row">
-    <div class="with-sidebar " >
-      <div class="twelve columns"> <br>
-        <div class="row">
-        <br>
-        <br>
-          <table class="index" id="listing_products">
-            <colgroup>
-              <col style="width: 50%;">
-            </colgroup>
-            <thead>
-              <tr data-hook="admin_products_index_headers">
-                <th>Title</th>
-                <th data-hook="admin_products_index_header_actions" class="actions"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @pages.each do |page| %>
-                <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
-                  <td class="align-center"><%= page.title %></td>
-                  <td class="actions" data-hook="admin_products_index_row_actions">
-                    <%= link_to '', edit_admin_cms_page_path(page), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%> 
-                    <% unless page.check_default? %>
-                    <%= link_to '', admin_cms_page_path(page), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash icon_link with-tip no-text", "data-action" => "remove" %>
-                    <% end %>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
+<div class="col-md-9">
+<div class="portlet box blue">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-cogs"></i>Pages
+    </div>
+    <div class="tools">
+      <a href="javascript:;" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body flip-scroll">
+    <table class="table table-bordered table-striped table-condensed flip-content">
+      <thead class="flip-content">
+        <tr data-hook="admin_products_index_headers">
+          <th>Title</th>
+          <th data-hook="admin_products_index_header_actions" class="actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @pages.each do |page| %>
+        <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
+          <td class="align-center"><%= page.title %></td>
+          <td class="actions" data-hook="admin_products_index_row_actions">
+            <%= link_to '', edit_admin_cms_page_path(page), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%> 
+            <% unless page.check_default? %>
+            <%= link_to '', admin_cms_page_path(page), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash icon_link with-tip no-text", "data-action" => "remove" %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+<div class="col-md-3">
 <%=render :partial=>'side_bar'%>
+</div>

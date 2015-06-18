@@ -1,73 +1,89 @@
-  <%=render :partial=>'spree/shared/setting_sub_nav_tab'%>
-  <div class="container">
-    <div class="row">
-      <div class="with-sidebar " >
-        <div class="twelve columns"> <br>
-          
-            <div >
-              <fieldset class="general no-border-top">
-                <%= form_for(@logo, url: admin_logo_path(@logo), multipart: true) do |f| %>
-                 <div data-hook="file" class="field">
-                  <h4>Upload Logo</h4>
-                  
-                  <br />
-                  <%= f.label :avatar,'Select Images' %>
-                  <%= f.file_field :avatar,:required => true, :accept=>"image/*" %>
-                  <br><small> <p>Please upload image of size approx. 240x75</p> </small>
-                  
+<div class="col-md-9">
+<div class="portlet box blue col-md-12">
+ <div class="portlet-title">
+  <div class="caption">
+    <i class="fa fa-gift"></i> Logo
+  </div>
+  <div class="tools">
+    <a href="" class="collapse" data-original-title="" title="">
+    </a>
+  </div>
+</div>
+<div class="portlet-body form">
 
-                  <!-- <input id="image_attachment" name="image[attachment]" type="file"> -->
-                </div>
-                <div class="actions">
-				    <%= f.submit "Save" %>
-				  </div>
-                <% end %>
-                <hr />
-              </fieldset>
-            </div>
-<div >
-              <fieldset class="general no-border-top">
-              <h3>Current Logo</h3>
-              <img src="<%= Spree::Logo.last.avatar.url(:logo)%>">
-              </fieldset>
-              </div>
+  <%= form_for(@logo, url: admin_logo_path(@logo), multipart: true) do |f| %>
+  <div class="form-body">
+    <div data-hook="file" class="field">
+      <h3 class="form-section">Upload Logo</h3>
 
-            <div >
-            <link rel="shortcut icon" type="image/x-icon" href="<%= @favicon.favicon_image.url%>" />
-              <fieldset class="general no-border-top">
-              <%= form_for( @favicon,url:  admin_favicon_path(@favicon), multipart: true) do |f| %>
-  <div data-hook="file" class="field">
-                  <h4>Upload Favicon</h4>
-                  
-                  <br />
-                  <%= f.label :favicon_image,'Select an Image' %>
-                  <%= f.file_field :favicon_image,:required => true, :accept=>"mage/x-png, image/gif, image/jpeg , image/jpg,image/png" %>
-                  <br><small> <p>Please upload image of size approx. 16x16</p> </small>
-                  <!-- <input id="image_attachment" name="image[attachment]" type="file"> -->
-                </div>
-                <div class="actions">
-            <%= f.submit "Save" %>
-          </div>
-                <% end %>
-                <hr />
-              </fieldset>
-            </div>
-         <div >
-              <fieldset class="general no-border-top">
-              <h3>Current Favicon</h3>
-              <img src="<%= Spree::Favicon.last.favicon_image.url(:logo)%>">
-              </fieldset>
-              </div>
-        </div>
-        <aside  data-hook="" class="four columns"> <br>
-          <nav class="menu">
-            <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
-              <li  ><a href="/admin/organizations/<%=Spree::Organization.first.id%>/edit">Information</a></li>
-              <li class="active" ><a href="/admin/logos"> Logo & Favicon </a></li>
-            </ul>
-          </nav>
-        </aside>
-      </div>
+      <br />
+      <%= f.label :avatar,'Select Images' %>
+      <%= f.file_field :avatar,:required => true, :accept=>"image/*" %>
+      <br><small> <p>Please upload image of size approx. 240x75</p> </small>
+
+
+      <!-- <input id="image_attachment" name="image[attachment]" type="file"> -->
+    </div>
+    <h3>Current Logo</h3>
+    <img src="<%= Spree::Logo.last.avatar.url(:logo)%>">
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Save" %>
+  </div>
+  <% end %>
+  </div>
+  </div>
+  <div class="portlet box blue col-md-12">
+ <div class="portlet-title">
+  <div class="caption">
+    <i class="fa fa-gift"></i> Favicon
+  </div>
+  <div class="tools">
+    <a href="" class="collapse" data-original-title="" title="">
+    </a>
+  </div>
+</div>
+<div class="portlet-body form">
+  <%= form_for( @favicon,url:  admin_favicon_path(@favicon), multipart: true) do |f| %>
+  <div class="form-body">
+    <div data-hook="file" class="field">
+      <h3 class="form-section">Upload Favicon</h3>
+
+      <br />
+      <%= f.label :favicon_image,'Select an Image' %>
+      <%= f.file_field :favicon_image,:required => true, :accept=>"mage/x-png, image/gif, image/jpeg , image/jpg,image/png" %>
+      <br><small> <p>Please upload image of size approx. 16x16</p> </small>
+      <!-- <input id="image_attachment" name="image[attachment]" type="file"> -->
+    </div>
+    <h3>Current Favicon</h3>
+    <img src="<%= Spree::Favicon.last.favicon_image.url(:logo)%>">
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Save" %>
+  </div>
+  <% end %>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+  <div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+      <ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+
+        <li class="start">
+          <a href="/admin/organizations/<%=Spree::Organization.first.id%>/edit">
+            <i class="icon-home"></i>
+            <span class="title">Information</span>
+          </a>
+        </li>
+        <li class="start">
+          <a href="/admin/logos">
+            <i class="icon-home"></i>
+            <span class="title"> Logo & Favicon </span>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
- 
+</div>
+

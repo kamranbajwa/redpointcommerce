@@ -1,39 +1,102 @@
-<% content_for :sidebar_title do %>
-  <%= Spree.t(:"admin.user.user_information") %>
-<% end %>
+<div class="col-md-3">
+  <div class="">
+    <ul class="ver-inline-menu tabbable margin-bottom-10">
+      <li class="<%= is_active?(edit_admin_user_path(@user)) %>">
+        <a href="<%= edit_admin_user_path(@user) %>" aria-expanded="true">
+         <i class="fa fa-book"></i>
+         <%= Spree.t(:"admin.user.account") %>
+       </a>
+       <span class="after">
+        </span>
+     </li>
+     <li class="<%= is_active?(addresses_admin_user_path(@user)) %>">
+      <a href="<%= addresses_admin_user_path(@user) %>" aria-expanded="true">
+       <i class="fa fa-map-marker"></i>
+       <%= Spree.t(:"admin.user.addresses") %>
+     </a>
+   </li>
+   <li class="<%= is_active?( orders_admin_user_path(@user)) %>">
+    <a href="<%= orders_admin_user_path(@user) %>">
+     <i class="fa fa-shopping-cart"></i>
+     <%= Spree.t(:"admin.user.orders") %>
+   </a>
+ </li>
+ <li class="<%= is_active?( items_admin_user_path(@user)) %>">
+  <a href="<%= items_admin_user_path(@user) %>">
+   <i class="fa fa-edit"></i>
+   <%= Spree.t(:"admin.user.items") %>
+ </a>
+</li>
+<li class="<%= is_active?(select_group_admin_user_path(@user)) %>">
+  <a href="<%= select_group_admin_user_path(@user)%>">
+   <i class="fa fa-user"></i>
+   Groups
+ </a>
+</li>
+</ul>
+</div>
+<div data-hook="admin_user_lifetime_stats" class="portlet blue-hoki box col-md-12">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-cogs"></i><%= Spree.t(:lifetime_stats) %>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="row static-info">
+      <div class="col-md-5 name">
+       <%= Spree.t(:total_sales) %>:
+     </div>
+     <div class="col-md-7 value">
+       <%= @user.display_lifetime_value.to_html %>
+     </div>
+   </div>
+   <div class="row static-info">
+    <div class="col-md-5 name">
+     <%= Spree.t(:num_orders) %>:
+   </div>
+   <div class="col-md-7 value">
+     <%= @user.order_count.to_i %>
+   </div>
+ </div>
+ <div class="row static-info">
+  <div class="col-md-5 name">
+   <%= Spree.t(:average_order_value) %>:
+ </div>
+ <div class="col-md-7 value">
+   <%= @user.display_average_order_value.to_html %>
+ </div>
+</div>
+<div class="row static-info">
+  <div class="col-md-5 name">
+   <%= Spree.t(:member_since) %>:
+ </div>
+ <div class="col-md-7 value">
+   <%= l @user.created_at.to_date %>
+ </div>
+</div>
+</div>
 
-<% content_for :sidebar do %>
-  <nav class="menu">
-    <ul data-hook="admin_user_tab_options">
-      <li<%== ' class="active"' if current == :account %>>
-        <%= link_to_with_icon 'user', Spree.t(:"admin.user.account"), edit_admin_user_path(@user) %>
-      </li>
-      <li<%== ' class="active"' if current == :address %>>
-        <%= link_to_with_icon 'user', Spree.t(:"admin.user.addresses"), addresses_admin_user_path(@user) %>
-      </li>
-      <li<%== ' class="active"' if current == :orders %>>
-        <%= link_to_with_icon 'shopping-cart', Spree.t(:"admin.user.orders"), orders_admin_user_path(@user) %>
-      </li>
-      <li<%== ' class="active"' if current == :items %>>
-        <%= link_to_with_icon 'edit', Spree.t(:"admin.user.items"), items_admin_user_path(@user) %>
-      </li>
-      <li<%== ' class="active"' if current == :user_groups %>>
-        <%= link_to_with_icon 'user', "Groups", select_group_admin_user_path(@user) %>
-      </li>
-    </ul>
+</div>
+</div>
+<script type="text/javascript">
+var c
+$('.ver-inline-menu').on('click', 'li', function() {
+    $('.ver-inline-menu li.active').removeClass('active');
+    console.log( $(this).id)
+    $(this).addClass('active');
+});
 
-    <fieldset data-hook="admin_user_lifetime_stats">
-      <legend><%= Spree.t(:lifetime_stats) %></legend>
-      <dl id="user-lifetime-stats">
-        <dt><%= Spree.t(:total_sales) %>:</dt>
-          <dd><%= @user.display_lifetime_value.to_html %></dd>
-        <dt><%= Spree.t(:num_orders) %>:</dt>
-          <dd><%= @user.order_count.to_i %></dd>
-        <dt><%= Spree.t(:average_order_value) %>:</dt>
-          <dd><%= @user.display_average_order_value.to_html %></dd>
-        <dt><%= Spree.t(:member_since) %>:</dt>
-          <dd><%= l @user.created_at.to_date %></dd>
-      </dl>
-    </fieldset>
-  </nav>
-<% end %>
+$(document).ready(function(){
+  $('.ver-inline-menu').on('click', 'li', function() {
+
+//   var href = $(".tabbable li  a").attr("href");
+//   var href1 = window.location.href
+
+//    if(href.substr(href.lastIndexOf('/') + 1)==href1.substr(href1.lastIndexOf('/') + 1)){
+//             $(".tabbable li").attr("class","active");
+//         }
+//        else{
+//           $(".tabbable li").attr("class","inactive");
+//          }
+ });
+</script>

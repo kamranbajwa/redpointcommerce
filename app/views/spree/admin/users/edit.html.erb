@@ -1,55 +1,81 @@
 <% content_for :page_title do %>
   <%= link_to "#{Spree.t(:editing_user)} #{@user.email}", edit_admin_user_url(@user) %>
 <% end %>
-
-<%= render :partial => 'spree/admin/users/sidebar', :locals => { :current => :account } %>
 <%= render :partial => 'spree/admin/users/user_page_actions' %>
-
-<fieldset data-hook="admin_user_edit_general_settings" class="alpha twelve columns">
-  <legend><%= Spree.t(:general_settings) %></legend>
-
+<div data-hook="admin_user_edit_general_settings" class="col-md-9">
   <div data-hook="admin_user_edit_form_header">
     <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @user } %>
   </div>
 
-  <div data-hook="admin_user_edit_form">
-    <%= form_for [:admin, @user], as: :user, url: admin_user_url(@user), method: :put do |f| %>
-      <%= render :partial => 'form', :locals => { :f => f } %>
-
-      <div data-hook="admin_user_edit_form_button">
+  <div data-hook="admin_user_edit_form" class="">
+   <div class="portlet box blue">
+     <div class="portlet-title">
+      <div class="caption">
+        General Settings
+      </div>
+      <div class="tools">
+        <a href="" class="collapse" data-original-title="" title="">
+        </a>
+      </div>
+    </div>
+    <div class="portlet-body form">
+      <%= form_for [:admin, @user], as: :user, url: admin_user_url(@user), method: :put do |f| %>
+      <div class="form-body">
+        <%= render :partial => 'form', :locals => { :f => f } %>
+      </div>
+      <div data-hook="admin_user_edit_form_button" class="form-actions">
         <%= render :partial => 'spree/admin/shared/edit_resource_links', :locals => { :collection_url => admin_users_url } %>
       </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</fieldset>
+</div>
+</div>
+<%= render :partial => 'spree/admin/users/sidebar', :locals => { :current => :account } %>
 
-<fieldset data-hook="admin_user_api_key" id="admin_user_edit_api_key" class="alpha twelve columns">
-  <legend><%= Spree.t('access', :scope => 'api') %></legend>
+<fieldset data-hook="admin_user_api_key" id="admin_user_edit_api_key" class="col-md-9">
+  <div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+      <%= Spree.t('access', :scope => 'api') %>
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
 
-  <% if @user.spree_api_key.present? %>
+    <% if @user.spree_api_key.present? %>
     <div class="field">
       <div id="current-api-key"><%= Spree.t('key', :scope => 'api') %>: <%= @user.spree_api_key %></div>
     </div>
-    <div class="filter-actions actions">
-      <%= form_tag spree.clear_api_key_admin_user_path(@user), :method => :put do %>
-        <%= button Spree.t('clear_key', :scope => 'api'), 'trash' %>
-      <% end %>
+    <div class="form-actions">
+      <div class="row">
+        <div class="col-md-3">
+          <%= form_tag spree.clear_api_key_admin_user_path(@user), :method => :put do %>
+          <%= button Spree.t('clear_key', :scope => 'api'), 'trash' %>
+          <% end %>
+        </div>
+        <div class="col-md-3">
 
-      <span class="or"><%= Spree.t(:or)%></span>
-
-      <%= form_tag spree.generate_api_key_admin_user_path(@user), :method => :put do %>
-        <%= button Spree.t('regenerate_key', :scope => 'api'), 'refresh' %>
-      <% end %>
+          <%= form_tag spree.generate_api_key_admin_user_path(@user), :method => :put do %>
+          <%= button Spree.t('regenerate_key', :scope => 'api'), 'refresh' %>
+          <% end %>
+        </div>
+      </div>
     </div>
 
-  <% else %>
+    <% else %>
 
     <div class="no-objects-found"><%= Spree.t('no_key', :scope => 'api') %></div>
 
-    <div class="filter-actions actions">
+    <div class="form-actions">
       <%= form_tag spree.generate_api_key_admin_user_path(@user), :method => :put do %>
-        <%= button Spree.t('generate_key', :scope => 'api'), 'key' %>
+      <%= button Spree.t('generate_key', :scope => 'api'), 'key' %>
       <% end %>
     </div>
-  <% end %>
+    <% end %>
+  </div>
+</div>
 </fieldset>

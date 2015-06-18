@@ -5,11 +5,12 @@
 <% content_for :page_title do %>
   <%= Spree.t(:new_state) %>
 <% end %>
-
+<div class="portlet-body form">
 <%= form_for [:admin, @country, @state] do |f| %>
-  <fieldset>
+<div class="form-body">
     <legend><%= Spree.t(:new_state) %></legend>
     <%= render :partial => 'form', :locals => { :f => f } %>
+    </div>
     <%= render :partial => 'spree/admin/shared/new_resource_links' %>
-  </fieldset>
 <% end %>
+</div>

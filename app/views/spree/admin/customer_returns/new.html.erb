@@ -1,4 +1,3 @@
-<%= render :partial => 'spree/admin/shared/order_tabs', :locals => { :current => 'Customer Returns' } %>
 
 <% content_for :page_title do %>
   <i class="fa fa-arrow-right"></i> <%= Spree.t(:new_customer_return) %>
@@ -8,12 +7,14 @@
   <li><%= button_link_to Spree.t(:back_to_customer_return_list), spree.admin_order_customer_returns_url(@order), :icon => 'arrow-left' %></li>
 <% end %>
 
+<div class="col-md-9">
 <% if @rma_return_items.any? || @new_return_items.any? %>
 
   <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @customer_return } %>
+   <div data-hook="admin_customer_return_form_fields" class="portlet box blue">
+      <div class="portlet-body form">
   <%= form_for [:admin, @order, @customer_return] do |f| %>
-    <fieldset class="no-border-top">
-      <div data-hook="admin_customer_return_form_fields">
+      <div class="form-body">
         <fieldset class='no-border-bottom'>
           <legend align='center'><%= Spree.t(:items_in_rmas) %></legend>
           <% if @rma_return_items.any? %>
@@ -37,15 +38,16 @@
           <%= f.select :stock_location_id, Spree::StockLocation.order_default.active.to_a.collect{|l|[l.name.humanize, l.id]}, {include_blank: true}, {class: 'select2 fullwidth', "data-placeholder" => Spree.t(:select_a_stock_location)} %>
           <%= f.error_message_on :stock_location_id %>
         <% end %>
+        </div>
 
-      </div>
-
-      <div class="form-buttons filter-actions actions" data-hook="buttons">
+      <div class="form-actions filter-actions" data-hook="buttons">
         <%= button Spree.t(:create), 'ok' %>
         <span class="or"><%= Spree.t(:or) %></span>
         <%= button_link_to Spree.t('actions.cancel'), admin_order_customer_returns_url(@order), :icon => 'remove' %>
       </div>
-    </fieldset>
+        </div>
+      
+      </div>
   <% end %>
 
 <% else %>
@@ -58,3 +60,5 @@
   </div>
 
 <% end %>
+</div>
+<%= render :partial => 'spree/admin/shared/order_tabs', :locals => { :current => 'Customer Returns' } %>

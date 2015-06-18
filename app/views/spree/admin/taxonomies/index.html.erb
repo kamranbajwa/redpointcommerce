@@ -1,26 +1,47 @@
-<fieldset class="box-border">
-<legend align="center">  Upload Categories & Sub Categories VIA CSV
-</legend>
-<%= form_tag cat_import_admin_imports_path  , multipart: true do %>
-<div class="field center-product-csv">
- <label for="file">Select a File</label>
-  <%= file_field_tag :file,  :accept=>"*.csv", required: true%>
-  </div>
-  <div class="form-buttons actions" data-hook="admin_products_index_search_buttons">
-          <button class="fa button remove-border setHeight"><%= submit_tag "Upload Categories" %></button>
-        </div>
-<% end %>
-</fieldset>
+
 <% content_for :page_title do %>
   <%= Spree.t(:taxonomies) %>
 <% end %>
 <% content_for :page_actions do %>
   <li>
-    <%= button_link_to Spree.t(:new_taxonomy), spree.new_admin_taxonomy_url, :icon => 'plus', :id => 'admin_new_taxonomy_link' %>
+    <%= link_to "New Category", spree.new_admin_taxonomy_url, :icon => 'plus', :id => 'admin_new_taxonomy_link', class: "btn blue"%>
   </li>
 <% end %>
 
-<%= render 'spree/admin/shared/product_sub_menu' %>
+<div class="">
+  <div class="portlet box blue">
+    <div class="portlet-title">
+      <div class="caption">
+        <i class="fa fa-gift"></i>Upload Categories & Sub Categories VIA CSV
+      </div>
+      <div class="tools">
+        <a href="javascript:;" class="expand" data-original-title="" title="">
+        </a>
+      </div>
+    </div>
+    <div class="portlet-body form" style="display:none;">
+      <!-- BEGIN FORM-->
+      <%= form_tag cat_import_admin_imports_path  , class: "form-horizontal", multipart: true do %>
+      <div class="form-body">
+        <div class="form-group">
+          <label class="col-md-3 control-label">Select a File</label>
+          <div class="col-md-4">
+            <%= file_field_tag :file,  :accept=>"*.csv", class: "form-control", required: true%>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <div class="row">
+          <div class="col-md-offset-3 col-md-9">
+            <button type="submit" class="btn btn-circle blue">Submit</button>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <!-- END FORM-->
+    </div>
+  </div>
+</div>
 
 <% if @taxonomies.any? %>
 <div id="list-taxonomies" data-hook>

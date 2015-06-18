@@ -1,29 +1,38 @@
-<%= render :partial => 'spree/admin/shared/product_sub_menu' %>
 
   <% content_for :page_title do %>
     <%= Spree.t(:editing_option_type) %> <span class="black">"<%= @option_type.name %>"</span>
 <% end %>
 
 <% content_for :page_actions do %>
-  <li>
-    <span id="new_add_option_value" data-hook>
-      <%= link_to_add_fields Spree.t(:add_option_value), "tbody#option_values", :class => 'button fa fa-plus' %>
-    </span>      
+  <li id="new_add_option_value" data-hook>
+    <a class="btn blue spree_add_fields icon_link with-tip" data-target="tbody#option_values" href="javascript:"><i class="fa fa-plus"></i>Add Option Value</a>
+      <%#= link_to_add_fields Spree.t(:add_option_value), "tbody#option_values", :class => 'button fa fa-plus' %>
   </li>
   <li class="btn-padding">
-    <%= button_link_to Spree.t(:back_to_option_types_list), spree.admin_option_types_path, :icon => 'arrow-left' %>
+    <%= link_to spree.admin_option_types_path, class: "btn blue" do %><i class="fa fa-arrow-left"></i><%= Spree.t(:back_to_option_types_list)%> <% end %>
   </li>
 <% end %>
 
+ <div class="portlet box blue col-md-12">
+   <div class="portlet-title">
+    <div class="caption">
+       <%= Spree.t(:option_values) %>
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @option_type } %>
 
 <%= form_for [:admin, @option_type] do |f| %>
-  <fieldset>
-    <legend align="center"><%= Spree.t(:option_values) %></legend>
-    
+  <div class="form-body">
     <%= render :partial => 'form', :locals => { :f => f } %>
+    </div>
+  <div class="form-body">
 
-    <table class="index sortable" data-hook data-sortable-link="<%= update_values_positions_admin_option_types_url %>">
+    <table class="index sortable margin-option-types" data-hook data-sortable-link="<%= update_values_positions_admin_option_types_url %>">
       <thead data-hook="option_header">
         <tr>
           <th colspan="2"><%= Spree.t(:name) %></th>
@@ -37,7 +46,8 @@
         <% end %>
       </tbody>
     </table>
-
+  </div>
     <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
-  </fieldset>
 <% end %>
+</div>
+</div>

@@ -1,23 +1,48 @@
-<%= render :partial => 'spree/admin/shared/order_tabs', :locals => { :current => 'Customer Details' } %>
 
 <% content_for :page_title do %>
   <i class="fa fa-arrow-right"></i> <%= Spree.t(:customer_details) %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <li><%= button_link_to Spree.t(:back_to_orders_list), admin_orders_path, :icon => 'arrow-left' %></li>
+  <li><%= link_to admin_orders_path, class: "btn blue" do %>
+  <i class="fa fa-arrow-left"></i> <%= Spree.t(:back_to_orders_list)%><% end %>
+  </li>
 <% end %>
-
-<div id="select-customer" data-hook>
-  <fieldset class="no-border-bottom">
-    <legend align="center"><%= Spree.t(:customer_search) %></legend>
+<div class="col-md-9">
+  <div id="select-customer" class="portlet box blue" data-hook>
+   <div class="portlet-title">
+     <div class="caption">
+      <%= Spree.t(:customer_search) %>
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
+  <div class="form-body">
     <%= hidden_field_tag :customer_search,  nil, :class => 'fullwidth title' %>
     <%= render :partial => "spree/admin/orders/customer_details/autocomplete", :formats => :js %>
-  </fieldset>
+  </div>
+  </div>
 </div>
+<div class="portlet box blue">
+ <div class="portlet-title">
+   <div class="caption">
+    <i class="fa fa-gift"></i>Customer Details
+  </div>
+  <div class="tools">
+    <a href="" class="collapse" data-original-title="" title="">
+    </a>
+  </div>
+</div>
+<div class="portlet-body form">
+  <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
 
-<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
-
-<%= form_for @order, :url => admin_order_customer_url(@order) do |f| %>
-  <%= render 'form', :f => f %>
-<% end %>
+  <%= form_for @order, :url => admin_order_customer_url(@order) do |f| %>
+    <%= render 'form', :f => f %>
+  <% end %>
+</div>
+</div>
+</div>
+<%= render :partial => 'spree/admin/shared/order_tabs', :locals => { :current => 'Customer Details' } %>

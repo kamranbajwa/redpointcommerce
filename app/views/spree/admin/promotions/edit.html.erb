@@ -1,22 +1,32 @@
 <% content_for :page_title do %>
   <%= Spree.t(:editing_promotion) %>
 <% end %>
-
-<%= render 'spree/admin/shared/promotion_sub_menu' %>
-
+<div data-hook="admin_user_new_form" class="col-md-12">
+ <div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-gift"></i> <%= Spree.t(:editing_promotion) %>
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
 <%= form_for @promotion, :url => object_url, :method => :put do |f| %>
-  <fieldset class="no-border-top">
+  <div class="form-body">
     <%= render :partial => 'form', :locals => { :f => f } %>
+    </div>
     <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
-  </fieldset>
 <% end %>
-
+</div>
+</div>
 <div id="promotion-filters" class="row">
-  <div id="rules_container" class="alpha eight columns">
+  <div id="rules_container" class="col-md-6">
     <%= render :partial => 'rules' %>
   </div>
 
-  <div id="actions_container" class="omega eight columns">
+  <div id="actions_container" class="col-md-6">
     <%= render :partial => 'actions' %>
   </div>
 </div>

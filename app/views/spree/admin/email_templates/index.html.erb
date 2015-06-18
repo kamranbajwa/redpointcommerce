@@ -1,51 +1,34 @@
-  <%=render :partial=>'spree/shared/setting_sub_nav_tab'%>
-  <div class="container">
-  <div class="row">
-    <div class="with-sidebar " >
-      <div class="twelve columns"> <br>
-        <div class="row">
-        <br>
-        <br>
-          <table class="index" id="listing_products">
-            <colgroup>
-              <col style="width: 50%;">
-            </colgroup>
-            <thead>
-              <tr data-hook="admin_products_index_headers">
-                <th>Title</th>
-                <th data-hook="admin_products_index_header_actions" class="actions"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <%@emailtemplates.each do |emailtmp| %>
-                <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
-                  <td class="align-center"><%= emailtmp.title %></td>
-                  <td class="actions" data-hook="admin_products_index_row_actions">
-                    <%= link_to '', edit_admin_email_template_path(emailtmp), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
+  <% content_for :page_title do %>
+Email Templates
+<% end %>
+  <div class="portlet box blue">
+    <div class="portlet-title">
+      <div class="caption">
+      <i class="fa fa-cogs"></i>Templates
       </div>
-
-<!-- <div class="container">
-    <div class="row">
-      <div class="with-sidebar " >
-        <div class="twelve columns"> <br>
-         Please select an email template from sidebar to edit it.
-     
-        </div>
-         <aside  data-hook="" class="four columns"> <br>
-          <nav class="menu">
-           <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
-           <% @emailtemplates.each do |etemp| %>
-        <li><a href="email_templates/<%= etemp.id %>/edit"><%= etemp.title %></a></li>
-      <% end %>
-            </ul>
-          </nav>
-        </aside>
+      <div class="tools">
+        <a href="javascript:;" class="collapse" data-original-title="" title="">
+        </a>
       </div>
     </div>
-  </div> -->
+    <div class="portlet-body flip-scroll">
+      <table class="table table-bordered table-striped table-condensed flip-content">
+        <thead class="flip-content">
+         <tr data-hook="admin_products_index_headers">
+          <th>Title</th>
+          <th data-hook="admin_products_index_header_actions" class="actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%@emailtemplates.each do |emailtmp| %>
+        <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
+          <td class="align-center"><%= emailtmp.title %></td>
+          <td class="actions" data-hook="admin_products_index_row_actions">
+            <%= link_to '', edit_admin_email_template_path(emailtmp), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

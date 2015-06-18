@@ -1,18 +1,28 @@
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
-
 <% content_for :page_title do %>
   <%= Spree.t(:editing_tax_category) %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <li><%= link_to_with_icon 'arrow-left', Spree.t(:back_to_tax_categories_list), admin_tax_categories_path, :class => 'button' %></li>
+  <li><%= link_to admin_tax_categories_path, :class => 'btn blue' do %><i class="fa fa-arrow-left"></i><%= Spree.t(:back_to_tax_categories_list)%><% end %></li>
 <% end %>
-
+<div class="portlet box blue">
+ <div class="portlet-title">
+  <div class="caption">
+    <i class="fa fa-gift"></i> <%= Spree.t(:editing_tax_category) %>
+  </div>
+  <div class="tools">
+    <a href="" class="collapse" data-original-title="" title="">
+    </a>
+  </div>
+</div>
+<div class="portlet-body form">
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @tax_category } %>
 
 <%= form_for [:admin, @tax_category] do |f| %>
-  <fieldset class="no-border-top">
+  <div class="form-body">
     <%= render :partial => 'form', :locals => { :f => f } %>
+  </div>
     <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
-  </fieldset>
 <% end %>
+</div>
+</div>

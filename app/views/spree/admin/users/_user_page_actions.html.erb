@@ -1,8 +1,8 @@
 <% content_for :page_actions do %>
   <li class="btn-padding">
-    <%= button_link_to Spree.t(:back_to_users_list), spree.admin_users_path, :icon => 'arrow-left' %>
+    <%= link_to spree.admin_users_path, :icon => 'arrow-left', class: "btn blue" do %><i class="fa fa-arrow-left"></i> <%= Spree.t(:back_to_users_list)%> <% end %>
   </li>
   <li>
-    <%= button_link_to Spree.t(:create_new_order), spree.new_admin_order_path(user_id: @user.id), :icon => 'plus' %>
+    <%= link_to spree.new_admin_order_path(user_id: @user.id), :icon => 'plus', class: "btn blue" do %><i class="fa fa-plus"></i> <%= Spree.t(:create_new_order)%><% end %>
   </li>
 <% end %>

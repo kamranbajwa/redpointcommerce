@@ -1,115 +1,136 @@
- <%= render :partial => 'spree/shared/setting_sub_nav_tab' %>
-  <div id="content-header" data-hook="">
-    <div class="container">
-      <div class="sixteen columns">
-        <div class="block-table">
-          <div class="table-cell">
-            <h1 class="page-title "> Organization Settings </h1>
+ <% content_for :page_title do %>
+ Organization Settings
+ <% end %>
+ <div class="col-md-9">
+   <div class="portlet box blue">
+     <div class="portlet-title">
+      <div class="caption">
+        <i class="fa fa-gift"></i> Organization Settings
+      </div>
+      <div class="tools">
+        <a href="" class="collapse" data-original-title="" title="">
+        </a>
+      </div>
+    </div>
+    <div class="portlet-body form">
+      <%= form_for(@org=Spree::Organization.first,url:  admin_organization_path(@org), multipart: true) do |f| %>
+      <div class="form-body">
+        <div class="form-group">
+          <label>Company Code</label>
+          <div class="input-icon">
+            <%= f.text_field :company_code, class: 'form-control', placeholder: "Company Code"  %>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
- <%= form_for(@org=Spree::Organization.first,url:  admin_organization_path(@org), multipart: true) do |f| %>
-  <div class="container">
-    <div class="row">
-      <div class="with-sidebar " >
-        <div class="twelve columns"> <br>
-          <form   method="post">
-            <div >
-              <fieldset class="general no-border-top">
-                <div class="field" data-hook="admin_general_setting_input_name">
-                  <label for="store_name">Company Code</label>
-                  <br>
-                  <%= f.text_field :company_code, class: 'fullwidth'  %>
-                </div>
-                <div class="field" data-hook="admin_general_setting_input_seo_title">
-                  <label for="store_seo_title">Company Name</label>
-                  <br>
-                 <%= f.text_field :company_name, class: 'fullwidth'  %>
-                </div>
-                <br>
-                <h1> Address Details</h1>
-                <%=f.fields_for :org_addresses do |builder| %>
-                <%= render 'org_address_fields', :f => builder %>
-                <%end%>
-                <span class="button fa fa-plus ">
-                 <%=link_to_add_fields_o "Add a new address", f, :org_addresses%>
-                 </span>
-                 
-                <div class="field" data-hook="admin_general_setting_mail_from_address">
-                    <%= f.label :google_analyitcs,'Google Analytics ID' %>
-                  <br>
-                  <%= f.text_field :google_analyitcs, :class => 'fullwidth' %>
-                </div>
-                <div class="field" data-hook="admin_general_setting_mail_from_address">
-                    <%= f.label :facebook_url,'Facebook Link' %>
-                  <br>
-                  <%= f.text_field :facebook_url, :class => 'fullwidth' %>
-                </div>
-                <div class="field" data-hook="admin_general_setting_mail_from_address">
-                    <%= f.label :twitter_url,'Twitter Link' %>
-                  <br>
-                  <%= f.text_field :twitter_url, :class => 'fullwidth' %>
-                </div>
-                <div class="field" data-hook="admin_general_setting_mail_from_address">
-                    <%= f.label :google_url,'Google Link' %>
-                  <br>
-                  <%= f.text_field :google_url, :class => 'fullwidth' %>
-                </div>
-                  <div class="field" data-hook="admin_general_setting_mail_from_address">
-                    <%= f.label :youtube,'Youtube Link' %>
-                  <br>
-                  <%= f.text_field :youtube, :class => 'fullwidth' %>
-                </div>
-                  <div class="field" data-hook="admin_general_setting_mail_from_address">
-                    <%= f.label :linked_in,'Linkedin Link' %>
-                  <br>
-                  <%= f.text_field :linked_in, :class => 'fullwidth' %>
-                </div>
-                  <div class="field" data-hook="admin_general_setting_mail_from_address">
-                    <%= f.label :pinterest,'Pinterest Link' %>
-                  <br>
-                  <%= f.text_field :pinterest, :class => 'fullwidth' %>
-                </div>
-                 <div class="field" data-hook="admin_general_setting_mail_from_address">
-                    <%= f.label :opening_hour,'Opening Time' %>
-                  <br>
-                  <%= f.text_field :opening_hour, id: "timepicker4" %> - <%= f.text_field :closing_hour, id: "timepicker3" %>
-                </div>
-                  <div class="field" data-hook="admin_general_setting_mail_from_address">
-                    <%= f.label :opening_day,'Opening Day' %>
-                  <br>
-                  <%= f.select(:opening_day, Date::DAYNAMES) %> - <%= f.select(:closing_day, Date::DAYNAMES) %>
-                </div>
-                <div class="field" data-hook="admin_general_setting_input_meta_keywords">
-                  <%= f.label :central_time %>
-                  <br>
-                    <%= f.time_zone_select :central_time %>
-                </div>
-               
-                
-                
-                <div class="form-buttons " data-hook="buttons"> <a class="button "><span class="text"><div class="actions">
-    <%= f.submit %>
-  </div></span></a> </div>
-              </fieldset>
-            </div>
-          </form>
+      <div class="form-group">
+        <label>Company Name</label>
+        <div class="input-icon">
+          <%= f.text_field :company_name, class: 'form-control'  %>
         </div>
-        <%end%>
-        <aside  data-hook="" class="four columns"> <br>
-          <nav class="menu">
-            <ul class="sidebar" data-hook="admin_configurations_sidebar_menu">
-              <li class="active" ><a href="#">Information</a></li>
-              <li ><a href="/admin/logos"> Logo & Favicon </a></li>
-
-            </ul>
-          </nav>
-        </aside>
+      </div>
+      <h3 class="form-section"> Address Details</h3>
+      <%=f.fields_for :org_addresses do |builder| %>
+      <%= render 'org_address_fields', :f => builder %>
+      <%end%>
+      <div class="form-group">
+      <span class="btn blue fa fa-plus">
+       <%=link_to_add_fields_o "Add a new address", f, :org_addresses%>
+     </span>
+     </div>
+     <div class="form-group">
+      <%= f.label :google_analyitcs,'Google Analytics ID' %>
+      <div class="input-icon">
+        <%= f.text_field :google_analyitcs, :class => 'form-control' %>
       </div>
     </div>
+    <div class="form-group">
+      <%= f.label :facebook_url,'Facebook Link' %>
+      <div class="input-icon">
+        <%= f.text_field :facebook_url, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :twitter_url,'Twitter Link' %>
+      <div class="input-icon">
+      <%= f.text_field :twitter_url, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :google_url,'Google Link' %>
+      <br>
+      <%= f.text_field :google_url, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :youtube,'Youtube Link' %>
+      <br>
+      <%= f.text_field :youtube, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :linked_in,'Linkedin Link' %>
+      <br>
+      <%= f.text_field :linked_in, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :pinterest,'Pinterest Link' %>
+      <br>
+      <%= f.text_field :pinterest, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :opening_hour,'Opening Time' %>
+      <br>
+      <%= f.text_field :opening_hour, id: "timepicker4"%> - <%= f.text_field :closing_hour, id: "timepicker3"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :opening_day,'Opening Day' %>
+      <div class="input-icon">
+      <div class="col-md-5">
+      <%= f.select(:opening_day, Date::DAYNAMES,{}, {class: "form-control"}) %>
+      </div> 
+      <div class="col-md-1">
+       -
+      </div>
+      <div class="col-md-6">
+      <%= f.select(:closing_day, Date::DAYNAMES, {}, {class: "form-control"}) %>
+      </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="form-group">
+      <%= f.label :central_time %>
+      <div class="input-icon">
+      <%= f.time_zone_select :central_time, nil, {}, {class: "form-control"} %>
+      </div>
+    </div>
+    </div>
+    <div class="form-actions">
+    <button type="submit" class="btn blue">Update Organization</button>
+    </div>
+    <%end%>
   </div>
+</div>
+</div>
+<div class="col-md-3">
+  <div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+      <ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+
+        <li class="start">
+          <a href="/admin/dashboard">
+            <i class="icon-home"></i>
+            <span class="title">Information</span>
+          </a>
+        </li>
+        <li class="start">
+          <a href="/admin/logos">
+            <i class="icon-home"></i>
+            <span class="title"> Logo & Favicon </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+    
 <%= javascript_include_tag '/assets/add_reomve_addresses_field' %>
  <script type="text/javascript">
  $('#timepicker3').timepicker();

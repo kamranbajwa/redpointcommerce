@@ -1,76 +1,77 @@
-<%= render 'spree/admin/shared/configuration_menu' %>
-
 <% content_for :page_title do %>
   <%= Spree.t(:stock_transfers) %>
 <% end %>
 
 <% content_for :page_actions do %>
   <li>
-    <%= button_link_to Spree.t(:new_stock_transfer), new_admin_stock_transfer_path, { :icon => 'forward' } %>
+    <%= link_to new_admin_stock_transfer_path, { :icon => 'forward', class: "btn blue"} do %> <i class="fa fa-plus"></i> <%= Spree.t(:new_stock_transfer)%><% end %>
   </li>
 <% end %>
-
-<div data-hook="admin_orders_index_search">
-  <fieldset>
-    <legend align="center"><%= Spree.t(:search) %></legend>
+<div class="col-md-12">
+  <div data-hook="admin_orders_index_search" class="portlet light">
+   <div class="portlet-title">
+    <div class="caption font-red-sunglo">
+      <i class="icon-settings font-red-sunglo"></i>
+      <span class="caption-subject bold uppercase"> Search</span>
+    </div>
+  </div>
+  <div class="portlet-body form">
     <%= search_form_for @q, :url => admin_stock_transfers_path do |f| %>
-
-      <div class="field-block alpha four columns">
-        <div class="field">
-          <%= f.label :reference_cont, Spree.t(:reference_cont) %>
-          <%= f.text_field :reference_cont, class: 'fullwidth' %>
-        </div>
+    <div class="form-body">
+     <div class="form-group form-md-line-input col-md-12">
+      <%= f.text_field :reference_cont, class: "form-control" %>
+      <%= f.label :reference_cont, Spree.t(:reference_cont) %>
+      <span class="help-block">Reference goes here...</span>
+    </div>
+    <div class="form-group form-md-line-input col-md-6">
+      <%= f.label :source_location, Spree.t(:source) %>
+      <%= f.select :source_location_id_eq,
+      options_from_collection_for_select(@stock_locations, :id, :name, @q.source_location_id_eq),
+      { include_blank: true }, class: 'select2 fullwidth' %>
+    </div>
+    <div class="form-group form-md-line-input col-md-6">
+      <%= f.label :destination_location, Spree.t(:destination) %>
+      <%= f.select :destination_location_id_eq,
+      options_from_collection_for_select(@stock_locations, :id, :name, @q.destination_location_id_eq),
+      { include_blank: true }, class: 'select2 fullwidth' %>
+    </div>
+    <div class="clearfix"></div>
+    <div class="form-actions">
+      <div data-hook="admin_stock_transfers_index_search_buttons">
+        <button type="submit" class="btn blue"><%= Spree.t(:search) %></button>
       </div>
-
-      <div class="four columns">
-        <div class="field">
-          <%= f.label :source_location, Spree.t(:source) %>
-          <%= f.select :source_location_id_eq,
-               options_from_collection_for_select(@stock_locations, :id, :name, @q.source_location_id_eq),
-               { include_blank: true }, class: 'select2 fullwidth' %>
-        </div>
-      </div>
-
-      <div class="omega four columns">
-        <div class="field">
-          <%= f.label :destination_location, Spree.t(:destination) %>
-          <%= f.select :destination_location_id_eq,
-               options_from_collection_for_select(@stock_locations, :id, :name, @q.destination_location_id_eq),
-               { include_blank: true }, class: 'select2 fullwidth' %>
-        </div>
-      </div>
-
-      <div class="clearfix"></div>
-
-      <div class="actions filter-actions">
-        <div data-hook="admin_stock_transfers_index_search_buttons">
-          <%= button Spree.t(:filter_results), 'search' %>
-        </div>
-      </div>
-    <% end %>
-  </fieldset>
+    </div>
+  </div>
+  <% end %>
 </div>
-
+</div>
+</div>
+<div class="col-md-12">
 <% if @stock_transfers.any? %>
-  <table class='index' id='listing_stock_transfers' data-hook>
-    <colgroup>
-      <col style='width: 25%' />
-      <col style='width: 20%' />
-      <col style='width: 20%' />
-      <col style='width: 25%' />
-      <col style='width: 10%' />
-    </colgroup>
-    <thead>
-      <tr data-hook='stock_transfers_header'>
+<div class="portlet box blue">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-cogs"></i>Countries
+    </div>
+    <div class="tools">
+      <a href="javascript:;" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body flip-scroll">
+    <div id="new_state" data-hook></div>
+    <table class="table table-bordered table-striped table-condensed flip-content" id='listing_stock_transfers' data-hook>
+      <thead class="flip-content">
+       <tr data-hook='stock_transfers_header'>
         <th><%= Spree.t(:created_at) %></th>
         <th><%= Spree.t(:reference) %></th>
         <th><%= Spree.t(:source) %></th>
         <th><%= Spree.t(:destination) %></th>
         <th class='actions'></th>
       </tr>
-    </thead>
-    <tbody>
-      <% @stock_transfers.each do |stock_transfer| %>
+      </thead>
+      <tbody>
+        <% @stock_transfers.each do |stock_transfer| %>
         <tr id="<%= spree_dom_id stock_transfer %>" data-hook="stock_transfer_row" class="<%= cycle('odd', 'even')%>">
           <td class="align-center"><%= stock_transfer.created_at %></td>
           <td class="align-center"><%= stock_transfer.reference %></td>
@@ -82,14 +83,17 @@
             data: {action: 'view'} %>
           </td>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 <% else %>
   <div class="alpha twelve columns no-objects-found">
     <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/stock_transfer')) %>,
     <%= link_to Spree.t(:add_one), spree.new_admin_stock_transfer_path %>!
   </div>
 <% end %>
+</div>
 
 <%= paginate @stock_transfers %>
