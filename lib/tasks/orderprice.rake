@@ -22,7 +22,7 @@
         items = o.item_count
         store = o.store_id
         var  =  o.credit_cards.last.gateway_customer_profile_id
-        Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
+        #Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         
         if var.to_s.include?("cus")
            stripe_customer =   begin 
@@ -89,7 +89,7 @@
         items = o.item_count
         store = o.store_id
         var  =  o.credit_cards.last.gateway_customer_profile_id
-        Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
+       # Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
           if var.to_s.include?("cus")
            stripe_customer =   begin 
                                  Stripe::Customer.retrieve(var)
@@ -155,7 +155,7 @@
         store = o.store_id
         
         var  =  o.credit_cards.last.gateway_customer_profile_id
-        Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
+       # Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         
         if var.to_s.include?("cus")
            stripe_customer =   begin 
@@ -218,7 +218,7 @@
         store = o.store_id
         var  =  o.credit_cards.last.gateway_customer_profile_id
         
-        Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
+        #Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         
           if var.to_s.include?("cus")
            stripe_customer =   begin 
