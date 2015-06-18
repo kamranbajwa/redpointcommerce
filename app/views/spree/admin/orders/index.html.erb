@@ -47,7 +47,10 @@
           <%= label_tag :q_promotions_id_in, Spree.t(:promotion) %>
           <%= f.select :promotions_id_in, Spree::Promotion.applied.pluck(:name, :id), {:include_blank => true}, :class => 'select2' %>
         </div>
-       
+        <div class="form-group form-md-line-input col-md-4">
+         <%= label_tag :q_shipment_state_eq, Spree.t(:shipment_state) %>
+         <%= f.select :shipment_state_eq, options_for_shipment_states, {:include_blank => true}, :class => 'select2' %>
+       </div>
         <div class="form-group form-md-line-input col-md-4">
           <%= label_tag :q_line_items_variant_id_in, Spree.t(:sku) %>
           <%= f.select :line_items_variant_id_in, Spree::Variant.pluck(:sku, :id), {:include_blank => true}, :class => 'select2' %>
