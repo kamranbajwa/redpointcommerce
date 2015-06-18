@@ -22,6 +22,8 @@ SpreeExample::Application.routes.draw do
   get 'v1/api/customers',      :to => 'v1/api#customers'
   # subscription email
   post '/subcription' , :to =>'spree/statics#subcriptions'
+  post '/account_charge', :to => 'spree/statics#account_charge'
+  get '/account_user', :to => 'spree/statics#account_user'
   # end of sub email
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

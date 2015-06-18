@@ -12,24 +12,23 @@
             <li><a href="/account">MY ACCOUNT</a></li>
 
             <li> <%=  link_to 'SIGN OUT', spree_logout_path %></li>
-              <li><a href="#" class="search-container"><span class="fa fa-search fa-fw icons-fonts-topnav"></span></a></li>
+            <%else%>
+            
+            <li><a href='/login'>SIGN IN</li>
+            <%end%>
+               <!--  <li><a href="#" class="search-container"><span class="fa fa-search fa-fw icons-fonts-topnav"></span></a></li> -->
                         <li class="mega-menu-item mega-menu-two-columns">
           <a href="/cart" class="fa fa-shopping-cart cart-align icons-fonts-topnav">
             <span class="badge pull-right custom-badge"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span>
             </a>
           </li>
-            <%else%>
-            
-            <li><a href='/login'>SIGN IN</li>
-           
-            <%end%>
           </ul>
         </div>
       </div>
     
 
         <div class="col-md-4">
-          <div class="pull-left logo"><a href="/"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>" class="img-responsive" alt=""></a></div>
+          <div class="pull-left logo"><a href="/"><img src="<%= Spree::Logo.last.avatar.url(:logo) rescue ''%>" class="img-responsive" alt=""></a></div>
         </div>
         <div class="col-md-8"> 
 
@@ -78,9 +77,6 @@
 
                  <%else%>
                  <li><a href='/login'>SIGN IN</a></li>
-
-                  <span class="mobile-view">
-                 <li class="mobile-view"><a href='/login'>SIGN IN</a></li>
 
                  <%end%>
                  </span>
@@ -144,7 +140,7 @@
               <div class="top-search-box search-slide">
                <%= form_tag spree.products_path, :method => :get do %>
                <%= search_field_tag :keywords, params[:keywords],:style=>"
-               padding-left: 20px;background: transparent;", placeholder: "Search"%>
+               padding-left: 20px; padding-bottom: 10px; paddbackground: transparent;", placeholder: "Searches"%>
                <button><span class="fa fa-search fa-fw"></span></button>
                <%end%>
              </div>
@@ -160,7 +156,7 @@
    <!-- Header Links Section Ends --> 
    <div class="mobile-view container">
    
-<div class="pull-right" style="   margin-left: 20px;
+<div class="pull-right " style="   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 20px;">
    <span class="mega-menu-item mega-menu-two-columns">
@@ -170,11 +166,11 @@
           </span>
 
 </div>
-<div class="" style="">
+<div class="back-clor" style="">
      <%= form_tag spree.products_path, :method => :get do %>
                <%= search_field_tag :keywords, params[:keywords],:style=>"
-               padding-left: 20px;background: transparent;   height: 33px; ", placeholder: "Search"%>
-               <button class="bbtn btn-primary"><span class="fa fa-search fa-fw"></span></button>
+               padding-left: 20px;background: transparent;   height: 31px; ", placeholder: "Search"%>
+               <button ><span class="fa fa-search fa-fw"></span></button>
                <%end%>
 
    </div>

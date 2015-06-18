@@ -5,7 +5,6 @@ module Spree
   # is waranted.
   class CheckoutController < Spree::StoreController
     ssl_required
-
     before_action :load_order_with_lock
     before_filter :ensure_valid_state_lock_version, only: [:update]
     before_filter :set_state_if_present
@@ -20,6 +19,8 @@ module Spree
     before_action :apply_coupon_code
 
     before_action :setup_for_current_state
+    helper_method :check_payment_method
+    before_action :method_name?, only: [:update]
 
     helper 'spree/orders'
 
@@ -29,11 +30,13 @@ module Spree
     def update
       if @order.update_from_params(params, permitted_checkout_attributes, request.headers.env)
         @order.temporary_address = !params[:save_user_address]
+         if params[:state]=="payment" and method_name?
+           check_payment_method
+         end
         unless @order.next
           flash[:error] = @order.errors.full_messages.join("\n")
           redirect_to checkout_state_path(@order.state) and return
         end
-
         if @order.completed?
           @current_order = nil
           flash.notice = Spree.t(:order_processed_successfully)
@@ -48,6 +51,35 @@ module Spree
     end
 
     private
+    def method_name?
+    if params[:state]=="payment"
+      payment_method_id=params[:order][:payments_attributes].first[:payment_method_id].to_i
+      payment_method_name= Spree::PaymentMethod.find payment_method_id
+      if payment_method_name.type=="Spree::Gateway::Bogus"
+        return true
+      else
+        return false
+    end
+    end
+  end
+    def check_payment_method
+       payment_method_id=params[:order][:payments_attributes].first[:payment_method_id].to_i
+          payment_method_name= Spree::PaymentMethod.find payment_method_id
+          if payment_method_name.type=="Spree::Gateway::Bogus"
+            user=@order.user
+            user.curr_acc_blnc=user.curr_acc_blnc.to_f-@order.total.to_f
+            user.balnce_date=Date.today
+            user.save
+            user.account_transactions.create(:transaction_type=>"debit",:current_balance=>user.curr_acc_blnc,:amount=>@order.total.to_f)
+            Spree::Api::Config[:requires_authentication]=false
+            @order.completed_at=Date.today
+            @order.shipment_state="pending"
+            order_payment_state
+            #@order.payment_method_id = payment_method_id
+            #@order.payment_state="Account"
+
+        end
+      end
       def ensure_valid_state
         unless skip_state_validation?
           if (params[:state] && !@order.has_checkout_step?(params[:state])) ||
@@ -94,7 +126,16 @@ module Spree
           @order.state = params[:state]
         end
       end
+      def order_payment_state
+        usr=@order.user
+        amnt=usr.curr_acc_blnc.to_f+@order.total
+        if amnt<0
+          @order.payment_state="pedning"
+        else
+          @order.payment_state="paid"
+        end
 
+        end
       def ensure_checkout_allowed
         unless @order.checkout_allowed?
           redirect_to spree.cart_path

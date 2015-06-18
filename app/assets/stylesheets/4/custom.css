@@ -152,7 +152,7 @@ h4 { font-size:16px; color:#EFB013; font-weight:bold; }
 #menu li a { background-color:#EFB013; padding:10px 22px 10px 16px; margin-bottom:1px; color:#000; display:block; letter-spacing:2px; }
 #menu li a:hover { background-color:#000; color:#EFB013; }
 
-.search-box, .search-slide { position:absolute; z-index:80; right:16px; top:50px; display:none; }
+.search-box, .search-slide { position:absolute; z-index:80; right:16px; top:50px; }
 .search-box-2 { position:absolute; z-index:80; right:80px; top:21px; }
 
 
@@ -401,3 +401,9 @@ table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
 .mobile-view { display: none;}
 .sub-height { height: 100px;}
 .sub-height-pro{height: 28px;}
+.back-clor button{
+  background-color:#EFB013 !important; 
+  color:#000 !important;
+  border: 0px !important;
+}
+.back-clor input { border:1px solid #EFB013 !important;}

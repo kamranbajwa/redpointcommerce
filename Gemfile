@@ -7,6 +7,7 @@ gem 'pg'
 gem 'exception_notification', '4.1.0.rc1'
 #gem 'sqlite3'
 gem 'execjs'
+gem 'delayed_job_active_record'
 gem 'spree_social_products', github: 'spree-contrib/spree_social_products', branch: '2-4-stable'
 
 gem 'therubyracer'
@@ -35,6 +36,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+gem 'stripe'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -62,4 +64,4 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+ #gem 'debugger', group: [:development, :test]

@@ -41,7 +41,7 @@ a:visited:hover {
 #admin-menu li a:hover:after, #admin-menu li.selected  span, #admin-menu li:hover span {
     color: white !important;
 }
-icon #admin-menu li a:hover:after, #admin-menu li.selected a:after {
+#admin-menu li a:hover:after, #admin-menu li.selected a:after {
     
     content: '';
     position: absolute;
@@ -225,14 +225,15 @@ span {
 }
 
 nav.menu ul li.active a {
-    color: #717174;
-    border-left-width: 0;
-    border-bottom-color: #000;
+    border: 1px solid;
+    border-radius: 14px;
+    color: #000;
+        
 }
 nav.menu ul li:hover a {
     color: #000;
 }
-select2-match {
+.select2-match {
     background-color: #987777 !important;    
 }
 .select2-results .select2-highlighted {
@@ -351,17 +352,13 @@ form.button_to {
 .fa-remove >span {
 color: white !important;
 }
-#admin-menu li a:hover:after, #admin-menu li.selected a:after{
-  content: '';
-  position: absolute;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 5px solid #000;
-  bottom: 0px;
-  margin-bottom: -5px;
-  left: 50%;
-  margin-left: -10px;
-  z-index: 1;
-}
 .tab-with-icon.selected a:before, .tab-with-icon:hover a:before  { color: white !important; }
 .tab-with-icon a:before{color: black !important;}
+
+.tab-with-icon:hover a span:after  { color: white !important; }
+#new_image_link > span,.inline-menu>span{
+    color: white !important
+}
+.inline-menu li a span {
+    color: white !important
+}

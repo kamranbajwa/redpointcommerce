@@ -9,6 +9,7 @@
       </div>
     </div>
     <div class="portlet-body flip-scroll">
+    <%if @adjustments.present?%>
       <table class="table table-bordered table-striped table-condensed flip-content"  data-hook="adjustments">
         <thead class="flip-content" data-hook="adjustmment_head">
           <tr>
@@ -30,5 +31,8 @@
           </tr>
         </tbody>
       </table>
+      <%else%>
+      <h1> No adjustment found</h1>
+      <%end%>
     </div>
   </div>
