@@ -8,7 +8,41 @@
     <i class="fa fa-plus"></i> <%= Spree.t(:new_user)%> <% end %>
   </li>
 <% end %>
-<div class="col-md-8">
+<div data-hook="admin_users_index_search" class="portlet light">
+  <div class="portlet-title">
+    <div class="caption font-red-sunglo">
+      <i class="icon-settings font-red-sunglo"></i>
+      <span class="caption-subject bold uppercase"> Search</span>
+    </div>
+  </div>
+  <div class="portlet-body form">
+    <%= search_form_for [:admin, @search], url: admin_users_url do |f| %>
+    <div class="form-body">
+      <div class="form-group form-md-line-input col-md-4">
+        <%= f.text_field :email_cont, class: "form-control" %>
+        <%= f.label :email_cont, Spree.t(:email) %>
+        <span class="help-block">Email goes here...</span>
+      </div>
+      <div class="form-group form-md-line-input col-md-4">
+        <%= f.text_field :first_name_cont, class: "form-control" %>
+        <%= f.label :first_name_cont, Spree.t(:first_name) %>
+        <span class="help-block">First Name goes here...</span>
+      </div>
+      <div class="form-group form-md-line-input col-md-4">
+        <%= f.text_field :last_name_cont, class: "form-control" %>
+        <%= f.label :last_name_cont, Spree.t(:last_name) %>
+        <span class="help-block">Last Name goes here...</span>
+      </div>
+      <div data-hook="admin_users_index_search_buttons">
+        <button type="submit" class="btn blue"><%= Spree.t(:search) %></button>
+      </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="">
   <div class="portlet box blue">
     <div class="portlet-title">
       <div class="caption">
@@ -55,40 +89,5 @@
   </div>
 </div>
 
-<% content_for :sidebar do %>
-<div class="col-md-4">
-<div data-hook="admin_users_index_search" class="portlet light">
-  <div class="portlet-title">
-    <div class="caption font-red-sunglo">
-      <i class="icon-settings font-red-sunglo"></i>
-      <span class="caption-subject bold uppercase"> Search</span>
-    </div>
-  </div>
-  <div class="portlet-body form">
-    <%= search_form_for [:admin, @search], url: admin_users_url do |f| %>
-    <div class="form-body">
-      <div class="form-group form-md-line-input col-md-12">
-        <%= f.text_field :email_cont, class: "form-control" %>
-        <%= f.label :email_cont, Spree.t(:email) %>
-        <span class="help-block">Email goes here...</span>
-      </div>
-      <div class="form-group form-md-line-input col-md-12">
-        <%= f.text_field :first_name_cont, class: "form-control" %>
-        <%= f.label :first_name_cont, Spree.t(:first_name) %>
-        <span class="help-block">First Name goes here...</span>
-      </div>
-      <div class="form-group form-md-line-input col-md-12">
-        <%= f.text_field :last_name_cont, class: "form-control" %>
-        <%= f.label :last_name_cont, Spree.t(:last_name) %>
-        <span class="help-block">Last Name goes here...</span>
-      </div>
-      <div data-hook="admin_users_index_search_buttons">
-        <button type="submit" class="btn blue"><%= Spree.t(:search) %></button>
-      </div>
-      </div>
-    <% end %>
-    </div>
-  </div>
-</div>
-<% end %>
+
 <%= paginate @users %>
