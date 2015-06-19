@@ -488,7 +488,7 @@ en:
     back_to_stock_transfers_list: Back to Stock Transfers List
     back_to_store: Go Back To Store
     back_to_tax_categories_list: Back To Tax Categories List
-    back_to_taxonomies_list: Back To Taxonomies List
+    back_to_taxonomies_list: Back To Category List
     back_to_trackers_list: Back To Trackers List
     back_to_users_list: Back To Users List
     back_to_zones_list: Back To Zones List
@@ -526,7 +526,7 @@ en:
     categories: Categories
     category: Category
     charged: Charged
-    check_for_spree_alerts: Check for Spree alerts
+    check_for_spree_alerts: Check for Alerts
     checkout: Checkout
     choose_a_customer: Choose a customer
     choose_a_taxon_to_sort_products_for: "Choose a taxon to sort products for"
@@ -1303,9 +1303,9 @@ en:
       label: Order must contain %{select} of these taxons
       match_all: all
       match_any: at least one
-    taxonomies: Taxonomies
-    taxonomy: Taxonomy
-    taxonomy_edit: Edit taxonomy
+    taxonomies: Categories
+    taxonomy: Category
+    taxonomy_edit: Edit Category
     taxonomy_tree_error: The requested change has not been accepted and the tree has been returned to its previous state, please try again.
     taxonomy_tree_instruction: ! '* Right click a child in the tree to access the menu for adding, deleting or sorting a child.'
     taxons: Taxons

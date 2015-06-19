@@ -162,7 +162,7 @@
           </td>
           <td class="align-center"><%= order.display_total.to_html %></td>
           <td class='actions align-center' data-hook="admin_orders_index_row_actions">
-            <%= link_to_edit_url edit_admin_order_path(order), :title => "admin_edit_#{dom_id(order)}", :no_text => true %>
+            <%= link_to_edit_url cart_admin_order_url(order), :title => "admin_edit_#{dom_id(order)}", :no_text => true %>
           </td>
         </tr>
         <% end %>
@@ -179,8 +179,3 @@
 <div class="portile-body">
 <%= paginate @orders %>
 </div>
-<script type="text/javascript">
-  $(document).ready(function(){
-    toastr.info('Are you the six fingered man?', 'Inigo Montoya');
-  });
-</script>

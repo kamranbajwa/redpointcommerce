@@ -1,5 +1,5 @@
 class Spree::Admin::BlogsController <  Spree::Admin::ResourceController
-  before_action :set_spree_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_spree_blog, only: [:show, :edit, :update, :destroy, :create]
   # GET /spree/admin/blogs
   # GET /spree/admin/blogs.json
   
@@ -32,7 +32,7 @@ class Spree::Admin::BlogsController <  Spree::Admin::ResourceController
         format.html { redirect_to admin_blogs_path, notice: 'Spree::Blog Post was successfully created.' }
         format.json { render action: 'index', status: :created, location: @spree_blog }
        else
-        format.html { redirect_to new_admin_blog_path, notice: "#{@spree_blog.errors.full_messages.first}"}
+        format.html { render action: 'new', notice: "#{@spree_blog.errors.full_messages.first}"}
         format.json { render json: @spree_blog.errors, status: :unprocessable_entity }
        end
     end

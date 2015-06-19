@@ -1,6 +1,6 @@
 class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
-  before_action :current_template, only: [:index, :new]
-  before_action :get_templates, only: [:new, :edit, :update]
+  before_action :current_template, only: [:index, :new, :create]
+  before_action :get_templates, only: [:new, :edit, :update, :create]
 
   def index
     @pages =  @current_template.first.cms_pages.order("sort asc")
@@ -41,7 +41,7 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
         format.json { render action: 'index', status: :created, location: @cms_page }
       else
         flash[:error] = "#{@cms_page.errors.full_messages.first}"
-        format.html { redirect_to new_admin_cms_page_path}
+        format.html { render action: 'new'}
         format.json { render json: @cms_page.errors, status: :unprocessable_entity }
       end
     end

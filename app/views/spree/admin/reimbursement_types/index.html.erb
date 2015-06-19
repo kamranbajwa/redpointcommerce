@@ -29,7 +29,7 @@
               <%= reimbursement_type.name.humanize %>
             </td>
             <td>
-              <%= reimbursement_type.type %>
+              <%= reimbursement_type.type.split("::").third rescue " " %>
             </td>
           </tr>
           <% end %>
