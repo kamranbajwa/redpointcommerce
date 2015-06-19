@@ -11,7 +11,7 @@ $(document).ready(function(){
      setTimeout(function() {
     $('.alert-success').hide();
     }, 3000);
-  })
+  });
 
   $(".add_to_cart").click(function(){
       $("#myModal").show();
@@ -26,12 +26,13 @@ $('.search-container').click( function(e) { e.preventDefault(); $('.search-slide
 // nivoSlider Starts
 $('#slider').nivoSlider();
 $("#datepicker").datepicker({
-   forceParse: false,
+  forceParse: false,
   autoclose: true
 
-)};
+});
 // nivoSlider Ends
 });
+
 /* Document Ready Ends */
 
 /* Window.Load Starts */
