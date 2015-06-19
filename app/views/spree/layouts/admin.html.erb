@@ -17,13 +17,24 @@
     <div id='wrapper' class="page-container" data-hook>
 
       <% if flash[:error] %>
-        <div class="flash error"><%= flash[:error] %></div>
+      <script type="text/javascript">
+       $(document).ready(function(){
+           toastr.error('<%= flash[:error] %>');
+         });
+        </script>
       <% end %>
       <% if notice %>
-        <div class="flash notice"><%= notice %></div>
+       <script type="text/javascript">
+       $(document).ready(function(){
+           toastr.info('<%= notice %>');
+         });
+        </script>
       <% end %>
       <% if flash[:success] %>
-        <div class="flash success"><%= flash[:success] %></div>
+         $(document).ready(function(){
+           toastr.error('<%= flash[:success] %>');
+         });
+        </script>
       <% end %>
 
       <div id="progress">

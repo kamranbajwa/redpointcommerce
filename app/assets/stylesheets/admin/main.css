@@ -150,3 +150,6 @@ table td.actions .fa-ok:hover, table td.actions .fa-plus:hover, table td.actions
 .margin-option-types{
   margin-left: 15px;
 }
+.toast-info, .toast-success, .toast-error {
+  margin-top: 70px !important;
+}

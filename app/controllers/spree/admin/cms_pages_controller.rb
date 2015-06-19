@@ -22,10 +22,11 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
   def update
     respond_to do |format|
       if @cms_page.update(cms_page_params)
-       format.html { redirect_to admin_cms_pages_path, notice: 'Spree::Cms Page was successfully updated.' }
+       format.html { redirect_to admin_cms_pages_path, notice: 'Cms Page was successfully updated.' }
         format.json { render action: 'index', status: :created, location: @cms_page }
       else
-        format.html { redirect_to edit_admin_cms_page_path(@cms_page), notice: "#{@cms_page.errors.full_messages.first}" }
+        flash[:error] = "#{@cms_page.errors.full_messages.first}"
+        format.html { redirect_to edit_admin_cms_page_path(@cms_page)}
         format.json { render json: @cms_page.errors, status: :unprocessable_entity }
       end
     end
@@ -36,10 +37,11 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
 
     respond_to do |format|
       if @cms_page.save
-        format.html { redirect_to admin_cms_pages_path, notice: 'Spree::Cms Page was successfully created.' }
+        format.html { redirect_to admin_cms_pages_path, notice: 'CMS Page was successfully created.' }
         format.json { render action: 'index', status: :created, location: @cms_page }
       else
-        format.html { redirect_to new_admin_cms_page_path, notice: "#{@cms_page.errors.full_messages.first}"}
+        flash[:error] = "#{@cms_page.errors.full_messages.first}"
+        format.html { redirect_to new_admin_cms_page_path}
         format.json { render json: @cms_page.errors, status: :unprocessable_entity }
       end
     end
