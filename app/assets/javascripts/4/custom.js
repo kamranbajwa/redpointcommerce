@@ -25,12 +25,10 @@ $('.search-container').click( function(e) { e.preventDefault(); $('.search-slide
 // Search Box Show Hide Ends
 // nivoSlider Starts
 $('#slider').nivoSlider();
-$(function() {
-$( "#datepicker" ).datepicker({
+$("#datepicker").datepicker({
    forceParse: false,
   autoclose: true
 
-)};
 )};
 // nivoSlider Ends
 });
