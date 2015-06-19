@@ -31,8 +31,9 @@
         </script>
       <% end %>
       <% if flash[:success] %>
-         $(document).ready(function(){
-           toastr.error('<%= flash[:success] %>');
+       <script type="text/javascript">
+        $(document).ready(function(){
+           toastr.success('<%= flash[:success] %>');
          });
         </script>
       <% end %>
