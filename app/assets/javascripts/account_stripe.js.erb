@@ -4,10 +4,8 @@ $(document).ready(function(){
   var subscription;
   $("form").on('submit.blocker', function(e) {
     e.preventDefault();
-  Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key]
- %>');
-// console.log(a);
-  // Stripe.setPublishableKey("pk_test_89NlblSjEhYqfmvth4DbCvdf")
+   Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key]
+  %>');
    return subscription.setupForm();
 });
 

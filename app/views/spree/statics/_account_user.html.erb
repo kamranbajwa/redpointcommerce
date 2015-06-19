@@ -11,7 +11,6 @@
     </div>
   <% end %>
 
-
 <%=hidden_field_tag :stripe_card_token %>
 <%=hidden_field_tag :t_amount %>
 <%=hidden_field_tag :order_id%>
@@ -26,7 +25,7 @@
   </div>
    <div class="field form-group">
       <%= label_tag :amount, "Amount", class: "col-md-4" %>
-      <%= text_field_tag :amount, "#{current_order.total rescue ''}" %>
+      <%= text_field_tag :amount, "#{ (spree_current_user.curr_acc_blnc.to_f).abs rescue ''}", :onkeyUp=>"handleChange()"%>
   </div>
   <div class="field">
     <%= label_tag :card_month, "Card Expiration*", class: "col-md-4" %>
@@ -38,4 +37,13 @@
   </div>
 <% end %>
  <%= javascript_include_tag    "account_stripe" %>
- 
+ <script type="text/javascript">
+ amount_before=$('#amount').val();
+function handleChange(){
+amount_enterd=$('#amount').val() 
+if (amount_enterd>amount_before) {
+  alert("sorry you can enterd more amount than "+amount_before)
+  $('#amount').val(amount_before)
+}
+}
+ </script>
