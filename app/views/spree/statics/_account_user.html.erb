@@ -1,4 +1,4 @@
- <%= javascript_include_tag    "strip" %>
+ <script src="/assets/strip"></script>
 <%= form_tag "/account_charge", :id => "new_subscription" do  %>
   <% if @user.errors.any? %>
     <div class="error_messages">
@@ -36,7 +36,7 @@
   <button type="submit" class="btn  btn-primary" style="margin-top: 16px;">Pay Now</button>
   </div>
 <% end %>
-<script src="/assets/account_strip"></script>>
+<script src="/assets/account_stripe"></script>
  <script type="text/javascript">
  amount_before=$('#amount').val();
 function handleChange(){
