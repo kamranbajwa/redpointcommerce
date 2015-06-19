@@ -24,7 +24,15 @@ $('.search-container').click( function(e) { e.preventDefault(); $('.search-slide
 // $('.search-container').click( function(e) { e.preventDefault(); $('.search-slide').Toggle('slide'); });
 // Search Box Show Hide Ends
 // nivoSlider Starts
-$('#slider').nivoSlider(); 
+$('#slider').nivoSlider();
+  $(function() {
+$( "#datepicker" ).datepicker({
+   forceParse: false,
+    autoclose: true
+  // changeMonth: true,
+  // changeYear: true
+});
+});
 // nivoSlider Ends
 });
 /* Document Ready Ends */

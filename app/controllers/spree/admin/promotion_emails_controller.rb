@@ -48,7 +48,8 @@ def index
         #format.html { redirect_to adminpromotion_emails_url, notice: 'Promotion email was successfully created.' }
         #format.json { render action: 'show', status: :created, location: @promotion_email }
       else
-        redirect_to :back, notice: "Promtion mail was not created please try again"
+        flash[:error] = "#{@promotion_email.errors.full_messages.first}"
+        redirect_to :back
         #format.html { render action: 'new' }
         #format.json { render json: @promotion_email.errors, status: :unprocessable_entity }
     end
@@ -62,7 +63,8 @@ def index
         #format.html { redirect_to :back, notice: 'Promotion email was successfully updated.' }
         
       else
-        redirect_to :back, notice: "Email with empty body or title can't be sent"
+        flash[:error] = "#{@promotion_email.errors.full_messages.first}"
+        redirect_to :back
       end
   end
 

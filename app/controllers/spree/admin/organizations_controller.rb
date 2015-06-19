@@ -1,6 +1,6 @@
 class Spree::Admin::OrganizationsController < Spree::Admin::ResourceController
   #before_action :set_organization, only: [:show, :edit, :update, :destroy]
-   skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
   # GET /organizations
   # GET /organizations.json
   def index
@@ -10,7 +10,7 @@ class Spree::Admin::OrganizationsController < Spree::Admin::ResourceController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
-    flash.now[:notice] = 'Sorry Organization was not updated please update again'
+    flash[:notice] = 'Sorry Organization was not updated please update again'
     render action: 'edit'
     #@organization = Spree::Organization.find(params[:id])
     #redirect_to :admin_organization, notice: 'Organization was not updated.Please update it again'
@@ -54,7 +54,8 @@ class Spree::Admin::OrganizationsController < Spree::Admin::ResourceController
         format.html { redirect_to edit_admin_organization_path(@organization), notice: 'Organization was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to edit_admin_organization_path(@organization), notice: 'Organization was not updated.Please update it again' }
+        flash[:error] = "#{@organization.errors.full_messages.first}"
+        format.html { redirect_to edit_admin_organization_path(@organization) }
         format.json { render json: @organization.errors, status: :unprocessable_entity }
       end
     end

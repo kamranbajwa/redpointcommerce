@@ -29,7 +29,7 @@ class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
 
     respond_to do |format|
       if @template.save
-        format.html { redirect_to @template, notice: 'Spree::Template was successfully created.' }
+        format.html { redirect_to @template, notice: 'Template was successfully created.' }
         format.json { render action: 'show', status: :created, location: @template }
       else
         format.html { render action: 'new' }
@@ -50,7 +50,8 @@ class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
         format.html { redirect_to admin_templates_path, notice: 'Template was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to admin_templates_path, notice: 'Template was not updated.'}
+        flash[:error] = "#{@template.errors.full_messages.first}"
+        format.html { redirect_to admin_templates_path }
         format.json { render json: @template.errors, status: :unprocessable_entity }
       end
     end

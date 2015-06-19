@@ -64,57 +64,7 @@ box-shadow: inset 0 0px 0 rgba(255, 255, 255, 0.4);" %></button>
         </div>
       </div>
        <%elsif @product.subscription %>
-    <div data-hook="product_price" class="columns five <% if !@product.has_variants? %> alpha <% else %> omega <% end %>">
-
-        <div id="product-price">
-         <div>
-              
-            <div class="productRowInfo">
-              
-              <%if @product.subscription%>
-              <h6 class="product-section-title">Daily subscription Price:</h6>
-              <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "daily", true %><%= number_to_currency(@product.subscription_daily, :unit => '$') %></span>
-                <h6 class="product-section-title">Weekly subscription Price:</h6>
-              <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "weekly", false %><%= number_to_currency(@product.subscription_weekly, :unit => '$') %></span>
-                <h6 class="product-section-title">Monthly subscription Price:</h6>
-              <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "monthly", false %><%= number_to_currency(@product.subscription_monthly, :unit => '$') %></span>
-                  <h6 class="product-section-title">yearly subscription Price:</h6>
-              <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "yearly", false %><%= number_to_currency(@product.subscription_yearly, :unit => '$') %></span>   
-                 <h6 class="product-section-title">subscription Date:</h6>
-               <span class="price styleSecondColor fsize20"><%= text_field_tag :date, nil ,class: '', id: "datepicker", :required => true%></span>   
-         
-              <%end%>
-              
-
-              <span itemprop="priceCurrency" content="<%= @product.currency %>"></span>
-            </div>
-
-            <% if @product.master.can_supply? %>
-              <link itemprop="availability" href="http://schema.org/InStock" />
-            <% elsif @product.variants.empty? %>
-              <br />
-              <span class="out-of-stock"><%= Spree.t(:out_of_stock) %></span>
-            <% end %>
-          </div>
-          
-          
-          
-          
-          
-
-          <div class="add-to-cart">
-
-            <div class="addCartBtn">
-              <span class="input-group-btn">
-                <%= number_field_tag :quantity, 1, :class => 'title', :min => 1 %>
-                <button class="btn btn-primary"><i class="fa fa-shopping-cart"></i> <%= f.submit "ADD TO CART",:style=>"background: transparent !important;
-    border: 0px none !important;
-    box-shadow: inset 0 0px 0 rgba(255, 255, 255, 0.4);" %></button> 
-              </span>
-            </div><!-- /input-group -->
-          </div>
-        </div>
-      </div>
+        <%=render :partial => "/spree/shared/subscribation_product" ,:locals => { :product => @product,:f=> f }%>
     <% else %>
       <div id="product-price">
         <br>
@@ -127,9 +77,11 @@ box-shadow: inset 0 0px 0 rgba(255, 255, 255, 0.4);" %></button>
 
 
 <style>
-  .ui-datepicker-calendar{ z-index:999999999;
-  position: absolute; background: #fff; border: solid 1px #dedede}
-  #ui-datepicker-div{ background: #fff !important; width: 280px;}
-  .ui-datepicker-next { float: right !important; left: 255px !important;  }
+  .ui-datepicker-calendar { z-index:999999999;
+  position: absolute; background: #fff; border: solid 1px #dedede 
+}
+  #ui-datepicker-div { background: #fff !important; width: 280px;}
+  .ui-datepicker-next { float: right !important; left: 255px !important; 
+   }
     
 </style>

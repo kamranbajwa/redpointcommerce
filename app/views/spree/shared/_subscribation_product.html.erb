@@ -21,7 +21,8 @@
                   <h6 class="product-section-title">yearly subscription Price:</h6>
               <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "yearly", false %><%= number_to_currency(product.subscription_yearly, :unit => '$') %></span>   
               <%end%>
-              
+              <h6 class="product-section-title">subscription Date:</h6>
+               <span class="price styleSecondColor fsize20"><%= text_field_tag :date, nil ,class: '', id: "datepicker", :required => true%></span>   
 
               <span itemprop="priceCurrency" content="<%= product.currency %>"></span>
             </div>

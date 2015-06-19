@@ -44,9 +44,10 @@ class Spree::Admin::EmailTemplatesController < Spree::Admin::ResourceController
   def update
     respond_to do |format|
       if @emailtemplate.update(emailtemplate_params)
-        format.html { redirect_to :back, notice: 'Email Template was successfully updated.' }
+        format.html { redirect_to admin_email_templates_url, notice: 'Email Template was successfully updated.' }
         format.json { head :no_content }
       else
+        flash[:error] = "#{@emailtemplate.errors.full_messages.first}"
         format.html { render action: 'edit' }
         format.json { render json: @emailtemplate.errors, status: :unprocessable_entity }
       end
