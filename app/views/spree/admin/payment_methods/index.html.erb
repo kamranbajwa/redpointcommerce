@@ -36,7 +36,7 @@
        <% @payment_methods.each do |method|%>
        <tr id="<%= spree_dom_id method %>" data-hook="admin_payment_methods_index_rows" class="<%= cycle('odd', 'even')%>">
         <td class="align-center"><%= method.name %></td>
-        <td class="align-center"><%= method.type %></td>
+        <td class="align-center"><%= method.type.split("::").third %></td>
         <td class="align-center"><%= method.environment.to_s.titleize %></td>
         <td class="align-center"><%= method.display_on.blank? ? Spree.t(:both) : Spree.t(method.display_on) %></td>
         <td class="align-center"><%= method.active ? Spree.t(:say_yes) : Spree.t(:say_no) %></td>

@@ -16,7 +16,7 @@ class Spree::Admin::ApiUsersController < Spree::Admin::ResourceController
       redirect_to action: 'show', id:  @api_user.id
     else
       flash[:error] = "#{@api_user.errors.full_messages.first}"
-      redirect_to new_admin_api_user_path
+      redirect_to action: 'new'
     end
   end
 
