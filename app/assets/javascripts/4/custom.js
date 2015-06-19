@@ -25,14 +25,13 @@ $('.search-container').click( function(e) { e.preventDefault(); $('.search-slide
 // Search Box Show Hide Ends
 // nivoSlider Starts
 $('#slider').nivoSlider();
-  $(function() {
+$(function() {
 $( "#datepicker" ).datepicker({
    forceParse: false,
-    autoclose: true
-  // changeMonth: true,
-  // changeYear: true
-});
-});
+  autoclose: true
+
+)};
+)};
 // nivoSlider Ends
 });
 /* Document Ready Ends */
