@@ -11,7 +11,7 @@ $(document).ready(function(){
      setTimeout(function() {
     $('.alert-success').hide();
     }, 3000);
-  })
+  });
 
   $(".add_to_cart").click(function(){
       $("#myModal").show();
@@ -24,9 +24,15 @@ $('.search-container').click( function(e) { e.preventDefault(); $('.search-slide
 // $('.search-container').click( function(e) { e.preventDefault(); $('.search-slide').Toggle('slide'); });
 // Search Box Show Hide Ends
 // nivoSlider Starts
-$('#slider').nivoSlider(); 
+$('#slider').nivoSlider();
+$("#datepicker").datepicker({
+  forceParse: false,
+  autoclose: true
+
+});
 // nivoSlider Ends
 });
+
 /* Document Ready Ends */
 
 /* Window.Load Starts */
