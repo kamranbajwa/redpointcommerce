@@ -32,6 +32,7 @@ def check_account_balnce
        if total_balce>0
         redirect_to "/account"
          flash[:notice] = "Sorry Account can't be positive"
+         redirect_to "/account"
          return 
        end 
   end
@@ -68,7 +69,7 @@ def check_account_balnce
           if @order
             @order.update(:payment_state=>"paid")
           end
-          if user.current_balance==0
+          if @user.current_balance==0
           @user.orders.where(:payment_state=>"pending").each do |odr|
             if odr.payments.last.try(:payment_method).try(:type)=="Spree::Gateway::Bogus"
               odr.update(:payment_state=>"paid")
