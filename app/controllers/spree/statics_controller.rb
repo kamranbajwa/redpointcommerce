@@ -23,7 +23,7 @@ def check_account_balnce
         order_id=params[:order_id].to_i
       if order_id and order_id!=0
         @order=Spree::Order.find_by_id order_id
-          if order.total.to_f!= params[:t_amount].to_f
+          if @order.total.to_f!= params[:t_amount].to_f
           flash[:notice] = "Sorry You cant pay more than the order total"
           redirect_to "/account"
           return
