@@ -49,7 +49,7 @@ def index
         #format.json { render action: 'show', status: :created, location: @promotion_email }
       else
         flash[:error] = "#{@promotion_email.errors.full_messages.first}"
-        redirect_to :back
+        render action: 'new'
         #format.html { render action: 'new' }
         #format.json { render json: @promotion_email.errors, status: :unprocessable_entity }
     end

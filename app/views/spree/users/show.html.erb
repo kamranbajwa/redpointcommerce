@@ -36,7 +36,7 @@ text-align: center !important;
         <%=render :partial=>"/spree/statics/account_user"%>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
     </div>
 
@@ -74,7 +74,7 @@ text-align: center !important;
               <td class="order-shipment-state"><%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
               <td class="order-total"><%= order.display_total %></td>
               <%if  order.payments.last.try(:payment_method).try(:type)=="Spree::Gateway::Bogus" and order.payment_state=="pending" and order.user.purchase_on_account==true  %>
-             <td class="order-total"><button type="button" class="btn btn-info btn-primary" data-toggle="modal" data-target="#myModal" data-yourParameter=<%=order.id%>>Make Payment</button></td>
+             <td class="order-total"><button type="button" class="btn btn-info btn-primary" data-toggle="modal" data-target="#myModal" data-amount=<%=order.total.to_f%> data-yourParameter=<%=order.id%>>Make Payment</button></td>
               <%else%>
               <td class="order-total"></td>
               <%end%>
@@ -91,12 +91,6 @@ text-align: center !important;
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){
-  
-  $('#myModal').on('show.bs.modal',function(e) {
-     yourParameter = e.relatedTarget.dataset.yourparameter;
-     $('#order_id').val(yourParameter)
-  });
-
-});
+total_account_balce = "<%=(spree_current_user.curr_acc_blnc.to_f).abs%>"
 </script>
+<%= javascript_include_tag 'amount_replace_in_account' %>

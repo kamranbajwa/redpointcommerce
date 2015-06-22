@@ -1,6 +1,7 @@
 module Spree
   class StaticsController <  Spree::StoreController
    skip_before_action :verify_authenticity_token , :only => [:subcriptions]
+    before_action :check_account_balnce, :only => [:account_charge]
     def contactus
     end
   
@@ -15,7 +16,25 @@ module Spree
   
     def privacypolicy
     end
-
+def check_account_balnce
+     @user=spree_current_user
+       charge_amount=(params[:t_amount].to_f).round
+       total_balce=charge_amount.to_f+@user.curr_acc_blnc.to_f
+        order_id=params[:order_id].to_i
+      if order_id and order_id!=0
+        @order=Spree::Order.find_by_id order_id
+          if order.total.to_f!= params[:t_amount].to_f
+          flash[:notice] = "Sorry You cant pay more than the order total"
+          redirect_to "/account"
+          return
+        end
+      end
+       if total_balce>0
+        redirect_to "/account"
+         flash[:notice] = "Sorry Account can't be positive"
+         return 
+       end 
+  end
     def pages
         @page_data = Spree::CmsPage.find(params[:id]) rescue nil
         if @page_data
@@ -28,7 +47,6 @@ module Spree
     def blog
     end
     def account_charge
-      user=spree_current_user
       token = params[:stripe_card_token]
       customer = Stripe::Customer.create(
        :source => token,
@@ -43,18 +61,28 @@ module Spree
           
            end
          if !charge.blank?
-          user.curr_acc_blnc=(user.curr_acc_blnc.to_f+charge_amount).to_s
-          user.balnce_date=Date.today
-          user.save!
-          user.account_transactions.create(:transaction_type=>"credit",:current_balance=>user.curr_acc_blnc,:amount=>charge_amount)
-          flash[:notice] = "You have rechanrged you account successfuly!"
+          @user.curr_acc_blnc=(@user.curr_acc_blnc.to_f+charge_amount).to_s
+          @user.balnce_date=Date.today
+          @user.save!
+          @user.account_transactions.create(:transaction_type=>"credit",:current_balance=>@user.curr_acc_blnc,:amount=>charge_amount)
+          if @order
+            @order_update(:payment_state=>"paid")
+          end
+          if user.current_balance==0
+          @user.orders.where(:payment_state=>"pending").each do |odr|
+            if odr.payments.last.try(:payment_method).try(:type)=="Spree::Gateway::Bogus"
+              odr.update(:payment_state=>"paid")
+            end
+          end
+        end
+          flash[:notice] = "You have recharged you account successfully!"
          end
         redirect_to :back
     
     end
-      def account_user
-      @user=spree_current_user       
-      end
+      # def account_user
+      # @user=spree_current_user       
+      # end
     # Show Every Post
     def show_post
        @blog_post_show = Spree::Blog.find_by_permalink(params[:permalink])
@@ -83,4 +111,5 @@ module Spree
         # End Subcription Email 
 
   end
+  
 end
