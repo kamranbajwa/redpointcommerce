@@ -54,7 +54,7 @@ module Spree
     def method_name?
     if params[:state]=="payment"
       payment_method_id=params[:order][:payments_attributes].first[:payment_method_id].to_i
-      payment_method_name= Spree::PaymentMethod.find payment_method_id
+      payment_method_name= Spree::PaymentMethod.find_by_id payment_method_id
       if payment_method_name.type=="Spree::Gateway::Bogus"
         return true
       else
@@ -127,13 +127,15 @@ module Spree
         end
       end
       def order_payment_state
-        usr=@order.user
-        amnt=usr.curr_acc_blnc.to_f+@order.total
-        if amnt<0
-          @order.payment_state="pending"
-        else
-          @order.payment_state="paid"
-        end
+        @order.payment_state="pending"
+        @order.shipment_state="pending"
+        # usr=@order.user
+        # amnt=usr.curr_acc_blnc.to_f+@order.total
+        # if amnt<0
+        #   @order.payment_state="pending"
+        # else
+        #   @order.payment_state="paid"
+        # end
 
         end
       def ensure_checkout_allowed

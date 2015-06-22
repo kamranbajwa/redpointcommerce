@@ -66,7 +66,7 @@ def check_account_balnce
           @user.save!
           @user.account_transactions.create(:transaction_type=>"credit",:current_balance=>@user.curr_acc_blnc,:amount=>charge_amount)
           if @order
-            @order_update(:payment_state=>"paid")
+            @order.update(:payment_state=>"paid")
           end
           if user.current_balance==0
           @user.orders.where(:payment_state=>"pending").each do |odr|
