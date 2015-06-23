@@ -56,7 +56,7 @@ def check_account_balnce
       begin
        charge = Stripe::Charge.create(:amount =>charge_amount*100, :currency => "usd",:customer => customer.id)
         rescue
-          flash[:notice] = "Sorry account is recharged now please try again!"
+          flash[:notice] = "Sorry account is can't be recharged please try again!"
            ExceptionNotifier.notify_exception("card error")
           
            end
