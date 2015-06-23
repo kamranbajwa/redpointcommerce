@@ -111,8 +111,8 @@
 					<div class="dashboard-stat2">
 						<div class="display">
 							<div class="number">
-								<h3 class="font-green-sharp"><%= @total_amount%><small class="font-green-sharp">$</small></h3>
-								<small>TOTAL PROFIT</small>
+								<h3 class="font-green-sharp"><%= @total_sales %><small class="font-green-sharp">$</small></h3>
+								<small>TOTAL Sales</small>
 							</div>
 							<div class="icon">
 								<i class="icon-pie-chart"></i>
@@ -167,8 +167,8 @@
 					<div class="dashboard-stat2">
 						<div class="display">
 							<div class="number">
-								<h3 class="font-purple-soft">276</h3>
-								<small>NEW USERS</small>
+								<h3 class="font-purple-soft"><%= @total_users %></h3>
+								<small>USERS</small>
 							</div>
 							<div class="icon">
 								<i class="icon-user"></i>
@@ -176,8 +176,8 @@
 						</div>
 						<div class="progress-info">
 							<div class="progress">
-								<span style="width: 57%;" class="progress-bar progress-bar-success purple-soft">
-								<span class="sr-only">56% change</span>
+								<span style="width: <%= @user_change%>%;" class="progress-bar progress-bar-success purple-soft">
+								<span class="sr-only"><%=@user_change%>% change</span>
 								</span>
 							</div>
 							<div class="status">
@@ -185,7 +185,7 @@
 									 change
 								</div>
 								<div class="status-number">
-									 57%
+									 <%= @user_change%>%
 								</div>
 							</div>
 						</div>
@@ -197,7 +197,7 @@
 					<div class="dashboard-stat2">
 						<div class="display">
 							<div class="number">
-								<h3 class="font-red-haze">12127</h3>
+								<h3 class="font-red-haze"><%= @total_count %></h3>
 								<small>TOTAL ORDERS</small>
 							</div>
 							<div class="icon">
@@ -206,8 +206,8 @@
 						</div>
 						<div class="progress-info">
 							<div class="progress">
-								<span style="width: 85%;" class="progress-bar progress-bar-success red-haze">
-								<span class="sr-only">85% change</span>
+								<span style="width: <%= @orders_change%>%;" class="progress-bar progress-bar-success red-haze">
+								<span class="sr-only"><%= @orders_change%>% change</span>
 								</span>
 							</div>
 							<div class="status">
@@ -215,7 +215,7 @@
 									 change
 								</div>
 								<div class="status-number">
-									 85%
+									 <%= @orders_change%>%
 								</div>
 							</div>
 						</div>
@@ -225,7 +225,7 @@
 					<div class="dashboard-stat2">
 						<div class="display">
 							<div class="number">
-								<h3 class="font-blue-sharp">670.54<small class="font-blue-sharp">$</small></h3>
+								<h3 class="font-blue-sharp"><%= @average_orders.round(2)%><small class="font-blue-sharp">$</small></h3>
 								<small>AVERAGE ORDER</small>
 							</div>
 							<div class="icon">
@@ -234,8 +234,8 @@
 						</div>
 						<div class="progress-info">
 							<div class="progress">
-								<span style="width: 45%;" class="progress-bar progress-bar-success blue-sharp">
-								<span class="sr-only">45% grow</span>
+								<span style="width: <%= @progress %>%;" class="progress-bar progress-bar-success blue-sharp">
+								<span class="sr-only"><%= @progress %>% grow</span>
 								</span>
 							</div>
 							<div class="status">
@@ -243,7 +243,7 @@
 									 grow
 								</div>
 								<div class="status-number">
-									 45%
+									 <%= @progress %>%
 								</div>
 							</div>
 						</div>
@@ -281,71 +281,7 @@
 										 13,760 <span class="font-lg font-grey-mint">$</span>
 									</div>
 								</div>
-								<div class="col-md-3 col-sm-3 col-xs-6">
-									<div class="font-grey-mint font-sm">
-										 Revenue
-									</div>
-									<div class="uppercase font-hg theme-font-color">
-										 4,760 <span class="font-lg font-grey-mint">$</span>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3 col-xs-6">
-									<div class="font-grey-mint font-sm">
-										 Expenses
-									</div>
-									<div class="uppercase font-hg font-purple">
-										 11,760 <span class="font-lg font-grey-mint">$</span>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3 col-xs-6">
-									<div class="font-grey-mint font-sm">
-										 Growth
-									</div>
-									<div class="uppercase font-hg font-blue-sharp">
-										 9,760 <span class="font-lg font-grey-mint">$</span>
-									</div>
-								</div>
 							</div>
-							<ul class="list-separated list-inline-xs hide">
-								<li>
-									<div class="font-grey-mint font-sm">
-										 Total Sales
-									</div>
-									<div class="uppercase font-hg font-red-flamingo">
-										 13,760 <span class="font-lg font-grey-mint">$</span>
-									</div>
-								</li>
-								<li>
-								</li>
-								<li class="border">
-									<div class="font-grey-mint font-sm">
-										 Revenue
-									</div>
-									<div class="uppercase font-hg theme-font-color">
-										 4,760 <span class="font-lg font-grey-mint">$</span>
-									</div>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									<div class="font-grey-mint font-sm">
-										 Expenses
-									</div>
-									<div class="uppercase font-hg font-purple">
-										 11,760 <span class="font-lg font-grey-mint">$</span>
-									</div>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									<div class="font-grey-mint font-sm">
-										 Growth
-									</div>
-									<div class="uppercase font-hg font-blue-sharp">
-										 9,760 <span class="font-lg font-grey-mint">$</span>
-									</div>
-								</li>
-							</ul>
 							<div id="sales_statistics" class="portlet-body-morris-fit morris-chart" style="height: 260px">
 							</div>
 						</div>
@@ -359,7 +295,7 @@
 							<div class="caption">
 								<i class="icon-bar-chart font-green-sharp"></i>
 								<span class="caption-subject font-green-sharp bold uppercase">Overview</span>
-								<span class="caption-helper">weekly stats...</span>
+								<span class="caption-helper">stats...</span>
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="collapse" data-original-title="" title="">
@@ -383,7 +319,7 @@
 									</li>
 									<li>
 										<a href="#overview_2" data-toggle="tab">
-										Most Viewed </a>
+										Recomended</a>
 									</li>
 									<li>
 										<a href="#overview_3" data-toggle="tab">
@@ -399,15 +335,15 @@
 												Latest 10 Orders </a>
 											</li>
 											<li>
-												<a href="#overview_4" tabindex="-1" data-toggle="tab">
+												<a href="#overview_5" tabindex="-1" data-toggle="tab">
 												Pending Orders </a>
 											</li>
 											<li>
-												<a href="#overview_4" tabindex="-1" data-toggle="tab">
+												<a href="#overview_6" tabindex="-1" data-toggle="tab">
 												Completed Orders </a>
 											</li>
 											<li>
-												<a href="#overview_4" tabindex="-1" data-toggle="tab">
+												<a href="#overview_7" tabindex="-1" data-toggle="tab">
 												Rejected Orders </a>
 											</li>
 										</ul>
@@ -426,125 +362,26 @@
 													 Price
 												</th>
 												<th>
-													 Sold
-												</th>
-												<th>
 												</th>
 											</tr>
 											</thead>
 											<tbody>
+											<% @best_selling_products.each do |product|%>
 											<tr>
 												<td>
 													<a href="javascript:;">
-													Apple iPhone 4s - 16GB - Black </a>
+													<%= product.name %> </a>
 												</td>
 												<td>
-													 $625.50
+													 $<%= product.price %>
 												</td>
-												<td>
-													 809
-												</td>
+											
 												<td>
 													<a href="javascript:;" class="btn default btn-xs green-stripe">
 													View </a>
 												</td>
 											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Samsung Galaxy S III SGH-I747 - 16GB </a>
-												</td>
-												<td>
-													 $915.50
-												</td>
-												<td>
-													 6709
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Motorola Droid 4 XT894 - 16GB - Black </a>
-												</td>
-												<td>
-													 $878.50
-												</td>
-												<td>
-													 784
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Regatta Luca 3 in 1 Jacket </a>
-												</td>
-												<td>
-													 $25.50
-												</td>
-												<td>
-													 1245
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Samsung Galaxy Note 3 </a>
-												</td>
-												<td>
-													 $925.50
-												</td>
-												<td>
-													 21245
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Inoval Digital Pen </a>
-												</td>
-												<td>
-													 $125.50
-												</td>
-												<td>
-													 1245
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Metronic - Responsive Admin + Frontend Theme </a>
-												</td>
-												<td>
-													 $20.00
-												</td>
-												<td>
-													 11190
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
+											<% end %>
 											</tbody>
 											</table>
 										</div>
@@ -561,125 +398,25 @@
 													 Price
 												</th>
 												<th>
-													 Views
-												</th>
-												<th>
 												</th>
 											</tr>
 											</thead>
 											<tbody>
+											<% @recommended_products.try(:each) do |product| %>
 											<tr>
 												<td>
 													<a href="javascript:;">
-													Metronic - Responsive Admin + Frontend Theme </a>
+													<%= product.name %></a>
 												</td>
 												<td>
-													 $20.00
-												</td>
-												<td>
-													 11190
+													 $<%= product.price %>
 												</td>
 												<td>
 													<a href="javascript:;" class="btn default btn-xs green-stripe">
 													View </a>
 												</td>
 											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Regatta Luca 3 in 1 Jacket </a>
-												</td>
-												<td>
-													 $25.50
-												</td>
-												<td>
-													 1245
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Apple iPhone 4s - 16GB - Black </a>
-												</td>
-												<td>
-													 $625.50
-												</td>
-												<td>
-													 809
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Samsung Galaxy S III SGH-I747 - 16GB </a>
-												</td>
-												<td>
-													 $915.50
-												</td>
-												<td>
-													 6709
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Motorola Droid 4 XT894 - 16GB - Black </a>
-												</td>
-												<td>
-													 $878.50
-												</td>
-												<td>
-													 784
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Samsung Galaxy Note 3 </a>
-												</td>
-												<td>
-													 $925.50
-												</td>
-												<td>
-													 21245
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Inoval Digital Pen </a>
-												</td>
-												<td>
-													 $125.50
-												</td>
-												<td>
-													 1245
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
+											<% end %>
 											</tbody>
 											</table>
 										</div>
@@ -690,7 +427,7 @@
 											<thead>
 											<tr>
 												<th>
-													 Customer Name
+													 Customer Email
 												</th>
 												<th>
 													 Total Orders
@@ -703,123 +440,70 @@
 											</tr>
 											</thead>
 											<tbody>
+											<% @customer.each do |key, row |%>
 											<tr>
 												<td>
 													<a href="javascript:;">
-													David Wilson </a>
+													<%= row[:email] %> </a>
 												</td>
 												<td>
-													 3
+													 <%= row[:count] %>
 												</td>
 												<td>
-													 $625.50
+													 $<%= row[:total] %>
 												</td>
 												<td>
 													<a href="javascript:;" class="btn default btn-xs green-stripe">
 													View </a>
 												</td>
 											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Amanda Nilson </a>
-												</td>
-												<td>
-													 4
-												</td>
-												<td>
-													 $12625.50
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Jhon Doe </a>
-												</td>
-												<td>
-													 2
-												</td>
-												<td>
-													 $125.00
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Bill Chang </a>
-												</td>
-												<td>
-													 45
-												</td>
-												<td>
-													 $12,125.70
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Paul Strong </a>
-												</td>
-												<td>
-													 1
-												</td>
-												<td>
-													 $890.85
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Jane Hilson </a>
-												</td>
-												<td>
-													 5
-												</td>
-												<td>
-													 $239.85
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Patrick Walker </a>
-												</td>
-												<td>
-													 2
-												</td>
-												<td>
-													 $1239.85
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
+											<% end %>
 											</tbody>
 											</table>
 										</div>
 									</div>
 									<div class="tab-pane" id="overview_4">
+										<div class="table-responsive">
+											<table class="table table-striped table-hover table-bordered">
+											<thead>
+											<tr>
+												<th>
+													 Customer Name
+												</th>
+												<th>
+													 Date
+												</th>
+												<th>
+													 Amount
+												</th>
+												<th>
+												</th>
+											</tr>
+											</thead>
+											<tbody>
+											<% @orders.take(10).try(:each) do |order|%>
+											<tr>
+												<td>
+													<a href="javascript:;">
+													<%= order.email %> </a>
+												</td>
+												<td>
+													 <%= order.created_at.strftime("%d, %b, %Y") %>
+												</td>
+												<td>
+													 $<%= order.amount.to_f %>
+												</td>
+												<td>
+													<a href="javascript:;" class="btn default btn-xs green-stripe">
+													View </a>
+												</td>
+											</tr>
+											<% end %>
+											</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="tab-pane" id="overview_5">
 										<div class="table-responsive">
 											<table class="table table-striped table-hover table-bordered">
 											<thead>
@@ -841,18 +525,20 @@
 											</tr>
 											</thead>
 											<tbody>
+											<% @orders.try(:each) do |order|%>
+											<% if order.shipment_state == 'pending' %>
 											<tr>
 												<td>
 													<a href="javascript:;">
-													David Wilson </a>
+													<%= order.email %> </a>
 												</td>
 												<td>
-													 3 Jan, 2013
+													 <%= order.created_at.strftime("%d, %b, %Y") %>
 												</td>
 												<td>
-													 $625.50
+													 $<%= order.amount.to_f %>
 												</td>
-												<td>
+													<td>
 													<span class="label label-sm label-warning">
 													Pending </span>
 												</td>
@@ -861,36 +547,45 @@
 													View </a>
 												</td>
 											</tr>
+											<% end %>
+											<% end %>
+											</table>
+										</div>
+									</div>
+									<div class="tab-pane" id="overview_6">
+										<div class="table-responsive">
+											<table class="table table-striped table-hover table-bordered">
+											<thead>
 											<tr>
-												<td>
-													<a href="javascript:;">
-													Amanda Nilson </a>
-												</td>
-												<td>
-													 13 Feb, 2013
-												</td>
-												<td>
-													 $12625.50
-												</td>
-												<td>
-													<span class="label label-sm label-warning">
-													Pending </span>
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
+												<th>
+													 Customer Name
+												</th>
+												<th>
+													 Date
+												</th>
+												<th>
+													 Amount
+												</th>
+												<th>
+													 Status
+												</th>
+												<th>
+												</th>
 											</tr>
+											</thead>
+											<tbody>
+											<% @orders.try(:each) do |order|%>
+											<% if order.completed? %>
 											<tr>
 												<td>
 													<a href="javascript:;">
-													Jhon Doe </a>
+													<%= order.email %> </a>
 												</td>
 												<td>
-													 20 Mar, 2013
+													 <%= order.created_at.strftime("%d, %b, %Y") %>
 												</td>
 												<td>
-													 $125.00
+													 $<%= order.amount.to_f %>
 												</td>
 												<td>
 													<span class="label label-sm label-success">
@@ -901,56 +596,45 @@
 													View </a>
 												</td>
 											</tr>
+											<% end %>
+											<% end %>
+											</table>
+										</div>
+									</div>
+										<div class="tab-pane" id="overview_7">
+										<div class="table-responsive">
+											<table class="table table-striped table-hover table-bordered">
+											<thead>
 											<tr>
-												<td>
-													<a href="javascript:;">
-													Bill Chang </a>
-												</td>
-												<td>
-													 29 May, 2013
-												</td>
-												<td>
-													 $12,125.70
-												</td>
-												<td>
-													<span class="label label-sm label-info">
-													In Process </span>
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
+												<th>
+													 Customer Name
+												</th>
+												<th>
+													 Date
+												</th>
+												<th>
+													 Amount
+												</th>
+												<th>
+													 Status
+												</th>
+												<th>
+												</th>
 											</tr>
+											</thead>
+											<tbody>
+											<% @orders.try(:each) do |order|%>
+											<% if order.canceled? %>
 											<tr>
 												<td>
 													<a href="javascript:;">
-													Paul Strong </a>
+													<%= order.email %> </a>
 												</td>
 												<td>
-													 1 Jun, 2013
+													 <%= order.created_at.strftime("%d, %b, %Y") %>
 												</td>
 												<td>
-													 $890.85
-												</td>
-												<td>
-													<span class="label label-sm label-success">
-													Success </span>
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Jane Hilson </a>
-												</td>
-												<td>
-													 5 Aug, 2013
-												</td>
-												<td>
-													 $239.85
+													 $<%= order.amount.to_f %>
 												</td>
 												<td>
 													<span class="label label-sm label-danger">
@@ -961,27 +645,8 @@
 													View </a>
 												</td>
 											</tr>
-											<tr>
-												<td>
-													<a href="javascript:;">
-													Patrick Walker </a>
-												</td>
-												<td>
-													 6 Aug, 2013
-												</td>
-												<td>
-													 $1239.85
-												</td>
-												<td>
-													<span class="label label-sm label-success">
-													Success </span>
-												</td>
-												<td>
-													<a href="javascript:;" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											</tbody>
+											<% end %>
+											<% end %>
 											</table>
 										</div>
 									</div>
