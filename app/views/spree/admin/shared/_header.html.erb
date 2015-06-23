@@ -32,7 +32,7 @@
         <ul class="nav navbar-nav pull-right">
           <li class="separator hide">
           </li>
-          <li style="margin-top: 27px;"> Welcome : <%= spree_current_user.email %> </li>
+          <li style="margin-top: 27px;"> Welcome : <%= spree_current_user.try(:email) %> </li>
           <li class="separator hide">
           </li>
           <li class="dropdown dropdown-user dropdown-dark">

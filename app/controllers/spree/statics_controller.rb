@@ -29,9 +29,9 @@ def check_account_balnce
           return
         end
       end
-       if total_balce>0
-        redirect_to "/account"
+       if total_balce.to_i.round>0
          flash[:notice] = "Sorry Account can't be positive"
+         redirect_to "/account"
          return 
        end 
   end
@@ -61,14 +61,14 @@ def check_account_balnce
           
            end
          if !charge.blank?
-          @user.curr_acc_blnc=(@user.curr_acc_blnc.to_f+charge_amount).to_s
+          @user.curr_acc_blnc=(@user.curr_acc_blnc.to_f+charge_amount).round.to_s
           @user.balnce_date=Date.today
           @user.save!
           @user.account_transactions.create(:transaction_type=>"credit",:current_balance=>@user.curr_acc_blnc,:amount=>charge_amount)
           if @order
             @order.update(:payment_state=>"paid")
           end
-          if user.current_balance==0
+          if @user.curr_acc_blnc.to_i.round>=0 and  @user.curr_acc_blnc.to_i.round<1
           @user.orders.where(:payment_state=>"pending").each do |odr|
             if odr.payments.last.try(:payment_method).try(:type)=="Spree::Gateway::Bogus"
               odr.update(:payment_state=>"paid")
