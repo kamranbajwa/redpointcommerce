@@ -49,6 +49,11 @@ function subcribe_email()
 }
 
 $(document).ready(function(){
+    $("#datepicker").datepicker({
+  forceParse: false,
+  autoclose: true
+
+});
     $("#sub_id").click(function(){
          $("#style_selector_1").hide();
         $("#blg-3").slideDown();
