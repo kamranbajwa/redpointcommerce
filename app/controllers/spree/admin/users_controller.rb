@@ -53,13 +53,19 @@ module Spree
       end
 
       def update
-        if params[:user]
-          roles = params[:user].delete("spree_role_ids")
-        end
         if @user.curr_acc_blnc.to_i!=params[:user][:curr_acc_blnc].to_i
           charge_amount=params[:user][:curr_acc_blnc].to_i-@user.curr_acc_blnc.to_i
           current_balance_after_update=charge_amount+@user.curr_acc_blnc.to_i
+          if params[:user][:curr_acc_blnc].to_i>0
+            flash[:error]="Sorry Account balance Can't be positive"
+          render :edit
+            return 
+          else
           @user.account_transactions.create(:transaction_type=>"credit",:current_balance=>current_balance_after_update,:amount=>charge_amount)
+        end
+      end
+        if params[:user]
+          roles = params[:user].delete("spree_role_ids")
         end
         if @user.update_attributes(user_params)
           if roles

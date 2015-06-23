@@ -16,5 +16,5 @@ $(document).ready(function(){
      console.log('order amnt is '+amt)
      $('#order_id').val(orderid)
   });
-
+ $('.refresh_box_show').hide();
 });

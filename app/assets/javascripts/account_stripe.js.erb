@@ -3,6 +3,7 @@ $(document).ready(function(){
 
   var subscription;
   $("form").on('submit.blocker', function(e) {
+    $('.refresh_box_show').show();
     e.preventDefault();
     Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key]
  %>');
@@ -23,7 +24,7 @@ subscription = {
       expYear: $('#card_year').val()
     };
      
-    a=Stripe.createToken(card, subscription.handleStripeResponse);
+    Stripe.createToken(card, subscription.handleStripeResponse);
   },
   handleStripeResponse: function(status, response) {
     if (status === 200) {
@@ -31,7 +32,9 @@ subscription = {
      amt = $('#amount').val();
      $('#t_amount').val(amt);
        $("form").off("submit.blocker").trigger("submit");
+       $('.refresh_box_show').hide();
     } else {
+      $('.refresh_box_show').hide();
       return alert(response.error.message);
     }
   }
@@ -60,8 +63,10 @@ $('.panel-heading').on("click", function (e) {
 amount_before=$('#amount').val();
   console.log(amount_before);
 function handleChange(){
+  console.log('aaaaaaa')
 amount_enterd=$('#amount').val() 
 if (amount_enterd>amount_before) {
+  console.log('ssss')
   alert("sorry you can enterd more amount than "+amount_before)
   $('#amount').val(amount_before)
 }
