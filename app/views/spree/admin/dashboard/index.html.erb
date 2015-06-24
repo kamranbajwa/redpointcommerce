@@ -111,7 +111,7 @@
 					<div class="dashboard-stat2">
 						<div class="display">
 							<div class="number">
-								<h3 class="font-green-sharp"><%= @total_sales %><small class="font-green-sharp">$</small></h3>
+								<h3 class="font-green-sharp"><%= @widget_sales %><small class="font-green-sharp">$</small></h3>
 								<small>TOTAL Sales</small>
 							</div>
 							<div class="icon">
@@ -206,8 +206,8 @@
 						</div>
 						<div class="progress-info">
 							<div class="progress">
-								<span style="width: <%= @orders_change%>%;" class="progress-bar progress-bar-success red-haze">
-								<span class="sr-only"><%= @orders_change%>% change</span>
+								<span style="width: <%= @orders_change %>%;" class="progress-bar progress-bar-success red-haze">
+								<span class="sr-only"><%= @orders_change %>% change</span>
 								</span>
 							</div>
 							<div class="status">
@@ -215,7 +215,7 @@
 									 change
 								</div>
 								<div class="status-number">
-									 <%= @orders_change%>%
+									 <%= @orders_change.round(2) %>%
 								</div>
 							</div>
 						</div>
@@ -264,10 +264,10 @@
 								<div class="btn-group btn-group-devided" data-toggle="buttons">
 									<label class="btn btn-transparent grey-salsa btn-circle btn-sm active">
 									<input type="radio" name="options" class="toggle" id="option1">Today</label>
+								<!-- 	<label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+									<input type="radio" name="week" class="toggle" id="option2">Week</label>
 									<label class="btn btn-transparent grey-salsa btn-circle btn-sm">
-									<input type="radio" name="options" class="toggle" id="option2">Week</label>
-									<label class="btn btn-transparent grey-salsa btn-circle btn-sm">
-									<input type="radio" name="options" class="toggle" id="option2">Month</label>
+									<input type="radio" name="options" class="toggle" id="option2">Month</label> -->
 								</div>
 							</div>
 						</div>
@@ -278,7 +278,7 @@
 										 Total Sales
 									</div>
 									<div class="uppercase font-hg font-red-flamingo">
-										 13,760 <span class="font-lg font-grey-mint">$</span>
+										 <%= @first %> <span class="font-lg font-grey-mint">$</span>
 									</div>
 								</div>
 							</div>
@@ -658,3 +658,8 @@
 				</div>
 			</div>
 			<!-- END PAGE CONTENT INNER -->
+<script type="text/javascript">
+jQuery(document).ready(function() {    
+	Index.init(<%= @data.html_safe %>); 
+});
+</script>

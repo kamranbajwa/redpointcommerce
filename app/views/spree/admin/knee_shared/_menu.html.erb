@@ -154,7 +154,7 @@
 					<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
-						<li class="<%= is_active?('/admin/organizations/#{Spree::Organization.first.id}/edit') %>">
+						<li class="<%= is_active?("/admin/organizations/#{Spree::Organization.first.id}/edit") %>">
 							<a href="/admin/organizations/<%= Spree::Organization.first.id%>/edit">
 							Organization Info</a>
 						</li>
