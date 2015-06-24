@@ -1,5 +1,5 @@
 class Spree::Admin::BlogsController <  Spree::Admin::ResourceController
-  before_action :set_spree_blog, only: [:show, :edit, :update, :destroy, :create]
+  before_action :set_spree_blog, only: [:show, :edit, :update, :destroy]
   # GET /spree/admin/blogs
   # GET /spree/admin/blogs.json
   
@@ -25,11 +25,10 @@ class Spree::Admin::BlogsController <  Spree::Admin::ResourceController
   # POST /spree/admin/blogs
   # POST /spree/admin/blogs.json (Complete)
   def create
-    
     @spree_blog = Spree::Blog.new(spree_blog_params)
     respond_to do |format|
        if @spree_blog.save
-        format.html { redirect_to admin_blogs_path, notice: 'Spree::Blog Post was successfully created.' }
+        format.html { redirect_to admin_blogs_path, notice: 'Blog Post was successfully created.' }
         format.json { render action: 'index', status: :created, location: @spree_blog }
        else
         format.html { render action: 'new', notice: "#{@spree_blog.errors.full_messages.first}"}
