@@ -80,7 +80,7 @@
         <!-- ============================================== SCROLL TABS : END ============================================== -->
         <div class="wide-banners wow fadeInUp">
           <div class="row">
-           <% if @selected_template.template_images.first %>
+           <% if @selected_template.template_images.first and @selected_template.template_images.first.avatar.exists?  %>
              <div class="col-md-4">
               <div class="wide-banner cnt-strip">
                 <div class="image">
@@ -98,7 +98,7 @@
             <div class="col-md-4">
               <div class="wide-banner cnt-strip">
                 <div class="image">
-                  <img data-echo="<%= @selected_template.template_images.second.avatar.url(:home_image rescue '')%>"  alt="">
+                  <img data-echo="<%= @selected_template.template_images.second.avatar.url(:home_image ) rescue ''%>"  alt="">
                 </div>  
                 <div class="strip strip-no-bg strip-right-left">
                   <div class="strip-inner">
