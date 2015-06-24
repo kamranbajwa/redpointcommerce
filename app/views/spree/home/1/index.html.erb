@@ -84,7 +84,7 @@
              <div class="col-md-4">
               <div class="wide-banner cnt-strip">
                 <div class="image">
-                  <img data-echo="<%= @selected_template.template_images.first.avatar.url(:home_image)%>"  alt="">
+                  <img data-echo="<%= @selected_template.template_images.first.avatar.url(:home_image) rescue ''%>"  alt="">
                 </div>  
                 <div class="strip strip-no-bg">
                   <div class="strip-inner">
@@ -98,7 +98,7 @@
             <div class="col-md-4">
               <div class="wide-banner cnt-strip">
                 <div class="image">
-                  <img data-echo="<%= @selected_template.template_images.second.avatar.url(:home_image)%>"  alt="">
+                  <img data-echo="<%= @selected_template.template_images.second.avatar.url(:home_image rescue '')%>"  alt="">
                 </div>  
                 <div class="strip strip-no-bg strip-right-left">
                   <div class="strip-inner">
@@ -111,7 +111,7 @@
           <div class="col-md-4">
               <div class="wide-banner cnt-strip">
                 <div class="image">
-                  <img data-echo="<%= @selected_template.template_images.third.avatar.url(:home_image)%>"  alt="">
+                  <img data-echo="<%= @selected_template.template_images.third.avatar.url(:home_image) rescue ''%>"  alt="">
                 </div>  
                 <div class="strip strip-no-bg strip-right-left">
                   <div class="strip-inner">
