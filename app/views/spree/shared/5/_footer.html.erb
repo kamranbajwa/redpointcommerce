@@ -69,12 +69,24 @@
         <!--footer social icons-->
         <div class="col-sm-5 clearfix">
           <ul class="footer-social-nav">
+          <%if @org.twitter_url!="" %>
             <li><a target="_blank" href=<%= @org.twitter_url || '#'%>><i class="fa fa-twitter"></i></a></li>
+            <%end%>
+            <%if @org.facebook_url!="" %>
             <li><a target="_blank" href=<%= @org.facebook_url || '#'%>><i class="fa fa-facebook"></i></a></li>
+            <%end%>
+            <%if @org.google_url!="" %>
             <li><a target="_blank" href=<%= @org.google_url || '#'%>><i class="fa fa-google-plus"></i></a></li>
+            <%end%>
+            <%if @org.youtube!="" %>
              <li><a target="_blank" href=<%= @org.youtube || '#'%>><i class="fa fa-youtube"></i></a></li>
+             <%end%>
+            <%if @org.linked_in!="" %>
            <li><a target="_blank" href=<%= @org.linked_in || '#'%>><i class="fa fa-linkedin"></i></a></li>
+           <%end%>
+           <%if @org.pinterest!="" %>
             <li><a target="_blank" href=<%= @org.pinterest || '#'%>><i class="fa fa-pinterest-square"></i></a></li>
+            <%end%>
            <!--
             <li><a target="_blank" href="skype:skypeusername?add"><i class="fa fa-skype"></i></a></li>
             <li><a target="_blank" href="#"><i class="fa fa-rss"></i></a></li>-->
@@ -90,3 +102,4 @@
 <script type='text/javascript' src='/assets/<%= @selected_template.template_no%>/jquery.meanmenu.min.js'></script> 
 <script type='text/javascript' src='/assets/<%= @selected_template.template_no%>/jquery-migrate-1.2.1.min.js'></script> 
 <script type='text/javascript' src='/assets/<%= @selected_template.template_no%>/custom.js'></script>
+  <%= javascript_include_tag 'bootstrap-datepicker' %>

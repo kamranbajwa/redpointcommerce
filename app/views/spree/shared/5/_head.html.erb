@@ -2,11 +2,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><%= @selected_template.name%></title>
-<%== meta_data_tags %>
+<%= meta_data_tags %>
 <%= canonical_tag(current_store.url) %>
 <%= csrf_meta_tags %>
 <%= stylesheet_link_tag 'spree/frontend/all', :media => 'screen' %>
 <%= javascript_include_tag 'spree/frontend/all' %>
+ <%= stylesheet_link_tag 'datepicker' %>
 <link href="https://fonts.googleapis.com/css?family=Raleway:400,100,500,600,700,800,900,300,200" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/assets/<%= @selected_template.template_no%>/bootstrap.css" type="text/css" media="all">

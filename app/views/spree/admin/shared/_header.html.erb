@@ -30,7 +30,11 @@
     <div class="page-top">
       <div class="top-menu">
         <ul class="nav navbar-nav pull-right">
+        
           <li class="separator hide">
+          </li>
+          <li style="margin-top: 27px; margin-right: 358px;"> <%=Spree::Organization.first.company_name rescue ''%> </li>
+           <li class="separator hide">
           </li>
           <li style="margin-top: 27px;"> Welcome : <%= spree_current_user.try(:email) %> </li>
           <li class="separator hide">

@@ -87,12 +87,20 @@ border: none; font-size: 15px;" %>
           <%end%>
           </div>
           <!-- /FORM -->
+                   
                     <div class="col-md-4">
+                     <%if @org.facebook_url!="" or @org.twitter_url!="" or @org.google_url!="" %>
                     <h2>Social  <em>Link</em></h2>
-                    
+                    <% if @org.facebook_url!="" %>
                     <a href=<%= @org.facebook_url|| '#'%> class="btn-facebook fullwidth radius3"><i class="fa fa-facebook"></i> Connect With Facebook</a>
+                    <%end%>
+                    <% if @org.twitter_url!="" %>
                     <a href=<%= @org.twitter_url|| '#'%> class="btn-twitter fullwidth radius3"><i class="fa fa-twitter"></i> Connect With Twitter</a>
+                    <%end%>
+                    <% if @org.google_url!="" %>
                     <a href=<%= @org.google_url|| '#'%> class=" btn-google-plus fullwidth radius3"><i class="fa fa-google"></i> Connect With Google+</a>
+                    <%end%>
+                    <%end%>
                     <hr>
                      <h2>Map </h2>
                      <div id="map-canvas" style=" width:100%;

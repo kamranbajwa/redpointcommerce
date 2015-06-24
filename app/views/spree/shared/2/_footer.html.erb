@@ -17,7 +17,7 @@
           <div class="border-footer-">
             <h3>Contact</h3>
             <div  class="footer-text">
-             <%=org_address[0].gsub(',', '<br>').html_safe rescue ""%>
+             <%=org_address[0].gsub(',', ',').html_safe rescue ""%>
              <%=org_address[1].gsub(',', '<br>').html_safe  rescue"" %>
              <%=org_address[2].gsub(',', '<br>').html_safe rescue ""%>
             </div>
@@ -49,15 +49,28 @@
         <div class="column col-md-12 ">
         <div class="hr-footer"></div>
           <div class="text-center">
+           <%if @org.facebook_url!="" or @org.twitter_url!="" or  @org.google_url!="" %>
           <ul class="footer-social-nav">
+            <%if @org.twitter_url!=""%>
             <a class="footer-social-beauty" target="_blank" href=<%= @org.twitter_url || '#'%>><i class="fa fa-twitter"></i></a>
+            <%end%>
+             <%if @org.facebook_url!=""%>
             <a class="footer-social-beauty" target="_blank" href=<%= @org.facebook_url || '#'%>><i class="fa fa-facebook"></i></a>
+            <%end%>
+             <%if @org.google_url!=""%>
             <a class="footer-social-beauty" target="_blank" href=<%= @org.google_url || '#'%>><i class="fa fa-google-plus"></i></a>
+            <%end%>
+             <%if @org.youtube!=""%>
              <a class="footer-social-beauty" target="_blank" href=<%= @org.youtube || '#'%>><i class="fa fa-youtube"></i></a>
+             <%end%>
+             <%if @org.linked_in!=""%>
             <a class="footer-social-beauty" target="_blank" href=<%= @org.linked_in || '#'%>><i class="fa fa-linkedin"></i></a>
+            <%end%>
+             <%if @org.pinterest!=""%>
             <a class="footer-social-beauty" target="_blank" href=<%= @org.pinterest || '#'%>><i class="fa fa-pinterest-square"></i></a>
+            <%end%>
           </ul>
-       
+            <%end%>
           </div>
         
           <div style="margin-top:3%;" class="">
