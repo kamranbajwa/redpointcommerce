@@ -30,8 +30,17 @@
   <!-- end mobile-menu-wrap -->
   <div class="header-color">
     <div class="menu-color">
-      <figure class="logo"> <a href="/" title="logo" rel="home"> <img alt="Atropos" src="<%= Spree::Logo.last.avatar.url(:logo)%>" </a>
-        <div class=" nav-menu" style="float:right;"> <a href=<%= @org.facebook_url|| '#'%> target="_blank"><img src="/assets/<%= @selected_template.template_no%>/social/f-icon.png"></a> <a href=<%= @org.google_url|| '#'%> target="_blank"><img src="/assets/<%= @selected_template.template_no%>/social/g-icon.png"></a> <a href=<%= @org.twitter_url|| '#'%> target="_blank"><img src="/assets/<%= @selected_template.template_no%>/social/t-icon.png"></a> </div>
+      <figure class="logo"> <a href="/" title="logo" rel="home"> <img alt="Atropos" src="<%= Spree::Logo.last.avatar.url(:logo) rescue '' %>" </a>
+        <%if @org.facebook_url!="" %>
+        <div class=" nav-menu" style="float:right;"> <a href=<%= @org.facebook_url|| '#'%> target="_blank"><img src="/assets/<%= @selected_template.template_no%>/social/f-icon.png"></a>
+        <%end%>
+        <%if @org.google_url!="" %>
+         <a href=<%= @org.google_url|| '#'%> target="_blank"><img src="/assets/<%= @selected_template.template_no%>/social/g-icon.png"></a>
+         <%end%> 
+         <%if @org.twitter_url!="" %>
+         <a href=<%= @org.twitter_url|| '#'%> target="_blank"><img src="/assets/<%= @selected_template.template_no%>/social/t-icon.png"></a>
+         <%end%>
+          </div>
       </figure>
     </div>
     <!-- end col-sm-3 -->
@@ -158,13 +167,13 @@
 
 <!-- QUOTE -->
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-62198392-1', 'auto');
-  ga('send', 'pageview');
+  // ga('create', 'UA-62198392-1', 'auto');
+  // ga('send', 'pageview');
 
 </script>
 

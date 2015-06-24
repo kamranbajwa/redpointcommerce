@@ -7,12 +7,24 @@
           
         </div>
 <div class="text-center icons">
+<% if @org.facebook_url!=""%>
 <a target="_blank" href=<%= @org.facebook_url || '#'%>><i class="fa fa-facebook fa-2x"></i></a>
+<%end%>
+<%if  @org.twitter_url!=""%>
 <a target="_blank" href=<%= @org.twitter_url || '#'%>><i class="fa fa-twitter fa-2x"></i></a> 
+<%end%>
+<% if @org.google_url!=""%>
 <a target="_blank" href=<%= @org.google_url ||'#'%>><i class="fa fa-google-plus fa-2x"></i></a>
+<%end%>
+<% if @org.linked_in!=""%>
 <a target="_blank" href=<%= @org.linked_in ||'#'%>><i class="fa fa-linkedin fa-2x"></i></a> 
+<%end%>
+<% if @org.pinterest!="" %>
 <a target="_blank" href=<%= @org.pinterest || '#'%>><i class="fa fa-pinterest fa-2x"></i></a>
+<%end%>
+<% if @org.youtube!=""%>
 <a target="_blank" href=<%= @org.youtube || '#'%>><i class="fa fa-youtube fa-2x"></i></a>
+<%end%>
 </div>
       <div class="clear10"></div>
       <div class="row bottom-links">
