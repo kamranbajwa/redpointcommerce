@@ -1,5 +1,7 @@
 module Spree
   class CmsPage < Spree::Base
+    extend FriendlyId
+    friendly_id :title, use:  [:slugged, :finders]
     belongs_to :template
   	acts_as_taggable
     validates :title, :uniqueness => {:scope => [:template_id], :case_sensitive => false}

@@ -3,7 +3,7 @@
       <ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
       <h3 class="form-section" align="center">Pages</h3>
       <% @pages.each do |page| %>
-        <li style="border-bottom: 1px solid #eee;"><a href="/page/<%= page.id %>"><span><%= page.title %></span></a></li>
+        <li style="border-bottom: 1px solid #eee;"><a href="/page/<%= page.slug rescue '' %>"><span><%= page.title %></span></a></li>
       <% end %>
       </ul>
     </div>
