@@ -16,6 +16,9 @@ end
     @message = Message.new(params[:message])
     
     if @message.valid?
+     org = Spree::Organization.first
+     pre = org.feedback
+     org.update_columns(feedback: pre + 1)
      NotificationsMailer.new_message(@message).deliver
       redirect_to(root_path, :notice => "<strong>Thank You!</strong> Your message successfully sent!")
     else
