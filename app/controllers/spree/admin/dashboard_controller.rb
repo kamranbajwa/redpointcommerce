@@ -7,8 +7,7 @@ class Spree::Admin::DashboardController < Spree::Admin::BaseController
     progress
     @user_change = change( @today_users, @yesterday_users)
     @orders_change = change(@today_orders_count, @yesterday_orders_count)
-    puts @orders_change
-    puts @today_orders_count
+    @feedback = Spree::Organization.first.try(:feedback)
     @widget_sales = calculate_sales(@orders)
     chart_data
   end
