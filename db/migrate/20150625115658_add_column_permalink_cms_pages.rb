@@ -1,7 +1,7 @@
 class AddColumnPermalinkCmsPages < ActiveRecord::Migration
+  # for older record to create frienly id
+  Spree::CmsPage.find_each(&:save)
   def change
-  	# for older record
-  	Spree::CmsPage.find_each(&:save)
   	add_column :spree_cms_pages, :slug, :string
   end
 end
