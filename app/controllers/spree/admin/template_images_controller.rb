@@ -15,7 +15,7 @@ class Spree::Admin::TemplateImagesController < Spree::Admin::ResourceController
         template_image_params[:avatar].each do |image|
           @selected_template.template_images.create(:avatar => image)
         end
-        format.html { redirect_to admin_template_images_path, notice: 'Spree::Template was successfully created.' }
+        format.html { redirect_to admin_template_images_path, notice: 'Template Images was successfully created.' }
         format.json { head :no_content }
       end
     end
