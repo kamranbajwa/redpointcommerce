@@ -36,15 +36,15 @@ class Spree::Admin::DashboardController < Spree::Admin::BaseController
      },
      {
      period: (date - 1).strftime,
-      sales: @second,
+      sales: @second.to_i,
      },
       {
      period: (date - 2).strftime,
-      sales: @third,
+      sales: @third.to_i,
      },
       {
      period: (date - 3).strftime,
-      sales: @fourth,
+      sales: @fourth.to_i,
      }
     ]
     @data = d.to_json.to_s
