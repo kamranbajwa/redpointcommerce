@@ -166,6 +166,7 @@ module Spree
       end
 
       def before_address
+        @title = "Order: Address"
         # if the user has a default address, a callback takes care of setting
         # that; but if he doesn't, we need to build an empty one here
         @order.bill_address ||= Address.build_default
@@ -173,6 +174,7 @@ module Spree
       end
 
       def before_delivery
+        @title = "Order:Delivery "
         return if params[:order].present?
 
         packages = @order.shipments.map { |s| s.to_package }
@@ -180,6 +182,7 @@ module Spree
       end
 
       def before_payment
+          @title = "Order:Payment "
         if @order.checkout_steps.include? "delivery"
           packages = @order.shipments.map { |s| s.to_package }
           @differentiator = Spree::Stock::Differentiator.new(@order, packages)

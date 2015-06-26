@@ -37,6 +37,7 @@ def check_account_balnce
   end
     def pages
         @page_data = Spree::CmsPage.find(params[:id]) rescue nil
+        @title = @page_data.title rescue 'pages'
         if @page_data
             render 'pages'
         else
@@ -56,7 +57,7 @@ def check_account_balnce
       begin
        charge = Stripe::Charge.create(:amount =>charge_amount*100, :currency => "usd",:customer => customer.id)
         rescue
-          flash[:notice] = "Sorry account is can't be recharged please try again!"
+          flash[:notice] = "Sorry account can't be recharged please try again!"
            ExceptionNotifier.notify_exception("card error")
           
            end
@@ -85,6 +86,7 @@ def check_account_balnce
       # end
     # Show Every Post
     def show_post
+      @title="Blog"
        @blog_post_show = Spree::Blog.find_by_permalink(params[:permalink])
     end
     

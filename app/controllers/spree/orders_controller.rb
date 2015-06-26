@@ -35,12 +35,14 @@ module Spree
 
     # Shows the current incomplete order from the session
     def edit
+      @title = "Order: Cart"
       @order = current_order || Order.incomplete.find_or_initialize_by(guest_token: cookies.signed[:guest_token])
       associate_user
     end
 
     # Adds a new item to the order (creating a new order if none already exists)
     def populate
+
 #      Add subscription_to_options
       variant = Spree::Variant.find(params[:variant_id])
       if variant.product.subscription and params[:subscription]

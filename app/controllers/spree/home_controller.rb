@@ -4,6 +4,7 @@ module Spree
 #    respond_to :html
 
     def index
+         @title=  "#{@selected_template.name}:Home"
       @searcher = build_searcher(params.merge(include_images: true))
       @products = @searcher.retrieve_products
       @taxonomies = Spree::Taxonomy.all

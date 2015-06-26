@@ -16,7 +16,7 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
   end
 
   def edit
-    @cms_page = Spree::CmsPage.find(params[:id])
+    @cms_page = Spree::CmsPage.friendly.find(params[:id])
   end
 
   def update

@@ -74,7 +74,7 @@
           <div class="icon-wrapper"> <i class="fa fa-user-md fa-custom"></i> </div>
           <h4><%= s_page.title %></h4>
           <p class="static-des-height"><%= truncate(strip_tags(s_page.description.html_safe), length: 200) %></p>
-          <a href="/page/<%= s_page.id %>">
+          <a href="/page/<%= s_page.try(:slug) %>">
           <button class="btn btn-readmore">READ MORE</button></a>
         </div>
       </div>
@@ -97,7 +97,7 @@
         <% end %>
         <h4><%= d_page.title %></h4>
         <p><%= truncate(strip_tags(d_page.description.html_safe), length: 200) %></p>
-        <a href="/page/<%= d_page.id%>">
+        <a href="/page/<%= d_page.try(:slug) %>">
         <button class="btn btn-readmore">READ MORE</button></a>
       </div>
       <% end %>

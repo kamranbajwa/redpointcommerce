@@ -18,10 +18,10 @@
           <h3 class="title">USEFUL LINK</h3>
           <ul>
             <% @static_pages.take(3).each do |s_page| %>
-            <li> <a href="/page/<%= s_page.id %>"><%= s_page.title %></a> </li>
+            <li> <a href="/page/<%= s_page.try(:slug) %>"><%= s_page.title %></a> </li>
           <% end %>
           <% @default_pages.try(:each) do |d_page| %>
-            <li> <a href="/page/<%= d_page.id %>"><%= d_page.title %></a> </li>
+            <li> <a href="/page/<%= d_page.try(:slug) %>"><%= d_page.title %></a> </li>
           <% end %>
           </ul>
         </section>

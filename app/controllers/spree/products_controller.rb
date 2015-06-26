@@ -10,11 +10,13 @@ module Spree
     respond_to :html
 
     def index
+      @title="Product"
       @taxonomies = Spree::Taxonomy.all
       render :template => "/spree/shared/#{@selected_template.template_no}/products_index.html.erb", :locals => {:products => @products,:taxonomies => @taxonomies, :searcher => @searcher, :taxon =>@taxon }
     end
 
     def show
+      
       @variants = @product.variants_including_master.active(current_currency).includes([:option_values, :images])
       @product_properties = @product.product_properties.includes(:property)
       @taxon = Spree::Taxon.find(params[:taxon_id]) if params[:taxon_id]
@@ -25,11 +27,12 @@ module Spree
       else
         @simlier_product = @products.limit 4 
       end
-
+      @title="Prodcut: "+ @product.name
 
     end
     private
     def search_products
+
       @searcher = build_searcher(params.merge(include_images: true))
       @products = @searcher.retrieve_products
         if params[:AZ]=="true"

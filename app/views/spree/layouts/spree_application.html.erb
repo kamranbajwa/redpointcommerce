@@ -8,6 +8,7 @@
   <head data-hook="">
   <link href="/assets/shared/common.css" rel="stylesheet">
   <%= stylesheet_link_tag 'datepicker' %>
+  <title><%=@title || @selected_template.name %></title>
     <%= render :partial => "spree/shared/#{@selected_template.template_no}/head" %>
   </head>
   <% if params[:controller]=="spree/home" and params[:action]=="index"%>
