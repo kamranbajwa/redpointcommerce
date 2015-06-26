@@ -74,6 +74,7 @@
       <br>
       <%= f.text_field :pinterest, :class => 'form-control' %>
     </div>
+
     <div class="form-group">
       <%= f.label :opening_hour,'Opening Time' %>
       <br>
@@ -101,6 +102,19 @@
       <%= f.time_zone_select :central_time, nil, {}, {class: "form-control"} %>
       </div>
     </div>
+    <div class="form-group">
+    <%=f.label :session_time_out, "Session Time out (Hours) "  %>
+    <div class="input-icon">
+    <div class="row">
+    <div class="col-md-4">
+     <%=f.select(:session_time_out, '1'..'24',{}, {class: "form-control"})%> 
+     </div>
+       <!--   <div class="col-md-1">
+       Hours
+       </div> -->
+     </div>
+     </div>
+     </div>
     </div>
     <div class="form-actions">
     <button type="submit" class="btn blue">Update Organization</button>
