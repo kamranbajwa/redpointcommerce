@@ -31,16 +31,16 @@
         <div class="col-md-3 col-sm-6">
           <h4>ABOUT</h4>
            <ul class="list-unstyled">
-               <li><a href="/">About us</a></li>
+               <li><a href="/page/<%= @about_page.first.try(:slug)%>">About us</a></li>
                <% @customize_pages.each_with_index  do |page, index|%>
                 <% if index >= 2 %>
                 <% if index == 2 %>
                    <% end %>
-                    <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
+                    <li><a href="/page/<%=try(:slug)%>"><%= page.title%></a></li>
                     <% if index+1 == @customize_pages.length %>
                 <% end %>
                 <% else %>
-                <li> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
+                <li> <a href="/page/<%=try(:slug)%>"> <%= page.title%> </a> </li>
                 <% end %>
                 <% end %>
           </ul>
