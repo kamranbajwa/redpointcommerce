@@ -1,0 +1,68 @@
+<div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-gift"></i> New Widget
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
+ <%= form_for(@widget, :url => (@widget.new_record? ? admin_widgets_url : admin_widget_url(@widget))) do |f| %>
+ <div class="form-body">
+  <div class="field" data-hook="admin_general_setting_input_name">
+      <label for="store_name">Name *</label>
+      <br>
+      <%= collection_select :widget, :name, Spree::Widget::WIDGETS, :first, :last, {:include_blank => 'Select widget'}, {class: "form-control"}  %>
+    </div>
+    <div class="on-select" style="display: none;">
+     <div class="field" data-hook="admin_general_setting_input_name">
+      <label for="store_name">Name *</label>
+      <br>
+      <%= f.text_field :name, class: "form-control", id: "widget-name", required: true %>
+    </div>
+    <div class="field" data-hook="admin_general_setting_input_name">
+      <label for="store_name">Description</label>
+      <br>
+      <%= f.cktext_area :widget_characteristics, class: "form-control" %>
+    </div>
+    <div class="field" data-hook="admin_general_setting_input_name">
+      <label for="store_name">Set Order</label>
+      <br>
+      <%= f.text_field :widget_order, class: "form-control" %>
+    </div>
+  </div>
+  <div class="on-check" style="display: none;">
+    <div class="field" data-hook="admin_general_setting_input_name">
+      <label for="store_name">Show logo on footer</label>
+      <br>
+      <%= f.check_box :check, class: "form-control"%>
+    </div>
+  </div>
+</div>
+    <div class="form-buttons filter-actions actions form-actions" data-hook="buttons">
+     <a class="btn blue " href="javascript:void(0)" onclick="window.history.back();"><span class="text" >Back</span></a>
+     <span class="or">or</span>
+     <button type="submit" class="btn blue"> Save</button>
+   </div>
+ <% end %>
+ </div>
+ </div>
+ <script type="text/javascript">
+ $(document).ready(function(){
+  $('#widget_name').change(function(){
+    if($(this).val() == "Logo Footer")
+    {
+      $("#widget-name").val($(this).val());
+      $(".on-check").show();
+    }
+    else
+    {
+      $(".on-select").show();
+      $("#widget-name").prop("readonly", true);
+      $("#widget-name").val($(this).val());
+    }
+  });
+ });
+ </script>

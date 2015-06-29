@@ -1,0 +1,10 @@
+<% content_for :page_title do %>
+Widget
+<% end %>
+<% content_for :page_actions do %>
+<li >
+  <%= link_to admin_widgets_path, class: 'btn blue', icon: "plus" do %><i class="fa fa-arrow-left"></i>Back
+  <% end %>
+</li>
+<% end%>
+<%=render :partial=>'form_edit'%>
