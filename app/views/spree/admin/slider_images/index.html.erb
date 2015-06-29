@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="portlet-body form">
- <%= form_for(@slider_image,url:  admin_slider_image_path(@slider_image), multipart: true) do |f| %>
+ <%= form_for(@slider, url:  admin_slider_images_path, multipart: true) do |f| %>
  <div class="form-body">
  <div class="row">
  <div class="col-md-6" style="text-align:center;">
@@ -41,7 +41,43 @@
 </div>
 
 </div>
-<div class="col-md-12" style="background-color: #fff;">
+  <div class="portlet box blue">
+    <div class="portlet-title">
+      <div class="caption">
+        <i class="fa fa-cogs"></i>Products
+      </div>
+      <div class="tools">
+        <a href="javascript:;" class="collapse" data-original-title="" title="">
+        </a>
+      </div>
+    </div>
+    <div class="portlet-body flip-scroll">
+      <table class="table table-bordered table-striped table-condensed flip-content">
+        <thead class="flip-content">
+         <tr data-hook="admin_products_index_headers">
+          <th style="width:20%">image</th>
+          <th class="align-center">Text</th>
+          <th class="align-center">Link To</th>
+          <th data-hook="admin_products_index_header_actions" class="actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+       <% @slider_images.each do |image| %>
+       <tr data-hook="admin_products_index_rows" class="<%= cycle('odd', 'even') %>">
+        <td class="align-center"><img src="<%= image.slider_image.url(:product) rescue '' %>"></td> 
+        <td class="align-center"><%= image.try(:overlay_text).try(:html_safe) rescue '' %>"</td>
+        <td class="align-center"><%=image.try(:link_to_page)%></td>
+        <td class="actions" data-hook="admin_products_index_row_actions">
+            <%= link_to '', edit_admin_slider_image_path(image), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%> 
+            <%= link_to '', admin_slider_image_path(image), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash icon_link with-tip no-text", "data-action" => "remove" %>
+          </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+<!-- <div class="col-md-12" style="background-color: #fff;">
 <h3>Current Slider Images</h3>
    <%@slider_images.each do |image|%>
    <div class="col-md-6" style="margin-top: 5px; margin-bottom: 5px;">
@@ -49,7 +85,7 @@
    </div>
    <%end%>
 
-</div>
+</div> -->
 </div>
 <%=render :partial=>'/spree/admin/templates/side_bar_template'%>
    

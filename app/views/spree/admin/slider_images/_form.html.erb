@@ -1,9 +1,19 @@
-<%= form_for(@slider_image,url:  admin_slider_image_path, multipart: true) do |f| %>
+<%= form_for(@slider_image,url:  admin_slider_image_path,multipart: true) do |f| %>
 
  <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image,multiple: true %>
+    <%= f.label :slider_image %>
+     <%= f.file_field :slider_image, value: @image,:accept => "image/*" %>
   </div>
+  <div class="field">
+    <%= f.label :overlay_text %>
+    <%= f.cktext_area :overlay_text%>
+  </div>
+   <div class="form-group">
+      <%= f.label :link_to_page %>
+      <div class="input-icon">
+        <%= f.text_field :link_to_page, :class => 'form-control' %>
+      </div>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>
