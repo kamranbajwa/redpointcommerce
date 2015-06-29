@@ -408,3 +408,6 @@ table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
 }
 .back-clor input { border:1px solid #EFB013 !important;}
 .slider-wrapper{ margin-top: 67px;}
+.about-footer p { color: #7b7b7b; margin: 0px !important;}
+.opening-hours p {color: #7b7b7b; margin: 0px !important;}
+.link-footer p, a {color: #7b7b7b; margin: 0px !important;}

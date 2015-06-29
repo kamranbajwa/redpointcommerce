@@ -1,8 +1,9 @@
 <section>
   <div class="container-fluid footer">
     <div class="container">
-        <a href="#"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>" class="img-responsive center-block"></a>
-        
+    <% if @logo_footer && @logo_footer.check %>
+      <a href="#"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>" class="img-responsive center-block"></a>
+    <% end %>
         <div class="footer-text center-block text-center">
           
         </div>
@@ -28,46 +29,34 @@
 </div>
       <div class="clear10"></div>
       <div class="row bottom-links">
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-3 col-sm-6 about-footer">
           <h4>ABOUT</h4>
-           <ul class="list-unstyled">
-               <li><a href="/">About us</a></li>
-               <% @customize_pages.each_with_index  do |page, index|%>
-                <% if index >= 2 %>
-                <% if index == 2 %>
-                   <% end %>
-                    <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
-                    <% if index+1 == @customize_pages.length %>
-                <% end %>
-                <% else %>
-                <li> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
-                <% end %>
-                <% end %>
-          </ul>
-         
+          <% if @about_widget && @about_widget.widget_characteristics %>
+          <%= @about_widget.widget_characteristics.first(600).html_safe %>
+         <% end %>
         </div>
         <div class="clear10 visible-xs"></div>
-        <div class="col-md-3 col-sm-6">
-          <h4>INFORMATION</h4>
+        <div class="col-md-3 col-sm-6 link-footer">
+          <h4>Important Links</h4>
           <div class="seperator"></div>
-          <ul class="list-unstyled">
-          <% if spree_user_signed_in? %>
-            <li><a href="/account">My Account</a></li>
-            <%end%>
-            <li><a href="/cart">Shopping Cart</a></li>
-          </ul>
+            <% if @link_widget && @link_widget.widget_characteristics %>
+            <%= @link_widget.widget_characteristics.html_safe %>
+            <% end %>
         </div>
         <div class="clear10 visible-xs"></div>
-        <div class="col-md-3 col-sm-6">
-          <h4>MORE</h4>
+        <div class="col-md-3 col-sm-6 opening-hours">
+          <h4>Opening Hours</h4>
            <div class="seperator"></div>
-          <ul class="list-unstyled">
-            <li><a href="/">Home</a></li>
-            <li><a href="/products">Services</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/contact-us">Contact Us</a></li>
-          </ul>
-         
+            <% if @org.opening_day.present? %>
+            <p><%= @org.opening_day  %> - <%= @org.closing_day %> </p>
+            <% else %>
+            <p> Monday - Sunday </p>
+            <% end %>
+            <% if @org.opening_hour.present? %>
+            <p><%= @org.opening_hour %> - <%= @org.closing_hour%> </p>
+             <% else %>
+            <p> 11:00 am - 12:00 pm</p>
+            <% end %>
         </div>
         <div class="clear10 visible-xs"></div>
         <div class="col-md-3 col-sm-6">
