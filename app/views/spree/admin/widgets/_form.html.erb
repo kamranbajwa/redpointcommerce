@@ -49,20 +49,3 @@
  <% end %>
  </div>
  </div>
- <script type="text/javascript">
- $(document).ready(function(){
-  $('#widget_name').change(function(){
-    if($(this).val() == "Logo Footer")
-    {
-      $("#widget-name").val($(this).val());
-      $(".on-check").show();
-    }
-    else
-    {
-      $(".on-select").show();
-      $("#widget-name").prop("readonly", true);
-      $("#widget-name").val($(this).val());
-    }
-  });
- });
- </script>
