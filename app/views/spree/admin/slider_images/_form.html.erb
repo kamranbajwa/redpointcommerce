@@ -1,12 +1,23 @@
+<div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-gift"></i> Update Slider
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
 <%= form_for(@slider_image,url:  admin_slider_image_path,multipart: true) do |f| %>
-
+<div class="form-body">
  <div class="field">
     <%= f.label :slider_image %>
      <%= f.file_field :slider_image, value: @image,:accept => "image/*" %>
   </div>
   <div class="field">
-    <%= f.label :overlay_text %>
-    <%= f.cktext_area :overlay_text%>
+    <%= f.label :overlay_text,"Text For slider" %>
+    <%= f.text_field :overlay_text,:class => 'form-control'%>
   </div>
    <div class="form-group">
       <%= f.label :link_to_page %>
@@ -14,7 +25,13 @@
         <%= f.text_field :link_to_page, :class => 'form-control' %>
       </div>
     </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    </div>
+    <div class="form-buttons filter-actions actions form-actions" data-hook="buttons">
+         <a class="btn blue" href="/admin/slider_images"><span class="text white_color">Back</span></a>
+
+         <span class="or">or</span>
+         <button type="submit" class="btn blue">Update</button>
+       </div>
 <% end %>
+ </div>
+ </div>
