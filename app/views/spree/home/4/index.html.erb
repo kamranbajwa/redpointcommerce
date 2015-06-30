@@ -11,17 +11,23 @@
       <img src="/assets/default-sliders/4.jpg" alt="" width="1300" height="500">
     <%else%>
       <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
-       <a href="<%=image.try(:link_to_page)%>"> 
-      <img src="<%= image.slider_image.url(:xlarge)%>" class="img-responsive center-block header-banner" alt="">
-      <div class="absolute-div">
-        <div class="carousel-caption">
-          <h3><%=image.try(:overlay_text).try(:html_safe)%></h3>
-        </div>
-      </div>
-      </a> 
+      <%if image.try(:overlay_text)!=""%>
+      <img src="<%= image.slider_image.url(:xlarge)%>" class="img-responsive center-block header-banner" alt="" title="#htmlcaption_<%=index%>">
+     <%else%>
+      <img src="<%= image.slider_image.url(:xlarge)%>" class="img-responsive center-block header-banner" alt="" title="">
+      <%end%>
       <%end%>
       <%end%>  
       </div>
+      <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
+      <%if image.overlay_text!=""%>
+      <div id="htmlcaption_<%=index%>" class="nivo-html-caption">
+      <a href="<%=image.try(:link_to_page)%>"> 
+    <p><%=image.overlay_text%></p> 
+     </a> 
+</div>
+<%end%>
+<%end%>
     </div>
   </div>
   

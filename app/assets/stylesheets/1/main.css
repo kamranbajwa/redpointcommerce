@@ -4707,3 +4707,20 @@ margin-top: 110px !important;
     #myCarousel{margin-top: 124px;}
 
 }
+.carousel-inner img { width:100%; position:relative; overflow: hidden; }
+.banner-text-common a { text-shadow:1px 1px 2px #000; }
+.banner-text-common p, .banner-text-common p a { color: #fff; font-size: 22px; }
+.carousel-indicators { z-index:99999999; display:none; }
+.carousel-inner p { padding:10px; }
+    
+.carousel-caption1 a { color: #fff; }
+.banner-text-common { background: none; width: 100%; }
+.carousel-caption1 {
+  position: absolute;
+  z-index: 9999999;
+  width: 100%;
+  margin: auto;
+  /*background-color: rgba(0, 0, 0, 0.51);*/
+  text-align: center;
+  bottom: 20%;
+  }
