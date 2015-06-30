@@ -5,7 +5,9 @@
       <!--about widget-->
       <div class="col-md-3 col-sm-6">
         <section  class="widget animated widget-li">
+         <% if @logo_footer && @logo_footer.check %>
           <h3 class="title"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>"></h3>
+          <% end %>
           <div class="textwidget">
            <% if @about_widget && @about_widget.widget_characteristics %>
             <%= @about_widget.widget_characteristics.first(600).html_safe %>
@@ -16,19 +18,11 @@
       
       <!--general services-->
       <div class="col-md-3 col-sm-6">
-        <section class="widget animated widget-li">
-          <h4 class="title text-white">USEFUL LINK</h4>
-          <ul>
-           <% @static_pages.each  do |page|%>
-                
-                <li> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
-                <% end %>
-            <!-- <li> <a href="#">Immunization</a> </li>
-            <li> <a href="#">Services</a> </li>
-            <li> <a href="#">FAQ</a> </li>
-            <li> <a href="#">Policy</a> </li>
-            <li> <a href="#">About us</a> </li> -->
-          </ul>
+        <section class="widget animated widget-li links-footer">
+          <h4 class="title text-white">USEFUL LINKS</h4>
+            <% if @link_widget && @link_widget.widget_characteristics %>
+            <%= @link_widget.widget_characteristics.html_safe %>
+            <% end %>
         </section>
       </div>
       <div class="clearfix visible-sm"></div>
@@ -36,12 +30,10 @@
       <!--recent posts-->
       <div class="col-md-3 col-sm-6">
         <section  class="widget animated widget-li">
-          <h4 class="title text-white">GET INVOLVED</h4>
+          <h4 class="title text-white">Shop Location</h4>
           <ul>
-            <li> <a href="#">Hello world!</a> </li>
-            <li> <a href="#">Image Post Format</a> </li>
-            <li> <a href="#">Quote Post Format</a> </li>
-            <li> <a href="#">Gallery Post Format</a> </li>
+            <li>  <%=org_address[0].gsub(',', ', ').html_safe || ""%></li>
+
           </ul>
         </section>
       </div>

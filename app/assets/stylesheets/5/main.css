@@ -1475,7 +1475,7 @@ nav.main-menu ul > .current-menu-item > a {
   font-weight: 700;
 }
 #main-footer .widget p {
-  margin-bottom: 25px;
+  /*margin-bottom: 25px;*/
 }
 #main-footer .widget a {
   color: #b5bac6;
