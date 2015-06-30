@@ -13,36 +13,36 @@
               <div class="">
                 <div class="col-sm-4">
                   <div class="links">
-                    <h3 class="title">SHOP</h3>
-                    <ul>
-                      <li><a href="/products">Products</a></li>
-                      <li><a href="/cart">My Cart</a></li>
-                      <% if spree_user_signed_in? %>
-                        <li><a href="/account">My Account</a></li>
-                      <% end %>
-                    </ul>
+                    <h3 class="title">About Us</h3>
+                    <% if @about_widget && @about_widget.widget_characteristics %>
+                    <%= @about_widget.widget_characteristics.first(600).html_safe %>
+                    <% end %>
                   </div>
                 </div><!-- /.col -->
 
                 <div class="col-sm-4">
                   <div class="links">
-                    <h3 class="title">HELP</h3>
+                    <h3 class="title">We are Open</h3>
                     <ul>
-                      <li><a href="/aboutus">About Us</a></li>   
-                      <li><a href="/contactus">Contact Us</a></li>   
-                      <li><a href="/faq">FAQ's</a></li>   
-                    </ul>
+                     <% if @org.opening_day.present? %>
+                     <p class="footer-text" ><%= @org.opening_day %> - <%= @org.closing_day %> </p>
+                     <% else %>
+                     <p class="footer-text" > Monday - Sunday</p>
+                     <% end %>
+                     <% if @org.opening_hour.present? %>
+                     <p class="footer-text"><%= @org.opening_hour %> - <%= @org.closing_hour%> </p>
+                     <% else %>
+                     <p class="footer-text"> 11:00 am - 12:00 pm</p>
+                     <% end %>
                   </div>
                 </div><!-- /.col -->
 
                 <div class="col-sm-4">
                   <div class="links">
-                    <h3 class="title">PAYMENT METHODS</h3>
-                    <ul>
-                      <li><a href="#">Credit Card &nbsp; &nbsp;<i class="fa fa-credit-card"></i></a></li>
-                      <li><a href="#">PayPal &nbsp; &nbsp;<i class="fa fa-cc-paypal"></i></a></li>
-
-                    </ul>
+                    <h3 class="title">Important Links</h3>
+                    <% if @link_widget && @link_widget.widget_characteristics %>
+                    <%= @link_widget.widget_characteristics.html_safe %>
+                    <% end %>
                   </div>
                 </div><!-- /.col -->
 

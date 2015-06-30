@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :check_template
   before_filter :load_pages, :check_group
-  before_filter :load_cart, :home_content, :customize_pages, :static_pages, :load_blog, :default_pages
+  before_filter :load_cart, :home_content, :customize_pages, :static_pages, :load_blog, :default_pages, :load_widgets
   
   def after_sign_in_path_for(resource)
     if spree_current_user.has_spree_role?("admin")
@@ -51,5 +51,11 @@ class ApplicationController < ActionController::Base
   end
   def default_pages
     @default_pages = @selected_template.cms_pages.default
+  end
+  def load_widgets
+    @widgets = Spree::Widget.all
+    @logo_footer = @widgets.where(name: "Logo Footer").first
+    @about_widget = @widgets.where(name: "About Us").first
+    @link_widget = @widgets.where(name: "Links").first
   end
 end

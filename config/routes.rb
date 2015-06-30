@@ -41,6 +41,7 @@ SpreeExample::Application.routes.draw do
         collection { post :cat_import }
       end
       resources :favicons 
+      resources :widgets
       resources :slider_images
       resources :organizations
       resources :templates

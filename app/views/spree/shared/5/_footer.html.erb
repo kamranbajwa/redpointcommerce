@@ -5,25 +5,24 @@
       <!--about widget-->
       <div class="col-md-3 col-sm-6">
         <section  class="widget animated ">
+         <% if @logo_footer && @logo_footer.check %>
           <h3 class="title"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>"></h3>
+          <% end %>
           <div class="textwidget">
-            <p><%= @about_page.first.description.first(150).html_safe || ""%></p>
+             <% if @about_widget && @about_widget.widget_characteristics %>
+            <%= @about_widget.widget_characteristics.first(600).html_safe %>
+           <% end %>
           </div>
         </section>
       </div>
       
       <!--general services-->
-      <div class="col-md-4 col-sm-6  ">
+      <div class="col-md-3 col-sm-6">
         <section class="widget animated ">
           <h3 class="title">USEFUL LINK</h3>
-          <ul>
-            <% @static_pages.take(3).each do |s_page| %>
-            <li> <a href="/page/<%= s_page.try(:slug) %>"><%= s_page.title %></a> </li>
-          <% end %>
-          <% @default_pages.try(:each) do |d_page| %>
-            <li> <a href="/page/<%= d_page.try(:slug) %>"><%= d_page.title %></a> </li>
-          <% end %>
-          </ul>
+           <% if @link_widget && @link_widget.widget_characteristics %>
+            <%= @link_widget.widget_characteristics.html_safe %>
+            <% end %>
         </section>
       </div>
       <div class="clearfix visible-sm"></div>
@@ -31,18 +30,12 @@
       <!--recent posts-->
       <div class="col-md-3 col-sm-6  ">
         <section  class="widget animated ">
-          <h3 class="title">GET INVOLVED</h3>
-          <ul>
-            <li> <a href="#">Hello world!</a> </li>
-            <li> <a href="#">Image Post Format</a> </li>
-            <li> <a href="#">Quote Post Format</a> </li>
-            <li> <a href="#">Gallery Post Format</a> </li>
-            <li> <a href="#">How to Live a Healthier Life</a> </li>
-          </ul>
+          <h3 class="title">Location</h3>
+          <%=org_address[0].gsub(',', ', ').html_safe || ""%>
         </section>
       </div>
       <!--subscription form-->
-      <div class="col-md-2 col-sm-6  ">
+      <div class="col-md-3 col-sm-6  ">
         <section  class="widget animated ">
           <h3 class="title">OPENING HOURS</h3>
           <div class="textwidget">

@@ -10,8 +10,11 @@
           <div class="border-footer-">
             <h3>About Us</h3>
             <div class="footer-text"> 
-          <%= @about_page.first.description.first(150).html_safe rescue ''%> </div>
+          <% if @about_widget && @about_widget.widget_characteristics %>
+            <%= @about_widget.widget_characteristics.first(600).html_safe %>
+           <% end %>
           </div>
+        </div>
         </div>
         <div class="column col-md-3 " style="margin-left:0px margin-right:0px" >
           <div class="border-footer-">
@@ -40,10 +43,10 @@
         </div>
           <div class="column col-md-3 " style="margin-left:0px margin-right:0px" >
           <div class="border-footer-">
-            <h3>Footer Menu</h3>
-               <a href="/products">Our Services</a> <br />
-               <a href="/blog">Our Blog</a><br />
-               <a href="/contact-us">Contact Us</a>
+            <h3>Important Links</h3>
+              <% if @link_widget && @link_widget.widget_characteristics %>
+            <%= @link_widget.widget_characteristics.html_safe %>
+            <% end %>
           </div>
         </div>
         <div class="column col-md-12 ">

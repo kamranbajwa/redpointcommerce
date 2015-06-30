@@ -1,12 +1,10 @@
 class Spree::Admin::DashboardController < Spree::Admin::BaseController
-  before_action :orders, :users
-  before_action :get_data, :today, :yesterday, :today_users, :yesterday_users, :sales_chart
-  before_action :overview
+  before_action :orders, :users, :get_data, :today, :yesterday, :today_users, :yesterday_users, :sales_chart, :overview
 
   def index
     progress
     @user_change = change( @today_users, @yesterday_users)
-    @orders_change = change(@today_orders_count, @yesterday_orders_count)
+    @orders_change = change(@today_orders.count, @yesterday_orders.count)
     @feedback = Spree::Organization.first.try(:feedback)
     @widget_sales = calculate_sales(@orders)
     chart_data
@@ -69,19 +67,17 @@ class Spree::Admin::DashboardController < Spree::Admin::BaseController
     @recommended_products=Spree::Product.where(:is_recommended=>true).limit 5
     @best_selling_products=Spree::Product.all.includes(:orders).sort_by { |p| p.orders.size }.reverse.take(5)
     @customer = {}
-    Spree::User.all.each_with_index do |user, index|
+    @users.each_with_index do |user, index|
       @customer[index] = {:email => user.email, :count => user.orders.count, :total => sum(user.orders)}
     end
   end
 
   def today
     @today_orders = @orders.where("Date(created_at) = ?", Date.today)
-    @today_orders_count = @orders.where("Date(created_at) <= ?", Date.today).count
   end
 
   def yesterday
     @yesterday_orders = @orders.where("Date(created_at) = ?", Date.yesterday)
-    @yesterday_orders_count = @orders.where("Date(created_at) <= ?", Date.yesterday).count
   end
 
   def today_users
