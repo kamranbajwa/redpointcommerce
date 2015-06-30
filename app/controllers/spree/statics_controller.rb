@@ -46,6 +46,7 @@ def check_account_balnce
     end
     # Get Blog Main Page
     def blog
+      @title="Blog"
     end
     def account_charge
       token = params[:stripe_card_token]
@@ -86,8 +87,8 @@ def check_account_balnce
       # end
     # Show Every Post
     def show_post
-      @title="Blog"
        @blog_post_show = Spree::Blog.find_by_permalink(params[:permalink])
+       @title="Blog : "+ @blog_post_show.title
     end
     
     # Start Subcription Email 
