@@ -8719,7 +8719,7 @@ list-style: none;
 float: left;
 }
 .cont-set {
-  height: 400px;
+  min-height: 400px;
 }
 .search-form{
   overflow: hidden;
