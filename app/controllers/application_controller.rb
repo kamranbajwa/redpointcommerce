@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
      @org=Spree::Organization.first
   end
   def load_pages
-    @cms_pages = @selected_template.cms_pages.dynamic.order("sort asc")
+    @cms_pages = Spree::CmsPage.all.dynamic.order("sort asc")
     @about_us_page = @selected_template.cms_pages.find_by_title("about us")
   end
   def load_cart
