@@ -45,6 +45,7 @@ class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
     @template = Spree::Template.find(params[:id])
     @template.selected = true
     @template.theme_color = params[:template][:theme_color]
+    @template.product_tab = params[:template][:product_tab]
     respond_to do |format|
       if @template.save!
         format.html { redirect_to admin_templates_path, notice: 'Template was successfully updated.' }
@@ -78,7 +79,7 @@ class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def template_params
-      params.require(:template).permit(:selected,:theme_color,:template_no,:name)
+      params.require(:template).permit(:selected,:theme_color,:template_no,:name, :product_tab)
       #params[:template]
     end
 end

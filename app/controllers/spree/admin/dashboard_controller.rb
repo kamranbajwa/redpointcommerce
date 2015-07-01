@@ -4,7 +4,7 @@ class Spree::Admin::DashboardController < Spree::Admin::BaseController
   def index
     progress
     @user_change = change( @today_users, @yesterday_users)
-    @orders_change = change(@today_orders.count, @yesterday_orders.count)
+    @orders_change = change( @today_orders_count, @yesterday_orders_count)
     @feedback = Spree::Organization.first.try(:feedback)
     @widget_sales = calculate_sales(@orders)
     chart_data
@@ -74,10 +74,12 @@ class Spree::Admin::DashboardController < Spree::Admin::BaseController
 
   def today
     @today_orders = @orders.where("Date(created_at) = ?", Date.today)
+    @today_orders_count = @orders.where("Date(created_at) <= ?", Date.today).count
   end
 
   def yesterday
     @yesterday_orders = @orders.where("Date(created_at) = ?", Date.yesterday)
+    @yesterday_orders_count = @orders.where("Date(created_at) <= ?", Date.yesterday).count
   end
 
   def today_users

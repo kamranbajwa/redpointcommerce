@@ -46,7 +46,7 @@
       <nav class="main-menu">
         <ul class="header-nav clearfix" id="menu-main-menu">
           <li class="current-menu-item page_item"> <a href="/">Home</a> </li>
-          <li> <a href="/products">Doctors</a> </li>
+          <li> <a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab : "Doctor"  %></a> </li>
            <% @customize_pages.each_with_index  do |page, index|%>
               <% if index >= 1 %>
                   <% if index == 1 %>
