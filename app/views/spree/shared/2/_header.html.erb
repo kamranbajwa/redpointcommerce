@@ -50,7 +50,7 @@
         <nav class="nav-main mega-menu">
           <ul id="topMain" class="nav nav-pills nav-main scroll-menu">
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/"> Home </a> </li>
-            <li class="mega-menu-item mega-menu-two-columns"> <a href="/products"> Services </a> </li>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/products"> <%= @selected_template.product_tab ? @selected_template.product_tab : "Services"  %> </a> </li>
             <!-- Arrange Menus -->   
             <% @customize_pages.each_with_index  do |page, index|%>
                 <% if index >= 2 %>

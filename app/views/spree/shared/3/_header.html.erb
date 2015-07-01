@@ -16,7 +16,7 @@
           <li class="shopping-icon"> <a href="/cart"> <i class="fa fa-shopping-cart"></i> <span class="number-amount"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span> </a> </li>
           <li><a href="/">home</a></li>
           <li><a href="/page/<%= @about_page.first.try(:id)%>">about us</a></li>
-          <li><a href="/products">service</a></li>
+          <li><a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab : "Services"  %></a></li>
           <li><a href="/contact-us"> Contacts</a></li>
            <% if spree_user_signed_in? %>
            <li> <%=  link_to 'Sign Out', spree_logout_path %></li>
@@ -54,7 +54,7 @@
         
           <center>
             <span class="menu-sep"><a class="active" href="/">Home</a> </span> 
-            <span class="menu-sep"><a href="/products">Services</a> </span>
+            <span class="menu-sep"><a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab : "Services"  %></a> </span>
 
              <% @customize_pages.each_with_index  do |page, index|%>
                 <% if index >= 2 %>
@@ -120,7 +120,7 @@
         <nav class="nav-menu">
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
-            <li><a href="/products">Services</a></li>
+            <li><a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab : "Services"  %></a></li>
              <li><a href="/page/<%= @about_page.first.try(:id)%>">About Us</a></li>
             <li><a href="/contact-us"> Contact Us</a> </li>
              <% @customize_pages.each_with_index  do |page, index|%>
