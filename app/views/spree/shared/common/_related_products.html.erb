@@ -23,8 +23,10 @@
         </figure>
 
         <div class="item-box-desc">
-          <h4><%=p.name%></h4> <%if p.subscription %> (Subscription Product) <% end %>
+          <h4><%=p.name%></h4> <%if p.subscription %> (Subscription Product)
+          <%else%> 
           <%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p => p, } %>
+          <% end %>
         </div>
       </div>
     </div>
