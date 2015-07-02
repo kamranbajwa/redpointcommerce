@@ -11,6 +11,7 @@
     </nav>
   </div>
 </header> -->
+  <% if Spree.user_class && can?(:admin, Spree.user_class) %>
 <div class="page-header navbar navbar-fixed-top">
   <!-- BEGIN HEADER INNER -->
   <div class="page-header-inner">
@@ -79,3 +80,4 @@
 </div>
 <div class="clearfix">
 </div>
+<%end%>

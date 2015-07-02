@@ -44,6 +44,7 @@ def index
     @promotion_email = Spree::PromotionEmail.new(promotion_email_params)
 
       if @promotion_email.save
+        flash[:notice] = "Promotion Email Created"
         redirect_to :action => :select_user, :id => @promotion_email.id
         #format.html { redirect_to adminpromotion_emails_url, notice: 'Promotion email was successfully created.' }
         #format.json { render action: 'show', status: :created, location: @promotion_email }
@@ -59,6 +60,7 @@ def index
   # PATCH/PUT /promotion_emails/1.json
   def update
       if @promotion_email.update(promotion_email_params)
+         flash[:notice] = "Promotion Email Updated"
         redirect_to :action => :select_user
         #format.html { redirect_to :back, notice: 'Promotion email was successfully updated.' }
         
