@@ -187,3 +187,5 @@ padding-bottom: 9px;}
 .item {
     position:relative;
 }
+.fb-custom span { width: 324px !important;}
+.fb-custom span iframe { width: 342px !important;}
