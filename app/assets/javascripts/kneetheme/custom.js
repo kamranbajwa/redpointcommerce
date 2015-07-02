@@ -29,6 +29,22 @@
         $(".on-edit").show();
       }
     }
+    function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#slider_image_slider_image").change(function(){
+    readURL(this);
+});
 
 
  });

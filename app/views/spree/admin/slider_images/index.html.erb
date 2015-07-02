@@ -26,7 +26,7 @@
          <%= f.label :slider_image,'Slider Image' %>
          <%= f.file_field :slider_image, :multiple => true, :accept => "image/*", required: true %>
          <br><small> <p>Please upload images of size approx. 1400x700.</p> </small>
-         <small> <p>You can upload max 5 slider images. </p> </small>
+         <small> <p>You can upload max <%=5-@slider_images.count%> slider images. </p> </small>
        </div>
      </fieldset>
    </div>

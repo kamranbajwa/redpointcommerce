@@ -11,12 +11,13 @@
     </nav>
   </div>
 </header> -->
+  <% if Spree.user_class && can?(:admin, Spree.user_class) %>
 <div class="page-header navbar navbar-fixed-top">
   <!-- BEGIN HEADER INNER -->
   <div class="page-header-inner">
     <!-- BEGIN LOGO -->
     <div class="page-logo">
-      <a href="/admin/dashboaard">
+      <a href="/admin/dashboard">
       <img src="<%= Spree::Logo.last.avatar.url(:logo)%>" class="logo-default" style="width:100px;">
       </a>
       <div class="menu-toggler sidebar-toggler">
@@ -79,3 +80,4 @@
 </div>
 <div class="clearfix">
 </div>
+<%end%>

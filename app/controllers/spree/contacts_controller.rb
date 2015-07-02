@@ -1,6 +1,7 @@
 module Spree
 class ContactsController < Spree::StoreController
  def new
+  @title="contact us"
     @message = Spree::Message.new
     @org=Spree::Organization.first
     add=@org.org_addresses

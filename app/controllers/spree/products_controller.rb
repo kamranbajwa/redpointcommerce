@@ -10,7 +10,12 @@ module Spree
     respond_to :html
 
     def index
-      @title="Product"
+      if @selected_template.template_no == "2" ||  @selected_template.template_no== "3" 
+      @title="Services"
+      else
+        @title="Prodcut"
+      end
+      
       @taxonomies = Spree::Taxonomy.all
       render :template => "/spree/shared/#{@selected_template.template_no}/products_index.html.erb", :locals => {:products => @products,:taxonomies => @taxonomies, :searcher => @searcher, :taxon =>@taxon }
     end
