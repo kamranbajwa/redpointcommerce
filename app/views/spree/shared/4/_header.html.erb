@@ -67,7 +67,7 @@
                 <% end %>
                 <li class="mega-menu-item mega-menu-two-columns"> 
                 <a href="/page/<%= @about_page.first.try(:id)%>"> ABOUT US </a> </li>
-                <li><a href="/products">PRODUCTS</a></li>
+                <li><a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab : "PRODUCTS"  %></a></li>
                 <li><a href="/blog">BLOG</a></li>
                 <li><a href="/contact-us">CONTACT US</a></li>
                 <span class="mobile-view">
@@ -106,7 +106,7 @@
                 <div>
                   <ul class="nav navbar-nav navbar-right">
                     <li class=""><a href="/">HOME</a></li>
-                    <li><a href='/products'>PRODUCTS</a></li>
+                    <li><a href='/products'><%= @selected_template.product_tab ? @selected_template.product_tab : "PRODUCTS"  %></a></li>
                     <li><a href="/blog">BLOG</a></li>
                     <li><a href="/contact-us">CONTACT US</a></li>
                     <% @customize_pages.each_with_index  do |page, index|%>
