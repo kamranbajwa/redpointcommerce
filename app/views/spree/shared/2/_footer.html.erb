@@ -52,24 +52,24 @@
         <div class="column col-md-12 ">
         <div class="hr-footer"></div>
           <div class="text-center">
-           <%if @org.facebook_url!="" or @org.twitter_url!="" or  @org.google_url!="" %>
+           <%if @org.facebook_url.present?  or @org.twitter_url.present?  or  @org.google_url.present?  %>
           <ul class="footer-social-nav">
-            <%if @org.twitter_url!=""%>
+            <%if @org.twitter_url.present? %>
             <a class="footer-social-beauty" target="_blank" href=<%= @org.twitter_url || '#'%>><i class="fa fa-twitter"></i></a>
             <%end%>
-             <%if @org.facebook_url!=""%>
+             <%if @org.facebook_url.present? %>
             <a class="footer-social-beauty" target="_blank" href=<%= @org.facebook_url || '#'%>><i class="fa fa-facebook"></i></a>
             <%end%>
-             <%if @org.google_url!=""%>
+             <%if @org.google_url.present? %>
             <a class="footer-social-beauty" target="_blank" href=<%= @org.google_url || '#'%>><i class="fa fa-google-plus"></i></a>
             <%end%>
-             <%if @org.youtube!=""%>
+             <%if @org.youtube.present? %>
              <a class="footer-social-beauty" target="_blank" href=<%= @org.youtube || '#'%>><i class="fa fa-youtube"></i></a>
              <%end%>
-             <%if @org.linked_in!=""%>
+             <%if @org.linked_in.present? %>
             <a class="footer-social-beauty" target="_blank" href=<%= @org.linked_in || '#'%>><i class="fa fa-linkedin"></i></a>
             <%end%>
-             <%if @org.pinterest!=""%>
+             <%if @org.pinterest.present? %>
             <a class="footer-social-beauty" target="_blank" href=<%= @org.pinterest || '#'%>><i class="fa fa-pinterest-square"></i></a>
             <%end%>
           </ul>

@@ -55,16 +55,16 @@
             <!-- ============================================== SOCIAL-NEWSLETTER ============================================== -->
             <div class="social-newsletter">
               <div class="social-links">
-              <%if @org.facebook_url!="" or @org.twitter_url!="" or  @org.google_url!="" %>
+              <%if @org.facebook_url.present? or @org.twitter_url.present? or  @org.google_url.present? %>
                 <h3 class="title">CONNECT WITH US</h3>
                 <ul class="social list-inline list-unstyled">
-                <%if @org.facebook_url!=""%>
+                <%if @org.facebook_url.present? %>
                   <li><a href=<%= @org.facebook_url || '#'%> target="_blank"><i class="fa fa-facebook"></i></a></li>
                   <%end%>
-                  <%if @org.twitter_url!=""%>
+                  <%if @org.twitter_url.present? %>
                 <li><a href=<%= @org.twitter_url || '#'%> target="_blank"><i class="fa fa-twitter"></i></a></li>
                 <%end%>
-                <%if @org.google_url!=""%>
+                <%if @org.google_url.present? %>
                 <li><a href=<%= @org.google_url || '#'%> target="_blank"><i class="fa fa-google-plus"></i></a></li>
                 <%end%>
                 </ul>

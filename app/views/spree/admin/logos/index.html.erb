@@ -66,24 +66,23 @@
 </div>
 </div>
 <div class="col-md-3">
-  <div class="page-sidebar-wrapper">
-    <div class="page-sidebar navbar-collapse collapse">
-      <ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-
-        <li class="start">
-          <a href="/admin/organizations/<%=Spree::Organization.first.id%>/edit">
-            <i class="icon-home"></i>
-            <span class="title">Information</span>
-          </a>
-        </li>
-        <li class="start">
-          <a href="/admin/logos">
-            <i class="icon-home"></i>
-            <span class="title"> Logo & Favicon </span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <div class="">
+    <ul class="ver-inline-menu tabbable margin-bottom-10">
+      <li class="<%= is_active?("/admin/organizations/#{Spree::Organization.first.id}/edit") %>">
+        <a href="/admin/organizations/<%= Spree::Organization.first.id%>/edit" aria-expanded="true">
+         <i class="fa fa-book"></i>
+         Information
+       </a>
+       <span class="after">
+        </span>
+     </li>
+     <li class="<%= is_active?('/admin/logos') %>">
+      <a href="/admin/logos" aria-expanded="true">
+       <i class="fa fa-map-marker"></i>
+       Logo & Favicon 
+     </a>
+   </li>
+</ul>
+</div>
 </div>
 

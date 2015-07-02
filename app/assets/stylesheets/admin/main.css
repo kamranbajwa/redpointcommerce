@@ -153,3 +153,5 @@ table td.actions .fa-ok:hover, table td.actions .fa-plus:hover, table td.actions
 .toast-info, .toast-success, .toast-error {
   margin-top: 70px !important;
 }
+.remove-group span a:hover { color: #fff !important; text-decoration:none;}
+.add-address a:hover {text-decoration:none;}
