@@ -8,22 +8,22 @@
           
         </div>
 <div class="text-center icons">
-<% if @org.facebook_url!=""%>
+<% if @org.facebook_url.present? %>
 <a target="_blank" href=<%= @org.facebook_url || '#'%>><i class="fa fa-facebook fa-2x"></i></a>
 <%end%>
-<%if  @org.twitter_url!=""%>
+<%if  @org.twitter_url.present? %>
 <a target="_blank" href=<%= @org.twitter_url || '#'%>><i class="fa fa-twitter fa-2x"></i></a> 
 <%end%>
-<% if @org.google_url!=""%>
+<% if @org.google_url.present? %>
 <a target="_blank" href=<%= @org.google_url ||'#'%>><i class="fa fa-google-plus fa-2x"></i></a>
 <%end%>
-<% if @org.linked_in!=""%>
+<% if @org.linked_in.present? %>
 <a target="_blank" href=<%= @org.linked_in ||'#'%>><i class="fa fa-linkedin fa-2x"></i></a> 
 <%end%>
-<% if @org.pinterest!="" %>
+<% if @org.pinterest.present? %>
 <a target="_blank" href=<%= @org.pinterest || '#'%>><i class="fa fa-pinterest fa-2x"></i></a>
 <%end%>
-<% if @org.youtube!=""%>
+<% if @org.youtube.present? %>
 <a target="_blank" href=<%= @org.youtube || '#'%>><i class="fa fa-youtube fa-2x"></i></a>
 <%end%>
 </div>

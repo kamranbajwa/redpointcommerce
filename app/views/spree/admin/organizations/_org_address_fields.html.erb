@@ -32,14 +32,11 @@
     <br>
     <%= f.text_field :phone_no, :class => 'fullwidth',:title=>"Only Number" %>
   </div>
-  <div class="field">
+  <div class="form-group remove-group">
         <span class="btn blue fa fa-minus ">
-         <span class="white-text">
             <%= f.hidden_field :_destroy %>
             <%=link_to_remove_fields_o "Remove address", f  %>
-          </span>
         </span>   
- 
   </div>
 
 
