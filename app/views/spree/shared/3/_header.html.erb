@@ -29,10 +29,12 @@
   </div>
   <!-- end mobile-menu-wrap -->
   <div class="header-color">
-    <div class="menu-color">
-      <figure class="logo"> <a href="/" title="logo" rel="home"> <img alt="Atropos" src="<%= Spree::Logo.last.avatar.url(:logo) rescue '' %>" </a>
+    <div class="menu-color"> 
+      <figure class="logo"> <a href="/" title="logo" rel="home"> <img alt="Atropos" src="<%= Spree::Logo.last.avatar.url(:logo) rescue '' %>"> </a>
+       <span class="welcome-msg">Welcome to <%=@org.company_name rescue 'PSHQ'%></span>
+       <div class=" nav-menu" style="float:right;">
         <%if @org.facebook_url!="" %>
-        <div class=" nav-menu" style="float:right;"> <a href=<%= @org.facebook_url|| '#'%> target="_blank"><img src="/assets/<%= @selected_template.template_no%>/social/f-icon.png"></a>
+        <a href=<%= @org.facebook_url|| '#'%> target="_blank"><img src="/assets/<%= @selected_template.template_no%>/social/f-icon.png"></a>
         <%end%>
         <%if @org.google_url!="" %>
          <a href=<%= @org.google_url|| '#'%> target="_blank"><img src="/assets/<%= @selected_template.template_no%>/social/g-icon.png"></a>
@@ -41,7 +43,6 @@
          <a href=<%= @org.twitter_url|| '#'%> target="_blank"><img src="/assets/<%= @selected_template.template_no%>/social/t-icon.png"></a>
          <%end%>
           </div>
-      </figure>
     </div>
     <!-- end col-sm-3 -->
     

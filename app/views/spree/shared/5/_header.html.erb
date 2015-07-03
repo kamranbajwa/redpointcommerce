@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
        <div class="col-md-12  ">
-       <div class="col-lg-6"> <% if spree_user_signed_in? %> <%=  link_to 'Sign out', spree_logout_path %> <% else %><a href="/login">Login <i class="fa fa-key"></i></a> <% end %>| <a href="/signup">Registration <i class="fa fa-users"></i></a> | <a href="/cart">Cart <i class="fa fa-shopping-cart"></i></a> </div>
+       <div class="col-lg-6"><span class="welcome-msg">Welcome to <%=@org.company_name rescue 'PSHQ'%> </span><a href="/signup">Registration <i class="fa fa-users"></i></a> | <% if spree_user_signed_in? %> <%=  link_to 'Sign out', spree_logout_path %> <% else %><a href="/login">Login <i class="fa fa-key"></i></a> <% end %>|  <a href="/cart">Cart <i class="fa fa-shopping-cart"></i></a> </div>
         <div class="col-lg-6"></div>
        <div class="pull-right">
         <div id="cart"> 

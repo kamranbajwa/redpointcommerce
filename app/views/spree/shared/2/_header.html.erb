@@ -9,7 +9,9 @@
      <!--  <span class="quick-contact pull-left"> <i class="fa fa-phone"></i> 1800-555-1234 • <a href="mailto:mail@yourdomain.com" class="hidden-xs">mail@domain.com</a> </span>  -->
       
       <!-- SIGN IN -->
-      
+       <div class="pull-left"> 
+       Welcome to <%=@org.company_name rescue 'PSHQ'%>
+       </div>
       <div class="pull-right nav signin-dd"> 
 
       <% if spree_user_signed_in? %>

@@ -13,23 +13,11 @@
     <div class="container">
       <div class="header-top-inner">
         <div class="cnt-account">
-          <ul class="list-unstyled list-inline">
-<%#*<li><a href="#">My Account</a></li>%>
-<%#*<li><a href="#">Wishlist</a></li>%>
-            <li><a href="/cart">My Cart</a></li>
-            <li><a href="/checkout">Checkout</a></li>
-            <% if spree_user_signed_in? %>
-              <li><a href="/account">My Account</a></li>
-              <li> <%=  link_to 'Sign Out', spree_logout_path %></li>
-  <%#*<li><a href="">Sign Out</a></li>%>
-            <% else %>
-              <li><a href="/login">Login</a></li>
-            <% end %>
-          </ul>
+         Welcome to <%=@org.company_name rescue 'PSHQ'%>
         </div><!-- /.cnt-account -->
 
         <div class="cnt-cart">
-          <ul class="list-unstyled list-inline">
+          <ul class="list-unstyled list-inline pull-right">
             <li class="dropdown dropdown-small">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">&nbsp;</a>
             </li>
@@ -45,6 +33,15 @@
               <div class="clearfix"></div>
             </li><!-- /.dropdown-cart -->
           </ul><!-- /.list-unstyled -->
+          <ul class="list-unstyled list-inline pull-right">
+            <li><a href="/checkout">Checkout</a></li>
+            <% if spree_user_signed_in? %>
+            <li><a href="/account">My Account</a></li>
+            <li> <%=  link_to 'Sign Out', spree_logout_path %></li>
+            <% else %>
+            <li><a href="/login">Login</a></li>
+            <% end %>
+          </ul>
         </div><!-- /.cnt-cart -->
         <div class="clearfix"></div>
       </div><!-- /.header-top-inner -->
