@@ -10,10 +10,5 @@
  <%= stylesheet_link_tag 'datepicker' %>
 <link href="https://fonts.googleapis.com/css?family=Raleway:400,100,500,600,700,800,900,300,200" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="/assets/<%= @selected_template.template_no%>/bootstrap.css" type="text/css" media="all">
-<link rel="stylesheet" href="/assets/<%= @selected_template.template_no%>/font-awesome.css" type="text/css" media="all">
-<link rel="stylesheet" href="/assets/<%= @selected_template.template_no%>/main.css" type="text/css" media="all">
-
-<!--color-->
-<link rel="stylesheet" href="/assets/<%= @selected_template.template_no%>/blue.css" type="text/css" media="all">
+ <%= stylesheet_link_tag "/assets/#{@selected_template.template_no}/all_doc_css" %>
 <link rel="shortcut icon" type="image/x-icon" href="<%= @selected_template.spree_favicon and @selected_template.spree_favicon.favicon_image ? @selected_template.spree_favicon.favicon_image.url(:thumb) : '/assets/favicon.ico'%>" />

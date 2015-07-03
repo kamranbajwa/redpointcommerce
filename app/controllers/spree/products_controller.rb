@@ -10,11 +10,7 @@ module Spree
     respond_to :html
 
     def index
-      if @selected_template.template_no == "2" ||  @selected_template.template_no== "3" 
-      @title="Services"
-      else
-        @title="Prodcut"
-      end
+      @title = @selected_template.product_tab ? @selected_template.product_tab : "Services"
       
       @taxonomies = Spree::Taxonomy.all
       render :template => "/spree/shared/#{@selected_template.template_no}/products_index.html.erb", :locals => {:products => @products,:taxonomies => @taxonomies, :searcher => @searcher, :taxon =>@taxon }
@@ -32,7 +28,7 @@ module Spree
       else
         @simlier_product = @products.limit 4 
       end
-      @title="Prodcut: "+ @product.name
+      @title= @selected_template.product_tab ? "#{@selected_template.product_tab}" ": "+ "#{@product.name}" : "Services: "+ @product.name
 
     end
     private

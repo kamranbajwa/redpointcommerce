@@ -13,15 +13,7 @@
 <%#= stylesheet_link_tag ''%>
 
 <!-- Bootstrap core CSS -->
-<link href="/assets/<%= @selected_template.template_no%>/bootstrap.min.css" rel="stylesheet">
-<!-- Customizable CSS -->
-<link href="/assets/<%= @selected_template.template_no%>/owl.carousel.css" rel="stylesheet">
-<link href="/assets/<%= @selected_template.template_no%>/owl.transitions.css" rel="stylesheet">
-<link href="/assets/<%= @selected_template.template_no%>/rateit.css" rel="stylesheet">
-<link href="/assets/<%= @selected_template.template_no%>/jquery.bxslider.css" rel="stylesheet">
-<link href="/assets/<%= @selected_template.template_no%>/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
-<link href="/assets/<%= @selected_template.template_no%>/lightbox.css" rel="stylesheet">
-<link href="/assets/<%= @selected_template.template_no%>/animate.min.css" rel="stylesheet">
+ <%= stylesheet_link_tag "/assets/#{ @selected_template.template_no }/all_warhouse_css" %>
 <!-- Fonts -->
 <%#*<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300,100' rel='stylesheet' type='text/css'>%>
 

@@ -1,5 +1,9 @@
 $(document).ready(function(){
+    $("#datepicker").datepicker({
+  forceParse: false,
+  autoclose: true
 
+});
   $('#myformcart').submit(function(){
     $("#myModal").hide();
     $(".a-unique-class").html(" ");

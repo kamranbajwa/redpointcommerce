@@ -89,10 +89,5 @@
     </div>
   </div>
 </footer>
-<script type='text/javascript' src='/assets/<%= @selected_template.template_no%>/jquery-1.11.1.min.js'></script> 
-<script type='text/javascript' src='/assets/<%= @selected_template.template_no%>/bootstrap.min.js'></script> 
-<script type='text/javascript' src='/assets/<%= @selected_template.template_no%>/jquery.flexslider-min.js'></script> 
-<script type='text/javascript' src='/assets/<%= @selected_template.template_no%>/jquery.meanmenu.min.js'></script> 
-<script type='text/javascript' src='/assets/<%= @selected_template.template_no%>/jquery-migrate-1.2.1.min.js'></script> 
-<script type='text/javascript' src='/assets/<%= @selected_template.template_no%>/custom.js'></script>
   <%= javascript_include_tag 'bootstrap-datepicker' %>
+  <%= javascript_include_tag "/assets/#{@selected_template.template_no}/all_doc_js" %>

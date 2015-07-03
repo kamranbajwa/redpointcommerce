@@ -72,9 +72,7 @@
     </div>
   </div>
 </section>
+
 <!-- Scripts Start --> 
-<script language="javascript" type="text/javascript" src="/assets/<%= @selected_template.template_no%>/jquery-1.11.3.min.js"></script> 
-<script language="javascript" type="text/javascript" src="/assets/<%= @selected_template.template_no%>/jquery.nivo.slider.js"></script> 
-<script language="javascript" type="text/javascript" src="/assets/bootstrap.min.js"></script> 
-<script language="javascript" type="text/javascript" src="/assets/<%= @selected_template.template_no%>/custom.js"></script>
+<%= javascript_include_tag "/assets/#{@selected_template.template_no}/all_sheos_js" %>
 <!-- Scripts End -->
