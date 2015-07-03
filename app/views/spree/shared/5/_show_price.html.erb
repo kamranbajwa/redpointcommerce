@@ -1,3 +1,4 @@
+<%if !p.subscription%>
 <% if @user_group == "Retailer" && p.retailer_price.present? %>
 <%=p.retailer_display_price.to_html %>
 <% elsif @user_group == "WholeSaler" && p.dealer_price.present? %>
@@ -5,3 +6,4 @@
 <% else %>
  <%= display_price(p) %>
 <% end %>
+<%end%>
