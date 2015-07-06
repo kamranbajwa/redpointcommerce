@@ -47,9 +47,9 @@
                             <ul id="menu" class="list-unstyled">
                 <li><a href="/">HOME</a></li>
                 <% @customize_pages.each_with_index  do |page, index|%>
-                <% if index >= 2 %>
+                <% if index >= 1 %>
                 
-                <% if index == 2 %>
+                <% if index == 1 %>
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1" href="#" aria-expanded="true">
                     More <i class="fa fa-angle-down"></i>
@@ -110,8 +110,8 @@
                     <li><a href="/blog">BLOG</a></li>
                     <li><a href="/contact-us">CONTACT US</a></li>
                     <% @customize_pages.each_with_index  do |page, index|%>
-                    <% if index >= 2 %>
-                    <% if index == 2 %>
+                    <% if index >= 1 %>
+                    <% if index == 1 %>
                     <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1" href="#" aria-expanded="true">
                         More <i class="fa fa-angle-down"></i>

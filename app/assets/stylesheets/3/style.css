@@ -3392,6 +3392,9 @@ border-bottom:1px solid #d0d5d9;
 .social-icon ul li a:hover:before {
   border-color: #ff9000;
 }
+.widgets-bg {
+  margin-bottom: 20px;
+}
 /************************************************************************
 // 24. Responsive Fixing
 *************************************************************************/
