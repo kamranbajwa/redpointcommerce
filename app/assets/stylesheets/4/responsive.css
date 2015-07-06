@@ -131,6 +131,7 @@
 
 /*.search-slide { right: 80px; top: 21px;}*/
 .search-slide { display:none;}
+.center-block { max-width: 200px; }
 
 .fixed-header{ border:none !important; border-bottom:0px solid #CCC;}
 }
