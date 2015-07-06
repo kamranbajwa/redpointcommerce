@@ -58,8 +58,8 @@
             <span class="menu-sep"><a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab : "Services"  %></a> </span>
 
              <% @customize_pages.each_with_index  do |page, index|%>
-                <% if index >= 2 %>
-                  <% if index == 2 %>
+                <% if index >= 1 %>
+                  <% if index == 1 %>
                   <span class="nav-menu pull-right" >
                     <ul class="nav navbar-nav" style="margin-top:0px;">
                       <li class="more-li">
@@ -125,8 +125,8 @@
              <li><a href="/page/<%= @about_page.first.try(:id)%>">About Us</a></li>
             <li><a href="/contact-us"> Contact Us</a> </li>
              <% @customize_pages.each_with_index  do |page, index|%>
-                <% if index >= 2 %>
-                  <% if index == 2 %>
+                <% if index >= 1 %>
+                  <% if index == 1 %>
                    <li>
                      <a href="#" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent;">More</a>
                      <ul class="sub-menu" style="display: none;">
