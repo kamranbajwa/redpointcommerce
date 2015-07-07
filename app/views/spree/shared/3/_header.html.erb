@@ -15,9 +15,9 @@
         <ul class="mobile-ul">
           <li class="shopping-icon"> <a href="/cart"> <i class="fa fa-shopping-cart"></i> <span class="number-amount"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span> </a> </li>
           <li><a href="/">home</a></li>
-          <li><a href="/page/<%= @about_page.first.try(:id)%>">about us</a></li>
-          <li><a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab : "Services"  %></a></li>
-          <li><a href="/contact-us"> Contacts</a></li>
+          <li><a href="/page/<%= @about_page.first.try(:slug)%>">ABOUT US</a></li>
+          <li><a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab.upcase : "SERVICES"  %></a></li>
+          <li><a href="/contact-us"> CONTACT US</a></li>
            <% if spree_user_signed_in? %>
            <li> <%=  link_to 'Sign Out', spree_logout_path %></li>
           <% else %>
@@ -55,7 +55,7 @@
         
           <center>
             <span class="menu-sep"><a class="active" href="/">Home</a> </span> 
-            <span class="menu-sep"><a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab : "Services"  %></a> </span>
+            <span class="menu-sep"><a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab.upcase : "SERVICES"  %></a> </span>
 
              <% @customize_pages.each_with_index  do |page, index|%>
                 <% if index >= 1 %>
@@ -68,7 +68,7 @@
                         </a>
                         <ul class="sub-menu">
                   <% end %>
-                       <li class="menu-sep"><a href="/page/<%= page.id %>"><%= page.title%></a></li>
+                       <li class="menu-sep"><a href="/page/<%= page.slug rescue '' %>"><%= page.title.upcase%></a></li>
                   <% if index+1 == @customize_pages.length %>
                         </ul>
                       </li>
@@ -76,10 +76,10 @@
                   </span>
                   <% end %>
                 <% else %>
-                  <span class="menu-sep"><a href="/page/<%= page.id %>"> <%= page.title%></a></span>
+                  <span class="menu-sep"><a href="/page/<%= page.slug %>"> <%= page.title.upcase%></a></span>
                 <% end %>
             <% end %>
-            <span class="menu-sep"> <a href="/page/<%= @about_page.first.try(:id)%>"> About Us </a></span>
+            <span class="menu-sep"> <a href="/page/<%= @about_page.first.try(:slug)%>"> About Us </a></span>
             <span class="menu-sep"><a href="/contact-us"> Contact Us</a></span>
             <span class="menu-sep"><a href="/blog">Blog</a></span>
           </center>
@@ -121,8 +121,8 @@
         <nav class="nav-menu">
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
-            <li><a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab : "Services"  %></a></li>
-             <li><a href="/page/<%= @about_page.first.try(:id)%>">About Us</a></li>
+            <li><a href="/products"><%= @selected_template.product_tab.upcase ? @selected_template.product_tab : "Services"  %></a></li>
+             <li><a href="/page/<%= @about_page.first.try(:slug)%>">ABOUT US</a></li>
             <li><a href="/contact-us"> Contact Us</a> </li>
              <% @customize_pages.each_with_index  do |page, index|%>
                 <% if index >= 1 %>
@@ -131,7 +131,7 @@
                      <a href="#" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent;">More</a>
                      <ul class="sub-menu" style="display: none;">
                   <% end %>
-                        <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
+                        <li><a href="/page/<%= page.slug rescue '' %>"><%= page.title.upcase%></a></li>
                         <% if index == 2 %>
                         <li><a href="/blog">Blog</a></li>
                         <%end%>
@@ -141,7 +141,7 @@
                    
                   <% end %>
                 <% else %>
-                <li><a href="/page/<%= page.id %>"><%= page.title%></a> </li>
+                <li><a href="/page/<%= page.slug %>"><%= page.title.upcase%></a> </li>
                 <% end %>
             <% end %>
 

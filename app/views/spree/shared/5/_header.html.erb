@@ -46,7 +46,7 @@
       <nav class="main-menu">
         <ul class="header-nav clearfix" id="menu-main-menu">
           <li class="current-menu-item page_item"> <a href="/">Home</a> </li>
-          <li> <a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab : "Doctor"  %></a> </li>
+          <li> <a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab.capitalize : "Doctor"  %></a> </li>
            <% @customize_pages.each_with_index  do |page, index|%>
               <% if index >= 1 %>
                   <% if index == 1 %>
@@ -54,16 +54,16 @@
                      <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">More <i class="fa fa-angle-down"></i></a>
                       <ul class="dropdown-menu">
                   <% end %>
-                        <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
+                        <li><a href="/page/<%= page.try(:slug) %>"><%= page.title.capitalize%></a></li>
                   <% if index+1 == @customize_pages.length %>
                       </ul>
                     </li>
                   <% end %>
                 <% else %>
-                  <li> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
+                  <li> <a href="/page/<%= page.try(:slug) %>"> <%= page.title.capitalize%> </a> </li>
                 <% end %>
             <% end %>
-           <li> <a href="/page/<%= @about_page.first.try(:id)%>">About Us</a> </li>
+           <li> <a href="/page/<%= @about_page.first.try(:slug)%>">About Us</a> </li>
            <li> <a href="/blog">Blog</a> </li>
           <li> <a href="/contact-us">Contact Us</a> </li>
         </ul>

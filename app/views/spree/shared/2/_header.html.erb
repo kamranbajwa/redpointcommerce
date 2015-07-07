@@ -32,7 +32,7 @@
       <!-- CART MOBILE BUTTON --> 
       
       <!-- LINKS -->
-      <div class="pull-right nav hidden-xs"> <a href="/page/<%= @about_page.first.try(:id)%>"><i class="fa fa-angle-right"></i> About Us</a> <a href="/contact-us"><i class="fa fa-angle-right"></i> Contact Us</a> </div>
+      <div class="pull-right nav hidden-xs"> <a href="/page/<%= @about_page.first.try(:slug)%>"><i class="fa fa-angle-right"></i> About Us</a> <a href="/contact-us"><i class="fa fa-angle-right"></i> Contact Us</a> </div>
       <!-- /LINKS --> 
       
     </div>
@@ -52,7 +52,7 @@
         <nav class="nav-main mega-menu">
           <ul id="topMain" class="nav nav-pills nav-main scroll-menu">
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/"> Home </a> </li>
-            <li class="mega-menu-item mega-menu-two-columns"> <a href="/products"> <%= @selected_template.product_tab ? @selected_template.product_tab : "Services"  %> </a> </li>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/products"> <%= @selected_template.product_tab ? @selected_template.product_tab.capitalize : "Services"  %> </a> </li>
             <!-- Arrange Menus -->   
             <% @customize_pages.each_with_index  do |page, index|%>
                 <% if index >= 1 %>
@@ -63,16 +63,16 @@
                       </a>
                       <ul class="dropdown-menu menu_color">
                   <% end %>
-                        <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
+                        <li><a href="/page/<%= page.slug rescue '' %>"><%= page.title.capitalize%></a></li>
                   <% if index+1 == @customize_pages.length %>
                       </ul>
                     </li>
                   <% end %>
                 <% else %>
-                  <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
+                  <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= page.slug rescue ''%>"> <%= page.title.capitalize%> </a> </li>
                 <% end %>
             <% end %>
-            <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_page.first.try(:id)%>"> About Us </a> </li>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_page.first.try(:slug)%>"> About Us </a> </li>
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/contact-us"> Contact Us </a> </li>
             <!--Blog link -->
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/blog">Blog</a></li>

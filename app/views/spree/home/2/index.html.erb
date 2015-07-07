@@ -89,7 +89,7 @@
         <div class="col-md-3">
         <div class="featured-box nobg border-only border-dot">
             <div class="box-content"> <img width="56" height="40" src="assets/2/icon/<%=  data_pages[index][:img] %>.png">
-              <h4><%= truncate(strip_tags(page.title.html_safe), length: 20) %></h4>
+              <h4><%= truncate(strip_tags(page.title.capitalize.html_safe), length: 20) %></h4>
               <hr style="margin:2px 0 2px 0">
               <p  style=" line-height:17px;" class="center truncate-page">
                 <%

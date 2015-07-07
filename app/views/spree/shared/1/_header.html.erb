@@ -75,9 +75,10 @@
               </li>
               <li class="">
                 
-                <a href="/products" class="dropdown-toggle" ><%= @selected_template.product_tab ? @selected_template.product_tab : "Products"  %></a>
+                <a href="/products" class="dropdown-toggle" ><%= @selected_template.product_tab ? @selected_template.product_tab.upcase : "PRODUCTS"  %></a>
 
               </li>
+              <li >  <a href="/blog"  >Blog</a></li>
               
             <% @customize_pages.each_with_index do |page, index|%>
              <% if index >= 0 %>
@@ -91,14 +92,13 @@
                       </a>
                       <ul class="dropdown-menu">
                   <% end %>
-                        <li><a href="/page/<%= page.id %>"><%= page.title%></a></li>
-                        <li >  <a href="/blog"  >Blog</a></li>
+                        <li><a href="/page/<%= page.slug %>"><%= page.title.upcase%></a></li>
                   <% if index+1 == @customize_pages.length %>
                       </ul>
                     </li>
                   <% end %>
                 <% else %>
-                <li class=""> <a href="/page/<%= page.id %>"> <%= page.title%> </a> </li>
+                <li class=""> <a href="/page/<%= page.id %>"> <%= page.title.upcase%> </a> </li>
               <%end%>
             <% end %>
          <!--    <li class="">
@@ -109,7 +109,7 @@
                <li><a href="#">Link3</a></li>
               </ul>
              </li> -->
-            <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_page.first.try(:id)%>"> About Us </a> </li>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_page.first.try(:slug)%>"> About Us </a> </li>
               <li class="">
                 <a href="/contact-us" class="dropdown-toggle" >Contact Us</a>
               </li>
