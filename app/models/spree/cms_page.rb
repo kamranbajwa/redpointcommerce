@@ -18,5 +18,8 @@ module Spree
     def check_static?
         self.static_flag
     end
+    def should_generate_new_friendly_id?
+        new_record? || slug.blank?
+    end
   end
 end
