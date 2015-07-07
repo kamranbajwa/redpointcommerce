@@ -16,13 +16,18 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
   <%if @selected_template.spree_slider_images.length==0%>
-  <div class="item active">
-      <img src="/assets/default-sliders/1.jpg" alt="" width="1300" height="500">
+   <div class="item active">
+
+      <img src="/assets/default-sliders/1.jpg" width="1400" height="500" alt="">
     </div>
     <div class="item ">
-      <img src="/assets/default-sliders/2.jpg" alt="" width="1300" height="500">
-      <img src="/assets/default-sliders/3.jpg" alt="" width="1300" height="500">
-      <img src="/assets/default-sliders/4.jpg" alt="" width="1300" height="500">
+      <img src="/assets/default-sliders/2.jpg" alt="" width="1400" height="500">
+      </div>
+      <div class="item ">
+      <img src="/assets/default-sliders/3.jpg" alt="" width="1400" height="500">
+      </div>
+      <div class="item ">
+      <img src="/assets/default-sliders/4.jpg" alt="" width="1400" height="500">
     </div>
     <%else%>
   <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
