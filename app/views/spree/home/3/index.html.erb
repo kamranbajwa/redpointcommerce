@@ -67,28 +67,14 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-<section class="section-quote">
+<section class="section-quote" style="display: <%= is_visible('section_1')%>">
   <div class="container">
     <div class="quote-body col-md-12">
-   <!--    <h3 class=" animated" data-animation="fadeIn" data-animation-delay="200">Welcome to Law irm - Providing Legal Help</h3>
-      <div class="quote-name animated" data-animation="fadeIn" data-animation-delay="250">Experience Reliability Ethies </div>
-      <div class="separator animated" data-animation="fadeIn" data-animation-delay="300"><i class="fa fa-quote-left"></i></div> -->
       <p class="quote-role animated" data-animation="fadeIn" data-animation-delay="200">
       <%=  @home_content.try(:description).try(:html_safe)%>
       </p>
-     <!--  <div class="u-photo animated" data-animation="pulse" data-animation-delay="450" > <span>Get your free consultation</span> <span style="background: red;
-color: #fff;
-padding: 9px;
-border-radius: 40px;
-font-size: 25px;">00-000-0000</span> <span>Available 24/7</span> </div> -->
     </div>
-    <!-- end col-sm-6 --> 
-    
-    <!-- end col-sm-6 --> 
-    
   </div>
-  <!-- end container --> 
-  
 </section>
 
 <!-- END SECTION QUOTE -->
@@ -96,7 +82,7 @@ font-size: 25px;">00-000-0000</span> <span>Available 24/7</span> </div> -->
              {:img => "lunch", :animation => "350"}, 
              {:img => "afternoon", :animation => "500"}, 
              {:img => "dinner", :animation => "650"}] %>
-<section class="section-features">
+<section class="section-features" style="display: <%= is_visible('section_2')%>">
   <div class="container">
     <% @static_pages.each_with_index do |page, index|%>
     <div class="col-sm-6 col-md-3 animated" data-animation="flipInY" data-animation-delay=<%= data_pages[index][:animation]%>>
@@ -119,13 +105,14 @@ font-size: 25px;">00-000-0000</span> <span>Available 24/7</span> </div> -->
   
 </section>
      <!-- widgets -->
+     <section style="display: <%= is_visible('section_3')%>">
      <%= render :partial => "/spree/home/2/widgets", :locals => { :recommended_products => recommended_products,:best_selling_products => best_selling_products, :taxon => @taxon } %>
-  
+    </section>
      <!-- widgets -->
 <!-- END FEATURES --> 
 
 <!-- VERTICAL SLIDER -->
-<section class="section-counter">
+<section class="section-counter" style="display: <%= is_visible('section_4')%>">
   <div class="container">
     <div class=" col-sm-10 col-sm-offset-1">
       <h2 class="white-col">Practise Areas</h2>

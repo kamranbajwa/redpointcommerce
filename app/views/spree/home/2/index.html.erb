@@ -83,7 +83,7 @@
              {:img => "gal"}, 
              {:img => "cal"}, 
              {:img => "emo"}] %>
-    <section class="container topHead-">
+    <section class="container topHead-" style="display: <%= is_visible('section_1')%>">
       <div class="row">
         <% @static_pages.each_with_index do |page, index|%>
         <div class="col-md-3">
@@ -103,35 +103,6 @@
           </div>
         </div>
         <% end %>
-        <!--   <div class="featured-box nobg border-only border-dot">
-            <div class="box-content"> <img width="56" height="40" src="assets/2/icon/eye.png">
-              <h4>Unique Design</h4>
-              <hr>
-              <p class="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <span class="pink-text"><a href="#">Read More...</a></span> </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="featured-box nobg border-only left-separator border-dot"> <img width="56" height="40" src="assets/2/icon/gal.png">
-            <h4>Photo Gallery</h4>
-            <hr>
-            <p class="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <span class="pink-text"><a href="#">Read More...</a></span> </div>
-        </div>
-        <div class="col-md-3">
-          <div class="featured-box nobg border-only left-separator border-dot"> <img width="56" height="40" src="assets/2/icon/cal.png">
-            <h4>Appointment System</h4>
-            <hr>
-            <p class="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <span class="pink-text"><a href="#">Read More...</a></span> </div>
-        </div>
-        <div class="col-md-3">
-          <div class="featured-box nobg border-only left-separator border-dot"> <img width="56" height="40" src="assets/2/icon/emo.png">
-            <h4>Customer Service Page</h4>
-            <hr>
-            <p class="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <span class="pink-text"><a href="#">Read More...</a></span> </div>
-        </div> -->
       </div>
     </section>
     <!-- /FEATURED BOXES 3 -->
@@ -142,7 +113,7 @@
     </div>
     
     <!-- CAROUSEL -->
-    <section style="margin-top:5%" class="container">
+    <section style="margin-top:5%; display: <%= is_visible('section_2')%>" class="container">
       <div class="row">
         <h3 class="text-center">Our Most Popular Services</h3>
         <hr>
@@ -151,11 +122,12 @@
       </div>
     </section>
      <!-- widgets -->
+     <section style="display: <%= is_visible('section_3')%>">
      <%= render :partial => "/spree/home/#{@selected_template.template_no}/widgets", :locals => { :recommended_products => recommended_products,:best_selling_products => best_selling_products, :taxon => @taxon } %>
-  
+    </section>
      <!-- widgets -->
  
-    <section style="margin-top:5%" class="container">
+    <section style="margin-top:5%; display: <%= is_visible('section_4')%>" class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class=" border-footer">

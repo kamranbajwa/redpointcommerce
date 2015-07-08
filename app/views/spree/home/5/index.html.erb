@@ -60,7 +60,7 @@
     </ul>
   </div>
 </div>
-<div class="home-features clearfix">
+<div class="home-features clearfix" id="section_1" style="display: <%= is_visible('section_1')%>">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -86,7 +86,7 @@
 <!--doctors section-->
 <div class="home-doctors  clearfix">
   <div class="container">
-    <div class="col-md-9 text-left">
+    <div class="col-md-9 text-left" id="section_2" style="display: <%= is_visible('section_2')%>">
       <h4 >DEPARTMENTS</h4>
       <% @default_pages.try(:each) do |d_page| %>
       <div class="col-md-6">
@@ -102,7 +102,7 @@
       </div>
       <% end %>
     </div>
-    <div class="col-md-3 text-center">
+    <div class="col-md-3 text-center" id="section_3" style="display: <%= is_visible('section_3')%>">
       <h4>MEET THE DOCTOR</h4>
       <div class="img-responsive"> <img class="img-circle" src="/assets/<%= @selected_template.template_no%>/temp-images/author-11-130x130.jpg" alt="" draggable="false"> </div>
       <h4>Nutritional Personal Consultation</h4>
@@ -115,7 +115,7 @@
 <!--doctors section end-->
 <hr>
 <!--blog posts section-->
-<div class="home-blog text-center clearfix">
+<div class="home-blog text-center clearfix" style="display: <%= is_visible('section_5')%>">
   <div class="container">
     <div class="slogan-section animated  clearfix">
       <h2>Latest News from <span>Health and Medical</span></h2>
@@ -156,7 +156,7 @@
 <hr>
 <!--testimonials section-->
 
-<div class="home-blog  clearfix">
+<div class="home-blog  clearfix" style="display: <%= is_visible('section_4')%>">
   <div class="container">
     <div class="slogan-section animated  clearfix">
       <h2>FROM <span>THE BLOGS</span></h2>

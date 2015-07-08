@@ -3,6 +3,9 @@ module Spree
     def is_active?(link_path)
     current_page?(link_path) ? "active" : ""
     end
+    def is_visible(section)
+      @template_sections.where(default_name: section).first.try(:visible) ? "block" : "none"
+    end
     def options_for_shipment_states
       [["Back Order", "backorder"], ["Canceled", "canceled"], ["Partial", "partial"],["Ready", "ready"],["Pending", "pending"],["Shipped", "shipped"]]
     end

@@ -1,0 +1,40 @@
+  <div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-gift"></i> Manage Sections : <%= @selected_template.try(:name)%>
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
+  <%= form_tag( update_sections_admin_sections_path, method: "post") do %>
+    <div class="form-body">
+    <table class="ptable">
+      <thead>
+        <tr data-hook="promotion_email_header">
+          <th>Name</th>
+          <th class="align-center"></th>
+        </tr>
+      </thead>
+      <tbody>              
+        <% @sections.each do |section|%>
+        <tr data-hook="reports_row">
+          <td class="align-center"><%= section.name %></td>
+          <td style="padding-left:3em; width:30% "> <%= check_box_tag "sections[]", section.name, section.visible %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+         <div class="form-buttons filter-actions actions form-actions" data-hook="buttons">
+       
+       <a class="btn blue" href="javascript:void(0)" onclick="window.history.back();"><span class="text white_color">Back</span></a>
+       
+       <span class="or">or</span>
+       <button type="submit" class="btn blue">Update</button>
+     </div>
+   <%end%>
+  </div>
+</div>

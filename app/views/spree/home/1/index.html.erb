@@ -1,81 +1,73 @@
 <link href="/assets/<%= @selected_template.template_no%>/main.css" rel="stylesheet">
-                 <div style="clear:both;"></div>
+<div style="clear:both;"></div>
 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-top: 0px !imporatant;">
-  <!-- Indicators -->
-  
+
  <!-- Indicators -->
-  <ol class="carousel-indicators">
+ <ol class="carousel-indicators">
    <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
    <% if index == 0 %>
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <%else%>
-     <li data-target="#myCarousel" data-slide-to=<%=index%>></li>
+   <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+   <%else%>
+   <li data-target="#myCarousel" data-slide-to=<%=index%>></li>
    <%end%>
    <%end%>
-  </ol>
-  <style type="text/css">
-
-    
-    
-
-  </style>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
+ </ol>
+ <!-- Wrapper for slides -->
+ <div class="carousel-inner" role="listbox">
   <%if @selected_template.spree_slider_images.length==0%>
   <div class="item active">
 
-      <img src="/assets/default-sliders/1.jpg" width="1400" height="500" alt="">
-    </div>
-    <div class="item ">
-      <img src="/assets/default-sliders/2.jpg" alt="" width="1400" height="500">
-      </div>
-      <div class="item ">
-      <img src="/assets/default-sliders/3.jpg" alt="" width="1400" height="500">
-      </div>
-      <div class="item ">
-      <img src="/assets/default-sliders/4.jpg" alt="" width="1400" height="500">
-    </div>
-    <%else%>
-  <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
-   <% if index == 0 %>
-    <div class="item active">
-    <div class="banner-text-common">
-        <div class="carousel-caption1">
-         <p><a href="<%=image.try(:link_to_page)%>"><%=image.try(:overlay_text)%></a></p>
-        </div>
-</div>
-    <img src="<%= image.slider_image.url(:xxlarge)%>" alt="">
-
-      
-    
-    </div>
-    <%else%>
-      <div class="item ">
-      <div class="banner-text-common">
-        <div class="carousel-caption1">
-         <p><a href="<%=image.try(:link_to_page)%>"><%=image.try(:overlay_text)%></a></p>
-        </div>
-</div>
-      <img src="<%= image.slider_image.url(:xxlarge)%>" alt="" style="">
-      
-    </div>
-    <%end%>
-
-     <%end%> 
-     <%end%>
+    <img src="/assets/default-sliders/1.jpg" width="1400" height="500" alt="">
   </div>
+  <div class="item ">
+    <img src="/assets/default-sliders/2.jpg" alt="" width="1400" height="500">
+  </div>
+  <div class="item ">
+    <img src="/assets/default-sliders/3.jpg" alt="" width="1400" height="500">
+  </div>
+  <div class="item ">
+    <img src="/assets/default-sliders/4.jpg" alt="" width="1400" height="500">
+  </div>
+  <%else%>
+  <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
+  <% if index == 0 %>
+  <div class="item active">
+    <div class="banner-text-common">
+      <div class="carousel-caption1">
+       <p><a href="<%=image.try(:link_to_page)%>"><%=image.try(:overlay_text)%></a></p>
+     </div>
+   </div>
+   <img src="<%= image.slider_image.url(:xxlarge)%>" alt="">
 
 
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+
+ </div>
+ <%else%>
+ <div class="item ">
+  <div class="banner-text-common">
+    <div class="carousel-caption1">
+     <p><a href="<%=image.try(:link_to_page)%>"><%=image.try(:overlay_text)%></a></p>
+   </div>
+ </div>
+ <img src="<%= image.slider_image.url(:xxlarge)%>" alt="" style="">
+
+</div>
+<%end%>
+
+<%end%> 
+<%end%>
+</div>
+
+
+<!-- Left and right controls -->
+<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  <span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  <span class="sr-only">Next</span>
+</a>
 </div>
 <div class="body-container">
   <div class="error-messages">
@@ -88,127 +80,108 @@
       <!-- ============================================== SCROLL TABS ============================================== -->
       <div id="product-tabs-slider" class="scroll-tabs wow fadeInUp">
         <div class="clearfix"></div>
-
-<%#*<div class="tab-content">%>
-<%#*<div class="tab-pane in active" id="new">%>			
-<%#*<div class="product-slider">%>
-<%#*<div class="owl-carousel owl-theme prod-slider-4">%>
-
-<%#*<div class="product">%>
-
-<%#*</div><!-- /.prod-slider -->%>
-<%#*</div><!-- /.product-slider -->%>
-<%#*</div><!-- /.tab-pane -->%>
-
-<%#*</div><!-- /.tab-content -->%>
-<%#*</div><!-- /.scroll-tabs -->%>
-        <!-- ============================================== SCROLL TABS : END ============================================== -->
-        <div class="wide-banners wow fadeInUp">
+        <div class="wide-banners wow fadeInUp" style="display: <%= is_visible('section_1')%>">
           <div class="row">
            <% if @selected_template.template_images.first and @selected_template.template_images.first.avatar.exists?  %>
-             <div class="col-md-4">
-              <div class="wide-banner cnt-strip">
-                <div class="image">
-                  <img data-echo="<%= @selected_template.template_images.first.avatar.url(:home_image) rescue ''%>"  alt="">
+           <div class="col-md-4">
+            <div class="wide-banner cnt-strip">
+              <div class="image">
+                <img data-echo="<%= @selected_template.template_images.first.avatar.url(:home_image) rescue ''%>"  alt="">
+              </div>  
+              <div class="strip strip-no-bg">
+                <div class="strip-inner">
+                  <h5>NEW Warehouse</h5>
+                  <h2>Warehouse</h2>
                 </div>  
-                <div class="strip strip-no-bg">
-                  <div class="strip-inner">
-                    <h5>NEW Warehouse</h5>
-                    <h2>Warehouse</h2>
-                  </div>  
-                </div>
-              </div><!-- /.wide-banner-->
-            </div><!-- /.col -->
-
-            <div class="col-md-4">
-              <div class="wide-banner cnt-strip">
-                <div class="image">
-                  <img data-echo="<%= @selected_template.template_images.second.avatar.url(:home_image ) rescue ''%>"  alt="">
-                </div>  
-                <div class="strip strip-no-bg strip-right-left">
-                  <div class="strip-inner">
-                    <h5>Warehouse</h5>
-                    <h2>Warehouse</h2>
-                  </div>  
-                </div>
-              </div><!-- /.wide-banner-->
-            </div><!-- /.col -->
-          <div class="col-md-4">
-              <div class="wide-banner cnt-strip">
-                <div class="image">
-                  <img data-echo="<%= @selected_template.template_images.third.avatar.url(:home_image) rescue ''%>"  alt="">
-                </div>  
-                <div class="strip strip-no-bg strip-right-left">
-                  <div class="strip-inner">
-                    <h5>Warehouse</h5>
-                    <h2>Warehouse</h2>
-                  </div>  
-                </div>
               </div>
-            </div><!-- /.col -->
-        <% else %>
-            <div class="col-md-4">
-              <div class="wide-banner cnt-strip">
-                <div class="image">
-                  <img data-echo="/assets/banners/4.jpg"  alt="">
+            </div><!-- /.wide-banner-->
+          </div><!-- /.col -->
+
+          <div class="col-md-4">
+            <div class="wide-banner cnt-strip">
+              <div class="image">
+                <img data-echo="<%= @selected_template.template_images.second.avatar.url(:home_image ) rescue ''%>"  alt="">
+              </div>  
+              <div class="strip strip-no-bg strip-right-left">
+                <div class="strip-inner">
+                  <h5>Warehouse</h5>
+                  <h2>Warehouse</h2>
+                </div>  
+              </div>
+            </div><!-- /.wide-banner-->
+          </div><!-- /.col -->
+          <div class="col-md-4">
+            <div class="wide-banner cnt-strip">
+              <div class="image">
+                <img data-echo="<%= @selected_template.template_images.third.avatar.url(:home_image) rescue ''%>"  alt="">
+              </div>  
+              <div class="strip strip-no-bg strip-right-left">
+                <div class="strip-inner">
+                  <h5>Warehouse</h5>
+                  <h2>Warehouse</h2>
+                </div>  
+              </div>
+            </div>
+          </div><!-- /.col -->
+          <% else %>
+          <div class="col-md-4">
+            <div class="wide-banner cnt-strip">
+              <div class="image">
+                <img data-echo="/assets/banners/4.jpg"  alt="">
+              </div>	
+              <div class="strip strip-no-bg">
+                <div class="strip-inner">
+                  <h5>NEW Warehouse</h5>
+                  <h2>Warehouse</h2>
                 </div>	
-                <div class="strip strip-no-bg">
-                  <div class="strip-inner">
-                    <h5>NEW Warehouse</h5>
-                    <h2>Warehouse</h2>
-                  </div>	
-                </div>
-              </div><!-- /.wide-banner-->
-            </div><!-- /.col -->
+              </div>
+            </div><!-- /.wide-banner-->
+          </div><!-- /.col -->
 
-            <div class="col-md-8">
-              <div class="wide-banner cnt-strip">
-                <div class="image">
-                  <img data-echo="/assets/banners/5.jpg"  alt="">
+          <div class="col-md-8">
+            <div class="wide-banner cnt-strip">
+              <div class="image">
+                <img data-echo="/assets/banners/5.jpg"  alt="">
+              </div>	
+              <div class="strip strip-no-bg strip-right-left">
+                <div class="strip-inner">
+                  <h5>Warehouse</h5>
+                  <h2>Warehouse</h2>
                 </div>	
-                <div class="strip strip-no-bg strip-right-left">
-                  <div class="strip-inner">
-                    <h5>Warehouse</h5>
-                    <h2>Warehouse</h2>
-                  </div>	
-                </div>
-              </div><!-- /.wide-banner-->
-            </div><!-- /.col -->
-            <% end %>
-          </div><!-- /.row -->
-        </div><!-- /.wide-banners -->
+              </div>
+            </div><!-- /.wide-banner-->
+          </div><!-- /.col -->
+          <% end %>
+        </div><!-- /.row -->
+      </div><!-- /.wide-banners -->
 
-        <!-- ============================================== NEW ARRIVALS ============================================== -->
-        <section class="section wow fadeInUp">
-          <h3 class="section-title" style="margin-left: 24px;">Products</h3>
-          <div class="product-grid" id="products-gallery">
+      <section class="section wow fadeInUp" style="display: <%= is_visible('section_2')%>">
+        <h3 class="section-title" style="margin-left: 24px;">Products</h3>
+        <div class="product-grid" id="products-gallery">
+          <%= render :partial => "spree/shared/#{@selected_template.template_no}/products", :locals => { :products => @products } %>
+        </div><!-- /.product-grid -->
+      </section><!-- /.section -->
 
-            <%= render :partial => "spree/shared/#{@selected_template.template_no}/products", :locals => { :products => @products } %>
+      <section style="display: <%= is_visible('section_2')%>">
+        <%= render :partial => "/spree/home/2/widgets", :locals => { :recommended_products => recommended_products,:best_selling_products => best_selling_products, :taxon => @taxon } %>
+      </section>
 
-          </div><!-- /.product-grid -->
-        </section><!-- /.section -->
-         <!-- widgets -->
-     <%= render :partial => "/spree/home/2/widgets", :locals => { :recommended_products => recommended_products,:best_selling_products => best_selling_products, :taxon => @taxon } %>
-  
-     <!-- widgets -->
- 
-        <!-- ============================================== NEW ARRIVALS : END ============================================== -->
-      </div><!-- /.container -->
-    </div><!-- /.body-container -->
+    </div><!-- /.container -->
+  </div><!-- /.body-container -->
 
-    <script type="text/javascript">
-      (function() {
-        $('.cat123').first().click();
-        $('.cat123').first().parent().addClass('active');
+  <script type="text/javascript">
+    (function() {
+      $('.cat123').first().click();
+      $('.cat123').first().parent().addClass('active');
 
-        $(".cat123").click(function() {
-          $(".cat123").parent().removeClass('active');
-          $(this).parent().addClass('active');
-        });
-      })();
+      $(".cat123").click(function() {
+        $(".cat123").parent().removeClass('active');
+        $(this).parent().addClass('active');
+      });
+    })();
 
 
-<%#*function catClicked() {%>
-<%#*$('.cat123').last().parent().addClass('active');%>
-<%#*}%>
+    <%#*function catClicked() {%>
+      <%#*$('.cat123').last().parent().addClass('active');%>
+      <%#*}%>
     </script>

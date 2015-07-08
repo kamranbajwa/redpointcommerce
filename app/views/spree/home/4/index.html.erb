@@ -35,7 +35,7 @@
 </section>
 <!-- slidere end here --> 
 <div class="clear20"></div>
-<section>
+<section style="display: <%= is_visible('section_1')%>">
   <div class="container banners">
     <div class="row">
     <% if @selected_template.template_images.first %>
@@ -54,7 +54,7 @@
     </div>
   </div>
 </section>
-<section>
+<section style="display: <%= is_visible('section_2')%>">
   <div class="container">
     <div class="text-center custom-center-wrapper">
       <div class="custom-center">
@@ -77,7 +77,7 @@
 </section>
 <div class="clear40"></div>
 <div class="clear40"></div>
-<section>
+<section style="display: <%= is_visible('section_3')%>">
  <div class="container">
     <div class="row products">
 <%= render :partial => "/spree/shared/#{@selected_template.template_no}/products", :locals => { :products => @products, :taxon => @taxon } %>
@@ -85,7 +85,7 @@
 </div>
 </section>
 <div class="clear40"></div>
-<section>
+<section style="display: <%= is_visible('section_4')%>">
   <div class="container-fluid full-screen blog-post">
     <div class="blog-post-text text-center"> <span class="glyphicon glyphicon-triangle-top"></span>
       <div class="clearfix"></div>
@@ -94,7 +94,7 @@
       <!-- <a href="#" class="post-link">DISCOVER NOW</a> --> </div>
   </div>
 </section>
-<section>
+<section style="display: <%= is_visible('section_5')%>">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6 left-promo">
@@ -126,6 +126,7 @@ Starting its journey as a single retail footwear outlet, the brand today has a 4
 </section>
 <div class="clear40"></div>
 <div class="clear40"></div>
-<section>
+<section style="display: <%= is_visible('section_6')%>">
 <!-- widgets start from here -->
 <%= render :partial => "/spree/home/#{@selected_template.template_no}/widgets", :locals => { :recommended_products => recommended_products,:best_selling_products => best_selling_products, :taxon => @taxon } %>
+</section>

@@ -42,6 +42,9 @@ SpreeExample::Application.routes.draw do
       end
       resources :favicons 
       resources :widgets
+      resources :sections do
+        collection { post :update_sections }
+      end
       resources :slider_images
       resources :organizations
       resources :templates

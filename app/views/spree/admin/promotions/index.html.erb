@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="portlet-body form">
-      <%= search_form_for [:admin, @search] do |f| %>
+      <%= search_form_for [:admin, @search], id: "promotion_reset" do |f| %>
       <div class="form-body">
         <div class="form-group form-md-line-input col-md-4">
             <%= f.text_field :name_cont, class: "form-control" %>
@@ -44,6 +44,7 @@
         <div class="form-actions">
           <div data-hook="admin_promotions_index_search_buttons">
             <button type="submit" class="btn blue"><%= Spree.t(:filter_results) %></button>
+            <a id="promotion-click" class="btn blue">Reset</a>
           </div>
         </div>
       </div>

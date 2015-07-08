@@ -17,34 +17,51 @@
     }
   });
 
-    if ( $("#widget-name").val() )
+  if ( $("#widget-name").val() )
+  {
+    $("#widget-name").prop("readonly", true);
+    if ( $("#widget-name").val()  == "Logo Footer")
     {
-      $("#widget-name").prop("readonly", true);
-      if ( $("#widget-name").val()  == "Logo Footer")
-      {
-        $(".on-edit-logo").show();
-      }
-      else
-      {
-        $(".on-edit").show();
-      }
+      $(".on-edit-logo").show();
     }
-    function readURL(input) {
+    else
+    {
+      $(".on-edit").show();
+    }
+  }
+  function readURL(input) {
 
     if (input.files && input.files[0]) {
-        var reader = new FileReader();
+      var reader = new FileReader();
 
-        reader.onload = function (e) {
-            $('#blah').attr('src', e.target.result);
-        }
+      reader.onload = function (e) {
+        $('#blah').attr('src', e.target.result);
+      }
 
-        reader.readAsDataURL(input.files[0]);
+      reader.readAsDataURL(input.files[0]);
     }
-}
+  }
 
-$("#slider_image_slider_image").change(function(){
+  $("#slider_image_slider_image").change(function(){
     readURL(this);
-});
+  });
 
+  $("#order-click").click(function(){
+    $("#order_reset")[0].reset();
+    $(".select2-chosen").text("");
+  })
+
+  $("#product-click").click(function(){
+    $("#product_reset")[0].reset();
+  })
+
+  $("#promotion-click").click(function(){
+    $("#promotion_reset")[0].reset();
+    $(".select2-chosen").text("");
+  })
+
+  $("#user-click").click(function(){
+    $("#user_reset")[0].reset();
+  })
 
  });

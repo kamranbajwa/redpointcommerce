@@ -53,7 +53,7 @@
     </div>
   </div>
   <div class="portlet-body form">
-    <%= search_form_for [:admin, @search] do |f| %>
+    <%= search_form_for [:admin, @search], id: "product_reset" do |f| %>
     <div class="form-body">
       <%- locals = {:f => f} %>
       <div class="form-group form-md-line-input col-md-4">
@@ -89,6 +89,7 @@
         <div class="form-actions">
           <div data-hook="admin_orders_index_search_buttons">
             <button type="submit" class="btn blue"><%= Spree.t(:search) %></button>
+            <a id="product-click" class="btn blue">Reset</a>
           </div>
         </div>
       </div>
