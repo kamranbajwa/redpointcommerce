@@ -46,6 +46,17 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
       end
     end
   end
+  def update_page_order
+    cms_page=Spree::CmsPage.find(params[:id])
+    respond_to do |format|
+    if cms_page.update(:sort=> params[:page_order])
+       format.json {render :json => {:response => 'success'}}
+     else
+      format.json {render :json => {:response => 'failed'}}
+     end
+    end
+    
+  end
 
   def destroy
     @page = Spree::CmsPage.find(params[:id])
