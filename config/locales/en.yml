@@ -550,7 +550,7 @@ en:
     confirm_delete: Confirm Deletion
     confirm_password: Password Confirmation
     continue: Continue
-    continue_shopping: Continue shopping
+    continue_shopping: Continue Shopping
     cost_currency: Cost Currency
     cost_price: Cost Price
     could_not_connect_to_jirafe: Could not connect to Jirafe to sync data. This will be automatically retried later.
