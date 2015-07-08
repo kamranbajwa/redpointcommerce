@@ -27,7 +27,7 @@
           <td class="align-center sort_text"><%= page.sort %></td>
           <td class="align-center" id=<%=page.id%>>
           
-          <%= select("select", "order", (1.. @pages.count), { :include_blank => true}, {class: "select_page_order form-control"})%></td>
+          <%= select("select", "order", (1.. @pages.count), { :include_blank => true,:selected=>"#{page.sort}"}, {class: "select_page_order form-control"})%></td>
           <td class="actions" data-hook="admin_products_index_row_actions">
             <%= link_to '', edit_admin_cms_page_path(page), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%> 
             <% unless page.check_default? %>
@@ -44,28 +44,3 @@
 <div class="col-md-3">
 <%=render :partial=>'side_bar'%>
 </div>
-<script type="text/javascript">
-$(document).ready(function(){
- 
-
- $(".select_page_order").change ( function () {
-  var current_class = $(this)
-  var old_val=current_class.parent().parent().find('.sort_text').text()
-  var page_order=$(this).find(":selected").val()
-  var id =$(this).parent('td').attr('id')
-   $.ajax({
-      url: "/admin/cms_pages/update_page_order",
-       type: "PATCH",
-       dataType: 'json',
-        data: {id: id, page_order: page_order},
-      success: function(data){
-         current_class.parent().parent().find('.sort_text').text(page_order)
-      },
-      error: function(data){
-       current_class.parent().parent().find('.sort_text').text(old_val)
-      }
-      
-        });
-});
-});
-</script>
