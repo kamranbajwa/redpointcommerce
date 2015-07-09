@@ -48,14 +48,15 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
   end
   def update_page_order
     cms_page=Spree::CmsPage.find(params[:id])
-    respond_to do |format|
-    if cms_page.update(:sort=> params[:page_order])
-       format.json {render :json => {:response => 'success'}}
-     else
-      format.json {render :json => {:response => 'failed'}}
-     end
-    end
-    
+    old_page_with_same_order=Spree::CmsPage.where(:sort=> params[:page_order])
+      if  old_page_with_same_order.length!=0 
+        old_page_with_same_order.update_all(:sort=>cms_page.sort) and cms_page.update(:sort=> params[:page_order])
+        text="both updated" 
+       else
+        cms_page.update(:sort=> params[:page_order])
+        text="single updated"
+       end
+        render :text => text    
   end
 
   def destroy
