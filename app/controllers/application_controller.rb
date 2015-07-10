@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
   before_filter :check_template
   before_filter :load_pages, :check_group
   before_filter :load_cart, :home_content, :customize_pages, :static_pages, :load_blog, :default_pages, :load_widgets, :sections
-  
+  def user_for_paper_trail
+    spree_user_signed_in? ? spree_current_user.first_name : 'Public user'  # or whatever
+  end
   def after_sign_in_path_for(resource)
     if spree_current_user.has_spree_role?("admin")
       admin_path
@@ -14,7 +16,7 @@ class ApplicationController < ActionController::Base
     end
   end
   def check_template
-    @selected_template = Spree::Template.find_by_selected true
+    @selected_template = Spree::Template.find_by_template_no "3"
     unless @selected_template
     @selected_template = Spree::Template.find_by_template_no "1" 
     end
