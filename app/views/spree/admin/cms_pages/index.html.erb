@@ -14,7 +14,9 @@
     <table class="table table-bordered table-striped table-condensed flip-content">
       <thead class="flip-content">
         <tr data-hook="admin_products_index_headers">
-          <th>Title</th>
+          <th class="align-center">Title</th>
+          <th class="align-center">Current Order</th>
+          <th class="align-center">Select Order</th>
           <th data-hook="admin_products_index_header_actions" class="actions"></th>
         </tr>
       </thead>
@@ -22,6 +24,10 @@
         <% @pages.each do |page| %>
         <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
           <td class="align-center"><%= page.title %></td>
+          <td class="align-center sort_text"><%= page.sort %></td>
+          <td class="align-center" id=<%=page.id%>>
+          
+          <%= select("select", "order", (1.. @pages.count), { :include_blank => true,:selected=>"#{page.sort}"}, {class: "select_page_order form-control"})%></td>
           <td class="actions" data-hook="admin_products_index_row_actions">
             <%= link_to '', edit_admin_cms_page_path(page), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%> 
             <% unless page.check_default? %>

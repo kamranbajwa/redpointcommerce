@@ -51,7 +51,9 @@ SpreeExample::Application.routes.draw do
       resources :organizations
       resources :templates
       resources :template_images
-      resources :cms_pages
+      resources :cms_pages do
+      collection { patch :update_page_order } 
+    end
       resources :api_users
       resources :promotion_emails do 
         member { get :select_user }

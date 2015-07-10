@@ -63,5 +63,29 @@
   $("#user-click").click(function(){
     $("#user_reset")[0].reset();
   })
+   $(".select_page_order").change ( function () {
+  var current_class = $(this)
+  var old_val=current_class.parent().parent().find('.sort_text').text()
+  var page_order=$(this).find(":selected").val()
+  var id =$(this).parent('td').attr('id')
+   $.ajax({
+      url: "/admin/cms_pages/update_page_order",
+       type: "PATCH",
+        data: {id: id, page_order: page_order},
+      success: function(data){
+        console.log(data)
+        if (data === 'both updated'){
+          location.reload(true);
+        }
+          else if (data=="single updated") {
+         current_class.parent().parent().find('.sort_text').text(page_order)
+       }
+      },
+      error: function(data){
+       current_class.parent().parent().find('.sort_text').text(old_val)
+      }
+      
+        });
+});
 
  });
