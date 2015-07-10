@@ -31,6 +31,15 @@ module Spree
       @title= @selected_template.product_tab ? "#{@selected_template.product_tab}" ": "+ "#{@product.name}" : "Services: "+ @product.name
 
     end
+
+    def products_compare
+      @products_detail = []
+      params[:products].each do |slug|
+        @products_detail << Spree::Product.where(slug: slug).first
+      end
+      render 'spree/shared/common/compare_products'
+    end
+
     private
     def search_products
 

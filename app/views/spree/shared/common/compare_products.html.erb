@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Results</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th width="20%"></th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Recommended</th>
+        <th>Subscription</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @products_detail.each do |detail|%>
+     <% url = product_path(detail, :taxon_id => nil) %>
+    <tr>
+      <td><%= link_to product_image(detail, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:20%" ), url, :itemprop => 'url' %></td>
+        <td><%= detail.name %></td>
+        <td><%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p=> detail} %></td>
+        <td><%= detail.is_recommended ? "True" : "False" %></td>
+        <td><%= detail.subscription ? "True" : "False" %></td>
+      </tr>
+      <% end %>
+  </table>
+  <a href="/products">
+<button class="btn btn-primary"> Back </button>
+</a>
+</div>

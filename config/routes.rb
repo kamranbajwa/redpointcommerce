@@ -23,6 +23,7 @@ SpreeExample::Application.routes.draw do
   # subscription email
   post '/subcription' , :to =>'spree/statics#subcriptions'
   post '/account_charge', :to => 'spree/statics#account_charge'
+  post '/compare_results', :to => 'spree/products#products_compare'
   get '/account_user', :to => 'spree/statics#account_user'
   # end of sub email
   # You can have the root of your site routed with "root"
@@ -42,6 +43,7 @@ SpreeExample::Application.routes.draw do
       end
       resources :favicons 
       resources :widgets
+      resources :return_authorization_reasons
       resources :sections do
         collection { post :update_sections }
       end

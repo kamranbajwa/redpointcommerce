@@ -44,6 +44,7 @@
           <td class="actions">
             <% if named_type.mutable? %>
               <%= link_to_edit named_type, no_text: true %>
+              <%= link_to_delete named_type, no_text: true %>
             <% end %>
           </td>
         </tr>

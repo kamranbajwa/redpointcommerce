@@ -1,5 +1,63 @@
-<%= render partial: 'spree/admin/shared/named_types/index', locals: {
-  page_title: Spree.t(:return_authorization_reasons),
-  new_button_text: Spree.t(:new_rma_reason),
-  resource_name: I18n.t(:other, scope: 'activerecord.models.spree/return_authorization_reason')
-} %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:return_authorization_reasons) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <ul class="actions inline-menu">
+    <li>
+      <%= link_to new_object_url, { icon: 'plus', id: 'admin_new_named_type', class: "btn blue"} do %>
+      <i class="fa fa-plus"></i><%= Spree.t(:new_rma_reason) %> <% end %>
+    </li>
+  </ul>
+<% end %>
+<div class="col-md-12">
+<% if @collection.any? %>
+<div class="portlet box blue">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-cogs"></i><%= Spree.t(:return_authorization_reasons) %>
+    </div>
+    <div class="tools">
+      <a href="javascript:;" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body flip-scroll">
+    <div id="new_state" data-hook></div>
+    <table class="table table-bordered table-striped table-condensed flip-content">
+      <thead class="flip-content">
+       <tr data-hook="named_types_header">
+        <th><%= Spree.t(:name) %></th>
+        <th><%= Spree.t(:state) %></th>
+        <th class="actions"></th>
+      </tr>
+      </thead>
+      <tbody>
+         <% @collection.each do |named_type| %>
+        <tr id="<%= spree_dom_id named_type %>" data-hook="named_type_row" class="<%= cycle('odd', 'even')%>">
+          <td class="align-center">
+            <%= named_type.name %>
+          </td>
+          <td class="align-center">
+            <%= Spree.t(named_type.active? ? :active : :inactive) %>
+          </td>
+          <td class="actions">
+            <% if named_type.mutable? %>
+              <%= link_to_edit named_type, no_text: true %>
+               <%= link_to '', admin_return_authorization_reason_path(named_type), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash icon_link with-tip no-text", "data-action" => "remove" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<% else %>
+  <div class="alpha twelve columns no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/return_authorization_reason')) %>,
+    <%= link_to Spree.t(:add_one), new_object_url %>!
+  </div>
+<% end %>
+</div>
