@@ -4437,6 +4437,9 @@ left: 0px;
 .widgets-bg{
     margin-bottom: 20px;
 }
+.stock-contents thead {
+    color: #000;
+}
 @media screen and (min-width: 1024px) and (max-width: 767px) {
 .gallery-img { height: 352px !important;}
 }
