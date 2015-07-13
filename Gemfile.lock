@@ -281,6 +281,7 @@ GEM
       xml-simple
     paypal-sdk-merchant (1.106.1)
       paypal-sdk-core (~> 0.2.3)
+    pg (0.18.2)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
     polyglot (0.3.5)
@@ -406,6 +407,7 @@ DEPENDENCIES
   jquery-rails
   paper_trail (~> 4.0.0.rc)
   paperclip
+  pg
   rails (= 4.1.8)
   rails_12factor
   rmagick
