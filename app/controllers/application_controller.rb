@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     end
   end
   def check_template
-    @selected_template = Spree::Template.find_by_template_no "3"
+    @selected_template = Spree::Template..find_by_selected true
     unless @selected_template
     @selected_template = Spree::Template.find_by_template_no "1" 
     end
