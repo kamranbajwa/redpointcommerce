@@ -25,8 +25,9 @@
         <% @versions.each do |v| %>
         <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
           <td class="align-center"><%=v.created_at %></td>
-          <td class="align-center"><%= v.object_changes%></td>
-          <td class="align-center"><%= v.changeset%></td>
+          <td class="align-center"><%=link_to "#{v.item.title}" ''%></td>
+          <td class="align-center"><%= v.item_type.split('::')[1]
+%></td>
           <td class="align-center"><%= v.whodunnit rescue ''%></td>
         </tr>
         <% end %>
@@ -79,5 +80,5 @@
 </div>
 </div>
 <div class="col-md-3">
-<%=render :partial=>'side_bar'%>
+<%#=render :partial=>'side_bar'%>
 </div>

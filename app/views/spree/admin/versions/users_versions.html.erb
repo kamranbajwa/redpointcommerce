@@ -1,0 +1,43 @@
+
+<div class="col-md-9">
+<div class="portlet box blue">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-cogs"></i>All Change History
+    </div>
+    <div class="tools">
+      <a href="javascript:;" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+    <div class="portlet-body flip-scroll">
+    <table class="table table-bordered table-striped table-condensed flip-content">
+      <thead class="flip-content">
+        <tr data-hook="admin_products_index_headers">
+        <th class="align-center">Created at</th>
+          <th class="align-center">Email</th>
+          <th class="align-center">Updates</th>
+          <th class="align-center">Type</th>
+          <th class="align-center">who made</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @users.each do |u|%>
+        <% u.versions.each do |v| %>
+        <tr id="" data-hook="admin_products_index_rows" class="odd">
+        <td class="align-center"><%=v.created_at.to_date rescue ''%></td>
+        <td class="align-center"><%=v.item.email rescue ''%></td>
+        <td class=""><%=version_created_or_update(v)%></td>
+      <td class="align-center"><%= v.event rescue ''%></td>
+      <td class="align-center"><%= v.whodunnit rescue ''%></td>
+        </tr>
+        <% end %>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+<div class="col-md-3">
+<%=render :partial=>'side_bar'%>
+</div>
