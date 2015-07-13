@@ -6,6 +6,7 @@
     <div class="container isotope-wrapper text-center">
         <div class="row">
         <div class="col-md-3">
+        <button data-toggle = "modal" data-target = "#myModalcompare" class="btn btn-primary">Compare Products</button>
         <aside class="col-md-12">
               <h3>CATEGORIES</h3><!-- h3 - have no margin-top -->
       					<% if "spree/products" == params[:controller] && taxon %>
@@ -65,5 +66,7 @@
         <% if paginated_products.respond_to?(:num_pages) %>
           <%= paginate paginated_products%>
         <% end %>
+  <%= render :partial => "spree/shared/4/compare_products_modal", :locals => { :products => @products} %>
+        
     </div>
 </div>
