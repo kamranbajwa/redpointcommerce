@@ -5,6 +5,8 @@ $(document).ready(function(){
   $("form").on('submit.blocker', function(e) {
     $('.refresh_box_show').show();
     e.preventDefault();
+    Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key]
+ %>');
    return subscription.setupForm();
 });
 
