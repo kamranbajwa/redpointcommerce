@@ -29,6 +29,11 @@
       $(".on-edit").show();
     }
   }
+
+  $("#reset-colors").click(function(e){
+    e.preventDefault();
+    $(".form-control").val("");
+  });
   function readURL(input) {
 
     if (input.files && input.files[0]) {

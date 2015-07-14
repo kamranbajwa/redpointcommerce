@@ -1,4 +1,4 @@
-<header class="header-style-1">
+<header class="header-style-1" >
 <%#*<header id="header" class="row" data-hook >%>
 <%#*<div style="margin: 40px;">%>
 <%#*<figure id="logo" class="columns six" data-hook><%= logo %>
@@ -50,7 +50,7 @@
   <!-- ============================================== TOP MENU : END ============================================== -->
   <!-- ============================================== NAVBAR ============================================== -->
   <div class="header-nav animate-dropdown home">
-    <div class="yamm navbar navbar-default" role="navigation">
+    <div class="yamm navbar navbar-default" role="navigation" style="background-color: <%= header_color() %> !important;">
       <div class="container-class container">
 
         <div class="navbar-header">
@@ -155,3 +155,10 @@
 
 </header>
 
+<style type="text/css">
+.ware-house-dropdown .dropdown-menu { background-color: <%= header_color()%> !important;}
+header.header-style-1 .header-nav .navbar-nav > li > a, .dropdown.dropdown-small .dropdown-menu > li > a  { color: <%= header_font()%> !important;}
+  footer .links-social h3.title, .links p {color: <%= footer_font()%> !important;}
+}
+
+</style>

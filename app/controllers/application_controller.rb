@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :check_template
   before_filter :load_pages, :check_group
-  before_filter :load_cart, :home_content, :customize_pages, :static_pages, :load_blog, :default_pages, :load_widgets, :sections
+  before_filter :load_cart, :home_content, :customize_pages, :static_pages, :load_blog, :default_pages, :load_widgets, :sections, :components
   def user_for_paper_trail
     spree_user_signed_in? ? spree_current_user.first_name : 'Unknown user'  # or whatever
   end
@@ -62,5 +62,8 @@ class ApplicationController < ActionController::Base
   end
   def sections
     @template_sections = @selected_template.sections
+  end
+  def components
+    @template_components = @selected_template.components
   end
 end

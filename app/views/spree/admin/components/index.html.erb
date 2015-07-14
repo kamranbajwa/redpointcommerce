@@ -1,0 +1,94 @@
+      <div class="row">
+        <div class="col-md-9">
+          <!-- BEGIN PORTLET-->
+          <div class="portlet box green-meadow">
+            <div class="portlet-title">
+              <div class="caption">
+                <i class="fa fa-gift"></i>Theming
+              </div>
+              <div class="tools">
+                <a href="javascript:;" class="collapse">
+                </a>
+              </div>
+            </div>
+            <div class="portlet-body form">
+            <% if is_allowed_custom_theme() %>
+              <!-- BEGIN FORM-->
+               <%= form_tag( save_colors_admin_components_path, method: "post", class: "form-horizontal form-bordered") do %>
+              <form action="#" class=>
+                <div class="form-body">
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Footer</label>
+                    <div class="col-md-3">
+                      <div class="input-group color colorpicker-default" data-color="<%= footer_color()%>" data-color-format="rgba">
+                        <input type="text" name="footer" class="form-control" value="<%= footer_color()%>" readonly>
+                        <span class="input-group-btn">
+                        <button class="btn default" type="button"><i style="background-color: <%= footer_color()%>;"></i>&nbsp;</button>
+                        </span>
+                      </div>
+                      <!-- /input-group -->
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Header</label>
+                    <div class="col-md-3">
+                      <div class="input-group color colorpicker-default" data-color="<%= header_color()%>" data-color-format="rgba">
+                        <input type="text" name="header" class="form-control" value="<%= header_color()%>" readonly>
+                        <span class="input-group-btn">
+                        <button class="btn default" type="button"><i style="background-color: <%= header_color()%>;"></i>&nbsp;</button>
+                        </span>
+                      </div>
+                      <!-- /input-group -->
+                    </div>
+                  </div>
+                    <div class="form-group">
+                    <label class="control-label col-md-3">Footer Font</label>
+                    <div class="col-md-3">
+                      <div class="input-group color colorpicker-default" data-color="<%= footer_font()%>" data-color-format="rgba">
+                        <input type="text" name="footer_font" class="form-control" value="<%= footer_font()%>" readonly>
+                        <span class="input-group-btn">
+                        <button class="btn default" type="button"><i style="background-color: <%= footer_font()%>;"></i>&nbsp;</button>
+                        </span>
+                      </div>
+                      <!-- /input-group -->
+                    </div>
+                  </div>
+                    <div class="form-group">
+                    <label class="control-label col-md-3">Header Font</label>
+                    <div class="col-md-3">
+                      <div class="input-group color colorpicker-default" data-color="<%= header_font()%>" data-color-format="rgba">
+                        <input type="text" name="header_font" class="form-control" value="<%= header_font()%>" readonly>
+                        <span class="input-group-btn">
+                        <button class="btn default" type="button"><i style="background-color: <%= header_font()%>;"></i>&nbsp;</button>
+                        </span>
+                      </div>
+                      <!-- /input-group -->
+                    </div>
+                  </div>
+                </div>
+                <div class="form-buttons filter-actions actions form-actions" data-hook="buttons">
+                <a href="/admin/templates">
+                 <button  class="btn green-meadow">Back</button></a>
+                 <button type="submit" class="btn green-meadow">Update</button>
+                 <button id="reset-colors" class="btn green-meadow">Reset</button>
+               </div>
+              <% end %>
+              <% else %>
+               <div class="form-body">
+              <h3>First Allowed Custom Theming</h3>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+            <%=render :partial=>'/spree/admin/templates/side_bar_template'%>
+      </div>
+<!-- <input id="Binded" type="text" value="e2ddcf" />
+<script type="text/javascript">        
+  $(document).ready(
+    function()
+    {
+      $('#Binded').jPicker();
+    });
+</script>
+ -->

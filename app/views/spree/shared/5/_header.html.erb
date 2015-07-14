@@ -1,7 +1,7 @@
-<div class="header-top clearfix">
+<div class="header-top clearfix" style="background-color: <%= header_color()%>;">
   <div class="container">
     <div class="row">
-       <div class="col-md-12  ">
+       <div class="col-md-12 top-head-bar">
        <div class="col-lg-6"><span class="welcome-msg">Welcome to <%=@org.company_name rescue 'PSHQ'%> </span><a href="/signup">Registration <i class="fa fa-users"></i></a> | <% if spree_user_signed_in? %> <%=  link_to 'Sign out', spree_logout_path %> <% else %><a href="/login">Login <i class="fa fa-key"></i></a> <% end %>|  <a href="/cart">Cart <i class="fa fa-shopping-cart"></i></a> </div>
         <div class="col-lg-6"></div>
        <div class="pull-right">
@@ -18,7 +18,7 @@
     </div>
   </div>
 </div>
-<header id="header">
+<header id="header" style="background-color: <%= header_color()%>;">
   <div class="container">
   <!-- Website Logo -->
   <div class="logo clearfix"> <a href="/"> <img src="<%= Spree::Logo.last.avatar.url(:logo)%>" alt=""> </a> </div>
@@ -71,6 +71,10 @@
     </div>
   </div>
 </div>
+<style type="text/css">
+  .top-head-bar a, .welcome-msg, .cart-info { color: <%= header_font() %>}
+  #main-footer .widget h3.title, #main-footer {color: <%= footer_font() %>}
+</style>
 <script type="text/javascript">
   $(document).ready(function() {
     $('.dropdown-toggle').dropdown();

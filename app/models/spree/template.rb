@@ -7,6 +7,7 @@ module Spree
    has_many :themes
    has_many :template_images
    has_many :sections
+   has_many :components
 
    scope :selected, -> { where(selected: true) }
  end

@@ -47,6 +47,9 @@ SpreeExample::Application.routes.draw do
       resources :sections do
         collection { post :update_sections }
       end
+      resources :components do
+        collection { post :save_colors }
+      end
       resources :slider_images
       resources :organizations
       resources :templates

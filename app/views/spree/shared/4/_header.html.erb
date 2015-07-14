@@ -1,4 +1,4 @@
-<div class="fixed-header1 navbar-fixed-top"> 
+<div class="fixed-header1 navbar-fixed-top" style="background-color: <%= header_color() %>"> 
   <!-- Header Links Section Starts -->
   <section>
     <div class="container">
@@ -176,3 +176,7 @@
    </div>
    </div>
 </div>  <!-- header end here -->
+<style type="text/css">
+  .welcome-msg, .store-top-links li a, .navbar-default .navbar-nav>li>a { color: <%= header_font %>;}
+  .footer .bottom-links h4, .opening-hours p, .about-footer p, .shop-location ul li { color: <%= footer_font %>;}
+</style>

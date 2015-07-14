@@ -15,6 +15,21 @@ module Spree
     def is_visible(section)
       @template_sections.where(default_name: section).first.try(:visible) ? "block" : "none"
     end
+    def footer_color
+      is_allowed_custom_theme ? @template_components.footer.color : ''
+    end
+     def header_color
+       is_allowed_custom_theme ? @template_components.header.color : ''
+    end
+    def header_font
+      is_allowed_custom_theme ? @template_components.header_font.color : ''
+    end
+     def footer_font
+      is_allowed_custom_theme ? @template_components.footer_font.color : ''
+    end
+    def is_allowed_custom_theme
+      @selected_template.is_allowed_custom_theme rescue false
+    end
     def options_for_shipment_states
       [["Back Order", "backorder"], ["Canceled", "canceled"], ["Partial", "partial"],["Ready", "ready"],["Pending", "pending"],["Shipped", "shipped"]]
     end
