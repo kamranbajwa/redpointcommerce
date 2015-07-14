@@ -24,6 +24,7 @@ paginated_products ||= products
               <%end%>
               <%end%>
             </div>
+      <button data-toggle = "modal" data-target = "#myModalcompare" class="btn btn-primary">Compare Products</button>    
   <h3>CATEGORIES</h3><!-- h3 - have no margin-top -->
   <div class="category-new">
   <ul class="nav nav-list">
@@ -109,4 +110,6 @@ paginated_products ||= products
 </div>
 </div>
 <% end %>
+  <%= render :partial => "spree/shared/4/compare_products_modal", :locals => { :products => @products} %>
+
 </div>

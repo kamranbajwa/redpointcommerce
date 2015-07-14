@@ -265,6 +265,10 @@ GEM
       money (< 7.0.0)
       nokogiri (~> 1.4)
     orm_adapter (0.5.0)
+    paper_trail (4.0.0.rc1)
+      activerecord (>= 3.0, < 6.0)
+      activesupport (>= 3.0, < 6.0)
+      request_store (~> 1.1.0)
     paperclip (4.2.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -322,6 +326,7 @@ GEM
     rdoc (4.2.0)
       json (~> 1.4)
     ref (1.0.5)
+    request_store (1.1.0)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -400,6 +405,7 @@ DEPENDENCIES
   font-awesome-rails
   jbuilder (~> 1.2)
   jquery-rails
+  paper_trail (~> 4.0.0.rc)
   paperclip
   pg
   rails (= 4.1.8)

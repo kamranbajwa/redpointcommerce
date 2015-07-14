@@ -22,7 +22,7 @@ module Spree
   class Product < Spree::Base
     extend FriendlyId
     friendly_id :slug_candidates, use: :history
-
+    has_paper_trail :ignore => [:created_at, :updated_at],on: [:update]
     acts_as_paranoid
 
     has_many :product_option_types, dependent: :destroy, inverse_of: :product

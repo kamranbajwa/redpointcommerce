@@ -4,6 +4,7 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
 
   def index
     @pages =  @current_template.first.cms_pages.order("sort asc")
+    @versions = PaperTrail::Version.order('created_at DESC')
   end
 
   def show
@@ -47,6 +48,7 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
     end
   end
   def update_page_order
+     user_for_paper_trail=spree_current_user
     cms_page=Spree::CmsPage.find(params[:id])
     old_page_with_same_order=Spree::CmsPage.where(:sort=> params[:page_order])
       if  old_page_with_same_order.length!=0 

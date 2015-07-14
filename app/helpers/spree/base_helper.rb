@@ -1,5 +1,14 @@
 module Spree
   module BaseHelper
+    def version_created_or_update(v)
+      if v.event=="update"
+      return v.object_changes.split("updated_at")[0]
+    elsif v.event=="create"
+        return v.object_changes.split("created_at")[0]
+        else
+          return "Distroy"
+        end
+    end
     def is_active?(link_path)
     current_page?(link_path) ? "active" : ""
     end

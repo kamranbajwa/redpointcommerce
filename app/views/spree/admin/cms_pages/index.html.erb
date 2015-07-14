@@ -1,4 +1,42 @@
 <%=render :partial=>'cms_pages_sub_nav'%>
+<div class="row">
+  <div class="col-md-9">
+<div class="portlet box blue">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-cogs"></i>Pages
+    </div>
+    <div class="tools">
+      <a href="javascript:;" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body flip-scroll">
+    <table class="table table-bordered table-striped table-condensed flip-content">
+      <thead class="flip-content">
+        <tr data-hook="admin_products_index_headers">
+          <th class="align-center">Created at</th>
+          <th class="align-center">Event</th>
+          <th class="align-center">More Info</th>
+          <th class="align-center">who made</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @versions.each do |v| %>
+        <tr id="spree_product_7" data-hook="admin_products_index_rows" class="odd">
+          <td class="align-center"><%=v.created_at %></td>
+          <td class="align-center"><%=link_to "#{v.item.title}" ''%></td>
+          <td class="align-center"><%= v.item_type.split('::')[1]
+%></td>
+          <td class="align-center"><%= v.whodunnit rescue ''%></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</div>
 <div class="col-md-9">
 <div class="portlet box blue">
   <div class="portlet-title">
@@ -42,5 +80,5 @@
 </div>
 </div>
 <div class="col-md-3">
-<%=render :partial=>'side_bar'%>
+<%#=render :partial=>'side_bar'%>
 </div>

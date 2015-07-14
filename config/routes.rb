@@ -57,6 +57,11 @@ SpreeExample::Application.routes.draw do
       resources :cms_pages do
       collection { patch :update_page_order } 
     end
+    resources :versions do
+        collection { get :products_versions }
+        collection { get :users_versions }
+        collection { get :orders_versions }
+      end
       resources :api_users
       resources :promotion_emails do 
         member { get :select_user }
