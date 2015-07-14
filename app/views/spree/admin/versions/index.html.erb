@@ -25,7 +25,13 @@
         <% @versions.each do |v| %>
         <tr id="" data-hook="admin_products_index_rows" class="odd">
           <td class="align-center"><%=v.event %></td>
-         <td class="align-center"><%=v.object_changes%></td>
+         <td class="align-center">
+             <table>
+        <%v.changeset.each do |k,v|%>
+        <tr><td><%=k%></td><td><%=v[0]+" to "+v[1]%></td></tr>
+        <%end%>
+        </table>
+         </td>
         <td class="align-center">
           <%= v.item_type.split('::')[1] %>
         </td>
