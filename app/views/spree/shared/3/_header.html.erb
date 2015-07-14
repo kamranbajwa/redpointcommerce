@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/assets/<%= @selected_template.template_no%>/slider.css" />
 <!-- HEADER -->
 
-<header class="front-header">
+<header class="front-header" >
   <div class="menu-open">
     <div class="fa fa-bars"></div>
   </div>
@@ -29,7 +29,7 @@
   </div>
   <!-- end mobile-menu-wrap -->
   <div class="header-color">
-    <div class="menu-color"> 
+    <div class="menu-color" style="background-color: <%= header_color() %> !important;"> 
       <figure class="logo"> <a href="/" title="logo" rel="home"> <img alt="Atropos" src="<%= Spree::Logo.last.avatar.url(:logo) rescue '' %>"> </a>
        <span class="welcome-msg">Welcome to <%=@org.company_name rescue 'PSHQ'%></span>
        <div class=" nav-menu" style="float:right;">
@@ -197,7 +197,10 @@ padding-left: 20px;background: transparent;", placeholder: "Search"%>
    
 </table>
 </div></div>
-
+<style type="text/css">
+  .welcome-msg { color : <%= header_font()%>;}
+  .text-white, #main-footer, .footer-bottom p { color: <%= footer_font()%>;}
+</style>
 <script type="text/javascript">
 $("#tst").click(function(){
     $("#fxm").toggle();

@@ -38,7 +38,7 @@
     </div>
   </header>
 
-  <header class="topHead" id="topNav" style="height: 81px;"><!-- remove class="topHead" if no topHead used! -->
+  <header class="topHead" id="topNav" style="height: 81px; background : <%= header_color() %> !important;" ><!-- remove class="topHead" if no topHead used! -->
     <div class="container"> 
       
       <!-- Mobile Menu Button -->
@@ -115,3 +115,6 @@
       
     
   </header>
+  <style type="text/css">
+    footer .footer-content h3, .footer-text, footer a, footer a:hover { color: <%= footer_font()%> !important; }
+  </style>

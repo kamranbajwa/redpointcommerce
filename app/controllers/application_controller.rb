@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :check_template
   before_filter :load_pages, :check_group
-  before_filter :load_cart, :home_content, :customize_pages, :static_pages, :load_blog, :default_pages, :load_widgets, :sections
+  before_filter :load_cart, :home_content, :customize_pages, :static_pages, :load_blog, :default_pages, :load_widgets, :sections, :components
   
   def after_sign_in_path_for(resource)
     if spree_current_user.has_spree_role?("admin")
@@ -60,5 +60,8 @@ class ApplicationController < ActionController::Base
   end
   def sections
     @template_sections = @selected_template.sections
+  end
+  def components
+    @template_components = @selected_template.components
   end
 end

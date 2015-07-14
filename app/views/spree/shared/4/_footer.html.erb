@@ -1,5 +1,5 @@
-<section>
-  <div class="container-fluid footer">
+<section >
+  <div class="container-fluid footer" style="background-color: <%= footer_color() %>">
     <div class="container">
     <% if @logo_footer && @logo_footer.check %>
       <a href="#"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>" class="img-responsive center-block"></a>
@@ -59,11 +59,11 @@
             <% end %>
         </div>
         <div class="clear10 visible-xs"></div>
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-3 col-sm-6 shop-location">
           <h4>SHOP LOCATION</h4>
           <div class="seperator"></div>
            <ul class="list-unstyled">
-          <li  style=" color: #7b7b7b; ">
+          <li>
           <%=org_address[0].gsub(',', ', ').html_safe || ""%>
           </li>
            </ul>
