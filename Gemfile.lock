@@ -102,6 +102,14 @@ GIT
       multi_json
       spree_core (~> 2.4.0)
 
+GIT
+  remote: git://github.com/spree/spree_gateway.git
+  revision: 3b40ced38a7643be6a83a9ee1901066e5d765e6c
+  branch: 2-4-stable
+  specs:
+    spree_gateway (2.4.0)
+      spree_core (~> 2.4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -416,6 +424,7 @@ DEPENDENCIES
   spree!
   spree_auth_devise!
   spree_editor!
+  spree_gateway!
   spree_paypal_express!
   spree_social_products!
   stripe
