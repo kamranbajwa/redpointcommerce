@@ -30,7 +30,7 @@
         <td class="">
         <table>
         <%v.changeset.each do |k,v|%>
-        <tr><td><%=k%></td><td><%=v[0].to_s+" to "+v[1].to_s%></td></tr>
+        <tr><td><%=k.gsub(/[^0-9A-Za-z]/, ' ')%></td><td><%=v[0].to_s+" to "+v[1].to_s%></td></tr>
         <%end%>
         </table>
         </td>

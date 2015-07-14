@@ -24,7 +24,7 @@
       <tbody>
         <% @versions.each do |v| %>
         <tr id="" data-hook="admin_products_index_rows" class="odd">
-          <td class="align-center"><%=v.event %></td>
+          <td class="align-center"><%=v.created_at.to_date %></td>
          <td class="align-center">
              <table>
         <%v.changeset.each do |k,v|%>
