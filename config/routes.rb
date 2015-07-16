@@ -61,6 +61,8 @@ SpreeExample::Application.routes.draw do
         collection { get :products_versions }
         collection { get :users_versions }
         collection { get :orders_versions }
+        collection { get :all_user }
+        collection { get :address_versions }
       end
       resources :api_users
       resources :promotion_emails do 

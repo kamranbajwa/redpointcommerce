@@ -22,8 +22,7 @@
         </tr>
       </thead>
       <tbody>
-      <% @users.each do |u|%>
-        <% u.versions.each do |v| %>
+        <% @usr.versions.each do |v| %>
         <tr id="" data-hook="admin_products_index_rows" class="odd">
         <td class="align-center"><%=v.created_at.to_date rescue ''%></td>
         <td class="align-center"><%=v.item.email rescue ''%></td>
@@ -36,8 +35,8 @@
         </td>
       <td class="align-center"><%= v.event rescue ''%></td>
       <td class="align-center"><%= v.whodunnit rescue ''%></td>
+        </td>
         </tr>
-        <% end %>
         <%end%>
       </tbody>
     </table>

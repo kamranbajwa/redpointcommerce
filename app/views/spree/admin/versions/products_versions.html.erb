@@ -22,16 +22,15 @@
         </tr>
       </thead>
       <tbody>
-      <% @products.each do |p|%>
-        <% p.versions.each do |v| %>
+        <% @product_versions.each do |v| %>
         <tr id="" data-hook="admin_products_index_rows" class="odd">
         <td class="align-center"><%=v.created_at.to_date rescue ''%></td>
         <td class="align-center"><%=v.item.name rescue ''%></td>
         <td class="">
           <table>
-        <%v.changeset.each do |k,v|%>
+        <%v.changeset.each do |k,val|%>
         <tr><td><%=k.gsub(/[^0-9A-Za-z]/, ' ')
-%></td><td><%=v[0].to_s+" to "+v[1].to_s%></td></tr>
+%></td><td><%=val[0].to_s+" to "+val[1].to_s%></td></tr>
         <%end%>
         </table>
         </td>

@@ -54,7 +54,6 @@ module Spree
       end
 
       def edit
-        @versions=@order.versions
         can_not_transition_without_customer_info
 
         unless @order.completed?
@@ -86,7 +85,6 @@ module Spree
       end
 
       def cancel
-        debugger
         @order.canceled_by(spree_current_user)
         flash[:success] = Spree.t(:order_canceled)
         redirect_to :back

@@ -1,0 +1,35 @@
+
+<div class="col-md-9">
+<div class="portlet box blue">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-cogs"></i>All Change History
+    </div>
+    <div class="tools">
+      <a href="javascript:;" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+    <div class="portlet-body flip-scroll">
+    <table class="table table-bordered table-striped table-condensed flip-content">
+      <thead class="flip-content">
+        <tr data-hook="admin_products_index_headers">
+          <th class="align-center">Email</th>     
+        </tr>
+      </thead>
+      <tbody>
+      <% @users.each do |u|%>
+        <tr id="" data-hook="admin_products_index_rows" class="odd">
+           <td class='user_email'>
+
+           <%= link_to u.email, users_versions_admin_versions_path(:user_id => u.id ) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+<div class="col-md-3">
+<%=render :partial=>'side_bar'%>
+</div>
