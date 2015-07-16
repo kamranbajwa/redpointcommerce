@@ -420,7 +420,7 @@ module Spree
 
     def deliver_order_confirmation_email
       OrderMailer.confirm_email(self.id).deliver
-      update_attributes(:confirmation_delivered, true)
+      update_column(:confirmation_delivered, true)
     end
 
     # Helper methods for checkout steps
@@ -565,7 +565,7 @@ module Spree
     def ensure_updated_shipments
       if shipments.any? && !self.completed?
         self.shipments.destroy_all
-        self.update_attributes(:shipment_total, 0)
+        self.update_column(:shipment_total, 0)
         restart_checkout_flow
       end
     end
