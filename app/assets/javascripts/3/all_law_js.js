@@ -17,3 +17,4 @@
 //= require 3/fittext
 //= require 3/map
 //= require 3/function
+//= require shared/bootstrap.min

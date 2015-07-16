@@ -27,7 +27,13 @@
         <tr id="" data-hook="admin_products_index_rows" class="odd">
         <td class="align-center"><%=v.created_at.to_date rescue ''%></td>
         <td class="align-center"><%=v.item.email rescue ''%></td>
-        <td class=""><%=version_created_or_update(v)%></td>
+        <td class="">
+            <table>
+        <%v.changeset.each do |k,v|%>
+        <tr><td><%=k.gsub(/[^0-9A-Za-z]/, ' ')%></td><td><%=v[0].to_s+" to "+v[1].to_s%></td></tr>
+        <%end%>
+        </table>
+        </td>
       <td class="align-center"><%= v.event rescue ''%></td>
       <td class="align-center"><%= v.whodunnit rescue ''%></td>
         </tr>
