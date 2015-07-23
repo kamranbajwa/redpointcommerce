@@ -1,8 +1,15 @@
 module Spree
   module BaseHelper
+    def address_name(k)
+      if k=="address1"
+        return "Billing Address"
+        else
+          return "Shipping Address"
+        end
+    end
     def version_change_from(v)
     if v[0].present? and v[1].present?
-     return v[0].to_s.red.html_safe+" to " +v[1].to_s
+     return v[0].to_s+" to " +v[1].to_s
       else
         return v[0].to_s+v[1].to_s
       end

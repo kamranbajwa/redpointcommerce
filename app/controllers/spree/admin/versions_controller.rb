@@ -10,7 +10,7 @@ def all_user
 end
 def products_versions
 	@products=Spree::Product.all
-	render :template => "/spree/admin/versions/orders_versions.html.erb", :locals => {:@orders => @products}
+	#render :template => "/spree/admin/versions/orders_versions.html.erb", :locals => {:@orders => @products}
 end
 def users_versions	
 	@usr=Spree::User.find(params[:user_id])
@@ -20,6 +20,6 @@ def orders_versions
 end
 def address_versions
 	@address=Spree::Address.all
-	render :template => "/spree/admin/versions/orders_versions.html.erb", :locals => {:@orders => @address}
+	#render :template => "/spree/admin/versions/orders_versions.html.erb", :locals => {:@orders => @address}
 end
 end

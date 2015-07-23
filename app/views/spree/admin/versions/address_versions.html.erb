@@ -15,31 +15,31 @@
       <thead class="flip-content">
         <tr data-hook="admin_products_index_headers">
         <th class="align-center">Created at</th>
-          <th class="align-center">Product Name</th>
-          <th class="align-center">Changes</th>
+          <th class="align-center">Email</th>
+          <th class="align-center">Updates</th>
           <th class="align-center">Type</th>
           <th class="align-center">who made</th>
         </tr>
       </thead>
       <tbody>
-      <% @products.each do |p|%>
-        <% p.versions.each do |v| %>
+       <% @address.each do |u| %>
+        <% u.versions.each do |v| %>
         <tr id="" data-hook="admin_products_index_rows" class="odd">
         <td class="align-center"><%=v.created_at.to_date rescue ''%></td>
-        <td class="align-center"><%=v.item.name rescue ''%></td>
+        <td class="align-center"><%=u.email %></td>
         <td class="">
-          <table>
-        <%v.changeset.each do |k,val|%>
-        <tr><td><%=k.gsub(/[^0-9A-Za-z]/, ' ')
-%></td><td><%=val[0].to_s+" to "+val[1].to_s%></td></tr>
+        <table>
+        <%v.changeset.each do |k,v|%>
+        <tr><td><%=address_name(k)%></td><td><%=version_change_from(v)%></td></tr>
         <%end%>
         </table>
         </td>
       <td class="align-center"><%= v.event rescue ''%></td>
       <td class="align-center"><%= v.whodunnit rescue ''%></td>
+        </td>
         </tr>
-        <% end %>
-        <% end %>
+         <%end%>
+        <%end%>
       </tbody>
     </table>
   </div>
