@@ -68,7 +68,7 @@
                         </a>
                         <ul class="sub-menu">
                   <% end %>
-                       <li class="menu-sep"><a href="/page/<%= page.slug rescue '' %>"><%= page.title.upcase%></a></li>
+                       <li class="menu-sep"><a href="/page/<%= page.slug rescue '' %>"><%= page.title.upcase rescue ''%></a></li>
                   <% if index+1 == @customize_pages.length %>
                         </ul>
                       </li>
@@ -76,7 +76,7 @@
                   </span>
                   <% end %>
                 <% else %>
-                  <span class="menu-sep"><a href="/page/<%= page.slug %>"> <%= page.title.upcase%></a></span>
+                  <span class="menu-sep"><a href="/page/<%= page.slug %>"> <%= page.title.upcase rescue ''%></a></span>
                 <% end %>
             <% end %>
             <span class="menu-sep"> <a href="/page/<%= @about_page.first.try(:slug)%>"> About Us </a></span>
@@ -121,7 +121,7 @@
         <nav class="nav-menu">
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
-            <li><a href="/products"><%= @selected_template.product_tab.upcase ? @selected_template.product_tab : "Services"  %></a></li>
+            <li><a href="/products"><%= @selected_template.try(:product_tab).try(:upcase) ? @selected_template.product_tab : "Services"  %></a></li>
              <li><a href="/page/<%= @about_page.first.try(:slug)%>">ABOUT US</a></li>
             <li><a href="/contact-us"> Contact Us</a> </li>
              <% @customize_pages.each_with_index  do |page, index|%>
@@ -141,7 +141,7 @@
                    
                   <% end %>
                 <% else %>
-                <li><a href="/page/<%= page.slug %>"><%= page.title.upcase%></a> </li>
+                <li><a href="/page/<%= page.slug %>"><%= page.title.upcase rescue ''%></a> </li>
                 <% end %>
             <% end %>
 
