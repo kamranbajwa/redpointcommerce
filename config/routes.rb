@@ -55,7 +55,8 @@ SpreeExample::Application.routes.draw do
       resources :templates
       resources :template_images
       resources :cms_pages do
-      collection { patch :update_page_order } 
+      collection { patch :update_page_order }
+      collection { get :static}
     end
     resources :versions do
         collection { get :products_versions }

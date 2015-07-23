@@ -25,7 +25,7 @@
       <tbody>
       <% a = nil%>
       <% @orders.each do |o|
-        g = o.number
+        g = o.try(:number)
         %>
         <% o.versions.each do |v| %>
         <tr id="" data-hook="admin_products_index_rows" class="odd">

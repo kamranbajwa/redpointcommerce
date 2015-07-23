@@ -27,7 +27,6 @@ class ApplicationController < ActionController::Base
   end
   def load_pages
     @cms_pages = Spree::CmsPage.all.dynamic.order("sort asc")
-    @about_us_page = @selected_template.cms_pages.find_by_title("about us")
   end
   def load_cart
     @order = current_order rescue nil
@@ -37,7 +36,7 @@ class ApplicationController < ActionController::Base
   end
   def customize_pages
     @customize_pages = @cms_pages.reject { |h| h['title'] == "Home" || h['title'] == "About us" || h['title'] == "about us" || h['title'] == "About Us" }
-    @about_page = @cms_pages.select { |h| h['title'] == "About us" || h['title'] == "About Us" || h['title'] == "about us"  }
+    @about_page = Spree::CmsPage.all.select { |h| h['title'] == "About us" || h['title'] == "About Us" || h['title'] == "about us"  }
   end
   def static_pages
     @static_pages = @selected_template.cms_pages.static.order("sort asc").limit(4)

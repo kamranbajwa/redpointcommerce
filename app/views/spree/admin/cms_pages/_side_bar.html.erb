@@ -1,10 +1,18 @@
- <div class="page-sidebar-wrapper">
-    <div class="page-sidebar navbar-collapse collapse">
-      <ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-      <h3 class="form-section" align="center">Pages</h3>
-      <% @pages.each do |page| %>
-        <li style="border-bottom: 1px solid #eee;"><a href="/page/<%= page.slug rescue '' %>"><span><%= page.title %></span></a></li>
-      <% end %>
-      </ul>
-    </div>
-  </div>
+  <div class="">
+    <ul class="ver-inline-menu tabbable margin-bottom-10">
+      <li class="<%= is_active?('/admin/cms_pages') %>">
+        <a href="/admin/cms_pages" aria-expanded="true">
+         <i class="fa fa-book"></i>
+         Dynamic
+       </a>
+       <span class="after">
+        </span>
+     </li>
+     <li class="<%= is_active?(static_admin_cms_pages_path) %>">
+      <a href="<%=  static_admin_cms_pages_path %>" aria-expanded="true">
+       <i class="fa fa-map-marker"></i>
+       Static
+     </a>
+   </li>
+</ul>
+</div>

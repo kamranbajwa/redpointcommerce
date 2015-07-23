@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <h2>Results</h2>
   <table class="table table-bordered">
     <thead>
@@ -21,6 +21,48 @@
         <td><%= detail.subscription ? "True" : "False" %></td>
       </tr>
       <% end %>
+  </table>
+  <a href="/products">
+<button class="btn btn-primary"> Back </button>
+</a>
+</div> -->
+<div class="container">
+  <h2>Results</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+      <th></th>
+        <th><%= link_to product_image(@products_detail.first, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:20%" ), product_path(@products_detail.first, :taxon_id => nil) , :itemprop => 'url' %></th>
+        <th><%= link_to product_image(@products_detail.second, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:20%" ), product_path(@products_detail.second, :taxon_id => nil) , :itemprop => 'url' %></th>
+        <th><%= link_to product_image(@products_detail.third, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:20%" ), product_path(@products_detail.third, :taxon_id => nil) , :itemprop => 'url' %></th>
+      </tr>
+    </thead>
+    <tbody>
+   
+    <tr>
+    <td>Name</td>
+      <td><%= @products_detail.first.name %></td>
+        <td><%= @products_detail.second.name %></td>
+        <td><%= @products_detail.third.name %></td>
+      </tr>
+       <tr>
+    <td>Price</td>
+      <td><%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p=> @products_detail.first} %></td>
+        <td><%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p=> @products_detail.second} %></td>
+        <td><%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p=> @products_detail.third} %></td>
+      </tr>
+       <tr>
+    <td>Recommended</td>
+      <td><%= @products_detail.first.is_recommended ? "True" : "False"  %></td>
+        <td><%= @products_detail.second.is_recommended ? "True" : "False"  %></td>
+        <td><%= @products_detail.third.is_recommended ? "True" : "False"  %></td>
+      </tr>
+       <tr>
+    <td>Subscription</td>
+      <td><%= @products_detail.first.subscription ? "True" : "False"  %></td>
+        <td><%= @products_detail.second.subscription ? "True" : "False"  %></td>
+        <td><%= @products_detail.third.subscription ? "True" : "False"  %></td>
+      </tr>
   </table>
   <a href="/products">
 <button class="btn btn-primary"> Back </button>

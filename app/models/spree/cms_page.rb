@@ -4,7 +4,7 @@ module Spree
     friendly_id :title, use:  [:slugged, :finders]
     belongs_to :template
   	acts_as_taggable
-    validates :title, :uniqueness => {:scope => [:template_id], :case_sensitive => false}
+    validates :title, :uniqueness => {:case_sensitive => false}
     has_attached_file :avatar, styles: {home_image: "700x500!"}
     # validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 

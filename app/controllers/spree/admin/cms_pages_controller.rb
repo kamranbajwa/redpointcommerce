@@ -3,7 +3,8 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
   before_action :get_templates, only: [:new, :edit, :update, :create]
 
   def index
-    @pages =  @current_template.first.cms_pages.order("sort asc")
+    @@action = ''
+    @pages =  Spree::CmsPage.all.dynamic.order("sort asc")
     @versions = PaperTrail::Version.order('created_at DESC')
   end
 
@@ -16,15 +17,26 @@ class Spree::Admin::CmsPagesController < Spree::Admin::ResourceController
     @select_template = @current_template.first.id
   end
 
+  def static
+     @pages =  Spree::Template.selected.first.cms_pages.static.order("sort asc")
+     render "/spree/admin/cms_pages/index"
+  end
+
   def edit
+    @@action = request.referer ? request.referer.split('/').last : ''
     @cms_page = Spree::CmsPage.friendly.find(params[:id])
   end
 
   def update
     respond_to do |format|
       if @cms_page.update(cms_page_params)
-       format.html { redirect_to admin_cms_pages_path, notice: 'Cms Page was successfully updated.' }
-        format.json { render action: 'index', status: :created, location: @cms_page }
+        if @@action.to_s == "static"
+          format.html { redirect_to static_admin_cms_pages_path, notice: 'Cms Page was successfully updated.' }
+          format.json { render action: 'index', status: :created, location: @cms_page }
+        else
+          format.html { redirect_to admin_cms_pages_path, notice: 'Cms Page was successfully updated.' }
+          format.json { render action: 'index', status: :created, location: @cms_page }
+         end
       else
         flash[:error] = "#{@cms_page.errors.full_messages.first}"
         format.html { redirect_to edit_admin_cms_page_path(@cms_page)}
