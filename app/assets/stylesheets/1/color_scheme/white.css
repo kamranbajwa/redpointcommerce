@@ -1,0 +1,5 @@
+header.header-style-1 .header-nav .navbar-nav > li > a { color: #000 !important;}
+header.header-style-1 .header-top { background: #fff !important; }
+header.header-style-1 .header-nav .navbar { background: #fff !important; }
+#link-to-cart a { color: #777 !important;}
+.btn-primary { color: #fff; background-color: #777; border-color: #777; }
