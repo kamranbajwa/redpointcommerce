@@ -26,7 +26,7 @@
         <% p.versions.each do |v| %>
         <tr id="" data-hook="admin_products_index_rows" class="odd">
         <td class="align-center"><%=v.created_at.to_date rescue ''%></td>
-        <td class="align-center"><%=v.item.name rescue ''%></td>
+        <td class="align-center">  <%= link_to v.item.try(:name), show_product_version_admin_versions_path(:product_id => p.slug ) %></td>
         <td class="">
           <table>
         <%v.changeset.each do |k,val|%>

@@ -1,6 +1,7 @@
 module Spree
   class Price < Spree::Base
     acts_as_paranoid
+    has_paper_trail :ignore => [:created_at, :updated_at],on: [:update]
     belongs_to :variant, class_name: 'Spree::Variant', inverse_of: :prices, touch: true
 
     validate :check_price

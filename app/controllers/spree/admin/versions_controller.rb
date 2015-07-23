@@ -12,6 +12,11 @@ def products_versions
 	@products=Spree::Product.all
 	#render :template => "/spree/admin/versions/orders_versions.html.erb", :locals => {:@orders => @products}
 end
+def show_product_version
+	@p=Spree::Product.friendly.find(params[:product_id])
+	@variants=Spree::Variant.where(id: @p.id)
+	@price=@variants.first.prices
+end
 def users_versions	
 	@usr=Spree::User.find(params[:user_id])
 end
