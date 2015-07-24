@@ -599,7 +599,7 @@ module Spree
     def canceled_by(user)
       self.transaction do
         cancel!
-        self.update_attributess(
+        self.update_attributes(
           canceler_id: user.id,
           canceled_at: Time.now,
         )
@@ -609,7 +609,7 @@ module Spree
     def approved_by(user)
       self.transaction do
         approve!
-        self.update_attributess(
+        self.update_attributes(
           approver_id: user.id,
           approved_at: Time.now,
         )
@@ -631,11 +631,11 @@ module Spree
     end
 
     def considered_risky!
-      update_attributes(:considered_risky, true)
+      update_column(:considered_risky, true)
     end
 
     def approve!
-      update_attributes(:considered_risky, false)
+      update_column(:considered_risky, false)
     end
 
     # moved from api order_decorator. This is a better place for it.

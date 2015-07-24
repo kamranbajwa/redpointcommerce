@@ -70,6 +70,7 @@
         </thead>
         <tbody>
          <% @users.each do |user|%>
+         <% unless user.email == 'admin@pshq.com' %>
          <tr id="<%= spree_dom_id user %>" data-hook="admin_users_index_rows" class="<%= cycle('odd', 'even')%>">
          <%unless user.email=="superadmin3@pshq.com"%>
           <td> <%=user.customer_number%></td>
@@ -83,6 +84,7 @@
             <%= link_to_edit user, :no_text => true %>
             <%= link_to_delete user, :no_text => true %>
           </td>
+         <% end %>
           <%end%>
         </tr>
         <% end %>

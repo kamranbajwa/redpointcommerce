@@ -27,7 +27,7 @@
       </table>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Compare</button>
+        <button type="submit" id="compare" class="btn btn-primary">Compare</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
       <% end %>
@@ -36,6 +36,7 @@
 </div>
 <script type="text/javascript">
 $(document).ready(function(){
+ $("#compare").prop("disabled", true);
   var limit = 4;
 $('input.single-checkbox').on('change', function(evt) {
    if($("input:checked").length >= limit) {
@@ -46,6 +47,13 @@ $('input.single-checkbox').on('change', function(evt) {
    else
    {
     $('.info-limit').hide();
+   }
+   if($("input:checked").length >= 3) {
+    $("#compare").prop("disabled", false);
+   }
+   else
+   {
+    $("#compare").prop("disabled", true);
    }
 });
 });
