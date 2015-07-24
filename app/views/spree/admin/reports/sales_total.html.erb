@@ -32,7 +32,7 @@
         <table class="admin-report table table-bordered table-striped table-condensed flip-content" data-hook="sales_total">
           <thead class="flip-content">
             <tr>
-              <th><%= Spree.t(:currency) %></th>
+              <th>Orders</th>
               <th><%= Spree.t(:item_total) %></th>
               <th><%= Spree.t(:adjustment_total) %></th>
               <th><%= Spree.t(:sales_total) %></th>
@@ -41,7 +41,7 @@
           <tbody>
             <% @totals.each do |key, row| %>
             <tr class="align-center">
-              <td><%= key %></td>
+              <td><%= row[:order_total] %> </td>
               <td><%= row[:item_total].format %></td>
               <td><%= row[:adjustment_total].format %></td>
               <td><%= row[:sales_total].format %></td>
@@ -52,4 +52,33 @@
       </div>
     </div>
   </div>
+      <div class="portlet box blue">
+      <div class="portlet-title">
+        <div class="caption">
+          <i class="fa fa-cogs"></i>Customers with repeat orders
+        </div>
+        <div class="tools">
+          <a href="javascript:;" class="collapse" data-original-title="" title="">
+          </a>
+        </div>
+      </div>
+      <div class="portlet-body flip-scroll">
+        <table class="admin-report table table-bordered table-striped table-condensed flip-content" data-hook="sales_total">
+          <thead class="flip-content">
+            <tr>
+              <th>Customers</th>
+              <th>Orders</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @customers_with_orders.each do |row| %>
+            <tr class="align-center">
+              <td><%= row[0] %></td>
+              <td><%= row[1] %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
 </div>
