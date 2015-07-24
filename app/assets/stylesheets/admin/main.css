@@ -154,4 +154,5 @@ table td.actions .fa-ok:hover, table td.actions .fa-plus:hover, table td.actions
   margin-top: 70px !important;
 }
 .remove-group span a:hover { color: #fff !important; text-decoration:none;}
+.remove-group span a { color: #fff !important; text-decoration:none;}
 .add-address a:hover {text-decoration:none;}
