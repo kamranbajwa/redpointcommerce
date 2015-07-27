@@ -1,8 +1,8 @@
   desc "Rake Tasks"
   task task_order: :environment do
     puts "********************in taske*****************"
-    f  = Spree::LineItem.where("subs_type = ?", 'daily').last
-    #daily.each do |f|
+    daily  = Spree::LineItem.where("subs_type = ?", 'daily')
+    daily.each do |f|
       puts "********************fond daily*****************"
       start_date = f.subs_date 
       todate_date = DateTime.now
@@ -67,7 +67,7 @@
         end
         
         
-      # end
+       end
       
     end
   end
