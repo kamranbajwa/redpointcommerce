@@ -1,12 +1,12 @@
   desc "Rake Tasks"
   task task_order: :environment do
     puts "********************in taske*****************"
-    daily  = Spree::LineItem.where("subs_type = ?", 'daily')
-    daily.each do |f|
+    f  = Spree::LineItem.where("subs_type = ?", 'daily').last
+    #daily.each do |f|
       puts "********************fond daily*****************"
       start_date = f.subs_date 
       todate_date = DateTime.now
-      puts "********************fond daily*****************"+start_date
+      puts "********************fond daily*****************"+start_date.to_s
       if start_date > todate_date
         o  = Spree::Order.find(f.order_id)
         orderid = o.id
@@ -25,15 +25,14 @@
         puts "********************before var*****************"+var.to_s
         
         if var.to_s.include?("cus")
-           stripe_customer =   begin 
-                                 Stripe::Customer.retrieve(var)
-                                 dsfsdfdfd
-                                  puts "********************stripe_customer*****************"
-                               rescue Stripe::CardError => e
-                                 ExceptionNotifier.notify_exception(e)
-                                 nil
-                                end
-          
+           puts "********************cus fond*****************"
+             # begin 
+                               stripe_customer=  Stripe::Customer.retrieve(var) rescue ''
+                               #    puts "********************stripe_customer*****************"
+                               # rescue Stripe::CardError => e
+                               #   ExceptionNotifier.notify_exception(e)
+                               #   nil
+                               #  end
           if !stripe_customer.blank?
             charge = begin
               puts "********************stripe_customer not blanck*****************"
@@ -68,7 +67,7 @@
         end
         
         
-      end
+      # end
       
     end
   end
@@ -96,12 +95,13 @@
         var  =  o.credit_cards.last.gateway_customer_profile_id
         #Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
           if var.to_s.include?("cus")
-           stripe_customer =   begin 
+           stripe_customer =   
+           # begin 
                                  Stripe::Customer.retrieve(var)
-                               rescue Stripe::CardError => e
-                                 ExceptionNotifier.notify_exception(e)
-                                 nil
-                                end
+                               # rescue Stripe::CardError => e
+                               #   ExceptionNotifier.notify_exception(e)
+                               #   nil
+                               #  end
           
           if !stripe_customer.blank?
             charge = begin
@@ -163,12 +163,13 @@
        # Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         
         if var.to_s.include?("cus")
-           stripe_customer =   begin 
+           stripe_customer =   
+           # begin 
                                  Stripe::Customer.retrieve(var)
-                               rescue Stripe::CardError => e
-                                 ExceptionNotifier.notify_exception(e)
-                                 nil
-                                end
+                               # rescue Stripe::CardError => e
+                               #   ExceptionNotifier.notify_exception(e)
+                               #   nil
+                               #  end
           
           if !stripe_customer.blank?
             charge = begin
@@ -226,12 +227,13 @@
         #Stripe.api_key = "sk_test_je98XVAYSwxGfKKvXQrIhsas"
         
           if var.to_s.include?("cus")
-           stripe_customer =   begin 
+           stripe_customer =   
+           # begin 
                                  Stripe::Customer.retrieve(var)
-                               rescue Stripe::CardError => e
-                                 ExceptionNotifier.notify_exception(e)
-                                 nil
-                                end
+                               # rescue Stripe::CardError => e
+                               #   ExceptionNotifier.notify_exception(e)
+                               #   nil
+                               #  end
           
           if !stripe_customer.blank?
             charge = begin
