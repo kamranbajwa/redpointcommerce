@@ -4125,7 +4125,7 @@ margin-top: -37px;
 .product-page-margin{ margin-top: 15px; margin-bottom: 8px;}
 .pagination-wrapper .pagination-new .current {
  width: 38px;
-  height: 35px;
+  height: 33px;
 color: white !important;
 }
 .pagination-wrapper .pagination-new >li>span {
@@ -4540,3 +4540,4 @@ body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom
   padding-top: 0px;
   padding-bottom: 0px;
   border-radius: 5px;}
+ul#products li .price { height: 38px; }

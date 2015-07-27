@@ -50,10 +50,10 @@
 
             <div class="addCartBtn">
               <span class="input-group-btn">
-                <%= number_field_tag :quantity, 1, :class => 'title', :min => 1 %>
-                <button class="btn btn-primary"><i class="fa fa-shopping-cart"></i> <%= f.submit "ADD TO CART",:style=>"background: transparent !important;
-    border: 0px none !important;
-    box-shadow: inset 0 0px 0 rgba(255, 255, 255, 0.4);" %></button> 
+                <%= number_field_tag :quantity, 1, :class => 'title input-style', :min => 1 %>
+               <%= button_tag :class => 'btn btn-readmore btn-sub-add', :id => 'add-to-cart-button', :type => :submit do %>
+            <%= Spree.t(:add_to_cart) %>
+          <% end %>
               </span>
             </div><!-- /input-group -->
           </div>

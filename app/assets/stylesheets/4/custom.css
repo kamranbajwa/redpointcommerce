@@ -316,7 +316,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { font-weight:700; }
 .logo img { margin-top:-8px; }
 .pagination-wrapper .pagination-new .current {
  width: 38px;
-  height: 35px;
+  height: 31px;
 }
 .pagination-wrapper .pagination-new >li>span {
 position: relative;

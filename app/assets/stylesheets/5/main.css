@@ -433,7 +433,7 @@ blockquote p {
 #filters li.active a {
   padding-bottom: 20px;
 }
-.pagination {
+/*.pagination {
   display: block;
   text-align: center;
   margin-left: -8px;
@@ -457,7 +457,7 @@ blockquote p {
 .pagination span.current {
   background-color: #66c9e0;
   color: #fff;
-}
+}*/
 .social-icon ul {
   padding: 0;
 }
@@ -2930,6 +2930,7 @@ div.gallery-item-types a:hover {
 }
 .gallery-page .common .content {
   padding: 15px 20px 25px;
+  height: 70px;
 }
 .gallery-page .four-col-gallery.common h4 {
   font-size: 18px;
@@ -8696,7 +8697,7 @@ li.completed:hover {
 }
 .pagination-wrapper .pagination-new .current {
  width: 38px;
-  height: 35px;
+  height: 31px;
 }
 .pagination-wrapper .pagination-new >li>span {
 position: relative;
@@ -8731,3 +8732,4 @@ float: left;
   margin-left: -4px;
 }
 .welcome-msg{ margin-right: 74px;}
+.btn-sub-add {margin-top: -20px;}
