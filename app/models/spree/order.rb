@@ -571,7 +571,7 @@ module Spree
     end
 
     def restart_checkout_flow
-      self.update_attributess(
+      self.update_columns(
         state: 'cart',
         updated_at: Time.now,
       )
@@ -599,7 +599,7 @@ module Spree
     def canceled_by(user)
       self.transaction do
         cancel!
-        self.update_attributes(
+        self.update_columns(
           canceler_id: user.id,
           canceled_at: Time.now,
         )
@@ -609,7 +609,7 @@ module Spree
     def approved_by(user)
       self.transaction do
         approve!
-        self.update_attributes(
+        self.update_columns(
           approver_id: user.id,
           approved_at: Time.now,
         )

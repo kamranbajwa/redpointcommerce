@@ -270,6 +270,10 @@ header#topNav {
   width:100%;
   z-index:100;
   background: #fff;
+  border-bottom: #ddd 2px dotted ;
+}
+.product-image-wrapper {
+  border-right: #ddd 2px dotted ;
 }
 
 .top-nav-bg{background: #333;}

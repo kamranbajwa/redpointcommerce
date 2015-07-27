@@ -4371,7 +4371,7 @@ input[type="submit"].gray, input[type="button"].gray, input[type="reset"].gray, 
     margin-bottom: 10px;
 }
 .wrapper-padding{ padding-top: 80px ;}
-#content{ margin-top: 104px;}
+#content{ margin-top: 138px;}
 
 .product-image {
 margin-left: 5px;
@@ -4735,3 +4735,6 @@ margin-top: 110px !important;
   background: rgba(0,0,0,0.5);
 }
 .btn-primary { color: #fff; background-color: #777; border-color: #777; }
+#shipping_method .shipment {
+  margin-bottom: 70px;
+}
