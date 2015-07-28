@@ -20,7 +20,7 @@
         <tbody>
           <% @p.versions.order('created_at DESC').each do |v| %>
           <tr id="" data-hook="admin_products_index_rows" class="odd">
-            <td class="align-center"><%=v.created_at.to_date rescue ''%></td>
+            <td class="align-center"><%=v.created_at.to_time rescue ''%></td>
             <td class="align-center"><%=v.item.email rescue ''%></td>
             <td class="">
               <table>
@@ -47,7 +47,42 @@
         </a>
       </div>
     </div>
-    <%=render :partial=>'spree/admin/versions/product_version_table',:locals=>{:object=>@price}%>
+    <div class="portlet-body flip-scroll">
+    <table class="table table-bordered table-striped table-condensed flip-content">
+      <thead class="flip-content">
+        <tr data-hook="admin_products_index_headers">
+        <th class="align-center">Created at</th>
+          <th class="align-center">Email</th>
+          <th class="align-center">Updates</th>
+          <th class="align-center">Type</th>
+          <th class="align-center">who made</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%@variants.each do |vr|%>
+        <%vr.prices.each do |pr|%>
+        <% pr.versions.order('created_at ASC').each do |v| %>
+        <tr id="" data-hook="admin_products_index_rows" class="odd">
+        <td class="align-center"><%=v.created_at.to_time rescue ''%></td>
+        <td class="align-center"><%=v.item.email rescue ''%></td>
+        <td class="">
+        <table>
+        <%v.changeset.each do |k,v|%>
+        <tr><td><%=k.gsub(/[^0-9A-Za-z]/, ' ')%></td><td><%=version_change_from(v)%></td></tr>
+        <%end%>
+        </table>
+        </td>
+      <td class="align-center"><%= v.event rescue ''%></td>
+      <td class="align-center"><%= v.whodunnit rescue ''%></td>
+        </td>
+        </tr>
+        <%end%>
+        <%end%>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+    <%#=render :partial=>'spree/admin/versions/product_version_table',:locals=>{:object=>@price}%>
   </div>
   <div class="portlet box blue">
     <div class="portlet-title">

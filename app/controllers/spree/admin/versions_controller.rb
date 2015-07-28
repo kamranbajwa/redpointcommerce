@@ -14,8 +14,8 @@ def products_versions
 end
 def show_product_version
 	@p=Spree::Product.friendly.find(params[:product_id])
-	@variants=Spree::Variant.where(id: @p.id)
-	@price=@variants.first.prices
+	@variants=Spree::Variant.where(product_id: @p.id)
+	@price=@variants.nil? ? @variants.first.prices : nil
 end
 def users_versions	
 	@usr=Spree::User.find(params[:user_id])

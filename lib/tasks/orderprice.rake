@@ -6,7 +6,7 @@
       puts "********************fond daily*****************"
       start_date = f.subs_date 
       todate_date = DateTime.now
-      puts "********************fond daily*****************"+start_date.to_s
+      puts "********************fond daily*****************"+f.order_id.to_s
       if start_date > todate_date
         o  = Spree::Order.find(f.order_id)
         orderid = o.id

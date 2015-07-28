@@ -10,6 +10,7 @@
         </tr>
       </thead>
       <tbody>
+      <%if object and !object.nil?%>
         <%object.each do |ob|%>
         <% ob.versions.order('created_at DESC').each do |v| %>
         <tr id="" data-hook="admin_products_index_rows" class="odd">
@@ -26,6 +27,7 @@
       <td class="align-center"><%= v.whodunnit rescue ''%></td>
         </td>
         </tr>
+        <%end%>
         <%end%>
         <%end%>
       </tbody>
