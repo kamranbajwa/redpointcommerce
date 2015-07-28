@@ -5016,3 +5016,14 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', en
  .socialApis  .share-blog{
     margin-top: 35px !important;
   }
+  .btn-sub-add {
+  	border : none !important;
+  	background-color: #333333;
+  	color: #fff;
+  }
+   .btn-sub-add:hover {
+   color: #fff;
+  }
+  .btn {
+  	border: none !important;
+  } 
