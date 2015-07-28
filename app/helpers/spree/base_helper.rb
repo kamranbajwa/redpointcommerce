@@ -11,7 +11,7 @@ module Spree
     if v[0].present? and v[1].present?
      return v[0].to_s+" to " +v[1].to_s
       else
-        return v[0].to_s+v[1].to_s
+        return v[0].to_s+" "+v[1].to_s
       end
     end
     def is_active?(link_path)
