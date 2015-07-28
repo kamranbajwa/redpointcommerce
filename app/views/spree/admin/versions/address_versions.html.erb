@@ -15,7 +15,7 @@
       <thead class="flip-content">
         <tr data-hook="admin_products_index_headers">
         <th class="align-center">Created at</th>
-          <th class="align-center">Email</th>
+          <th class="align-center">Name</th>
           <th class="align-center">Updates</th>
           <th class="align-center">Type</th>
           <th class="align-center">who made</th>
@@ -25,8 +25,9 @@
        <% @address.each do |u| %>
         <% u.versions.each do |v| %>
         <tr id="" data-hook="admin_products_index_rows" class="odd">
-        <td class="align-center"><%=v.created_at.to_date rescue ''%></td>
-        <td class="align-center"><%=u.email %></td>
+        <td class="align-center"><%=v.created_at.to_time rescue ''%></td>
+        <td class="align-center"><%=u.firstname rescue ''
+ %></td>
         <td class="">
         <table>
         <%v.changeset.each do |k,v|%>
