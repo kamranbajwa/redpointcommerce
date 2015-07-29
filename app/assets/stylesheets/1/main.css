@@ -4739,3 +4739,6 @@ margin-top: 110px !important;
 #shipping_method .shipment {
   margin-bottom: 70px;
 }
+ul#products li .price {
+    padding-top: 0px !important;
+}
