@@ -77,7 +77,7 @@
   
   
   task task_weekly: :environment do
-    f = Spree::LineItem.where("subs_type = ?", 'weekly')
+    weekly = Spree::LineItem.where("subs_type = ?", 'weekly')
     weekly.each do |f|    
       start_date = f.subs_date 
       todate_date = DateTime.now
@@ -285,7 +285,7 @@ def check_valid_date(lineitem,ago_date)
     last_trans_date= Spree::SubscritionTransctions.where(:line_item_id=>lineitem.id).last.created_at.to_date rescue nil
     if last_trans_date ==  nil and  s_date >= today_date
       return true
-    elsif (last_trans_date and (last_trans_date == ago_date )_and  s_date >= today_date)
+    elsif (last_trans_date and (last_trans_date == ago_date ) and  s_date >= today_date)
       return true
     else
       return false          

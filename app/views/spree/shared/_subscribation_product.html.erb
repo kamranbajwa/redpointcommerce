@@ -12,7 +12,7 @@
               <%end%>
               <%if product.subscription_weekly%>
                 <h6 class="product-section-title">Weekly subscription Price:</h6>
-              <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "weekly", false %><%= number_to_currency(product.subscription_weekly, :unit => '$') %></span>
+              <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "weekly", product.subscription_daily? ? false : true %><%= number_to_currency(product.subscription_weekly, :unit => '$') %></span>
               <%end%>
               <% if product.subscription_monthly%>
                 <h6 class="product-section-title">Monthly subscription Price:</h6>
