@@ -58,6 +58,8 @@
               transction.item_count = items
               transction.store_id = store
               transction.save
+              o.deliver_order_confirmation_email
+
               puts "********************transction done*****************"
             end
             
@@ -129,6 +131,8 @@
               transction.line_item_id = f.id
               transction.store_id = store
               transction.save
+              o.deliver_order_confirmation_email
+
             end
             
           end
@@ -215,6 +219,7 @@ last_trans_date= Spree::SubscritionTransctions.where(:line_item_id=>lineitem.id)
               transction.line_item_id = f.id
               transction.store_id = store
               transction.save
+              o.deliver_order_confirmation_email 
             end
             
           end
@@ -281,6 +286,7 @@ last_trans_date= Spree::SubscritionTransctions.where(:line_item_id=>lineitem.id)
               transction.line_item_id = f.id
               transction.store_id = store
               transction.save
+              o.deliver_order_confirmation_email
             end
             
           end
