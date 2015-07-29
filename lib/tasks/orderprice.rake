@@ -58,6 +58,8 @@
               transction.item_count = items
               transction.store_id = store
               transction.save
+              o.deliver_order_confirmation_email
+
               puts "********************transction done*****************"
             end
             
@@ -75,11 +77,13 @@
   
   
   task task_weekly: :environment do
-    weekly = Spree::LineItem.where("subs_type = ?", 'weekly')
-    weekly.each do |f|
+    f = Spree::LineItem.where("subs_type = ?", 'weekly').last
+    # weekly.each do |f|    
       start_date = f.subs_date 
       todate_date = DateTime.now
-      if start_date > todate_date
+      check = check_valid_date(f, 'weekly')
+      if check
+        puts "******************** true"
         o  = Spree::Order.find(f.order_id)
         orderid = o.id
         amount = (o.total)*100
@@ -124,28 +128,48 @@
               transction.bill_address_id =  bill_address
               transction.ship_address_id = ship_address
               transction.item_count = items
+              transction.line_item_id = f.id
               transction.store_id = store
               transction.save
+              o.deliver_order_confirmation_email
+
             end
             
           end
         else
-          
+           puts "******************** false"
         end
-      end
+      #end
+    end
+  end
+  def check_valid_date(lineitem,type)
+      s_date = lineitem.subs_date
+      today_date = Date.today
+      if type == "weekly"
+        task_type_day=7
+      elsif type=="monthly"
+          task_type_day=30
+        elsif type=="yearly"
+          task_type_day=360
+        end
+last_trans_date= Spree::SubscritionTransctions.where(:line_item_id=>lineitem.id).last.created_at.to_date rescue nil
+      if last_trans_date ==  nil and  s_date >= today_date
+      return true
+      elsif (last_trans_date and (today_date-last_trans_date).to_i>=task_type_day and  s_date >= today_date)
+          return true
+          else
+          return false          
     end
   end
   
   
-  
   task task_monthly: :environment do
     monthly= Spree::LineItem.where("subs_type = ?", 'monthly')
-    
     monthly.each do |f|
       start_date = f.subs_date 
       todate_date = DateTime.now
-      
-      if start_date > todate_date
+      check = check_valid_date(f, 'monthly')
+      if check
         o  = Spree::Order.find(f.order_id)
         orderid = o.id
         amount = (o.total)*100
@@ -192,8 +216,10 @@
               transction.bill_address_id =  bill_address
               transction.ship_address_id = ship_address
               transction.item_count = items
+              transction.line_item_id = f.id
               transction.store_id = store
               transction.save
+              o.deliver_order_confirmation_email 
             end
             
           end
@@ -207,9 +233,10 @@
   task task_yearly: :environment do
     yearly = Spree::LineItem.where("subs_type = ?", 'yearly')
     yearly.each do |f|
+      check = check_valid_date(f, 'yearly')
       start_date = f.subs_date 
       todate_date = DateTime.now
-      if start_date > todate_date
+      if check
         o  = Spree::Order.find(f.order_id)
         orderid = o.id
         amount = (o.total)*100
@@ -256,8 +283,10 @@
               transction.bill_address_id =  bill_address
               transction.ship_address_id = ship_address
               transction.item_count = items
+              transction.line_item_id = f.id
               transction.store_id = store
               transction.save
+              o.deliver_order_confirmation_email
             end
             
           end
@@ -266,7 +295,7 @@
         end
       end
     end
-  end
+end
   
   
   
