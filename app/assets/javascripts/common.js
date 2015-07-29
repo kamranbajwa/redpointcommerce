@@ -49,6 +49,39 @@ function subcribe_email()
 }
 
 $(document).ready(function(){
+   var selected_radio_buton= $("input[type='radio'][name='subscription']:checked").val()
+    show_field_for_selected_radio(selected_radio_buton)
+  $("input[type='radio'][name='subscription']").click(function(e) { 
+      var bt_val=$(this).val();
+      show_field_for_selected_radio(bt_val)
+     
+    });
+  function show_field_for_selected_radio(checked_val){
+     if (checked_val=="weekly"){
+        $('.daily').hide();
+        $('.monthly').hide();
+        $('.yearly').hide();
+        $('.weekly').show();
+       }
+       else if(checked_val=="monthly"){
+          $('.weekly').hide();
+          $('.daily').hide();
+          $('.monthly').show();
+          $('.yearly').hide();
+       } 
+       else if(checked_val=="daily"){
+          $('.weekly').hide();
+          $('.yearly').hide();
+          $('.monthly').hide();
+          $('.daily').show();
+       }
+       else if(checked_val=="yearly"){
+          $('.weekly').hide();
+          $('.daily').hide();
+          $('.monthly').hide();
+          $('.yearly').show();
+       }
+  }
     $("#datepicker").datepicker({
   forceParse: false,
   autoclose: true

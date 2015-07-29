@@ -167,3 +167,6 @@ padding-bottom: 9px;}
 }
 .fb-custom span { width: 324px !important;}
 .fb-custom span iframe { width: 342px !important;}
+ .yearly, .monthly, .weekly,.daily{
+    display: none;
+  } 
