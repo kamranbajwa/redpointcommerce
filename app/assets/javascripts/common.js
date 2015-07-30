@@ -84,7 +84,8 @@ $(document).ready(function(){
   }
     $("#datepicker").datepicker({
   forceParse: false,
-  autoclose: true
+  autoclose: true,
+  startDate: new Date() 
 
 });
     $("#sub_id").click(function(){

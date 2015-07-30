@@ -599,20 +599,18 @@ module Spree
     def canceled_by(user)
       self.transaction do
         cancel!
-        self.update_columns(
-          canceler_id: user.id,
-          canceled_at: Time.now,
-        )
+        self.canceler_id= user.id
+        self.canceled_at = Time.now
+        self.save(validate: false)
       end
     end
 
     def approved_by(user)
       self.transaction do
         approve!
-        self.update_columns(
-          approver_id: user.id,
-          approved_at: Time.now,
-        )
+        self.approver_id= user.id
+        self.approved_at= Time.now
+        self.save(validate: false)
       end
     end
 
