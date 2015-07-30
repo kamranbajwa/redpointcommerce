@@ -40,7 +40,7 @@
         <td class="">
             <table>
         <%v.changeset.each do |k,v|%>
-        <tr><td><%=k.gsub(/[^0-9A-Za-z]/, ' ')%></td><td><%=version_change_from(v)%></td></tr>
+        <tr><td><%=version_changes_name(k)%></td><td><%=order_version_change_from(k,v)%></td></tr>
         <%end%>
         </table>
         </td>

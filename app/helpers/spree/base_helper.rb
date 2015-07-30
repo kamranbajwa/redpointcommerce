@@ -7,13 +7,31 @@ module Spree
           return "Shipping Address"
         end
     end
+    def version_changes_name(k)
+      if k == "approver_id"
+        return "Approved By"
+      elsif k== "canceler_id"
+        return "Canceled By"
+          else
+            return k.gsub(/[^0-9A-Za-z]/, ' ')
+      end 
+    end
+    def order_version_change_from(k,v)
+      if k == "approver_id" or k=="canceler_id"
+        u_id=v[1].present? ? v[1] : v[0]
+       u= Spree::User.find_by_id(u_id)
+       return u.first_name
+     else
+    version_change_from(v) 
+  end
+    end
     def version_change_from(v)
     if v[0].present? and v[1].present?
      return v[0].to_s+" to " +v[1].to_s
       else
         return v[0].to_s+" "+v[1].to_s
       end
-    end
+  end
     def is_active?(link_path)
     current_page?(link_path) ? "active" : ""
     end
