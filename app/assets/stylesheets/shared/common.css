@@ -182,5 +182,6 @@ padding-bottom: 9px;}
 table tbody tr, table tfoot tr { border-bottom: 1px solid #eee !important;}
 #checkout-summary td strong { margin-left: 0px !important;}
 #checkout-summary .container {padding-bottom: 31px;}
- .yearly, .monthly, .weekly,.daily{
+.yearly, .monthly, .weekly,.daily{
     display: none;
+}
