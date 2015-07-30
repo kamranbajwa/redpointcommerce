@@ -138,3 +138,5 @@ color: #fff !important;
 background-color: #AF2323;
 
 }
+#shipping_method table.stock-contents th, #shipping_method table.stock-contents th i { background-color: #C04C4C !important; color: #fff !important;}
+#shipping_method .stock-shipping-method-title { color: #fff !important;   background-color: #AF2323 !important;}

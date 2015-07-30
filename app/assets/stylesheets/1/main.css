@@ -855,6 +855,7 @@ header.header-style-1 .header-nav .navbar-brand {
 header.header-style-1 .header-nav .navbar-nav {
     float: left;
     margin-right: 40px;
+    margin-top: 24px;
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
@@ -4631,13 +4632,6 @@ input[type="date"], input[type="datetime"], input[type="datetime-local"], input[
 height: 40px;
 }
 
-.edit_order {
-    padding: 14px;
-    padding-left: 28px;
-    padding-right: 28px;
-    width: 100%b;
-
- }
  .details-titles{
     clear: both;
     margin-top: 90px;
@@ -4742,3 +4736,5 @@ margin-top: 110px !important;
 ul#products li .price {
     padding-top: 0px !important;
 }
+.navbar-nav a {padding: 0px 10px !important;}
+.navbar-default { padding-bottom: 17px;}

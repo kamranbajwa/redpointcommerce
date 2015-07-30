@@ -76,3 +76,5 @@ input[type="submit"] {
 .menu-color {
   background: #202020 !important;
 }
+#shipping_method .stock-location { background-color: #999 !important;}
+#shipping_method .stock-shipping-method-title { color: #fff !important;   background-color: #BCBCC1 !important;}
