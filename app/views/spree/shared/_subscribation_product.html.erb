@@ -12,7 +12,7 @@
               <%end%>
               <%if product.subscription_weekly%>
                 <h6 class="product-section-title">Weekly subscription Price:</h6>
-              <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "weekly", false %><%= number_to_currency(product.subscription_weekly, :unit => '$') %></span>
+              <span class="price styleSecondColor fsize20"><%= radio_button_tag :subscription, "weekly", product.subscription_daily? ? false : true %><%= number_to_currency(product.subscription_weekly, :unit => '$') %></span>
               <%end%>
               <% if product.subscription_monthly%>
                 <h6 class="product-section-title">Monthly subscription Price:</h6>
@@ -27,21 +27,28 @@
 
 
 
-               <span class="daily price styleSecondColor fsize20"><input type="" required="required" name="date" id="datepicker" class=""  onkeypress="return false"></span>
+               <span class="daily price styleSecondColor fsize20"><input type=""  name="date" id="datepicker" class=""  onkeypress="return false"></span>
                <span class="weekly price styleSecondColor fsize20"><%= select_tag "date", options_for_select({
-      "1 week"   =>  1.weeks.from_now,
-      "2 week"   => 2.weeks.from_now,   # =    604_800 sec.
-      "3 week"  => 3.weeks.from_now,  # =  2_592_000 sec.
-      "4 week" => 4.weeks.from_now, # = 15_552_000 sec.
-      "5 week"   => 5.weeks.from_now,   # = 31_557_600 sec.
-    }) %></span>
+                "1 week"   =>  1.weeks.from_now,
+                "2 week"   => 2.weeks.from_now,   
+                "3 week"  => 3.weeks.from_now,  
+                "4 week" => 4.weeks.from_now,
+                "5 week"   => 5.weeks.from_now,
+              }) %></span>
+              <span class="monthly price styleSecondColor fsize20"><%= select_tag "date", options_for_select({
+                "1 Month"  => 1.month.from_now,
+                "2 Month"  => 2.months.from_now,   
+                "3 Month"  => 3.months.from_now,  
+                "4 Month"  => 4.months.from_now,
+                "5 Month"  => 5.months.from_now,
+              }) %></span>
                <span class="yearly price styleSecondColor fsize20"><%= select_tag "date", options_for_select({
-      "1 Year"   =>  1.years.from_now,
-      "2 Year"   => 2.years.from_now,   # =    604_800 sec.
-      "3 Year"  => 3.years.from_now,  # =  2_592_000 sec.
-      "4 Year" => 4.years.from_now, # = 15_552_000 sec.
-      "5 Year"   => 5.years.from_now,   # = 31_557_600 sec.
-    }) %></span>
+                "1 Year"  =>  1.years.from_now,
+                "2 Year"  =>  2.years.from_now,
+                "3 Year"  =>  3.years.from_now, 
+                "4 Year"  =>  4.years.from_now,
+                "5 Year"  =>  5.years.from_now,
+              }) %></span>
 
 
 
@@ -75,40 +82,4 @@
         </div>
       </div>
 <%= javascript_include_tag    "common" %>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.yearly').hide();
-    $('.weekly').hide();
-   var selected_radio_buton= $("input[type='radio'][name='subscription']:checked").val()
-  console.log(selected_radio_buton)
-  if (selected_radio_buton == "daily") {
-  $('.daily').show;
-  };
-  });
-  $("input[type='radio'][name='subscription']").click(function(e) { // Select the radio input group
-    checked_val=$(this).val()
-    if (checked_val=="weekly"){
-      $('.daily').hide();
-      $('.yearly').hide();
-      $('.weekly').show();
-       }
-       else if(checked_val=="daily"){
-          $('.weekly').hide()
-          $('.yearly').hide();
-          $('.daily').show();
-       }
-       else if(checked_val=="yearly"){
-          $('.weekly').hide();
-          $('.daily').hide();
-          $('.yearly').show();
-       } 
-    console.log( $(this).val() );
-   
 
-    // but this will return the first radio button's value,
-    // regardless of checked state of the radio group.
-    //console.log( $('input[name="myRadio"]').val() ); 
-
-
-  });
-</script>

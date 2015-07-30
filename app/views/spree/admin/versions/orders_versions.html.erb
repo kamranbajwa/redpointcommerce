@@ -16,7 +16,6 @@
         <tr data-hook="admin_products_index_headers">
         <th class="align-center">Order</th>
         <th class="align-center">Created at</th>
-          <th class="align-center">Name</th>
           <th class="align-center">Updates</th>
           <th class="align-center">Type</th>
           <th class="align-center">who made</th>
@@ -36,11 +35,10 @@
 " rowspan="<%= o.versions.length %>"><%= o.number%></td>
           <% end %>
         <td class="align-center"><%=v.created_at.to_time rescue ''%></td>
-        <td class="align-center"><%=o.user.first_name rescue ''%></td>
         <td class="">
             <table>
         <%v.changeset.each do |k,v|%>
-        <tr><td><%=k.gsub(/[^0-9A-Za-z]/, ' ')%></td><td><%=version_change_from(v)%></td></tr>
+        <tr><td><%=version_changes_name(k)%></td><td><%=order_version_change_from(k,v)%></td></tr>
         <%end%>
         </table>
         </td>

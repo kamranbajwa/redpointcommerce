@@ -5026,4 +5026,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', en
   }
   .btn {
   	border: none !important;
-  } 
+  }
+  .yearly, .monthly, .weekly, select{
+	height: auto
+  }
