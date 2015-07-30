@@ -16,7 +16,7 @@
       <thead class="flip-content">
         <tr data-hook="admin_products_index_headers">
           <th class="align-center">Created at</th>
-          <th class="align-center">Name</th>
+          <th class="align-center">Changes</th>
           <th class="align-center">where</th>
           <th class="align-center">who made</th>
         </tr>
@@ -28,7 +28,8 @@
          <td class="align-center">
              <table>
         <%v.changeset.each do |k,v|%>
-        <tr><td><%=k.gsub(/[^0-9A-Za-z]/, ' ')%></td><td><%=version_change_from(v)%></td></tr>
+        <tr><td><%=k.gsub(/[^0-9A-Za-z]/, ' ')%></td><td><%=version_change_from(v)%>
+        </td></tr>
         <%end%>
         </table>
          </td>

@@ -417,7 +417,10 @@ module Spree
       updater.update_shipment_state
       save!
     end
-
+    def deliver_sub_mail
+      OrderMailer.subscription_email(a,b).deliver
+      
+    end
     def deliver_order_confirmation_email
       OrderMailer.confirm_email(self.id).deliver
       update_column(:confirmation_delivered, true)

@@ -280,12 +280,12 @@
 end
 def check_valid_date(lineitem,ago_date)
   if lineitem.order.completed?
-    s_date = lineitem.subs_date
+    sub_end_date = lineitem.subs_date
     today_date = Date.today
     last_trans_date= Spree::SubscritionTransctions.where(:line_item_id=>lineitem.id).last.created_at.to_date rescue nil
     if last_trans_date ==  nil and  s_date >= today_date
       return true
-    elsif (last_trans_date and (last_trans_date == ago_date ) and  s_date >= today_date)
+    elsif (last_trans_date and (last_trans_date == ago_date ) and  sub_end_date >= today_date)
       return true
     else
       return false          

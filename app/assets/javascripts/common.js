@@ -82,10 +82,14 @@ $(document).ready(function(){
           $('.yearly').show();
        }
   }
+  var today = new Date();
+var tomorrow = new Date();
+tomorrow.setDate(today.getDate()+1);
     $("#datepicker").datepicker({
   forceParse: false,
   autoclose: true,
-  startDate: new Date() 
+  startDate: tomorrow,
+  todayHighlight: true 
 
 });
     $("#sub_id").click(function(){
