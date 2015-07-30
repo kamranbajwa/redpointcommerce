@@ -173,3 +173,5 @@ h4 a{ color:#000;}
 {
      background:#C90E0E !important;
 }
+#shipping_method .stock-location {   background-color: #CD8B8B !important;}
+#shipping_method .stock-shipping-method-title { background-color: #CD8B8B !important; }

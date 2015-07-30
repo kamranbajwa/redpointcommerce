@@ -554,3 +554,5 @@ background-color: #f8d9d3 !important;
 .stock-location{
     background:#f62b04 !important;
 }
+#shipping_method table.stock-contents thead { background-color: #FF8168 !important;}
+#shipping_method .stock-shipping-method-title { background-color: #F62B04 !important; }

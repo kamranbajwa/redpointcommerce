@@ -62,3 +62,10 @@ footer .links-social .social-newsletter .social-links ul li a {
 {
      background:#343434 !important;
 }
+#shipping_method .stock-location {   background-color: #B0B0B0 !important;}
+#shipping_method table.stock-contents thead {
+  background-color: #D9D9D9 !important;
+}
+#shipping_method .stock-shipping-method-title { 
+  background-color: #D9D9D9 !important;
+  }
