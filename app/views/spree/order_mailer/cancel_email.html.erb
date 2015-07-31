@@ -14,7 +14,7 @@
       <p>
         <%= Spree.t('order_mailer.cancel_email.order_summary_canceled') %>
       </p>
-      <table>
+      <table border="1" cellpadding="6" cellspacing="0" height="100%" width="100%" style="border-color:#eee;">
         <% @order.line_items.each do |item| %>
           <tr>
             <td><%= item.variant.sku %></td>
