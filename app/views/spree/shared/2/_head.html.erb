@@ -5,7 +5,6 @@
 <%= canonical_tag(current_store.url) %>
 <%#= favicon_link_tag 'favicon.ico' %>
 <%= stylesheet_link_tag 'spree/frontend/all', :media => 'screen' %>
-<%= stylesheet_link_tag 'font-awesome' %>
 <%= csrf_meta_tags %>
 <%= javascript_include_tag 'spree/frontend/all' %>
 <!-- mobile settings -->
@@ -17,7 +16,6 @@
 <!-- CORE CSS -->
  <%= stylesheet_link_tag '/assets/2/all_beauty_css' %>
 
-<%= stylesheet_link_tag 'font-awesome' %>
 <link href="/assets/<%= @selected_template.template_no%>/color_scheme/<%= @selected_template.theme_color%>.css" rel="stylesheet" type="text/css" />
 <!-- Morenizr -->
 <script type="text/javascript" src="/assets/<%= @selected_template.template_no%>/modernizr.min.js"></script>

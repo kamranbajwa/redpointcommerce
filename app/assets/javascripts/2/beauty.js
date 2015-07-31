@@ -10,8 +10,6 @@
 //= require 2/jquery.backstretch.min
 //= require 2/jquery.superslides.min
 //= require 2/mediaelement-and-player.min
-//= require 2/jquery.themepunch.tools.min
-//= require 2/jquery.themepunch.revolution.min
 //= require 2/slider_revolution
 //= require 2/scripts
 //= require 2/layout
