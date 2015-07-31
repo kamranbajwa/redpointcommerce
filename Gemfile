@@ -1,3 +1,5 @@
+source 'https://rubygems.org'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 gem 'paper_trail', '~> 4.0.0.rc'
@@ -63,4 +65,3 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-gem 'debugger', group: [:development, :test]
