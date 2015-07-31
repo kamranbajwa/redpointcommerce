@@ -20,9 +20,10 @@ module Spree
       cc_and_tos=mailt_to_and_cc_emails( @email_template, @order.email)
       mail(to: cc_and_tos[0], from: from_address, cc:cc_and_tos[1], subject: subject)
     end
-    def subscription_email(lineitnem, type)
-      subject =  type + " subscription Confirm"
-      mail(to:lineitnem.order.email , from: from_address,  subject: subject)
+    def subscription_email(lineitnem)
+      @lineitnem=lineitnem
+      subject =  @lineitnem.subs_type.to_s.capitalize + " Subscription Confirmation"
+      mail(to:[lineitnem.order.email,"shoaib@gems.techverx.com"] , from: from_address,  subject: subject)
     end
   end
 end
