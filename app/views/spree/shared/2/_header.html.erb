@@ -52,7 +52,8 @@
         <nav class="nav-main mega-menu">
           <ul id="topMain" class="nav nav-pills nav-main scroll-menu">
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/"> Home </a> </li>
-            <li class="mega-menu-item mega-menu-two-columns"> <a href="/products"> <%= @selected_template.product_tab ? @selected_template.product_tab.capitalize : "Services"  %> </a> </li>
+            <li class="mega-menu-item mega-menu-two-columns"> <a href="/products"> <%= @selected_template.product_tab ? @selected_template.product_tab.titleize
+ : "Services"  %> </a> </li>
             <!-- Arrange Menus -->   
             <% @customize_pages.each_with_index  do |page, index|%>
                 <% if index >= 1 %>
@@ -63,13 +64,13 @@
                       </a>
                       <ul class="dropdown-menu menu_color">
                   <% end %>
-                        <li><a href="/page/<%= page.slug rescue '' %>"><%= page.title.capitalize%></a></li>
+                        <li><a href="/page/<%= page.slug rescue '' %>"><%= page.title.titleize%></a></li>
                   <% if index+1 == @customize_pages.length %>
                       </ul>
                     </li>
                   <% end %>
                 <% else %>
-                  <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= page.slug rescue ''%>"> <%= page.title.capitalize%> </a> </li>
+                  <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= page.slug rescue ''%>"> <%= page.title.titleize%> </a> </li>
                 <% end %>
             <% end %>
             <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_page.first.try(:slug)%>"> About Us </a> </li>
