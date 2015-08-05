@@ -1,5 +1,26 @@
+ function section_name_update(th, section_id){
+  $.ajax({
+      url: "/admin/sections/update_section_name",
+       type: "PATCH",
+        data: {id: section_id, section_name: th.value},
+      success: function(data){
+          location.reload(true);    
+        
+      },
+      error: function(data){
+       console.log(data)
+      }
+      
+        });
+}
  $(document).ready(function(){
+ $('.inline-name').click(function(){
+    $('.show_section').show();
+    $('.hide_section').hide();
+    $(this).find($('.show_section')).hide();
+     $(this).find($('.hide_section')).show();
 
+   }); //click end
 
  $('#widget_name').change(function(){
     if($(this).val() == "Logo Footer")

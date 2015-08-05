@@ -42,9 +42,8 @@ class Spree::Admin::BlogsController <  Spree::Admin::ResourceController
   # PATCH/PUT /spree/admin/blogs/1.json
   def update
     respond_to do |format| 
-      puts 'sdssdsd', admin_blogs_path
       if @spree_blog.update(spree_blog_params)
-        format.html { redirect_to  admin_blogs_path , notice: 'Spree::Blog Post was successfully updated.' }
+        format.html { redirect_to  admin_blogs_path , notice: 'Blog Post was successfully updated.' }
         format.json { render action: 'index', status: :created, location: @spree_blog }
       else
         format.html { redirect_to edit_admin_blogs_path(@spree_blog), notice: "#{@spree_blog.errors.full_messages.first}" }
