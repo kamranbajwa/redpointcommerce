@@ -103,6 +103,12 @@ tomorrow.setDate(today.getDate()+1);
        
         $("#style_selector_1").slideUp().delay( 180 ).fadeIn( 600 );
     });
+
+    $("#variant_variant_id").on('change', function() {
+      var drop_val = $("#variant_variant_id option:selected").val();
+      $("#variant_id_"+drop_val).prop("checked", true)
+      $("#variant_id_"+drop_val).click();
+    });
     });
 /** @Facebook
 *************************************************** **/
