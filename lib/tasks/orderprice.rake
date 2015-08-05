@@ -17,7 +17,7 @@ include SubscriptionProduct
   task task_weekly: :environment do
     weekly = all_valid_subscription.where("subs_type = ? ", 'weekly')
     weekly.each do |f|
-    is_valid_date = check_valid_date(f, 1.week.ago.to_date)
+    check = check_valid_date(f, 1.week.ago.to_date)
       if check
         subscribe_each_line_itme(f)
     end
