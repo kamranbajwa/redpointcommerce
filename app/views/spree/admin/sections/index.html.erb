@@ -16,13 +16,25 @@
         <tr data-hook="promotion_email_header">
           <th>Name</th>
           <th class="align-center"></th>
+          <th data-hook="admin_products_index_header_actions" class="actions"></th>
         </tr>
       </thead>
       <tbody>              
         <% @sections.each do |section|%>
         <tr data-hook="reports_row">
-          <td class="align-center"><%= section.name %></td>
+          <td class="align-center inline-name" id ="<%=section.id%>" >
+          <div class="show_section">
+          <%= section.name %>
+          </div>
+          <div class="hide_section" style="display:none">
+              <input type="text" name="section_name" value="<%= section.name %>" id ="hide_<%=section.id.to_s%>" onchange="section_name_update( this, <%=section.id%> );" >
+          </div>
+          </td>
+          </div>
           <td style="padding-left:3em; width:30% "> <%= check_box_tag "sections[]", section.name, section.visible %></td>
+           <td class="actions" data-hook="admin_products_index_row_actions">
+            <%= link_to '', edit_admin_section_path(section), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%> 
+          </td>
         </tr>
         <% end %>
       </tbody>

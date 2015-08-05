@@ -46,6 +46,7 @@ SpreeExample::Application.routes.draw do
       resources :return_authorization_reasons
       resources :sections do
         collection { post :update_sections }
+        collection {patch :update_section_name}
       end
       resources :components do
         collection { post :save_colors }
