@@ -88,7 +88,7 @@ def check_account_balnce
     # Show Every Post
     def show_post
        @blog_post_show = Spree::Blog.find_by_permalink(params[:permalink])
-       @title="Blog : "+ @blog_post_show.title
+       @title="Blog : "+ @blog_post_show.try(:title)
     end
     
     # Start Subcription Email 
