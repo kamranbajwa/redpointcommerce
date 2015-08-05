@@ -5030,3 +5030,5 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', en
   .yearly, .monthly, .weekly, select{
 	height: auto
   }
+
+ #product-variants ul li { display: block; float: none !important;}
