@@ -71,6 +71,11 @@
         <%= f.label :variants_including_master_sku_cont, Spree.t(:sku) %>
         <span class="help-block">Sku goes here...</span>
       </div>
+        <div class="form-group form-md-line-input col-md-4">
+        <%= f.text_field :variants_including_master_vendor_sku_cont, :size => 15, class: "form-control" %>
+        <%= f.label :variants_including_master_vendor_sku_cont, Spree.t(:sku) %>
+        <span class="help-block">Vendor Sku goes here...</span>
+      </div>
       <div class="col-md-12">
         <div class="form-group form-md-checkboxes">
           <div clasd="md-checkbox-list">
@@ -116,6 +121,7 @@
         <thead class="flip-content">
          <tr data-hook="admin_products_index_headers">
           <th><%= Spree.t(:sku) %></th>
+           <th>Vendor Sku</th>
           <th colspan="2"><%= sort_link @search,:name, Spree.t(:name), { :default_order => "desc" }, {:title => 'admin_products_listing_name_title'} %></th>
           <th><%= sort_link @search,:master_default_price_amount, Spree.t(:master_price), {}, {:title => 'admin_products_listing_price_title'} %></th>
           <th data-hook="admin_products_index_header_actions" class="actions"></th>
@@ -125,6 +131,7 @@
        <% @collection.each do |product| %>
        <tr <%= "style='color: red;'" if product.deleted? %> id="<%= spree_dom_id product %>" data-hook="admin_products_index_rows" class="<%= cycle('odd', 'even') %>">
         <td class="align-center"><%= product.sku rescue '' %></td>
+         <td class="align-center"><%= product.vendor_sku rescue '' %></td>
         <td class="align-center"><%= mini_image(product) %></td>
         <td><%= link_to product.try(:name), edit_admin_product_path(product) %></td>
         <td class="align-center"><%= product.display_price.to_html rescue '' %></td>

@@ -142,6 +142,7 @@
           <ul class="text_list">
             <% @product.variants.first(5).each do |variant| %>
               <li><%= variant.sku %></li>
+              <li><%= variant.vendor_sku %></li>
             <% end %>
           </ul>
           <% if @product.variants.count > 5 %>
@@ -159,6 +160,12 @@
         <%= f.field_container :sku do %>
           <%= f.label :sku, Spree.t(:sku) %>
           <%= f.text_field :sku, :size => 16 %>
+        <% end %>
+      </div>
+      <div data-hook="admin_product_form_sku">
+        <%= f.field_container :vendor_sku do %>
+          <%= f.label :vendor_sku, Spree.t(:vendor_sku) %>
+          <%= f.text_field :vendor_sku, :size => 16 %>
         <% end %>
       </div>
 

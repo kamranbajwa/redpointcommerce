@@ -22,6 +22,7 @@
         <th colspan="2"><%= Spree.t(:options) %></th>
         <th><%= Spree.t(:price) %></th>
         <th><%= Spree.t(:sku) %></th>
+        <th><%= Spree.t(:vendor_sku) %></th>
         <th class="actions"></th>
       </tr>
       </thead>
@@ -34,6 +35,7 @@
         <td><%= variant.options_text %></td>
         <td class="align-center"><%= variant.display_price.to_html %></td>
         <td class="align-center"><%= variant.sku %></td>
+        <td class="align-center"><%= variant.vendor_sku %></td>
         <td class="actions">
           <%= link_to_edit(variant, :no_text => true) unless variant.deleted? %>
           &nbsp;

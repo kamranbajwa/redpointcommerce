@@ -33,6 +33,10 @@
             <%= f.error_message_on :sku %>
           <% end %>
         </div>
+         <div data-hook="new_product_sku" class="col-md-6">
+            <%= f.label :vendor_sku, Spree.t(:vendor_sku) %><br />
+            <%= f.text_field :vendor_sku, :size => 16, :class => 'form-control' %>
+        </div>
       <% end %>
   </div>
    <div class="row">
