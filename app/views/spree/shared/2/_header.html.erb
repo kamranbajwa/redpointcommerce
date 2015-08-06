@@ -51,34 +51,24 @@
       <div class="navbar-collapse nav-main-collapse collapse pull-right top-nav-bg" style="margin-top: 16px;">
         <nav class="nav-main mega-menu">
           <ul id="topMain" class="nav nav-pills nav-main scroll-menu">
-            <li class="mega-menu-item mega-menu-two-columns"> <a href="/"> Home </a> </li>
-            <li class="mega-menu-item mega-menu-two-columns"> <a href="/products"> <%= @selected_template.product_tab ? @selected_template.product_tab.titleize
- : "Services"  %> </a> </li>
-            <!-- Arrange Menus -->   
             <% @customize_pages.each_with_index  do |page, index|%>
-                <% if index >= 1 %>
-                  <% if index == 1 %>
+                <% if index >= 5 %>
+                  <% if index == 5 %>
                     <li class="dropdown">
                       <a class="dropdown-toggle" href="#">
                           More <i class="fa fa-angle-down"></i>
                       </a>
                       <ul class="dropdown-menu menu_color">
                   <% end %>
-                        <li><a href="/page/<%= page.slug rescue '' %>"><%= page.title.titleize%></a></li>
+                        <li><a href="<%= set_paths(page) %>"><%= page.title.titleize%></a></li>
                   <% if index+1 == @customize_pages.length %>
                       </ul>
                     </li>
                   <% end %>
                 <% else %>
-                  <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= page.slug rescue ''%>"> <%= page.title.titleize%> </a> </li>
+                  <li class="mega-menu-item mega-menu-two-columns"> <a href="<%= set_paths(page) %>"> <%= page.title.titleize%> </a> </li>
                 <% end %>
             <% end %>
-            <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_page.first.try(:slug)%>"> About Us </a> </li>
-            <li class="mega-menu-item mega-menu-two-columns"> <a href="/contact-us"> Contact Us </a> </li>
-            <!--Blog link -->
-            <li class="mega-menu-item mega-menu-two-columns"> <a href="/blog">Blog</a></li>
-            
-            <!-- GLOBAL SEARCH -->
             <li class="search phone-hide"> 
               <!-- search form -->
               <%= form_tag spree.products_path, class: "input-group pull-right",:method => :get do %>
@@ -100,15 +90,6 @@
 
             </a>
           </li>
-            
-         
-        
-              <li>
-                
-              </li>
-        
-            <!-- /QUICK SHOP CART -->
-            
           </ul>
         </nav>
       </div></div>

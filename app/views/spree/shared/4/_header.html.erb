@@ -45,31 +45,25 @@
 
               </a> </div>
                             <ul id="menu" class="list-unstyled">
-                <li><a href="/">HOME</a></li>
                 <% @customize_pages.each_with_index  do |page, index|%>
-                <% if index >= 1 %>
+                <% if index >= 5 %>
                 
-                <% if index == 1 %>
+                <% if index == 5 %>
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1" href="#" aria-expanded="true">
                     More <i class="fa fa-angle-down"></i>
                   </a>
                   <ul class="dropdown-menu"  role="menu" aria-labelledby="dropdownMenu1">
                     <% end %>
-                    <li><a href="/page/<%= slug rescue '' %>"><%= page.title.upcase%></a></li>
+                    <li><a href="<%= set_paths(page) %>"><%= page.title.upcase%></a></li>
                     <% if index+1 == @customize_pages.length %>
                   </ul>
                 </li>
                 <% end %>
                 <% else %>
-                <li> <a href="/page/<%= page.slug rescue '' %>"> <%= page.title.upcase%> </a> </li>
+                <li> <a href="<%= set_paths(page) %>"> <%= page.title.upcase%> </a> </li>
                 <% end %>
                 <% end %>
-                <li class="mega-menu-item mega-menu-two-columns"> 
-                <a href="/page/<%= @about_page.first.try(:slug)%>"> ABOUT US </a> </li>
-                <li><a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab.upcase : "PRODUCTS"  %></a></li>
-                <li><a href="/blog">BLOG</a></li>
-                <li><a href="/contact-us">CONTACT US</a></li>
                 <span class="mobile-view">
                  <% if spree_user_signed_in? %>
                 <li><a href="/account">My Account</a></li>
@@ -105,30 +99,24 @@
               <nav class="navbar navbar-default">
                 <div>
                   <ul class="nav navbar-nav navbar-right">
-                    <li class=""><a href="/">HOME</a></li>
-                    <li><a href='/products'><%= @selected_template.product_tab ? @selected_template.product_tab.upcase : "PRODUCTS"  %></a></li>
-                    <li><a href="/blog">BLOG</a></li>
-                    <li><a href="/contact-us">CONTACT US</a></li>
                     <% @customize_pages.each_with_index  do |page, index|%>
-                    <% if index >= 1 %>
-                    <% if index == 1 %>
+                    <% if index >= 5 %>
+                    <% if index == 5 %>
                     <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1" href="#" aria-expanded="true">
                         MORE <i class="fa fa-angle-down"></i>
                       </a>
                       <ul class="dropdown-menu"  role="menu" aria-labelledby="dropdownMenu1">
                         <% end %>
-                        <li><a href="/page/<%= page.slug rescue '' %>"><%= page.title.upcase%></a></li>
+                        <li><a href="<%= set_paths(page) %>"><%= page.title.upcase%></a></li>
                         <% if index+1 == @customize_pages.length %>
                       </ul>
                     </li>
                     <% end %>
                     <% else %>
-                    <li> <a href="/page/<%= page.slug rescue '' %>"> <%= page.title.upcase%> </a> </li>
+                    <li> <a href="<%= set_paths(page) %>"> <%= page.title.upcase%> </a> </li>
                     <% end %>
                     <% end %>
-                    <li class="mega-menu-item mega-menu-two-columns"> <a href="/page/<%= @about_page.first.try(:slug)%>"> ABOUT US </a> </li>
-
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
               

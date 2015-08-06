@@ -32,6 +32,19 @@ module Spree
         return v[0].to_s+" "+v[1].to_s
       end
   end
+    def set_paths(page)
+      if page.default_string == 'home'
+        return '/'
+      elsif page.default_string == 'product'
+        return '/product'
+      elsif page.default_string == 'blog'
+        return '/blog'
+      elsif page.default_string == 'contact'
+        return '/contact-us'
+      else
+        return "/page/#{page.slug}"
+      end
+    end
     def is_active?(link_path)
     current_page?(link_path) ? "active" : ""
     end

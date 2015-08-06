@@ -54,12 +54,12 @@
        
         
           <center>
-            <span class="menu-sep"><a class="active" href="/">Home</a> </span> 
-            <span class="menu-sep"><a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab.upcase : "SERVICES"  %></a> </span>
+            <!-- <span class="menu-sep"><a class="active" href="/">Home</a> </span> 
+            <span class="menu-sep"><a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab.upcase : "SERVICES"  %></a> </span> -->
 
              <% @customize_pages.each_with_index  do |page, index|%>
-                <% if index >= 1 %>
-                  <% if index == 1 %>
+                <% if index >= 5 %>
+                  <% if index == 5 %>
                   <span class="nav-menu pull-right" >
                     <ul class="nav navbar-nav" style="margin-top:0px;">
                       <li class="more-li">
@@ -68,7 +68,7 @@
                         </a>
                         <ul class="sub-menu">
                   <% end %>
-                       <li class="menu-sep"><a href="/page/<%= page.slug rescue '' %>"><%= page.title.upcase rescue ''%></a></li>
+                       <li class="menu-sep"><a href="<%= set_paths(page) %>"><%= page.title.upcase rescue ''%></a></li>
                   <% if index+1 == @customize_pages.length %>
                         </ul>
                       </li>
@@ -76,12 +76,12 @@
                   </span>
                   <% end %>
                 <% else %>
-                  <span class="menu-sep"><a href="/page/<%= page.slug %>"> <%= page.title.upcase rescue ''%></a></span>
+                  <span class="menu-sep"><a href="<%= set_paths(page) %>"> <%= page.title.upcase rescue ''%></a></span>
                 <% end %>
             <% end %>
-            <span class="menu-sep"> <a href="/page/<%= @about_page.first.try(:slug)%>"> About Us </a></span>
-            <span class="menu-sep"><a href="/contact-us"> Contact Us</a></span>
-            <span class="menu-sep"><a href="/blog">Blog</a></span>
+            <!-- <span class="menu-sep"> <a href="/page/<%= @about_page.first.try(:slug)%>"> About Us </a></span> -->
+          <!--   <span class="menu-sep"><a href="/contact-us"> Contact Us</a></span>
+            <span class="menu-sep"><a href="/blog">Blog</a></span> -->
           </center>
         </div>
         
@@ -120,20 +120,15 @@
       <div class="col-sm-10 col-md-10 col-lg-10">
         <nav class="nav-menu">
           <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/products"><%= @selected_template.try(:product_tab).try(:upcase) ? @selected_template.product_tab : "Services"  %></a></li>
-             <li><a href="/page/<%= @about_page.first.try(:slug)%>">ABOUT US</a></li>
-            <li><a href="/contact-us"> Contact Us</a> </li>
              <% @customize_pages.each_with_index  do |page, index|%>
-                <% if index >= 1 %>
-                  <% if index == 1 %>
+                <% if index >= 5 %>
+                  <% if index == 5 %>
                    <li>
                      <a href="#" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent;">More</a>
                      <ul class="sub-menu" style="display: none;">
                   <% end %>
-                        <li><a href="/page/<%= page.slug rescue '' %>"><%= page.title.upcase%></a></li>
+                        <li><a href="<%= set_paths(page) %>"><%= page.title.upcase%></a></li>
                         <% if index == 2 %>
-                        <li><a href="/blog">Blog</a></li>
                         <%end%>
                   <% if index+1 == @customize_pages.length %>
                       </ul>
@@ -141,7 +136,7 @@
                    
                   <% end %>
                 <% else %>
-                <li><a href="/page/<%= page.slug %>"><%= page.title.upcase rescue ''%></a> </li>
+                <li><a href="<%= set_paths(page) %>"><%= page.title.upcase rescue ''%></a> </li>
                 <% end %>
             <% end %>
 

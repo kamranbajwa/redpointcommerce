@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     @home_content = @selected_template.cms_pages.find_by_title("Home") rescue nil
   end
   def customize_pages
-    @customize_pages = @cms_pages.reject { |h| h['title'] == "Home" || h['title'] == "About us" || h['title'] == "about us" || h['title'] == "About Us" }
+    @customize_pages = @cms_pages
     @about_page = Spree::CmsPage.all.select { |h| h['title'] == "About us" || h['title'] == "About Us" || h['title'] == "about us"  }
   end
   def static_pages

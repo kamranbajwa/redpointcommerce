@@ -16,6 +16,7 @@
     <br>
     <%= f.text_field :title, class: "form-control", required: true %>
   </div>
+  <% unless @cms_page.check_default? %>
   <div class="field" data-hook="admin_general_setting_input_meta_keywords" >
     <label for="store_name">Select Template</label>
     <br>
@@ -58,6 +59,7 @@
   <br>
   <%= f.text_field :meta_description, class: "form-control" %>
 </div>
+<% end %>
   </div>
   <div class="form-buttons filter-actions actions form-actions" data-hook="buttons">
  <a class="btn blue " href="javascript:void(0)" onclick="window.history.back();"><span class="text" >Back</span></a>

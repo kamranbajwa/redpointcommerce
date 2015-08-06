@@ -4541,3 +4541,4 @@ body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom
   padding-bottom: 0px;
   border-radius: 5px;}
 ul#products li .price { height: 38px; }
+.sub-menu li { float: none !important;}
