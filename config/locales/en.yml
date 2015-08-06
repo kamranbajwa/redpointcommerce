@@ -140,6 +140,7 @@ en:
         height: Height
         price: Price
         sku: SKU
+        vendor_sku: Vendor Sku
         weight: Weight
         width: Width
       spree/zone:
