@@ -87,6 +87,7 @@ var tomorrow = new Date();
 tomorrow.setDate(today.getDate()+1);
     $("#datepicker").datepicker({
   forceParse: false,
+   format: 'mm/dd/yyyy',
   autoclose: true,
   startDate: tomorrow,
   todayHighlight: true 
