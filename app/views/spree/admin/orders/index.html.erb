@@ -146,7 +146,8 @@
           <td>
             <%=order.bill_address.first_name rescue ''%>
           </td>
-          <td class="align-center"><%= l (@show_only_completed ? order.completed_at : order.created_at).to_date %></td>
+          <td class="align-center"><%= (@show_only_completed ? order.completed_at : order.created_at).to_date.strftime("%m/%d/%Y")
+ %></td>
           <td class="align-center"><%= link_to order.number, cart_admin_order_url(order) %></td>
           <td class="align-center"><span class="state <%= order.considered_risky ? 'considered_risky' : 'considered_safe' %>"></span></td>
           <td class="align-center"><span class="state <%= order.state.downcase %>"><%= Spree.t("order_state.#{order.state.downcase}") %></span></td>

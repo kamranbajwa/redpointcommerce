@@ -12,6 +12,10 @@
       <%= f.label :sku, Spree.t(:sku) %>
       <%= f.text_field :sku, :class => 'fullwidth' %>
     </div>
+    <div class="field" data-hook="sku">
+      <%= f.label :vendor_sku,Spree.t(:vendor_sku) %>
+      <%= f.text_field :vendor_sku, :class => 'fullwidth' %>
+    </div>
 
     <div class="field" data-hook="price">
       <%= f.label :price, Spree.t(:price) %>
