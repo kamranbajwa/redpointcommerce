@@ -36,7 +36,7 @@ module Spree
       if page.default_string == 'home'
         return '/'
       elsif page.default_string == 'product'
-        return '/product'
+        return '/products'
       elsif page.default_string == 'blog'
         return '/blog'
       elsif page.default_string == 'contact'

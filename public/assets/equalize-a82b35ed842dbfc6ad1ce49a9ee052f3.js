@@ -1,0 +1,1 @@
+!function(i){i.fn.equalize=function(n){var t=this,n=n||"height",e=n.indexOf("eight")>0?"height":"width";return i.isFunction(i.fn[n])?t.each(function(){var t=i(this).children(),h=0;t.each(function(){var t=i(this)[n]();t>h&&(h=t)}),t.css(e,h+"px")}):!1}}(jQuery,window,document);
