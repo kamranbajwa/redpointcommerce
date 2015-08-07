@@ -48,10 +48,10 @@
   </table>
 <% end %>
 <script type="text/javascript">
-  $(".fa-edit").click(function(){
-    setTimeout(show_edit_field, 50);
+   $(".fa-edit").click(function(){
+    $this = $(this);
+    setTimeout(function(){
+      $this.parent().siblings().filter(".line-item-qty-edit").removeClass("hidden");
+    }, 100);
   });
-  function show_edit_field() {
-    $(".line-item-qty-edit").removeClass("hidden");
-  }
 </script>
