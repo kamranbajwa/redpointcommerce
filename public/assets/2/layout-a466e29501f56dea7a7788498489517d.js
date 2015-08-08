@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#datepicker").datepicker({forceParse:!1,autoclose:!0}),$("#myformcart").submit(function(){$("#myModal").hide(),$(".a-unique-class").html(" "),$(".alert-success").show(),setTimeout(function(){$(".alert-success").hide()},3e3)}),$(".add_to_cart").click(function(){$("#myModal").show()})});
