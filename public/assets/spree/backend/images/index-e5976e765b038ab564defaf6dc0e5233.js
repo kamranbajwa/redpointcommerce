@@ -1,1 +1,0 @@
-(function(){$(function(){return $("#new_image_link").click(function(t){return t.preventDefault(),$(".no-objects-found").hide(),$(this).hide(),$.ajax({type:"GET",url:this.href,data:{authenticity_token:AUTH_TOKEN},success:function(t){return $("#images").html(t),$(".select2").select2()}})})})}).call(this);
