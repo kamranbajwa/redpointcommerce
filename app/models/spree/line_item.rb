@@ -49,7 +49,7 @@ module Spree
           elsif user_role == "WholeSaler"
             self.price = variant.dealer_price rescue variant.price
           else
-            self.price = varFViant.price if price.nil?
+            self.price = variant.price if price.nil?
           end
         end
        
@@ -82,7 +82,7 @@ module Spree
     def set_subscrition_date
       if subscription_type=="daily"
               date_arr=date_value.split('/') rescue ''
-      date_arr=(date_arr[1]+"/"+date_arr[0]+"/"+date_arr[2]).to_s rescue ''
+      date_arr=(date_arr[2]+"/"+date_arr[0]+"/"+date_arr[1]).to_s rescue ''
       self.subs_date = date_arr.to_datetime rescue '12/12/2012'
       else
         self.subs_date = date_value.to_datetime rescue '12/12/2012'     
