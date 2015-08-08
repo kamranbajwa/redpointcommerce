@@ -15,4 +15,13 @@ class Spree::Admin::ImportsController < Spree::Admin::ResourceController
 	  		redirect_to :back, notice: "Invalid data in csv."
 	  	end
   	end
+  	def variants_import
+  		begin
+			product=Spree::Product.friendly.find(params[:product_id])
+				Spree::Import.var_import(params[:file],product)
+				redirect_to :back, notice: "CSV imported scuccessfuly."
+				rescue
+				redirect_to :back, notice: "Invalid data in csv."
+			end	
+  	end
 end

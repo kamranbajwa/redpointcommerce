@@ -40,6 +40,7 @@ SpreeExample::Application.routes.draw do
       resources :imports do
         collection { post :p_import }
         collection { post :cat_import }
+        collection {post :variants_import }
       end
       resources :favicons 
       resources :widgets
