@@ -28,21 +28,21 @@
 
 
                <span class="daily price styleSecondColor fsize20"><input type=""  name="date" id="datepicker" class=""  onkeypress="return false"></span>
-               <span class="weekly price styleSecondColor fsize20"><%= select_tag "date", options_for_select({
+               <span class="weekly price styleSecondColor fsize20"><%= select_tag "date_week", options_for_select({
                 "1 week"   =>  1.weeks.from_now,
                 "2 week"   => 2.weeks.from_now,   
                 "3 week"  => 3.weeks.from_now,  
                 "4 week" => 4.weeks.from_now,
                 "5 week"   => 5.weeks.from_now,
               }) %></span>
-              <span class="monthly price styleSecondColor fsize20"><%= select_tag "date", options_for_select({
+              <span class="monthly price styleSecondColor fsize20"><%= select_tag "date_month", options_for_select({
                 "1 Month"  => 1.month.from_now,
                 "2 Month"  => 2.months.from_now,   
                 "3 Month"  => 3.months.from_now,  
                 "4 Month"  => 4.months.from_now,
                 "5 Month"  => 5.months.from_now,
               }) %></span>
-               <span class="yearly price styleSecondColor fsize20"><%= select_tag "date", options_for_select({
+               <span class="yearly price styleSecondColor fsize20"><%= select_tag "date_year", options_for_select({
                 "1 Year"  =>  1.years.from_now,
                 "2 Year"  =>  2.years.from_now,
                 "3 Year"  =>  3.years.from_now, 

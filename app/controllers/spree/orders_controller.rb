@@ -48,8 +48,16 @@ module Spree
       if variant.product.subscription and params[:subscription]
         params[:options] = {} unless  params[:options]
         params[:options][:subscription] = params[:subscription]
-        Spree::LineItem.subscription_type = params[:subscription]
-        Spree::LineItem.date_value = params[:date]
+        type=Spree::LineItem.subscription_type = params[:subscription]
+        if type and type =="weekly"
+        Spree::LineItem.date_value = params[:date_week]
+        elsif type=="monthly"
+              Spree::LineItem.date_value = params[:date_month]
+            elsif type=="yearly"
+              Spree::LineItem.date_value = params[:date_yearly]
+              else
+                Spree::LineItem.date_value = params[:date]
+              end
       end
       populator = Spree::OrderPopulator.new(current_order(create_order_if_necessary: true), current_currency)
       if populator.populate(params[:variant_id], params[:quantity], params[:options])

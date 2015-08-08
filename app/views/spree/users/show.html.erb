@@ -16,7 +16,7 @@ text-align: center !important;
       <dd><%= @user.email %> (<%= link_to Spree.t(:edit), spree.edit_account_path %>)</dd>
       <%if @user.purchase_on_account==true%>
       <dt>Account Info</dt>
-       <dd>Your current Balance is: <b>$<%=@user.curr_acc_blnc%> as of <%=@user.balnce_date%></b></dd>
+       <dd>Your current Balance is: <b>$<%=@user.curr_acc_blnc%> as of <%=@user.balnce_date.strftime("%m/%d/%Y")%></b></dd>
        <%if current_order%>
        <dd>Your balance after order: <b>$<%=@user.curr_acc_blnc.to_f-current_order.total rescue ''%></b></dd>
        <%end%>

@@ -1,5 +1,32 @@
 module Spree
 class Import < Spree::Base
+  def self.var_import(file,product)
+  CSV.foreach(file.path,headers: true) do |row|
+    variant_params =row.to_hash
+    puts row.to_hash
+    option_types= variant_params['option_Type']
+    option_types= option_types.split(',')
+    option_types_representation=variant_params['option_type_display'].split(',')
+    option_values_name=variant_params['option_Type_values'].split(',')
+    option_values_display=variant_params['option_Type_values_display'].split(',')
+    option_types.each_with_index do  |name, index|
+      opt=Spree::OptionType.where({:name=> name,:presentation=>option_types_representation[index]}).first_or_create
+      #opt=Spree::OptionType.where({"lower(name) = ? and lower(presentation) = ?", name.downcase,option_types_representation[index].downcase}).first_or_create
+      opv=opt.option_values.where({:name => option_values_name[index] , :presentation=> option_values_display[index]}).first_or_create
+      unless product.option_types.include?(opt)
+          product.option_types << opt
+          product.save
+        end
+      end #end of option type assign loop
+      varnts= Spree::Variant.where(:product_id=> product.id,:sku=>variant_params['variant_sku'],:cost_price=>variant_params['variant_price'],:vendor_sku=>variant_params['variant_vendor_sku'],:width=>variant_params['variant_width'],:height=>variant_params['variant_height'],:depth=>variant_params['variant_depth'])
+        if varnts.length == 0
+        
+          Spree::Variant.create(:product_id=> product.id,:sku=>variant_params['variant_sku'],:cost_price=>variant_params['variant_price'],:vendor_sku=>variant_params['variant_vendor_sku'],:width=>variant_params['variant_width'],:height=>variant_params['variant_height'],:depth=>variant_params['variant_depth'])
+         
+         end
+        #product.variants.where(:sku=>variant_params['variant_sku'],:cost_price=>variant_params['variant_price'],:vendor_sku=>variant_params['variant_vendor_sku'],:width=>variant_params['variant_width'],:height=>variant_params['variant_height'],:depth=>variant_params['variant_depth']).first_or_create
+  end
+end
 	def self.prodcut_import(file)
   		CSV.foreach(file.path, headers: true) do |row|
   			product_params=row.to_hash
