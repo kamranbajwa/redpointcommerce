@@ -32,6 +32,9 @@ class V1::ApiController < ApplicationController
     end
   end
 
+  def add_product
+  end
+
   private
 
   def check_params
