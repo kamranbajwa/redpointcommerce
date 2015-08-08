@@ -306,8 +306,8 @@ def link_to_remove_fields_o(name, f)
             end
 
             def pretty_time(time)
-              [I18n.l(time.to_date, format: :long),
-                time.strftime("%l:%M %p")].join(" ")
+              [(time.to_date.strftime("%m/%d/%Y")),
+                time.utc.strftime("%H:%M:%S")].join(" ")
             end
 
             def method_missing(method_name, *args, &block)
