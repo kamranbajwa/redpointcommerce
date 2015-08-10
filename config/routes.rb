@@ -20,7 +20,7 @@ SpreeExample::Application.routes.draw do
   get 'v1/api/orders',      :to => 'v1/api#orders'
   get 'v1/api/products',      :to => 'v1/api#products'
   get 'v1/api/customers',      :to => 'v1/api#customers'
-  get 'v1/api/add_product',      :to => 'v1/api#add_product'
+  post 'v1/api/add_product',      :to => 'v1/api#add_product'
   # subscription email
   post '/subcription' , :to =>'spree/statics#subcriptions'
   post '/account_charge', :to => 'spree/statics#account_charge'
