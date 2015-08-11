@@ -16,7 +16,7 @@
           <li class="shopping-icon"> <a href="/cart"> <i class="fa fa-shopping-cart"></i> <span class="number-amount"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span> </a> </li>
           <li><a href="/">home</a></li>
           <li><a href="/page/<%= @about_page.first.try(:slug)%>">ABOUT US</a></li>
-          <li><a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab.upcase : "SERVICES"  %></a></li>
+          <li><a href="/products">Product</a></li>
           <li><a href="/contact-us"> CONTACT US</a></li>
            <% if spree_user_signed_in? %>
            <li> <%=  link_to 'Sign Out', spree_logout_path %></li>
@@ -54,8 +54,7 @@
        
         
           <center>
-            <!-- <span class="menu-sep"><a class="active" href="/">Home</a> </span> 
-            <span class="menu-sep"><a href="/products"><%= @selected_template.product_tab ? @selected_template.product_tab.upcase : "SERVICES"  %></a> </span> -->
+       
 
              <% @customize_pages.each_with_index  do |page, index|%>
                 <% if index >= 5 %>

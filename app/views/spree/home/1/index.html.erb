@@ -156,7 +156,7 @@
       </div><!-- /.wide-banners -->
 
       <section class="section wow fadeInUp" style="display: <%= is_visible('section_2')%>">
-        <h3 class="section-title" style="margin-left: 24px;">Products</h3>
+        <h3 class="section-title" style="margin-left: 24px;"><%=section_name("section_2") rescue 'Products'%></h3>
         <div class="product-grid" id="products-gallery">
           <%= render :partial => "spree/shared/#{@selected_template.template_no}/products", :locals => { :products => @products } %>
         </div><!-- /.product-grid -->

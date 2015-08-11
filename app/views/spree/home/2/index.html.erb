@@ -115,7 +115,7 @@
     <!-- CAROUSEL -->
     <section style="margin-top:5%; display: <%= is_visible('section_2')%>" class="container">
       <div class="row">
-        <h3 class="text-center">Our Most Popular Services</h3>
+        <h3 class="text-center"><%=section_name("section_2") rescue 'Our Most Popular Services'%></h3>
         <hr>
           <%= render :partial => "/spree/shared/#{@selected_template.template_no}/products", :locals => { :products => @products, :taxon => @taxon } %>
   
@@ -134,7 +134,7 @@
             <div class="col-lg-9"> <span style="">
               <h4>We are waiting for you. Please make an Appointment here</h4>
               </span></div>
-            <div style="text-align:right" class="col-lg-3 pull-right"><a href="/contact-us" class="btn btn-primary btn-lg">Appointment</a></div>
+            <div style="text-align:right" class="col-lg-3 pull-right"><a href="/contact-us" class="btn btn-primary btn-lg"><%=section_name("section_4") rescue 'Appointment' %></a></div>
           </div>
         </div>
       </div>

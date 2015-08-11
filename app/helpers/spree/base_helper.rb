@@ -1,5 +1,8 @@
 module Spree
   module BaseHelper
+    def section_name(default_name)
+      return @template_sections.find_by_default_name(default_name).name.upcase 
+    end
     def radio_variant_display
      if @selected_template.variant_display_type
       return false

@@ -65,7 +65,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="slogan-section animated fadeInUp clearfix ae-animation-fadeInUp">
-          <h2 class="blue-color"> Medical<span> & </span> Healthy </h2>
+          <h2 class="blue-color"> <%=section_name("section_1") rescue ("Medical<span> & </span> Healthy ").html_safe%></h2>
         </div>
       </div>
       <% @static_pages.take(3).each do |s_page| %>
@@ -87,7 +87,7 @@
 <div class="home-doctors  clearfix">
   <div class="container">
     <div class="col-md-9 text-left" id="section_2" style="display: <%= is_visible('section_2')%>">
-      <h4 >DEPARTMENTS</h4>
+      <h4 ><%= section_name("section_2") rescue 'DEPARTMENTS'%></h4>
       <% @default_pages.try(:each) do |d_page| %>
       <div class="col-md-6">
         <% if d_page.avatar.exists?(:home_image) %>
@@ -103,7 +103,7 @@
       <% end %>
     </div>
     <div class="col-md-3 text-center" id="section_3" style="display: <%= is_visible('section_3')%>">
-      <h4>MEET THE DOCTOR</h4>
+      <h4><%=section_name("section_3") rescue "MEET THE DOCTOR"%></h4>
       <div class="img-responsive"> <img class="img-circle" src="/assets/<%= @selected_template.template_no%>/temp-images/author-11-130x130.jpg" alt="" draggable="false"> </div>
       <h4>Nutritional Personal Consultation</h4>
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
@@ -118,7 +118,7 @@
 <div class="home-blog text-center clearfix" style="display: <%= is_visible('section_5')%>">
   <div class="container">
     <div class="slogan-section animated  clearfix">
-      <h2>Latest News from <span>Health and Medical</span></h2>
+      <h2><%=section_name("section_5") rescue  "Latest News from <span>Health and Medical</span".html_safe%></h2>
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
     </div>
     <div class="row">
@@ -159,7 +159,7 @@
 <div class="home-blog  clearfix" style="display: <%= is_visible('section_4')%>">
   <div class="container">
     <div class="slogan-section animated  clearfix">
-      <h2>FROM <span>THE BLOGS</span></h2>
+      <h2><%=section_name("section_4") rescue "FROM <span>THE BLOGS></span".html_safe%></h2>
       <div class="col-md-12">
       <% @blog_post.take(3).each do |f|%>
         <div class="col-md-4 text-left">
