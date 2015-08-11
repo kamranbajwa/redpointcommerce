@@ -1,6 +1,6 @@
 class V1::ApiController < ApplicationController
-  # before_action :check_params, :authenticate_user
-  # before_action :check_date
+  before_action :check_params, :authenticate_user
+  before_action :check_date
 
   # // v1/api/products
   def products
@@ -75,10 +75,6 @@ class V1::ApiController < ApplicationController
       @msg = {'error' => 'Please provide auth token and secret'}
       json_response(@msg)
     end
-  end
-
-  def check_empty_params(hash)
-
   end
 
   def authenticate_user
