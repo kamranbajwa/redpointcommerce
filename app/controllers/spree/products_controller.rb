@@ -10,7 +10,7 @@ module Spree
     respond_to :html
 
     def index
-      @title = @selected_template.product_tab ? @selected_template.product_tab : "Services"
+    @title = (Spree::CmsPage.find_by_default_string "product").title rescue "Services"
       
       @taxonomies = Spree::Taxonomy.all
       render :template => "/spree/shared/#{@selected_template.template_no}/products_index.html.erb", :locals => {:products => @products,:taxonomies => @taxonomies, :searcher => @searcher, :taxon =>@taxon }
@@ -28,7 +28,8 @@ module Spree
       else
         @simlier_product = @products.limit 4 
       end
-      @title= @selected_template.product_tab ? "#{@selected_template.product_tab}" ": "+ "#{@product.name}" : "Services: "+ @product.name
+      @title=@Product.name rescue ''
+      #@title= @selected_template.product_tab ? "#{@selected_template.product_tab}" ": "+ "#{@product.name}" : "Services: "+ @product.name
 
     end
 

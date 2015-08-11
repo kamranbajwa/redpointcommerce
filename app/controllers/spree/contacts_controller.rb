@@ -1,6 +1,7 @@
 module Spree
 class ContactsController < Spree::StoreController
  def new
+@title= (Spree::CmsPage.find_by_default_string "contact").title rescue "contact us"
   @title="contact us"
     @message = Spree::Message.new
     @org=Spree::Organization.first

@@ -45,7 +45,7 @@ class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
     @template = Spree::Template.find(params[:id])
     @template.selected = true
     @template.theme_color = params[:template][:theme_color]
-    @template.product_tab = params[:template][:product_tab]
+    @template.variant_display_type = params[:template][:variant_display_type]
     @template.is_allowed_custom_theme = params[:template][:is_allowed_custom_theme]
     respond_to do |format|
       if @template.save!
@@ -80,7 +80,7 @@ class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def template_params
-      params.require(:template).permit(:selected,:theme_color,:template_no,:name, :product_tab, :is_allowed_custom_theme)
+      params.require(:template).permit(:selected,:theme_color,:template_no,:name, :variant_display_type, :is_allowed_custom_theme)
       #params[:template]
     end
 end

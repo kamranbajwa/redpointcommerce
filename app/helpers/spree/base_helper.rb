@@ -1,5 +1,12 @@
 module Spree
   module BaseHelper
+    def radio_variant_display
+     if @selected_template.variant_display_type
+      return false
+      else
+        return true
+      end
+    end
     def address_name(k)
       if k=="address1"
         return "Billing Address"
@@ -135,8 +142,14 @@ def link_to_remove_fields_o(name, f)
 
     # human readable list of variant options
     def variant_options(v, options={})
-      v.options_text
+      #content_tag(:ul, :class => "list")
+     # v.options_text
+      if variant_price v 
+           v.options_text.to_s + " " + (variant_price v).to_s
+      else
+        v.options_text
     end
+  end
 
     def meta_data
       object = instance_variable_get('@'+controller_name.singularize)

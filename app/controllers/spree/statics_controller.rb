@@ -46,7 +46,7 @@ def check_account_balnce
     end
     # Get Blog Main Page
     def blog
-      @title="Blog"
+      @title= (Spree::CmsPage.find_by_default_string "blog").title rescue "Blog"
     end
     def account_charge
       token = params[:stripe_card_token]
