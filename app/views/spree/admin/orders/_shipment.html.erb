@@ -36,7 +36,7 @@
       <%= render 'spree/admin/orders/shipment_manifest', shipment: shipment %>
 
       <% unless shipment.shipped? %>
-        <tr class="edit-method hidden total">
+        <tr class="edit-method hidden total edit-shipment-method">
           <td colspan="5">
             <div class="field alpha five columns">
               <%= label_tag 'selected_shipping_rate_id', Spree.t(:shipping_method) %>
@@ -76,7 +76,7 @@
         </tr>
 
 
-      <tr class="edit-tracking hidden total">
+      <tr class="edit-tracking hidden total edit-tracking-new">
         <td colspan="5">
           <label><%= Spree.t(:tracking_number) %>:</label>
           <%= text_field_tag :tracking, shipment.tracking %>

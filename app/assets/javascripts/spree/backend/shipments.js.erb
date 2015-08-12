@@ -112,7 +112,7 @@ $(document).ready(function () {
     event.preventDefault();
 
     var link = $(this);
-    link.parents('tbody').find('tr.edit-tracking').toggle();
+    link.parents('tbody').find('tr.edit-tracking').removeClass("hidden");
     link.parents('tbody').find('tr.show-tracking').toggle();
   }
 
@@ -181,7 +181,7 @@ adjustShipmentItems = function(shipment_number, variant_id, quantity){
 
 toggleMethodEdit = function(){
   var link = $(this);
-  link.parents('tbody').find('tr.edit-method').toggle();
+  link.parents('tbody').find('tr.edit-method').removeClass("hidden");
   link.parents('tbody').find('tr.show-method').toggle();
 
   return false;
