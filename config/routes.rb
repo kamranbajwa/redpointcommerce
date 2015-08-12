@@ -35,6 +35,9 @@ SpreeExample::Application.routes.draw do
   # resources :themes
   # end
   Spree::Core::Engine.add_routes do
+    namespace :api, defaults: { format: 'json' } do
+      resources :line_items
+    end
     namespace :admin do
       resources :dashboard
       resources :logos

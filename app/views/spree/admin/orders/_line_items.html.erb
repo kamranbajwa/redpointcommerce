@@ -26,7 +26,10 @@
             <strong><%= Spree.t(:sku) %>:</strong> <%= item.variant.sku %>
             <% end %>
           </td>
-          <td class="line-item-price align-center"><%= item.single_money.to_html %></td>
+          <td class="line-item-price align-center line-item-qty-show align-center"><%= item.price %></td>
+          <td class="line-item-price-edit hidden">
+            <%= number_field_tag :price, item.price, :min => 0, :class => "line_item_price" %>
+          </td>
           <td class="line-item-qty-show align-center">
             <%= item.quantity %>
           </td>
@@ -47,11 +50,3 @@
     </tbody>
   </table>
 <% end %>
-<script type="text/javascript">
-   $(".fa-edit").click(function(){
-    $this = $(this);
-    setTimeout(function(){
-      $this.parent().siblings().filter(".line-item-qty-edit").removeClass("hidden");
-    }, 100);
-  });
-</script>
