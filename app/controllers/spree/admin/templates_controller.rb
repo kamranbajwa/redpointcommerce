@@ -40,6 +40,7 @@ class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
 
   # PATCH/PUT /templates/1
   # PATCH/PUT /templates/1.json
+
   def update
     Spree::Template.update_all(:selected => false)
     @template = Spree::Template.find(params[:id])
@@ -47,6 +48,7 @@ class Spree::Admin::TemplatesController < Spree::Admin::ResourceController
     @template.theme_color = params[:template][:theme_color]
     @template.variant_display_type = params[:template][:variant_display_type]
     @template.is_allowed_custom_theme = params[:template][:is_allowed_custom_theme]
+    
     respond_to do |format|
       if @template.save!
         format.html { redirect_to admin_templates_path, notice: 'Template was successfully updated.' }
