@@ -34,7 +34,7 @@
     vertical-align: middle;
 " rowspan="<%= o.versions.length %>"><%= o.number%></td>
           <% end %>
-        <td class="align-center"><%=v.created_at.to_time rescue ''%></td>
+        <td class="align-center"><%=pretty_time(v.created_at)%></td>
         <td class="">
             <table>
         <%v.changeset.each do |k,v|%>

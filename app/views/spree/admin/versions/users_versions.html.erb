@@ -24,7 +24,7 @@
       <tbody>
         <% @usr.versions.each do |v| %>
         <tr id="" data-hook="admin_products_index_rows" class="odd">
-        <td class="align-center"><%=v.created_at.to_time rescue ''%></td>
+        <td class="align-center"><%=pretty_time(v.created_at)%></td>
         <td class="align-center"><%=v.item.email rescue ''%></td>
         <td class="">
         <table>

@@ -33,7 +33,7 @@
          <td class="align-center"> 
           <%=  truncate(page.try(:summary), length: 20)%>
         </td>
-        <td class="align-center"> <%= page.try(:published_at) %>  </td>
+        <td class="align-center"> <%= page.try(:published_at).strftime("%m/%d/%Y") %>  </td>
         <td class="align-center"> <%= page.try(:visible) %></td>
         <td class="actions" data-hook="admin_products_index_row_actions">
           <%= link_to '', edit_admin_blog_path(page), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%> 
