@@ -7,6 +7,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require spree/backend
+//= require spree/backend/line_items
+//= require spree/backend/shipments
 
 //= require_tree .
 //= require spree/backend/spree_paypal_express
