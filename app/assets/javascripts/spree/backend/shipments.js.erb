@@ -189,7 +189,7 @@ adjustShipmentItems = function(shipment_number, variant_id, quantity){
 toggleMethodEdit = function(){
   var link = $(this);
   link.parents('tbody').find('tr.edit-method').removeClass("hidden");
-  link.parents('tbody').find('tr.show-method').toggle();
+  link.parents('tbody').find('tr.show-method').hide();
 
   return false;
 }
