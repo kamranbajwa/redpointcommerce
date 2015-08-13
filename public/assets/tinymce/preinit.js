@@ -1,1 +1,4 @@
-window.tinymce=window.tinymce||{base:"/assets/tinymce",suffix:""};
+window.tinymce = window.tinymce || {
+  base:   '/assets/tinymce',
+  suffix: ''
+};
