@@ -1,0 +1,61 @@
+
+
+<% content_for :page_title do %>
+  <%= Spree.t(:tax_cloud_settings) %>
+<% end %>
+<div class="portlet box blue">
+ <div class="portlet-title">
+  <div class="caption">
+    <i class="fa fa-gift"></i> Edit Tax Cloud
+  </div>
+  <div class="tools">
+    <a href="" class="collapse" data-original-title="" title="">
+    </a>
+  </div>
+</div>
+<div class="portlet-body form">
+<%= form_tag admin_tax_cloud_settings_path, method: :put do %>
+  <div class="form-body" data-hook>
+
+      <div class="">
+        <div class="alpha six columns">
+          <fieldset class="security no-border-bottom">
+            <legend align="center"><%= Spree.t(:tax_cloud_api_login_and_key)%></legend>
+            <% @preferences_login.each do |key|
+                type = Spree::Config.preference_type(key) %>
+                <div class="field">
+                  <%= label_tag(key, Spree.t(key)) + tag(:br) if type != :boolean %>
+                  <%= preference_field_tag(key, Spree::Config[key], type: type) %>
+                  <%= label_tag(key, Spree.t(key)) + tag(:br) if type == :boolean %>
+                </div>
+            <% end %>
+          </fieldset>
+        </div>
+        <div class="omega six columns">
+          <fieldset class="currency no-border-bottom">
+            <legend align="center"><%= Spree.t(:tax_cloud_taxability_codes)%></legend>
+            <% @preferences_tic.each do |key|
+                type = Spree::Config.preference_type(key) %>
+                <div class="field">
+                  <%= label_tag(key, Spree.t(key)) + tag(:br) if type != :boolean %>
+                  <%= preference_field_tag(key, Spree::Config[key], type: type) %>
+                  <%= label_tag(key, Spree.t(key)) + tag(:br) if type == :boolean %>
+                </div>
+            <% end %>
+          </fieldset>
+        </div>
+      </div>
+ </div>
+      <div class="filter-actions form-actions" data-hook="buttons">
+        <%= button Spree.t('actions.update'), 'refresh' %>
+        <span class="or"><%= Spree.t(:or) %></span>
+        <%= link_to_with_icon 'remove', Spree.t('actions.cancel'), edit_admin_tax_cloud_settings_url, class: 'button' %>
+      </div>
+
+    </fieldset>
+
+ 
+
+<% end %>
+</div>
+</div>

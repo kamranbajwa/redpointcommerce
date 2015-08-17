@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
+
 gem 'paper_trail', '~> 4.0.0.rc'
 gem 'pg'
 gem 'unicorn'
@@ -16,7 +17,7 @@ gem 'rmagick'
 gem 'paperclip'
 gem 'acts-as-taggable-on'
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
-
+gem 'spree_tax_cloud', github: 'spree-contrib/spree_tax_cloud', branch: '2-4-stable'
 gem 'spree', github: 'spree/spree', branch: '2-4-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '2-4-stable'
 #gem 'spree_gateway', branch: '2-4-stable'
@@ -26,7 +27,7 @@ gem 'spree_paypal_express', github: 'spree-contrib/better_spree_paypal_express'
 gem 'spree_editor', github: 'spree-contrib/spree_editor', branch: '2-4-stable'
 
 gem 'aws-sdk'
-
+gem 'titleize'
 gem "font-awesome-rails"
 gem 'rails_12factor'
 # Use SCSS for stylesheets
@@ -63,5 +64,5 @@ end
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
-
+gem 'debugger', group: :development
 # Use debugger

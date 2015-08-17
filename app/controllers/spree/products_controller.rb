@@ -32,7 +32,6 @@ module Spree
       #@title= @selected_template.product_tab ? "#{@selected_template.product_tab}" ": "+ "#{@product.name}" : "Services: "+ @product.name
 
     end
-
     def products_compare
       @products_detail = []
       params[:products].each do |slug|
