@@ -7,7 +7,17 @@
 <% content_for :page_actions do %>
   <li><%= button_link_to Spree.t(:back_to_images_list), admin_product_images_url(@product), :icon => 'arrow-left' %></li>
 <% end %>
-
+ <div class="portlet box blue col-md-9">
+   <div class="portlet-title">
+    <div class="caption">
+       <%= Spree.t(:new_product) %>
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+ <div class="portlet-body form">
 <%= form_for [:admin, @product, @image], :html => { :multipart => true } do |f| %>
   <fieldset data-hook="edit_image">
     <legend align="center"><%= @image.attachment_file_name%></legend>
@@ -25,4 +35,6 @@
       <%= link_to Spree.t('actions.cancel'), admin_product_images_url(@product), :id => 'cancel_link', :class => 'button remove' %>
     </div>
   </fieldset>
+  </div>
+  </div>
 <% end %>

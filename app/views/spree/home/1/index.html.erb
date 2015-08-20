@@ -73,14 +73,13 @@
   <div class="error-messages">
     <%= flash_messages %>
   </div>
-  <div class="wide-slider">
-    <div id="wide-slider" class="owl-carousel">
+  
 
 
       <!-- ============================================== SCROLL TABS ============================================== -->
       <div id="product-tabs-slider" class="scroll-tabs wow ">
         <div class="clearfix"></div>
-        <div class="wide-banners wow " style="display: <%= is_visible('section_1')%>">
+        <div class="wide-banners" style="display: <%= is_visible('section_1')%>">
           <div class="row">
            <% if @selected_template.template_images.first and @selected_template.template_images.first.avatar.exists?  %>
            <div class="col-md-4">
@@ -167,8 +166,7 @@
       </section>
 
     </div><!-- /.container -->
-  </div><!-- /.body-container -->
-
+ 
   <script type="text/javascript">
     (function() {
       $('.cat123').first().click();

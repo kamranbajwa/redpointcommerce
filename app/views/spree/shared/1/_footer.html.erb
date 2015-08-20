@@ -82,7 +82,7 @@
   <div class="copyright">
     <div class="container">
       <div class="pull-left">
-        Copyright &copy; <a href="#">Redpoint Commerce</a> | All Rights Reserved.
+        <%=@org.copy_right.html_safe  rescue '© 2016. All Rights Reserved'%>
       </div>
       <div class="pull-right">
         <a href="/termsandconditions">Terms & conditions</a>
@@ -109,7 +109,7 @@
 <script type="text/javascript" src="/assets/shared/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="/assets/shared/jquery.fitvids.js"></script>
 <script type="text/javascript" src="/assets/shared/lightbox.min.js"></script>
-<!-- <script type="text/javascript" src="/assets/shared/wow.min.js"></script> -->
+<script type="text/javascript" src="/assets/shared/wow.min.js"></script>
 <script type="text/javascript" src="/assets/shared/scripts.js"></script>
 
 <script>

@@ -28,7 +28,7 @@ module Spree
       else
         @simlier_product = @products.limit 4 
       end
-      @title=@Product.name rescue ''
+      @title=@product.name rescue ''
       #@title= @selected_template.product_tab ? "#{@selected_template.product_tab}" ": "+ "#{@product.name}" : "Services: "+ @product.name
 
     end

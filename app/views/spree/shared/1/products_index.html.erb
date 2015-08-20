@@ -57,7 +57,7 @@ paginated_products ||= products
       <% if @products.empty? %>
         <h6 class="search-results-title min-product-height"><%= Spree.t(:no_products_found) %></h6>
       <% else %>
-         <div class="col-md-9">
+         <div class="col-md-12">
         <%= render :partial => "spree/shared/#{@selected_template.template_no}/products", :locals => { :products => @products, :taxon => @taxon } %>
         </div>
       <% end %>
