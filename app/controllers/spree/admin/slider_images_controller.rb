@@ -30,12 +30,12 @@ class Spree::Admin::SliderImagesController < Spree::Admin::ResourceController
     if   (@selected_template.spree_slider_images.length+slider_image_params[:slider_image].length) > 5
     redirect_to :admin_slider_images , notice: "Sorry more than 5 images can't be uploaded, Please Delete some old"
     else
+   #Spree::SliderImage.delay.put_slider_images(@selected_template,slider_image_params[:slider_image])
     respond_to do |format|
       if slider_image_params.size > 0
-        slider_image_params[:slider_image].each do |image|
-       
-        @selected_template.spree_slider_images.create(:slider_image => image)
-      end
+        slider_image_params[:slider_image].each do |img|
+        Spree::SliderImage.put_slider_images(@selected_template,img)
+        end
         format.html { redirect_to admin_slider_images_url , notice: 'Slider image was successfully updated.' }
         format.json { head :no_content }
       else
@@ -45,6 +45,7 @@ class Spree::Admin::SliderImagesController < Spree::Admin::ResourceController
     end
     end
   end
+
 
   # PATCH/PUT /slider_images/1
   # PATCH/PUT /slider_images/1.json
@@ -81,8 +82,6 @@ class Spree::Admin::SliderImagesController < Spree::Admin::ResourceController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def slider_image_params
-      # puts "dsfmnsmfbsdf", params.inspect
-      # puts "sdfsdfsdfsdf", params[:slider_image] 
       params.require(:slider_image).permit({:slider_image=>[]})
     end
 end

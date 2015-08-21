@@ -29,7 +29,7 @@ def index
     tmp=Spree::PromotionEmail.find(params[:id])
     if params[:emails]!="" and params[:emails]!=nil
     subscriber_list= params[:emails]
-    Spree::PromotionMailer.send_promotion_mail(tmp,subscriber_list).deliver
+    Spree::PromotionEmail.delay.send_mail(tmp,subscriber_list)
     flash[:success] = "Promotion mail sent"
     redirect_to :admin_promotion_emails
   else
