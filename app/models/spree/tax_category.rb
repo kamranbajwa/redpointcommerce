@@ -4,7 +4,7 @@ module Spree
     validates :name, presence: true, uniqueness: { scope: :deleted_at, allow_blank: true }
 
     has_many :tax_rates, dependent: :destroy, inverse_of: :tax_category
-    has_and_belongs_to_many :prototypes, join_table: :spree_taxons_prototypes
+    has_many :prototypes
     before_save :set_default_category
 
     def set_default_category

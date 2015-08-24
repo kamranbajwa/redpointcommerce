@@ -32,5 +32,21 @@
         <%= f.select :taxon_ids, Spree::Taxon.all.map { |t| [t.name, t.id] }, {}, { multiple: true, class: "select2 fullwidth" } %>
       <% end %>
     </div>
+    </div>
+     <div class="row">
+<div class="col-md-3">
+    <% @tax_categories = Spree::TaxCategory.order(:name)%>
+    <div data-hook="admin_product_form_tax_category">
+        <%= f.label :tax_category_id, Spree.t(:tax_category) %>
+        <%= f.collection_select(:tax_category_id, @tax_categories, :id, :name, { :include_blank => Spree.t('match_choices.none') }, { :class => 'select2' }) %>
+    </div>
+    </div>
+    <div class="col-md-3">
+    <% @shipping_categories = Spree::ShippingCategory.order(:name)%>
+    <div data-hook="admin_product_form_tax_category">
+        <%= f.label :shipping_category_id, Spree.t(:tax_category) %>
+        <%= f.collection_select(:shipping_category_id, @shipping_categories, :id, :name, { :include_blank => Spree.t('match_choices.none') }, { :class => 'select2' }) %>
+    </div>
+    </div>
   </div>
-</div>
+

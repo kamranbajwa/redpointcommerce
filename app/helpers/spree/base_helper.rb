@@ -1,5 +1,12 @@
 module Spree
   module BaseHelper
+    def find_ship_cat(id)
+      Spree::ShippingCategory.find(id).name rescue ''
+    end
+    def find_tax_cat(id)
+      Spree::TaxCategory.find(id).name rescue ''
+      
+    end
     def section_name(default_name)
       return @template_sections.find_by_default_name(default_name).name.upcase 
     end
