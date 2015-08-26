@@ -119,6 +119,13 @@
 
 <script type="text/javascript">
 //<![CDATA[
+   $( document ).ready(function() {
+    setTimeout(function(){
+    $('#product_prototype_field  .select2-search-choice-close').click(function(){
+       $('#product_shipping_category_id').attr("disabled", false);
+    })
+  }, 100);
+  });
   (function($){
     var base_url = "<%= admin_prototypes_url %>";
     var prototype_select = $('#product_prototype_id');
@@ -127,8 +134,10 @@
 
       if (id.length) {
          url = new Uri(base_url);
-        url.setPath(url.path() + '/' + id); 
+        url.setPath(url.path() + '/' + id);
+        $('#product_shipping_category_id').attr("disabled", false);
         $('#product-from-prototype').load(url.toString());
+       
       } else {
         $('#product-from-prototype').empty();
       }

@@ -1,4 +1,4 @@
-
+<%= stylesheet_link_tag "/assets/1/cart_table_responsive" %>
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
 <table id="cart-detail" data-hook>
   <thead>
@@ -15,15 +15,15 @@
   </tbody>
   <% if @order.adjustments.nonzero.exists? || @order.line_item_adjustments.nonzero.exists? || @order.shipment_adjustments.nonzero.exists? || @order.shipments.any? %>
     <tr class="cart-subtotal">
-      <td colspan="4" align='right'><h5><%= Spree.t(:cart_subtotal, :count => @order.line_items.sum(:quantity)) %></h5></th>
-      <td colspan><h5><%= order_form.object.display_item_total %></h5></td>
-      <td></td>
+      <td class="no_display" colspan="4" align='right'><h5><%= Spree.t(:cart_subtotal, :count => @order.line_items.sum(:quantity)) %></h5></th>
+      <td  data-title="<%= Spree.t(:cart_subtotal, :count => @order.line_items.sum(:quantity)) %>" colspan><h5><%= order_form.object.display_item_total %></h5></td>
+      <td class="no_display" ></td>
     </tr>
     <%= render "spree/orders/adjustments" %>
   <% end %>
   <tr class="cart-total">
-    <td colspan="4" align='right'><h4 class="temp-3-total" style="color: #000;"><%= Spree.t(:total) %></h4></th>
-    <td colspan><h4  class="temp-3-total" style="color: #000;"><%= order_form.object.display_total %></h4></td>
-    <td></td>
+    <td class="no_display" colspan="4" align='right'><h4 class="temp-3-total" style="color: #000;"><%= Spree.t(:total) %></h4></th>
+    <td data-title="<%= Spree.t(:total) %>" colspan><h4  class="temp-3-total" style="color: #000;"><%= order_form.object.display_total %></h4></td>
+    <td class="no_display"></td>
   </tr>
 </table>

@@ -32,6 +32,13 @@
   <script type="text/javascript">
   //<![CDATA[
     (function($){
+       var ship_id = ("<%=@prototype.shipping_category_id rescue 'empty'%>")
+       $("#product_shipping_category_id").val("<%=@prototype.shipping_category_id rescue 'bbb'%>");
+        $("#product_shipping_category_id").change();
+        $('#product_shipping_category_id').attr("disabled", true);
+        if (ship_id=="empty" || ship_id == "") {
+        $('#product_shipping_category_id').attr("disabled", false);
+       }; 
       $("input.option-type").change(function() {
         $(this).parents("li").find("input.option-value").prop("checked", this.checked);
       });
