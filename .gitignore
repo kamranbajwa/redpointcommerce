@@ -14,5 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 public/sitemap*
+public/*
+tmp/*
 test/
 
