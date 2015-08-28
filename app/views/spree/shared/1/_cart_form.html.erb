@@ -5,12 +5,12 @@
     <% if @product.variants_and_option_values(current_currency).any? %>
       <div id="product-variants" class="columns five alpha">
         <h6 class="product-section-title"><%= Spree.t(:variants) %></h6>
-         <div style= "<%= 'display:none' if !@selected_template.variant_display_type %>";>
+          <div style= "<%= 'display:none' if !@selected_template.variant_display_type %>";>
         <%= select("variant", "variant_id", @product.variants_and_option_values(current_currency).collect {|r| [ variant_options(r), r.id ] }, { :include_blank => true }) %>
         </div>
         <ul>
           <% @product.variants_and_option_values(current_currency).each_with_index do |variant, index| %>
-            <li style="<%= 'display:none' if @selected_template.variant_display_type%>">
+            <li style=" list-style-type: none;<%= 'display:none' if @selected_template.variant_display_type%>"; >
               <%= radio_button_tag "variant_id", variant.id, index == 0, 'data-price' => variant.price_in(current_currency).money  %>
               <%= label_tag "variant_id_#{ variant.id }" do %>
                 <span class="variant-description">
