@@ -34,7 +34,7 @@ class Spree::Admin::SliderImagesController < Spree::Admin::ResourceController
     respond_to do |format|
       if slider_image_params.size > 0
         slider_image_params[:slider_image].each do |img|
-        Spree::SliderImage.put_slider_images(@selected_template,img)
+          @selected_template.spree_slider_images.create(:slider_image => img)        #Spree::SliderImage.put_slider_images(@selected_template,img)
         end
         format.html { redirect_to admin_slider_images_url , notice: 'Slider image was successfully updated.' }
         format.json { head :no_content }
