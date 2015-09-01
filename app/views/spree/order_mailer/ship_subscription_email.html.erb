@@ -1,0 +1,7 @@
+Dear Admin
+
+Please ship the product <%=@rc.variant.name%> recurring order <%=@rc.number%> to below mention address ship address
+<%=@rc.ship_address.try(:address1)%>
+city <%=@rc.ship_address.try(:city)%>
+state <%=@rc.ship_address.try(:country).try(:name)%>
+

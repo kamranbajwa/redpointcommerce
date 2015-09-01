@@ -40,6 +40,15 @@ SpreeExample::Application.routes.draw do
     end
     namespace :admin do
       resources :dashboard
+      resources :recurring_orders do 
+        collection do 
+        get :daily
+        get :monthly
+        get :weekly
+        get :yearly
+      end
+      
+    end
       resources :logos
       resources :imports do
         collection { post :p_import }

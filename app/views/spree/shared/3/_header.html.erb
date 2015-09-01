@@ -29,7 +29,20 @@
   </div>
   <!-- end mobile-menu-wrap -->
   <div class="header-color">
-    <div class="menu-color" style="background-color: <%= header_color() %> !important;"> 
+    <div class="menu-color" style="background-color: <%= header_color() %> !important;">
+
+
+
+<div class="text-right pull-right user-links">
+   <% if spree_user_signed_in? %>
+               <li><a href="/account">My Account</a></li>
+              <li> <%=  link_to 'Sign Out', spree_logout_path %></li>
+            <% else %>
+              <li><a href="/login">Login</a></li>
+            <% end %>
+</div>
+
+
       <figure class="logo"> <a href="/" title="logo" rel="home"> <img alt="Atropos" src="<%= Spree::Logo.last.avatar.url(:logo) rescue '' %>"> </a>
        <span class="welcome-msg">Welcome to <%=@org.company_name rescue 'PSHQ'%></span>
        <div class=" nav-menu" style="float:right;">
@@ -86,11 +99,6 @@
         
         <div class="col-md-3"> <span class="nav-menu" >
           <ul class="nav navbar-nav" style="margin-top:0px;">
-          <% if spree_user_signed_in? %>
-           <li> <%=  link_to 'Sign Out', spree_logout_path %></li>
-          <% else %>
-          <li><a href="/login">Login</a></li>
-          <% end %>
             <li><a href="/cart"><i class="fa fa-shopping-cart"></i></a> <span class="number-amount"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span> </a>
             </li>
             <li><a href="#" type=button value='HIDE' id='tst'> <i class="fa fa-search"></i></a></li>
@@ -142,6 +150,7 @@
             <li class="pull-right" style="margin-right:35px;" ><a href="/cart"><i class="fa fa-shopping-cart"></i></a> <span class="number-amount"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %></span> </a>
             </li>
             <% if spree_user_signed_in? %>
+            <li> <a href="/logout">My Account</a></li>
               <li> <%=  link_to 'Sign Out', spree_logout_path %></li>
             <% else %>
               <li><a href="/login">Login</a></li>

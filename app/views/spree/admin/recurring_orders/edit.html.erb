@@ -1,0 +1,32 @@
+<div class="col-md-9">
+<div class="portlet box blue">
+   <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-gift"></i> Update Page
+    </div>
+    <div class="tools">
+      <a href="" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
+ <%= form_for @recurring_order , url: {action: "update"}, :html => { :multipart => true } do |f| %>
+  <div class="form-body">
+  <div class="field" data-hook="admin_general_setting_input_meta_keywords" >
+    <label for="store_name">Select Template</label>
+    <br>
+    <div class="field" tyle="border-radius: 3px; padding: 7px 10px; border: 1px solid #cee1f4; color: #5498da; font-size: 90%;" >
+      <%= f.select :shipment_state, ['pending','shipped'], {}, { :class => 'form-control' } %>
+    </div>
+  </div>
+  </div>
+  <div class="form-buttons filter-actions actions form-actions" data-hook="buttons">
+ <a class="btn blue " href="javascript:void(0)" onclick="window.history.back();"><span class="text" >Back</span></a>
+ <span class="or">or</span>
+ <button type="submit" class="btn blue"> Save</button>
+</div>
+ <% end %>
+ </div>
+ </div>
+ </div>
+<%=render :partial=>'side_bar'%>

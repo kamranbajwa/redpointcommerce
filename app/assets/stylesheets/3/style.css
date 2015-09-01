@@ -4542,3 +4542,7 @@ body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom
   border-radius: 5px;}
 ul#products li .price { height: 38px; }
 .sub-menu li { float: none !important;}
+#product-variants li { float:none !important; display:block; }
+
+.user-links { margin-top:5px; }
+.user-links li a { display: inline-block; margin-left: 12px; color:#fff; }

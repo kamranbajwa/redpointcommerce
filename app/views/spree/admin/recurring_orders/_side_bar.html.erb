@@ -1,0 +1,44 @@
+ <div class="col-md-3">
+    <ul class="ver-inline-menu tabbable margin-bottom-10">
+      <li class="<%= is_active?('/admin/recurring_orders') %>">
+        <a href="/admin/recurring_orders" aria-expanded="true">
+         <i class="fa fa-book"></i>
+          Recurring Orders
+       </a>
+       <span class="after">
+        </span>
+     </li>
+      <li class="<%= is_active?("/admin/recurring_orders/daily") %>">
+        <a href="/admin/recurring_orders/daily" aria-expanded="true">
+         <i class="fa fa-book"></i>
+          Daily Orders
+       </a>
+       <span class="after">
+        </span>
+     </li>
+     <li class="<%= is_active?('/admin/recurring_orders/monthly') %>">
+        <a href="/admin/recurring_orders/monthly" aria-expanded="true">
+         <i class="fa fa-book"></i>
+          Monthly Orders
+       </a>
+       <span class="after">
+        </span>
+     </li>
+      <li class="<%= is_active?('/admin/recurring_orders/weekly') %>">
+        <a href="/admin/recurring_orders/weekly" aria-expanded="true">
+         <i class="fa fa-book"></i>
+          Weekly Orders
+       </a>
+       <span class="after">
+        </span>
+     </li>
+        <li class="<%= is_active?('/admin/recurring_orders/yearly') %>">
+        <a href="/admin/recurring_orders/yearly" aria-expanded="true">
+         <i class="fa fa-book"></i>
+          Yearly Orders
+       </a>
+       <span class="after">
+        </span>
+     </li>
+</ul>
+  </div>

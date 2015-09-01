@@ -9,6 +9,7 @@ class SliderImage < Spree::Base
 
   def self.put_slider_images(template,images)
      template.spree_slider_images.create(:slider_image => image)
+ 
   end
 end
 end

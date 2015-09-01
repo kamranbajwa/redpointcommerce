@@ -110,7 +110,7 @@ config.i18n.fallbacks = true
   :email => {
    :email_prefix => "[RPC Error] ",
    :sender_address => %{"Exception Notification" <admin@PSHQ.com>},
-   :exception_recipients => %w{shoaib@gems.techverx.com qubaish@gems.techverx.com usman@gems.techverx.com abdullah@gems.techverx.com hamzah@gems.techverx.com kashif@gems.techverx.com} 
+   :exception_recipients => %w{shoaib@gems.techverx.com qubaish@gems.techverx.com usman@gems.techverx.com abdullah@gems.techverx.com hamzah@gems.techverx.com kashif@gems.techverx.com iqra@gems.techverx.com} 
  }
 
  config.paperclip_defaults = {
