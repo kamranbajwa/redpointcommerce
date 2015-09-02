@@ -41,13 +41,12 @@ SpreeExample::Application.routes.draw do
     namespace :admin do
       resources :dashboard
       resources :recurring_orders do 
-        collection do 
+      collection do 
         get :daily
         get :monthly
         get :weekly
         get :yearly
-      end
-      
+      end 
     end
       resources :logos
       resources :imports do
