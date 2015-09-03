@@ -1,6 +1,6 @@
 module Spree
 class RecurringOrder < Spree::Base
-	before_validation :generate_order_numbers, on: :create
+before_validation :generate_order_numbers, on: :create
 belongs_to :variant, class_name: 'Spree::Variant'
 belongs_to :bill_address, foreign_key: :bill_address_id, class_name: 'Spree::Address'
 belongs_to :ship_address, foreign_key: :ship_address_id, class_name: 'Spree::Address'
