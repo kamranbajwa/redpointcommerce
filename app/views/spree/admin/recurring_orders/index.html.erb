@@ -1,0 +1,57 @@
+<div class="row">
+<div class="col-md-9">
+<div class="portlet box blue">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-cogs"></i>Recurring Orders
+    </div>
+    <div class="tools">
+      <a href="javascript:;" class="collapse" data-original-title="" title="">
+      </a>
+    </div>
+  </div>
+    <div class="portlet-body flip-scroll">
+    <table class="table table-bordered table-striped table-condensed flip-content">
+      <thead class="flip-content">
+        <tr data-hook="admin_products_index_headers">
+          <th class="align-center">Product Name</th>
+          <th class="align-center">Order#</th>
+          <th class="align-center">Prodcut Sku</th>
+          <th class="align-center">Shipming Status</th>
+           <th class="align-center">Recurring Type</th>
+          <th class="align-center">Address</th>
+          <th data-hook="admin_products_index_header_actions" class="actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recurring_orders.each do |rc| %>
+        <tr id="" data-hook="admin_products_index_rows" class="odd">
+        <td class="align-center">
+       <%=rc.variant.name%> 
+      </td>
+      <td class="align-center">
+       <%=rc.try(:number)%> 
+      </td>
+          <td class="align-center"><%=rc.variant.sku rescue ''%></td>
+         <td class="align-center">
+             <%=rc.shipment_state rescue ''%>
+         </td>
+         <td class="align-center">
+             <%=rc.try(:recurring_type)%>
+         </td>
+        <td class="align-center">
+          <%=link_to rc.ship_address.address1,addresses_admin_user_path(rc.user)%>
+        </td>
+         <td class="actions" data-hook="admin_products_index_row_actions">
+            <%= link_to '', edit_admin_recurring_order_path(rc), class: "edit fa fa-edit icon_link with-tip no-text", "data-action" => "edit"%> 
+            <%= link_to '', admin_recurring_order_path(rc), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash icon_link with-tip no-text", "data-action" => "remove" %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+<%=render :partial=>'side_bar'%>
+</div>

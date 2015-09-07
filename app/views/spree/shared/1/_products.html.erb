@@ -29,7 +29,8 @@ paginated_products ||= products
         <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
           <div class="product-image">
        
-            <%= link_to product_image(product, :itemprop => "image", :class => "image-100 height-responsive-home" ), url, :itemprop => 'url' %>
+            <%= link_to product_image(product, :itemprop => "image", :class => "image-100 responsive-height" ), url, :itemprop => 'url' %>
+            <!-- here was class height-responsive-home --> 
           </div>
           <%= link_to truncate(product.name, :length => 50), url, :class => 'info', :itemprop => "name", :title => product.name %><%if product.subscription %><span class="price selling" itemprop="price"> (Subscription Product)</span> <% end %>
           <span class="price selling" itemprop="price"><%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p=> product} %>

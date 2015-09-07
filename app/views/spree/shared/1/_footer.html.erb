@@ -82,7 +82,7 @@
   <div class="copyright">
     <div class="container">
       <div class="pull-left">
-        Copyright &copy; <a href="#">Redpoint Commerce</a> | All Rights Reserved.
+        <%=@org.copy_right.html_safe  rescue '© 2016. All Rights Reserved'%>
       </div>
       <div class="pull-right">
         <a href="/termsandconditions">Terms & conditions</a>
@@ -102,7 +102,7 @@
 <script type="text/javascript" src="/assets/bootstrap.min.js"></script>
 <script type="text/javascript" src="/assets/shared/bootstrap-hover-dropdown.min.js"></script>
 <script type="text/javascript" src="/assets/shared/owl.carousel.min.js"></script>
-<script type="text/javascript" src="/assets/shared/echo.min.js"></script>
+<!-- <script type="text/javascript" src="/assets/shared/echo.min.js"></script> -->
 <script type="text/javascript" src="/assets/shared/jquery.rateit.min.js"></script>
 <script type="text/javascript" src="/assets/shared/jquery.jcarousel.js"></script>
 <script type="text/javascript" src="/assets/shared/jquery.easing.1.3.js"></script>
@@ -113,11 +113,7 @@
 <script type="text/javascript" src="/assets/shared/scripts.js"></script>
 
 <script>
-  echo.init({
-    offset: 100,
-    throttle: 250,
-    unload: false
-  });
+  
 </script>
 
 <!-- For demo purposes – can be removed on production -->

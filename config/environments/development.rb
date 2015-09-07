@@ -54,8 +54,8 @@ SpreeExample::Application.configure do
   config.paperclip_defaults = {
   :storage => :s3,
    s3_credentials: {
-    access_key_id: 'AKIAJJGUHCUAKNL2LYAQ',
-    secret_access_key: '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',
+    access_key_id: 'AKIAIN5V5SNBRX5H7GQA',
+    secret_access_key: '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',
     bucket: 'redpoint-commerce'
   },
    path:           "/spree/:class/:id/:style/:basename.:extension",

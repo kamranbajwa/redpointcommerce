@@ -10,7 +10,7 @@
           <% end %>
           <div class="textwidget">
            <% if @about_widget && @about_widget.widget_characteristics %>
-            <%= @about_widget.widget_characteristics.first(600).html_safe %>
+            <%= @about_widget.widget_characteristics.first(550).html_safe %>
            <% end %>
           </div>
         </section>
@@ -60,7 +60,7 @@
     <div class="footer-bottom clearfix">
       <div class="row">
         <div class="col-sm-7">
-          <p>&copy; Copyright 2015. All Rights Reserved </p>
+          <p><%=@org.copy_right.html_safe  rescue '© 2016. All Rights Reserved'%></p>
         </div>
         <!--footer social icons-->
         <div class="col-sm-5 clearfix">

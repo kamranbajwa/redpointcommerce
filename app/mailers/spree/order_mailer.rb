@@ -25,5 +25,10 @@ module Spree
       subject =  @lineitnem.subs_type.to_s.capitalize + " Subscription Confirmation"
       mail(to:[lineitnem.order.email,"shoaib@gems.techverx.com"] , from: from_address,  subject: subject)
     end
+     def ship_subscription_email(rc)
+    @rc=rc
+     subject = "Ship Recurring Order"+ @rc.number 
+    mail(to:["shoaib@gems.techverx.com","iqra@gems.techverx.com"] , from: from_address,  subject: subject)
+  end
   end
 end

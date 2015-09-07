@@ -16,6 +16,7 @@ module Spree
     has_many :inventory_units, inverse_of: :variant
     has_many :line_items, inverse_of: :variant
     has_many :orders, through: :line_items
+    has_many :recurring_orders, :class_name => 'Spree::RecurringOrder'
 
     has_many :stock_items, dependent: :destroy, inverse_of: :variant
     has_many :stock_locations, through: :stock_items

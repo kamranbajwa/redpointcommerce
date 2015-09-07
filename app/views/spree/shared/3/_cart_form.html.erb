@@ -10,15 +10,13 @@
         </div>
         <ul>
           <% @product.variants_and_option_values(current_currency).each_with_index do |variant, index| %>
-            <li style="<%= 'display:none' if @selected_template.variant_display_type%>">
-              <%= radio_button_tag "variant_id", variant.id, index == 0, 'data-price' => variant.price_in(current_currency).money  %>
+             <li style=" list-style-type: none;<%= 'display:none' if @selected_template.variant_display_type%>"; >
               <%= label_tag "variant_id_#{ variant.id }" do %>
+               <%= radio_button_tag "variant_id", variant.id, index == 0, 'data-price' => variant.price_in(current_currency).money  %> 
                 <span class="variant-description">
                   <%= variant_options variant %>
                 </span>
-                <% if variant_price variant %>
-                  <span class="price diff"><%= variant_price variant %></span>
-                <% end %>
+                
 
                 <% unless variant.can_supply? %>
                   <span class="out-of-stock"><%= Spree.t(:out_of_stock) %></span>

@@ -51,7 +51,10 @@ module SubscriptionProduct
               transction.line_item_id = f.id
               transction.store_id = store
               transction.save
+              rc=Spree::RecurringOrder.create(:variant_id=> f.variant_id,:shipment_state=>"pending",:spree_user_id=>o.user.id,:ship_address_id => o.ship_address_id,:bill_address_id => o.bill_address_id,:recurring_type=>f.subs_type)
               Spree::OrderMailer.subscription_email(f).deliver
+              Spree::OrderMailer.ship_subscription_email(rc).deliver
+
 
             end
             

@@ -1,5 +1,5 @@
 <% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
 <%= form_tag spree.products_path, :method => :get do %>
-  <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search), :class => "search-text-area", :value =>'Search' %>
+  <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search), :class => "search-text-area" %>
   <%= submit_tag Spree.t(:search), :name => nil,:class => "search-button" %>
 <% end %>

@@ -123,6 +123,10 @@
 							<a href="<%= admin_return_authorization_reasons_path %>">
 							Return Authorization Reasons</a>
 						</li>
+						<li class="<%= is_active?('/admin/tax_cloud_settings/edit') %>">
+							<a href="/admin/tax_cloud_settings/edit">
+							TaxCloud Setting</a>
+						</li>
 					</ul>
 				</li>
 				<li>
@@ -199,6 +203,12 @@
 					<a href="/admin/versions">
 					<i class="fa fa-history"></i>
 					<span class="title">Change History</span>
+					</a>
+				</li>
+					<li class="start <%= is_active?('/admin/recurring_orders') %>">
+					<a href="/admin/recurring_orders">
+					<i class="fa fa-bars"></i>
+					<span class="title">Recurring Order</span>
 					</a>
 				</li>
 

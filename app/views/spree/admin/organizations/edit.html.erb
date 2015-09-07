@@ -102,6 +102,11 @@
       <%= f.time_zone_select :central_time, nil, {}, {class: "form-control"} %>
       </div>
     </div>
+     <div class="form-group">
+      <%= f.label :copy_right,'Copy Right Text' %>
+      <br>
+      <%= f.text_field :copy_right, :class => 'form-control' %>
+    </div>
     <div class="form-group">
     <%=f.label :session_time_out, "Session Time out (Hours) "  %>
     <div class="input-icon">

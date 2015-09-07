@@ -6,5 +6,10 @@ class SliderImage < Spree::Base
   validates_attachment_content_type :slider_image, :content_type => ["image/jpg", "image/jpeg", "image/gif", "image/png"]
    validates_attachment_size :slider_image, :less_than => 1.megabytes, 
    :unless => Proc.new {|model| model.slider_image}
+
+  def self.put_slider_images(template,images)
+     template.spree_slider_images.create(:slider_image => image)
+ 
+  end
 end
 end

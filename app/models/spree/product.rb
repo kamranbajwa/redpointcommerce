@@ -232,6 +232,8 @@ module Spree
         end
         self.option_types = prototype.option_types
         self.taxons = prototype.taxons
+        self.tax_category_id = prototype.tax_category_id
+        self.shipping_category_id = prototype.shipping_category_id
       end
     end
 

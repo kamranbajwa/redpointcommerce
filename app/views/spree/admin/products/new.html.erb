@@ -37,6 +37,12 @@
             <%= f.label :vendor_sku, Spree.t(:vendor_sku) %><br />
             <%= f.text_field :vendor_sku, :size => 16, :class => 'form-control' %>
         </div>
+          <div data-hook="new_product_sku" class="col-md-6">
+           <div data-hook="admin_product_form_tax_cloud_tic">
+      <%= f.label :tax_cloud_tic_id, Spree.t(:tax_cloud_tic) %>
+         <%= f.text_field :tax_cloud_tic, size: 5, placeholder: Spree::Config.taxcloud_default_product_tic ,:class => 'form-control'%>
+</div>
+        </div>
       <% end %>
   </div>
    <div class="row">
@@ -113,15 +119,25 @@
 
 <script type="text/javascript">
 //<![CDATA[
+   $( document ).ready(function() {
+    setTimeout(function(){
+    $('#product_prototype_field  .select2-search-choice-close').click(function(){
+       $('#product_shipping_category_id').attr("disabled", false);
+    })
+  }, 100);
+  });
   (function($){
     var base_url = "<%= admin_prototypes_url %>";
     var prototype_select = $('#product_prototype_id');
     prototype_select.change(function() {
       var id = prototype_select.val();
+
       if (id.length) {
-        var url = new Uri(base_url);
+         url = new Uri(base_url);
         url.setPath(url.path() + '/' + id);
+        $('#product_shipping_category_id').attr("disabled", false);
         $('#product-from-prototype').load(url.toString());
+       
       } else {
         $('#product-from-prototype').empty();
       }

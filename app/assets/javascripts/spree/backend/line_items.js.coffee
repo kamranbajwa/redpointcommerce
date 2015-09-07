@@ -27,21 +27,21 @@ $(document).ready ->
 
 toggleLineItemCancel = ->
   link = $(this);
-  link.parent().find('a.edit-line-item').toggle();
-  link.parent().find('a.cancel-line-item').toggle();
-  link.parent().find('a.save-line-item').toggle();
-  link.parent().find('a.delete-line-item').toggle();
-  link.parents('tr').find('td.line-item-qty-show').toggle();
+  link.parent().find('a.edit-line-item').show();
+  link.parent().find('a.cancel-line-item').hide();
+  link.parent().find('a.save-line-item').hide();
+  link.parent().find('a.delete-line-item').show();
+  link.parents('tr').find('td.line-item-qty-show').show();
   link.parents('tr').find('td.line-item-qty-edit').addClass('hidden');
   link.parents('tr').find('td.line-item-price-edit').addClass('hidden');
   false
 toggleLineItemEdit = ->
   link = $(this);
-  link.parent().find('a.edit-line-item').toggle();
-  link.parent().find('a.cancel-line-item').toggle();
-  link.parent().find('a.save-line-item').toggle();
-  link.parent().find('a.delete-line-item').toggle();
-  link.parents('tr').find('td.line-item-qty-show').toggle();
+  link.parent().find('a.edit-line-item').hide();
+  link.parent().find('a.cancel-line-item').show();
+  link.parent().find('a.save-line-item').show();
+  link.parent().find('a.delete-line-item').hide();
+  link.parents('tr').find('td.line-item-qty-show').hide()
   link.parents('tr').find('td.line-item-qty-edit').removeClass('hidden');
   link.parents('tr').find('td.line-item-price-edit').removeClass('hidden');
   false

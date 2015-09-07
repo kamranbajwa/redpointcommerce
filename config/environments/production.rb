@@ -110,7 +110,7 @@ config.i18n.fallbacks = true
   :email => {
    :email_prefix => "[RPC Error] ",
    :sender_address => %{"Exception Notification" <admin@PSHQ.com>},
-   :exception_recipients => %w{shoaib@gems.techverx.com qubaish@gems.techverx.com usman@gems.techverx.com abdullah@gems.techverx.com hamzah@gems.techverx.com kashif@gems.techverx.com} 
+   :exception_recipients => %w{shoaib@gems.techverx.com qubaish@gems.techverx.com usman@gems.techverx.com abdullah@gems.techverx.com hamzah@gems.techverx.com kashif@gems.techverx.com iqra@gems.techverx.com} 
  }
 
  config.paperclip_defaults = {
@@ -119,8 +119,8 @@ config.i18n.fallbacks = true
   s3_headers:     { "Cache-Control" => "max-age=31557600" },
   url:            ":s3_domain_url",
   s3_credentials: {
-    access_key_id: 'AKIAJJGUHCUAKNL2LYAQ',
-    secret_access_key: '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',
+    access_key_id: 'AKIAIN5V5SNBRX5H7GQA',
+    secret_access_key: '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',
     bucket: 'redpoint-commerce'
     },
     path:           "/spree/:class/:id/:style/:basename.:extension",
