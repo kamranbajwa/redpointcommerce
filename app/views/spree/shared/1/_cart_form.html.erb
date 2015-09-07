@@ -11,8 +11,8 @@
         <ul>
           <% @product.variants_and_option_values(current_currency).each_with_index do |variant, index| %>
             <li style=" list-style-type: none;<%= 'display:none' if @selected_template.variant_display_type%>"; >
+             <%= label_tag "variant_id_#{ variant.id }" do %>
               <%= radio_button_tag "variant_id", variant.id, index == 0, 'data-price' => variant.price_in(current_currency).money  %>
-              <%= label_tag "variant_id_#{ variant.id }" do %>
                 <span class="variant-description">
                   <%= variant_options variant %>
                 </span>
