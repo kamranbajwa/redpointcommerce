@@ -1,5 +1,5 @@
 class Spree::Admin::SectionsController < Spree::Admin::ResourceController
-  before_action :current_template, :sections
+  before_action  :sections
 
   def index
   end
@@ -42,12 +42,8 @@ class Spree::Admin::SectionsController < Spree::Admin::ResourceController
 
   private
    
-   def current_template
-    @current_template = Spree::Template.selected
-   end
-
    def sections
-    @sections = @current_template.first.sections.all
+    @sections = @selected_template.sections.all
    end
    def section_params
     params.require(:section).permit(:name, :visible)

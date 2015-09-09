@@ -1,0 +1,89 @@
+<section>
+<div class="container-full top-links">
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-3 col-sm-3">
+      WELCOME TO <%=@org.company_name rescue 'PSHQ'%>
+    </div>
+
+    	<div class="col-md-9 col-sm-9">
+            <div class="store-info"><%= @order.try(:line_items)? @order.try(:line_items).count : 0 %> item(s) - <%= @order ? @order.total : "$0.00" %></div>
+            <div class="store-links">
+            <% if spree_user_signed_in? %>
+                <a href="<%= spree_logout_path%>"><i class="fa fa-power-off fa-fw"></i>Sign Out</a>
+                 <a href="/account"><i class="fa fa-user fa-fw"></i>My Account</a>
+                 <%else%>
+                <a href="#"><i class="fa fa-sign-in fa-fw"></i>Sign in</a>
+               <%end%>
+                <a href="/cart"><i class="fa fa-shopping-cart fa-fw"></i>Shopping Cart</a>
+        	</div>
+        </div>
+
+</div>
+	</div>
+</div>
+</section>
+<section class="container clearfix">
+<div class="logo-area clearfix">
+
+    <div class="logo">
+        <a href="/">
+            <img src="<%= Spree::Logo.last.avatar.url(:logo) rescue ''%>" class="img-responsive">
+        </a>
+    </div>
+    
+    <div class="nav-links">
+
+      <nav class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+         <ul class="list-unstyled list-inline main-nav nav navbar-nav">
+           <% @customize_pages.each_with_index  do |page, index|%>
+           <% if index >= 5 %>
+           <% if index == 5 %>
+           <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">MORE <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <% end %>
+              <li><a href="<%= set_paths(page) %>"><%= page.title.upcase rescue ''%></a></li>
+              <% if index+1 == @customize_pages.length %>
+            </ul>                    
+          </li>
+          <% end %>
+          <% else %>
+
+          <li><a href="<%= set_paths(page) %>"> <%= page.title.upcase rescue ''%></a></li>
+          <% end %>
+          <% end %>
+          <li class="search">
+
+            <div class="input-group input-group-sm top-search">
+              <%= form_tag spree.products_path,:method => :get do %>
+              <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search), :class => "form-control" %>
+
+              <span class="input-group-btn">
+               <button class="btn btn-default" type="button">
+                 <i class="fa fa-search"></i>
+               </button>
+             </span>
+              <% end %>
+           </div>                
+
+         </li>
+       </ul>
+     </div></div>            
+   </nav>            
+        
+    </div>
+
+</div>
+</section>
+<!-- Logo and Links Section Ends -->

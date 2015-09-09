@@ -1,0 +1,105 @@
+<!-- Products Start ////////////////////////////////////////////// -->
+<section>
+<div class="container">
+<%
+paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+paginated_products ||= products
+%>
+
+<% content_for :head do %>
+  <% if paginated_products.respond_to?(:num_pages) %>
+    <%= rel_next_prev_link_tags paginated_products %>
+  <% end %>
+<% end %>
+	<div class="row">
+		
+        
+<div class="col-lg-3 col-md-12 col-sm-12">
+    <%if Spree::Product.count>12 and params[:controller]=="spree/products" and !params[:keywords].present?%>
+                        <%if params[:page]%>
+                            <%show_arr=show_product_on_pages(params[:page],products.count)%>
+                            <p>Showing <%=show_arr[1]%>-<%=show_arr[0]%> of <%=show_arr[2]%> results.</p>
+                        <%else%>
+                            <p>Showing 1-<%=products.count%> of <%=Spree::Product.count.to_i%> results.</p>
+                            <%end%>
+                            <%end%>
+    <div class="cats-wrapper">
+    
+    <h4>CATEGORIES</h4>
+    
+		<ul class="list-unstyled">
+	        <% if "spree/products" == params[:controller] && taxon %>
+      <%= render :partial => 'spree/shared/filters' %>
+    <% else %>
+     <%#= render :partial => "spree/shared/#{@selected_template.template_no}/products_index" %>
+     <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+
+
+  <% @taxonomies.each do |taxonomy| %>
+    <% cache [I18n.locale, taxonomy, max_level] do %>
+  <li>
+      <%= taxons_tree_products_list_electronic(taxonomy.root, @taxon) %>
+      </li>
+    <% end %>
+  <% end %>
+    <% end %>
+        </ul>
+    </div>
+    
+    
+    <div class="clear20"></div>
+    
+    
+<div class="cats-wrapper filters">
+    
+ <% if @products.present? %> 
+    <%= render :partial => 'spree/shared/search_filters' %>
+    <%end%>
+    
+    </div>    
+    
+    
+</div>
+        
+        <div class="col-lg-9 col-md-12 col-sm-12">
+			<div class="products-wrapper clearfix text-center">
+    
+   <%= render :partial => "spree/shared/#{@selected_template.template_no}/products_search", :locals => { :products => @products, :taxon => @taxon } %>
+
+			</div>
+		
+        
+        
+	        <div class="clear10"></div>
+
+<nav>
+  <ul class="">
+  <% if paginated_products.respond_to?(:num_pages) %>
+  <%= paginate paginated_products%>
+<% end %>
+    <!-- <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li> -->
+  </ul>
+</nav>
+        
+        
+        </div>
+	</div>
+</div>
+</section>
+<!-- Products End ////////////////////////////////////////////// -->
+
+

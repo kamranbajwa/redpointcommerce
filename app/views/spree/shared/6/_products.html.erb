@@ -1,0 +1,30 @@
+<section style="display: <%= is_visible('section_4')%>">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="products-wrapper clearfix">
+ <% products.each do |product| %>
+<% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
+  <div class="col-md-3 col-sm-6 col-xs-12 text-center product">
+        <div class="inline-block">
+         <%= link_to product_image(product, :itemprop => "image", class: "img-responsive"), url, :itemprop => 'url' %>
+        <!-- <a href="#"><img src="/assets/6/product-1.jpg" class="img-responsive"></a> --></div>
+        <h2 class="text-left"><%= link_to truncate(product.name, :length => 25), url, :class => 'info', :itemprop => "name", :title => product.name %></h4><%if product.subscription %><span> (Subscription Product)</span><% end %></h2>
+        <div class="price text-left"><%= render :partial => "spree/shared/2/show_price", :locals => { :p => product, } %>  </div>
+        <div class="details text-left"><%= product_description(product) rescue Spree.t(:product_has_no_description) %></div>
+        <div class="text-left">
+            <a href="<%= url %>"><button type="submit" class="btn btn-primary">ADD TO CART</button></a>
+            </div>
+    </div>
+    
+    <%end%>
+  
+
+
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- Products End ////////////////////////////////////////////// -->
+

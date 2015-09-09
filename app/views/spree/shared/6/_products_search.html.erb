@@ -1,0 +1,16 @@
+  <%
+    paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+    paginated_products ||= products
+    %>
+    <% products.each do |product| %>
+    <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
+    <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
+<div class="col-md-4 col-sm-6 col-xs-12 text-center product">
+        <a href="<%= url %>"><img src="/assets/6/product-2.jpg"></a>
+        <h2 class="text-left"><%= link_to truncate(product.name, :length => 25), url, :itemprop => "name", :title => product.name %></h4><%if product.subscription %><span> (Subscription Product)</span><% end %></h2>
+        <div class="price text-left"><%= render :partial => "spree/shared/2/show_price", :locals => { :p => product, } %> </div>
+        <div class="details text-left"><%= product_description(product) rescue Spree.t(:product_has_no_description) %></div>
+        <a href="<%= url %>"><div class="text-left"><button type="submit" class="btn btn-primary">ADD TO CART</button></div></a>
+    </div>
+    <%end%>
+    <%end%>

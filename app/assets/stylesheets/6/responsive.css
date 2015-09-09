@@ -1,0 +1,148 @@
+@media screen and (max-width: 320px) {
+.col-xs-12 { margin-top:20px; }
+
+.logo { float:none; text-align:left; width:100%; }
+.logo img { width:160px; }
+
+.nav-links { float:none; display:block; }
+.navbar-toggle { margin-top:-47px; }
+.main-nav li a { display:block; }
+.top-search { width:100%; }
+.navbar-nav li:hover { background-color:#eee; }
+.navbar-nav .dropdown, .navbar-nav .dropdown .open, .navbar-nav .dropdown:hover, .navbar-nav .search, .navbar-nav .search:hover { background-color:transparent; }
+
+.store-links a { margin:4px 2px; }
+.btn-tabs img { display:none; }
+.btn-tabs .btn-default { text-align:center; font-size:13px; }
+.slider-sidebar-area { text-align:center; margin:10px auto; }
+
+.feature { margin:10px 0; }
+.features .feature .fa { margin-right: 10px; }
+.promo-wrap { margin:10px 0; }
+.navbar-nav>li>.dropdown-menu { margin-top:0; }
+}
+@media screen and (min-width: 320px) and (max-width: 479px) {
+.col-xs-12 { margin-top:20px; }
+
+.logo { float:none; text-align:left; width:100%; }
+.logo img { width:160px; }
+
+.nav-links { float:none; display:block; }
+.navbar-toggle { margin-top:-47px; }
+.main-nav li a { display:block; }
+.top-search { width:100%; }
+.navbar-nav li:hover { background-color:#eee; }
+.navbar-nav .dropdown, .navbar-nav .dropdown .open, .navbar-nav .dropdown:hover, .navbar-nav .search, .navbar-nav .search:hover { background-color:transparent; }
+
+.store-links a { margin:4px 2px; }
+.btn-tabs img { display:none; }
+.btn-tabs .btn-default { text-align:center; font-size:13px; }
+.slider-sidebar-area { text-align:center; margin:10px auto; }
+
+.feature { margin:10px 0; }
+.features .feature .fa { margin-right: 10px; }
+.promo-wrap { margin:10px 0; }
+.navbar-nav>li>.dropdown-menu { margin-top:0; }
+}
+@media screen and (min-width: 480px) and (max-width: 639px) {
+.col-xs-12 { margin-top:20px; }
+
+.logo { float:none; text-align:left; width:100%; }
+.logo img { width:160px; }
+
+.nav-links { float:none; display:block; }
+.navbar-toggle { margin-top:-47px; }
+.main-nav li a { display:block; }
+.top-search { width:100%; }
+.navbar-nav li:hover { background-color:#eee; }
+.navbar-nav .dropdown, .navbar-nav .dropdown .open, .navbar-nav .dropdown:hover, .navbar-nav .search, .navbar-nav .search:hover { background-color:transparent; }
+
+.store-links a { margin:4px 2px; }
+.btn-tabs img { display:none; }
+.btn-tabs .btn-default { text-align:center; font-size:14px; }
+.slider-sidebar-area { text-align:center; margin:10px auto; }
+
+.feature { margin:10px 0; }
+.features .feature .fa { margin-right: 10px; }
+.promo-wrap { margin:10px 0; }
+.navbar-nav>li>.dropdown-menu { margin-top:0; }
+}
+@media screen and (min-width: 640px) and (max-width: 767px) {
+.col-xs-12 { margin-top:20px; }
+
+.logo { float:none; text-align:left; width:100%; }
+.nav-links { float:none; display:block; }
+.navbar-toggle { margin-top:-47px; }
+.main-nav li a { display:block; }
+.top-search { width:100%; }
+.navbar-nav li:hover { background-color:#eee; }
+.navbar-nav .dropdown, .navbar-nav .dropdown .open, .navbar-nav .dropdown:hover, .navbar-nav .search, .navbar-nav .search:hover { background-color:transparent; }
+
+.store-links a { margin:4px 2px; }
+.btn-tabs img { display:none; }
+.btn-tabs .btn-default { text-align:center; }
+.slider-sidebar-area { text-align:center; margin:10px auto; }
+
+.feature { margin:10px 0; }
+.features .feature .fa { margin-right: 10px; }
+.promo-wrap { margin:10px 0; }
+.navbar-nav>li>.dropdown-menu { margin-top:0; }
+}
+@media screen and (min-width: 768px) and (max-width: 1003px) {
+.col-sm-6 { margin-top:20px; }
+
+.logo { float:none; text-align:left; width:100%; }
+
+.navbar-nav li:hover { background-color:#eee; }
+.navbar-nav .dropdown, .navbar-nav .dropdown .open, .navbar-nav .dropdown:hover, .navbar-nav .search, .navbar-nav .search:hover { background-color:transparent; }
+
+.store-links a { margin:4px 2px; }
+.slider-sidebar-area { text-align:center; margin:10px auto; }
+.promo-wrap { margin:10px 0; }
+.features .feature .fa { margin-right: 10px; }
+.navbar-nav>li>.dropdown-menu { margin-top:0; }
+}
+@media screen and (min-width: 1004px) and (max-width: 1259px) {
+.nav>li>a { padding:10px 0px; }
+.logo img { width:160px; }
+.navbar-collapse { padding-right:0; }
+.navbar-nav>li>.dropdown-menu { margin-top:10px; }
+}
+@media screen and (min-width: 1260px) and (max-width: 1279px) {
+.navbar-collapse { padding-right:0; }
+}
+@media screen and (min-width: 1280px) and (max-width: 1365px) {
+.navbar-collapse { padding-right:0; }
+}
+@media screen and (min-width: 1366px) and (max-width: 1599px) {
+.navbar-collapse { padding-right:0; }
+}
+@media screen and (min-width: 1600px) and (max-width: 1679px) {
+.navbar-collapse { padding-right:0; }
+}
+@media screen and (min-width: 1680px) {
+.navbar-collapse { padding-right:0; }
+}
+
+
+
+
+/* Extra media query - just to start showing small responsive menu for iPad */
+/* ######################################################################## */
+@media (max-width: 768px) {
+.navbar-header { float: none; }
+.navbar-toggle { display: block; }
+.navbar-collapse.collapse { display: none!important; }
+.navbar-nav>li { float: none; }
+/* since 3.1.0 */
+.navbar-collapse.collapse.in {  display: block!important; }
+.collapsing { overflow: hidden!important; }
+.dropdown-menu { position:static; float:none; border:none; box-shadow:none; -webkit-box-shadow:none;  }
+
+/* extra css - my own for this theme */
+.nav-links { float:none; display:block; }
+.navbar-toggle { margin-top:-47px; }
+.main-nav li a { display:block; }
+.top-search { width:100%; }
+}
+/* ######################################################################## */

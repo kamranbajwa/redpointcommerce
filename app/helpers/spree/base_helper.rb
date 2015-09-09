@@ -93,15 +93,15 @@ module Spree
       address=Spree::OrgAddress.first
       arr_add=[]
       if address.present? 
-      address=address.company_address+","+address.city+","+address.state+","+address.country rescue ''
+      add=address.company_address+","+address.city+","+address.state+","+address.country rescue ''
       phone=address.phone_no rescue ''
     else
-      address = "Joher Town Lahore, Punjab, Pakistan"
+      add = "Joher Town Lahore, Punjab, Pakistan"
       phone = "+921111333334"
     end
-     arr_add << address
+     arr_add << add
      arr_add << phone
-     arr_add << Spree::Store.first.url 
+     arr_add << Spree::Store.first.url
       return arr_add
     end
     def show_product_on_pages(page,p_on_current_page)
@@ -281,6 +281,13 @@ def link_to_remove_fields_o(name, f)
                   end
                 end.join().html_safe
               end
+            end
+            def taxons_tree_products_list_electronic( root_taxon, current_taxon, max_level = 1)
+              return '' if max_level < 1 || root_taxon.children.empty?
+               root_taxon.children.map do |taxon|
+                link_to(taxon.name, seo_url(taxon),:class => "cat123 fontstyle",:style=>"margin-left:4px;") +
+                      taxons_tree(taxon, current_taxon, max_level - 1)
+                    end.join().html_safe
             end
 
             def taxons_tree_products_list_doctor(root_taxon, current_taxon, max_level = 1)

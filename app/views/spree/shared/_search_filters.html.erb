@@ -1,4 +1,4 @@
- <% if params[:keywords] %>
+
 	<%= form_tag spree.products_path, :method => :get do %>
 		<h4>Filters</h4>
 <span class="filter-fix">
@@ -31,5 +31,5 @@
 
 		<%= submit_tag Spree.t(:search), :name => nil,:class => "search-button" %>
 	<%end%>
-<%end%>
+
 <%= javascript_include_tag "/assets/shared/search_filters.js" %>

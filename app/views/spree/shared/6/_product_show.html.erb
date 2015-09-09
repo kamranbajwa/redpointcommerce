@@ -1,0 +1,88 @@
+<div class="page-top clearfix">
+	<div class="container page-details"> 
+		<!--page main heading-->
+		<nav class="bread-crumb">
+			<ul class="breadcrumb clearfix">
+				<li><a href="/">Home</a></li>
+				<li class="active">Details</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<section>
+	<div class="container product-details">
+		<div class="row">
+			<div class="col-md-7">
+				<section class="slider">
+					<div id="slider" class="flexslider" style="border:1px solid #ccc; overflow:hidden; padding:4px;">
+						<ul class="slides">
+							<% if (@product.images + @product.variant_images).uniq.size > 1 %>
+							<% @product.images.each do |i| %>
+							<li>
+								<% if defined?(image) && image %>
+								<%= image_tag image.attachment.url(:product), :itemprop => "image" %>
+								<% else %>
+								<%= image_tag i.attachment.url(:product), :itemprop => "image",:class => "img-responsive" %>
+								<% end %>
+							</li>
+							<%end%>
+							<%else%>
+							<li class="img-responsive">
+								<%= render :partial => 'image' %>
+							</li>
+							<%end%>
+						</ul>
+					</div>
+					<% if (@product.images + @product.variant_images).uniq.size > 1 %>
+					<div id="carousel" class="flexslider" style="border:1px solid #ccc; padding:4px; overflow:hidden;">
+						<ul class="slides">
+							<% @product.images.each do |i| %>
+							<li><%= link_to(image_tag(i.attachment.url(:mini)), i.attachment.url(:product)) %></li>
+							<%end%>
+
+						</ul>
+					</div>
+					<% end %>
+				</section>        
+			</div>
+			<div class="col-md-5">
+				<h3 class="content-caption"><%=@product.name%></h3>
+				<div class="entry-content">
+					<p><%= product_description(@product) rescue Spree.t(:product_has_no_description) %></p>
+					<div class="clear10"></div>
+					<div class="add-to-cart">
+						<%= render :partial => "spree/shared/#{@selected_template.template_no}/cart_form" %>
+					</div>
+				</div>
+				<div class="clear20"></div>
+				<h4>SHARE</h4>
+				<div class="social-sharing"> <a href=<%=request.url%> class="fb"><i class="fa fa-facebook-square fa-2x"></i></a> <a href=<%=request.url%> class="tw"><i class="fa fa-twitter-square fa-2x"></i></a> <a href=<%=request.url%> class="gp"><i class="fa fa-google-plus-square fa-2x"></i></a> </div>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="clear20"></div>
+<section>
+	<div class="container">
+
+		<div><h4>Related Products</h4></div>
+		<div class="clear20"></div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="products-wrapper clearfix">
+					<%@simlier_product.each do |p|%>
+					<% url = product_path(p, :taxon_id => @taxon.try(:id)) %>
+					<div class="col-md-3 col-sm-6 col-xs-12 text-center product">
+						<%= link_to product_image(p, :itemprop => "image"), url, :itemprop => 'url' %>
+						<h2 class="text-left"><%= link_to truncate(p.name, :length => 25), url, :itemprop => "name", :title => p.name %></h2>
+						<div class="price text-left"><%if p.subscription %> (Subscription Product) <%else%> 
+							<%= render :partial => "spree/shared/2/show_price", :locals => { :p => p, } %><%end%></div>
+							<div class="details text-left"><%= product_description(p) rescue Spree.t(:product_has_no_description) %></div>
+							<div class="text-left"><a href="<%= url %>"><button type="submit" class="btn btn-primary">ADD TO CART</button></a></div>
+						</div>
+						<% end%>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>

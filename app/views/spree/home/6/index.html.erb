@@ -1,0 +1,125 @@
+<!-- Slider Area Starts //////////////////////////////////////////// -->
+<section>
+    <div class="container clearfix">
+        <div class="row">
+
+
+            <div class="col-md-9">
+                <div class="slider-area">
+
+
+
+                    <div class="flexslider">
+                      <ul class="slides">
+                      <%if @selected_template.spree_slider_images.length!=0%>
+                       <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
+                        <li>
+                          <img src="/assets/default-sliders/1.jpg" class="img-responsive">
+                      </li>
+                      <!-- <li>
+                          <img src="/assets/default-sliders/2.jpg" class="img-responsive">
+                      </li>
+                      <li>
+                          <img src="/assets/default-sliders/3.jpg" class="img-responsive">
+                      </li> -->
+                      <%end%>
+                      <%else%>
+                      <li>
+                        <img src="/assets/default-sliders/1.jpg" class="img-responsive" >
+                      </li>
+                      <li>
+                          <img src="/assets/default-sliders/2.jpg" class="img-responsive">
+                      </li>
+                      <li>
+                          <img src="/assets/default-sliders/3.jpg" class="img-responsive">
+                      </li>
+                      <li>
+                          <img src="/assets/default-sliders/4.jpg"  class="img-responsive" >
+                      </li>
+                      <%end%>
+                  </ul>
+              </div>
+
+
+
+          </div>
+      </div>
+
+
+      <div class="col-md-3" style="display: <%= is_visible('section_1')%>">
+        <div class="slider-sidebar-area">
+            <a href="#"><img src="<%= @selected_template.template_images.first.avatar.url(:home_image) rescue '/assets/6/sidebar-img.png'%>" style="width:100%; height:100%;"></a>
+
+        </div>
+    </div>
+    
+
+</div>
+</div>
+</section>
+<!-- Slider Area Ends ///////////////////////////////////////// -->
+<div class="clear30"></div>
+
+<!-- Static Pages Banners Section One Starts //////////////////////// -->
+<section style="display: <%= is_visible('section_2')%>">
+    <div class="container">
+      <div class="row">
+            <% @static_pages.take(2).each do |s_page| %>
+        <div class="col-md-6">
+          <div class="promo-wrap clearfix">
+            <img src="/assets/6/promo-1-pic.png" class="pull-right">
+            <h2><%= s_page.title %></h2>
+            <p><%= truncate(strip_tags(s_page.description.html_safe), length: 120) %></p>
+            
+            <div class="small more"><a href="/page/<%= s_page.try(:slug) %>">Read More <i class="fa fa-caret-right fa-fw"></i></a></div>
+        </div>
+    </div>
+    <%end%>   
+
+</div>
+</div>
+</section>
+
+<div class="clear30"></div>
+
+
+
+
+
+<div class="clear30"></div>
+<div class="container text-center btn-tabs" style="display: <%= is_visible('section_3')%>">
+<div class="btn-group btn-group-justified" role="group">
+  <% @taxonomies[0..1].each do |taxonomy| %>
+  <% taxonomy.taxons[1..2].each do |tx|%>
+      
+
+  <div class="btn-group" role="group">
+  <a href="<%=seo_url(tx)%>">
+  <button type="button" class="btn btn-default btn-lg current">
+
+  <img src="<%=tx.icon.url(:mini) rescue '/assets/6/tab-product-2.png'%>">
+  <%=tx.name%>
+  
+  </button>
+  </a>
+  </div>
+  <%end%>
+  <% end %>
+
+</div>
+</div>
+<div class="clear30"></div>
+<!-- Products Start ////////////////////////////////////////////// -->
+
+      <%
+paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+paginated_products ||= products
+%>
+<%= render :partial => "/spree/shared/#{@selected_template.template_no}/products", :locals => { :products => @products, :taxon => @taxon } %>
+<div class="clear10"></div><div class="clear5"></div><div class="clear2"></div>
+
+<div class="container text-center" style="display: <%= is_visible('section_5')%>">
+  <a href="#"><img src="<%= @selected_template.template_images.first.avatar.url(:home_image) rescue '/assets/6/bottom-banner.png'%>" class="img-responsive"></a>
+</div>
+
+<div class="clear"></div>

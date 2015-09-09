@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<%= canonical_tag(current_store.url) %>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="shortcut icon" type="image/x-icon" href="<%= @selected_template.spree_favicon and @selected_template.spree_favicon.favicon_image ? @selected_template.spree_favicon.favicon_image.url(:thumb) : '/assets/favicon.ico'%>" />
+
+<!-- Styles Start -->
+<%=stylesheet_link_tag '/assets/6/all_electronics_css'%>
+
+</head>

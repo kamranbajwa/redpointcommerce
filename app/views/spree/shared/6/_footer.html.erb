@@ -1,0 +1,115 @@
+<section>
+    <div class="container">
+        <div class="footer-area">
+
+
+			<!-- Footer ICONS Start -->
+			<div class="footer-icons text-center">
+            <%if @org.facebook_url.present? %>
+            <a target="_blank" href=<%= @org.facebook_url || '#'%>><i class="fa fa-facebook"></i></a>
+            <%end%>
+            <%if @org.twitter_url.present? %>
+            <a href=<%= @org.twitter_url || '#'%> target="_blank"><i class="fa fa-twitter"></i></a>
+            <%end%>
+            <%if @org.google_url.present? %>
+            <a target="_blank" href=<%= @org.google_url || '#'%>><i class="fa fa-google-plus"></i></a>
+            <%end%>
+            <%if @org.youtube.present? %>
+             <a target="_blank" href=<%= @org.youtube || '#'%>><i class="fa fa-youtube"></i></a>
+             <%end%>
+             <%if @org.linked_in.present? %>
+          <a target="_blank" href=<%= @org.linked_in || '#'%>><i class="fa fa-linkedin"></i></a>
+           <%end%>
+            <%if @org.pinterest.present? %>
+            <a target="_blank" href=<%= @org.pinterest || '#'%>><i class="fa fa-pinterest-square"></i></a>
+            <%end%>
+            </div>
+            <!-- Footer ICONS End -->
+            
+            <div class="footer-links clearfix">
+            
+			<div class="col-md-2 col-sm-6 col-xs-12">
+                <h3>About Us</h3>
+                <ul class="list-unstyled">
+            <% if @about_widget && @about_widget.widget_characteristics %>
+                <%= @about_widget.widget_characteristics.first(600).html_safe %>
+            <% end %>
+                </ul>
+            </div>
+
+			<div class="col-md-2 col-sm-6 col-xs-12">
+                <h3>Important Links</h3>
+                <ul class="list-unstyled">
+                <% if @link_widget && @link_widget.widget_characteristics %>
+                    <%= @link_widget.widget_characteristics.html_safe %>
+                <% end %>
+                </ul>
+            </div>
+            
+			<div class="col-md-5 col-sm-6 col-xs-12 extra-icons">
+                <h3>Contact Us</h3>
+               	<p>If your question is not answered here, please use one of contact menthods from below.</p>
+                <ul class="list-unstyled">
+                    <li>
+                    <span class="brd">
+                    <i class="fa fa-thumb-tack ic-1"></i>
+                    </span>
+                    <span class="info"><%=org_address[0].gsub(',', ', ').html_safe || ""%></span>
+                    <div class="clear"></div>
+                    </li>
+                    
+                    <li>
+                    <span class="brd">
+                    <i class="fa fa-mobile-phone ic-2"></i>
+                    </span>
+                    <span class="info">Phone: <%=org_address[1] || ""%></span>
+                    <div class="clear"></div>
+                    </li>
+                    
+                    <!-- <li>
+                    <span class="brd">
+                    <i class="fa fa-envelope ic-3"></i>
+                    </span>
+                    <span class="info">Email: pavdigitaltore@gmail.com</span>
+                    <div class="clear"></div>
+                    </li> -->
+                </ul>
+            </div>
+            
+			<div class="col-md-3 col-sm-6 col-xs-12">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our Newsletter.</p>
+                <ul class="list-unstyled">
+                    <li>
+<form class="form-inline">
+  <div class="form-group">
+        <div class="input-group">
+      <input type="text" class="form-control" id="InputEmail" placeholder="Your email address" required />
+      <p style=" text-align: center;  color: red" id="error_message"></p>
+      <p class="text-center" id="blog_error">
+      <div class="input-group-addon"><button type="submit" class="btn btn-primary" onclick="subcribe_email()">Ok</button></div>
+    </div>
+  </div>
+</form>                    
+                    </li>
+                </ul>
+            </div>
+                                                
+            </div>
+            
+            
+            
+            <div class="footer-bottom clearfix">
+            <% if @logo_footer && @logo_footer.check %>
+                <div class="pull-right"><img src="<%= Spree::Logo.last.avatar.url(:logo)%>"></div>
+                <%end%>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!-- Footer Ends /////////////////////////////////////////////////////// -->
+
+ <%=javascript_include_tag "/assets/6/all_electronics_js.js"%>
+<%= javascript_include_tag "common.js" %>
+<!-- Scripts End -->
