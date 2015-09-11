@@ -4748,3 +4748,10 @@ ul#products li .price {
 #product-thumbnails li {
   margin-top: 12px !important;
 }
+#feature-bullets li{
+    float: none !important; 
+}
+#feature-bullets ul , #feature-bullets ul li{
+    list-style: lower-alpha  !important; 
+   list-style: disc !important; 
+}

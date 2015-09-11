@@ -37,15 +37,21 @@
 <div class="col-md-3">
     <% @tax_categories = Spree::TaxCategory.order(:name)%>
     <div data-hook="admin_product_form_tax_category">
-        <%= f.label :tax_category_id, Spree.t(:tax_category) %>
+    <%= f.field_container :tax_category do %>
+      <%= f.label :tax_category_id, Spree.t(:tax_category) %>
         <%= f.collection_select(:tax_category_id, @tax_categories, :id, :name, { :include_blank => Spree.t('match_choices.none') }, { :class => 'select2' }) %>
+        <% end %>
     </div>
     </div>
+    <div class="clear20"></div>
     <div class="col-md-3">
     <% @shipping_categories = Spree::ShippingCategory.order(:name)%>
     <div data-hook="admin_product_form_tax_category">
-        <%= f.label :shipping_category_id, Spree.t(:tax_category) %>
+    <%= f.field_container :shipping_categories do %>
+        <%= f.label :shipping_category_id, Spree.t(:shipping_categories) %>
         <%= f.collection_select(:shipping_category_id, @shipping_categories, :id, :name, { :include_blank => Spree.t('match_choices.none') }, { :class => 'select2' }) %>
+        <%= f.error_message_on :tax_category %>
+      <% end %>
     </div>
     </div>
   </div>

@@ -209,7 +209,7 @@
   <div class="twelve columns alpha omega">
     <div data-hook="admin_product_form_taxons">
       <%= f.field_container :taxons do %>
-        <%= f.label :taxon_ids, Spree.t(:taxons) %><br />
+        <%= f.label :taxon_ids, "Categories" %><br />
         <%= f.hidden_field :taxon_ids, :value => @product.taxon_ids.join(',') %>
       <% end %>
     </div>

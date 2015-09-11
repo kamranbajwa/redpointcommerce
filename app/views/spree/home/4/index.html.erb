@@ -11,10 +11,12 @@
       <img src="/assets/default-sliders/4.jpg" alt="" width="1400" height="500">
     <%else%>
       <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
+       <a href="<%=image.try(:link_to_page)%>">
       <%if image.try(:overlay_text)!=""%>
       <img src="<%= image.slider_image.url(:xlarge)%>" class="img-responsive center-block header-banner" alt="" title="#htmlcaption_<%=index%>">
      <%else%>
       <img src="<%= image.slider_image.url(:xlarge)%>" class="img-responsive center-block header-banner" alt="" title="">
+      </a>
       <%end%>
       <%end%>
       <%end%>  
@@ -22,9 +24,7 @@
       <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
       <%if image.overlay_text!=""%>
       <div id="htmlcaption_<%=index%>" class="nivo-html-caption">
-      <a href="<%=image.try(:link_to_page)%>"> 
     <p><%=image.overlay_text%></p> 
-     </a> 
 </div>
 <%end%>
 <%end%>

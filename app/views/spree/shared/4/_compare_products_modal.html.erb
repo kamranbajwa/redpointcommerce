@@ -39,7 +39,7 @@ $(document).ready(function(){
  $("#compare").prop("disabled", true);
   var limit = 4;
 $('input.single-checkbox').on('change', function(evt) {
-   if($("input:checked").length >= limit) {
+   if($("input[id='products_']:checked").length >= limit) {
     $('.info-limit').show();
     $("#myModalcompare").scrollTop(1);
        this.checked = false;
@@ -48,7 +48,7 @@ $('input.single-checkbox').on('change', function(evt) {
    {
     $('.info-limit').hide();
    }
-   if($("input:checked").length >= 3) {
+   if($("input[id='products_']:checked").length >= 3) {
     $("#compare").prop("disabled", false);
    }
    else

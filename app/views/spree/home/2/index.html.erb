@@ -43,19 +43,24 @@
     <div class="item active">
        <div class="banner-text-common">
         <div class="carousel-caption1">
-         <p><a href="<%=image.try(:link_to_page)%>"><%=image.try(:overlay_text)%></a></p>
+         <p><%=image.try(:overlay_text)%></p>
         </div>
 </div>
+ <a href="<%=image.try(:link_to_page)%>">
       <img src="<%= image.slider_image.url(:xlarge)%>" alt="">  
+      </a>
       </div>
     <%else%>
       <div class="item ">
           <div class="banner-text-common">
         <div class="carousel-caption1">
-         <p><a href="<%=image.try(:link_to_page)%>"><%=image.try(:overlay_text)%></a></p>
+         <p><%=image.try(:overlay_text)%></p>
         </div>
 </div>
-      <img src="<%= image.slider_image.url(:xlarge)%>" alt="">
+
+    <a href="<%=image.try(:link_to_page)%>">
+      <img src="<%= image.slider_image.url(:xlarge)%>" alt="">  
+      </a>
     </div>
     <%end%>
 

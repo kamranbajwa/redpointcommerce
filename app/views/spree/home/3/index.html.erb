@@ -32,23 +32,27 @@
     <%else%>
   <%@selected_template.spree_slider_images.each_with_index do |image,index| %>
    <% if index == 0 %>
-    <div class="item active">
+   <div class="item active">
      <div class="banner-text-common">
-        <div class="carousel-caption1">
-         <p><a href="<%=image.try(:link_to_page)%>"><%=image.try(:overlay_text)%></a></p>
-        </div>
+      <div class="carousel-caption1">
+       <p><%=image.try(:overlay_text)%></p>
+     </div>
+   </div> 
+   <a href="<%=image.try(:link_to_page)%>">
+    <img src="<%= image.slider_image.url(:xxlarge)%>" alt="Slider", class = "img_slider_width">
+  </a>
 </div>
-      <img src="<%= image.slider_image.url(:xxlarge)%>" alt="Slider", class = "img_slider_width">
-       
-          </div>
     <%else%>
       <div class="item ">
        <div class="banner-text-common">
         <div class="carousel-caption1">
-         <p><a href="<%=image.try(:link_to_page)%>"><%=image.try(:overlay_text)%></a></p>
+         <p><%=image.try(:overlay_text)%></p>
         </div>
 </div>
-      <img src="<%= image.slider_image.url(:xxlarge)%>" alt="Slider", class = "img_slider_width">
+
+     <a href="<%=image.try(:link_to_page)%>">
+    <img src="<%= image.slider_image.url(:xxlarge)%>" alt="Slider", class = "img_slider_width">
+  </a>
         
     </div>
     <%end%>

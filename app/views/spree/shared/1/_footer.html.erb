@@ -11,8 +11,8 @@
             <!-- ============================================== LINK GROUPS ============================================== -->
             <div class="link-groups">
               <div class="">
-                <div class="col-sm-4">
-                  <div class="links">
+                <div class="col-sm-4" style="display: <%= is_visible('footer_1')%>">
+                  <div class="links" >
                     <h3 class="title">About Us</h3>
                     <% if @about_widget && @about_widget.widget_characteristics %>
                     <%= @about_widget.widget_characteristics.first(600).html_safe %>
@@ -20,8 +20,8 @@
                   </div>
                 </div><!-- /.col -->
 
-                <div class="col-sm-4">
-                  <div class="links">
+                <div class="col-sm-4" style="display: <%= is_visible('footer_2')%>">
+                  <div class="links" >
                     <h3 class="title">We are Open</h3>
                     <ul>
                      <% if @org.opening_day.present? %>
@@ -37,8 +37,8 @@
                   </div>
                 </div><!-- /.col -->
 
-                <div class="col-sm-4">
-                  <div class="links">
+                <div class="col-sm-4" style="display: <%= is_visible('footer_3')%>">
+                  <div class="links" >
                     <h3 class="title">Important Links</h3>
                     <% if @link_widget && @link_widget.widget_characteristics %>
                     <%= @link_widget.widget_characteristics.html_safe %>
@@ -51,10 +51,10 @@
             </div><!-- /.link-groups -->
             <!-- ============================================== LINK GROUPS : END ============================================== -->					</div><!-- /.col -->
 
-          <div class="col-md-4">
+          <div class="col-md-4"  style="display: <%= is_visible('footer_4')%>">
             <!-- ============================================== SOCIAL-NEWSLETTER ============================================== -->
             <div class="social-newsletter">
-              <div class="social-links">
+              <div class="social-links" >
               <%if @org.facebook_url.present? or @org.twitter_url.present? or  @org.google_url.present? %>
                 <h3 class="title">CONNECT WITH US</h3>
                 <ul class="social list-inline list-unstyled">
