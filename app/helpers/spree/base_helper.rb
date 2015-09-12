@@ -1,5 +1,11 @@
 module Spree
   module BaseHelper
+    def varaints_drop_down
+      @selected_template.variant_display_type? ?  'block': 'none'
+    end
+    def varaints_radio_button
+       @selected_template.variant_display_type? ?  'none': 'block'
+    end
     def find_ship_cat(id)
       Spree::ShippingCategory.find(id).name rescue ''
     end
