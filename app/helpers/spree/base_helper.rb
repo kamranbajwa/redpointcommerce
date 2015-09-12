@@ -1,10 +1,10 @@
 module Spree
   module BaseHelper
     def varaints_drop_down
-      @selected_template.variant_display_type? ?  'block': 'none'
+      @selected_template.variant_display_type ?  "block": "none"
     end
     def varaints_radio_button
-       @selected_template.variant_display_type? ?  'none': 'block'
+       @selected_template.variant_display_type ?   "none" : "block"
     end
     def find_ship_cat(id)
       Spree::ShippingCategory.find(id).name rescue ''
@@ -160,11 +160,12 @@ def link_to_remove_fields_o(name, f)
     def variant_options(v, options={})
       #content_tag(:ul, :class => "list")
      # v.options_text
-      if variant_price v 
-           v.options_text.to_s + " " + (variant_price v).to_s
-      else
+     #we have hide additional price shown in varians
+      # if variant_price v
+      #      v.options_text.to_s + " " + (variant_price v).to_s
+      # else
         v.options_text
-    end
+   # end
   end
 
     def meta_data

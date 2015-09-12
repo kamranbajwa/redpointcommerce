@@ -6,7 +6,8 @@
         <h4 class="modal-title" id="myModalLabel"> Products </h4>
       </div>
       <div class="modal-body a-unique-class">
-      <div class="alert alert-info info-limit" role="alert" style="display: none;">You have exceeded the maximum limit. Thanks !</div>
+      <div class="alert alert-info info-compare" role="alert" style="display: none;">You can compare maximum 3 products.Thanks!</div>
+      <div class="alert alert-info info-limit" role="alert" style="display: none;">Please minimum 3 products for comparing.Thanks </div>
         <%= form_tag('/compare_results', method: "post") do %>
 
        <table class="table table-bordered">
@@ -38,15 +39,18 @@
 $(document).ready(function(){
  $("#compare").prop("disabled", true);
   var limit = 4;
+  $('.info-limit').show();
 $('input.single-checkbox').on('change', function(evt) {
    if($("input[id='products_']:checked").length >= limit) {
-    $('.info-limit').show();
+    $('.info-limit').hide();
+    $('.info-compare').show();
     $("#myModalcompare").scrollTop(1);
        this.checked = false;
    }
    else
    {
-    $('.info-limit').hide();
+    $('.info-limit').show();
+    $('.info-compare').hide();
    }
    if($("input[id='products_']:checked").length >= 3) {
     $("#compare").prop("disabled", false);
