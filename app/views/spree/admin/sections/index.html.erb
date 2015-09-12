@@ -1,7 +1,7 @@
   <div class="portlet box blue">
    <div class="portlet-title">
     <div class="caption">
-      <i class="fa fa-gift"></i> Manage Sections : <%= @selected_template.try(:name)%>
+      <i class="fa fa-gift"></i> Manage Sections
     </div>
     <div class="tools">
       <a href="" class="collapse" data-original-title="" title="">
@@ -14,8 +14,8 @@
     <table class="ptable">
       <thead>
         <tr data-hook="promotion_email_header">
-          <th>Name</th>
-          <th class="align-center"></th>
+          <th>Section Name</th>
+          <th class="align-center"> Manage Visibilty</th>
           <th data-hook="admin_products_index_header_actions" class="actions"></th>
         </tr>
       </thead>
@@ -23,7 +23,7 @@
         <% @sections.each do |section|%>
         <tr data-hook="reports_row">
           <td class="align-center inline-name" id ="<%=section.id%>" >
-          <div class="show_section">
+          <div class="show_section" >
           <%= section.name %>
           </div>
           <div class="hide_section" style="display:none">
