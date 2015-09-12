@@ -4135,8 +4135,8 @@ a {
 }*/
 
 .cnt-search .search-button {
-    background-color: #000;
-    border: 1px solid #000;
+    background-color: #343434;
+    border: 1px solid  #343434;
     border-radius: 5px;
 }
 .search-button:hover {
