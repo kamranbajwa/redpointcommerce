@@ -13,9 +13,7 @@ module Spree
     default_scope { order("#{self.table_name}.position, #{self.table_name}.created_at") }
 
     has_attached_file :cat_image, styles: {
-    medium: '300x300!', 
-    beauty_parlor: '1876x879#',
-    warehouse: '1876x879#'
+     mini: '32x32>', normal: '128x128>' 
 
   }
 

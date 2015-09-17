@@ -3,6 +3,7 @@
     <div data-hook="file" class="field">
       <%= f.label :attachment, Spree.t(:filename) %><br>
       <%= f.file_field :attachment, multiple: true%>
+       <br><small> <p>Please upload image of 240x240 for best quality</p> </small>
     </div>
     <div data-hook="variant" class="field">
       <%= f.label :viewable_id, Spree::Variant.model_name.human %><br>
