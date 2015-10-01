@@ -414,3 +414,9 @@ table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
 
 .nivo-caption { font-size: 20px; }
 .shop-location ul li { color: #7b7b7b; }
+#product-images #main-image img {
+  padding-bottom: 45px !important;
+}
+#product-images #main-image {
+  border: none !important;
+}
