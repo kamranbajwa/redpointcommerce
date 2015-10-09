@@ -89,20 +89,23 @@ module Spree
         end
 
         def set_and_create_images
+          if image_params[:attachment].length == 1
           image_st = params[:image_data].split(',')[1]
           decoded_data = Base64.decode64(image_st)
           data = StringIO.new(decoded_data)
-          alt = image_params[:alt]
-          viewable_id = image_params[:viewable_id]
           @image = scope.images.create(alt: alt, viewable_id: viewable_id, attachment: data)
+        else
           if image_params[:attachment].count <= 10
             image_params[:attachment].each do |attachment|
-
+           alt = image_params[:alt]
+          viewable_id = image_params[:viewable_id]
+            @image = scope.images.create(alt: alt, viewable_id: viewable_id, attachment: attachment)
             end
             return true
           else
             return false
           end
+        end
         end
       end
     end
