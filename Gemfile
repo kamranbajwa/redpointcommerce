@@ -5,16 +5,16 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.8'
 
 gem 'paper_trail', '~> 4.0.0.rc'
-#gem 'pg'
+gem 'pg'
 gem 'unicorn'
 # gem 'rack-timeout'
 gem 'exception_notification', '4.1.0.rc1'
-gem 'sqlite3'
+#gem 'sqlite3'
 gem 'execjs'
 gem 'delayed_job_active_record'
 gem 'spree_social_products', github: 'spree-contrib/spree_social_products', branch: '2-4-stable'
 gem 'therubyracer'
-gem 'rmagick'
+gem 'rmagick', '~> 2.15.4'
 gem 'paperclip'
 gem 'acts-as-taggable-on'
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
@@ -33,6 +33,9 @@ gem "font-awesome-rails"
 gem 'rails_12factor'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
+
+gem "mini_magick", "~> 3.4"
+# gem 'cocaine', '0.3.2'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
