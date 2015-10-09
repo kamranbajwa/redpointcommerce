@@ -13,3 +13,4 @@ Stripe.api_key = strip[:preferences][:secret_key]
  #Spree::PaymentMethod.find_by_name "
 end
 end
+

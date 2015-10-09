@@ -1,19 +1,129 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="/assets/spree/jquery.cropit.js"></script>
+<style>
+  .cropit-image-preview {
+    background-color: #f8f8f8;
+    background-size: cover;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: 7px;
+    width: 240px;
+    height: 240px;
+    cursor: move;
+  }
+
+
+  .cropit-image-background {
+    opacity: .2;
+    cursor: auto;
+  }
+
+  .image-size-label {
+    margin-top: 10px;
+  }
+
+  input {
+    display: block;
+  }
+
+  button[type="submit"] {
+    margin-top: 10px;
+  }
+
+  #result {
+    margin-top: 10px;
+    width: 500px;
+  }
+
+
+  #fotoedit {
+    position: absolute;
+    width: 291px;
+    padding: 5px;
+    bottom: 0;
+    right: -1px;
+    color: white;
+    font-size: 11px;
+    background: rgba(0,0,0,0.4);
+    opacity: 0.8;
+  }
+
+  .cropit-image-zoom-input[disabled] {
+    opacity: .2;
+  }
+</style>
 <div data-hook="admin_image_form_fields">
   <div class="col-md-6">
     <div data-hook="file" class="field">
-      <%= f.label :attachment, Spree.t(:filename) %><br>
-      <%= f.file_field :attachment, multiple: true%>
-       <br><b> <p>Please upload image of 240x240 for best quality</p> </b>
+      <div class="image-editor">
+        <%= f.label :attachment, Spree.t(:filename) %><br>
+        <%= f.file_field :attachment, :multiple => true, class: 'cropit-image-input'%>
+        <div class="cropit-image-preview"></div>
+        <br><b> <p>Please upload image of 240x240 for best quality</p> </b>
+        <div class="image-size-label">
+          Resize image
+        </div>
+        <input type="range" class="cropit-image-zoom-input">
+        <input type="hidden" name="image_data" class="hidden-image-data" />
+      </div>
+      <div data-hook="variant" class="field">
+        <%= f.label :viewable_id, Spree::Variant.model_name.human %><br>
+        <%= f.select :viewable_id, @variants, {}, { class: 'select2 form-control' } %>
+      </div>
+      <!-- <input type="hidden"  name="result-data" style=" display: none" id="result-data"> -->
+      <a href="yourafterskippage">Skip cropping</a>
+      <div id="result">
+        <code id="result-data"></code>
+      </div>
     </div>
-    <div data-hook="variant" class="field">
-      <%= f.label :viewable_id, Spree::Variant.model_name.human %><br>
-      <%= f.select :viewable_id, @variants, {}, { class: 'select2 form-control' } %>
+    <div data-hook="alt_text" class="col-md-6">
+      <%= f.label :alt, Spree.t(:alt_text) %><br>
+      <%= f.text_area :alt, rows: 4, class: 'form-control' %>
     </div>
-  </div>
-  <div data-hook="alt_text" class="col-md-6">
-    <%= f.label :alt, Spree.t(:alt_text) %><br>
-    <%= f.text_area :alt, rows: 4, class: 'form-control' %>
-  </div>
-</div>
 
-<div class="clear"></div>
+  </div>
+
+  <div class="clear"></div>
+  <script type="text/javascript">
+  function readURL(input) {
+    console.log(input.files.length)
+
+    total_files = input.files.length
+  }
+
+  $("#image_attachment").change(function(){
+    readURL(this);
+  });
+
+    $(function() {
+      $('.image-editor').cropit({
+      originalSize: true,
+      smallImage: 'allow',
+      
+    });
+       $("#image_attachment").change(function(){
+      if(total_files == 1){
+     $('form').submit(function() {
+          // Move cropped image data to hidden input
+          var imageData = $('.image-editor').cropit('export',{
+            type: 'image/jpeg',
+            originalSize: true,
+            quality: 0.5,
+            smallImage: 'allow'
+          });
+          console.dir(imageData);
+          $('.hidden-image-data').val(imageData);
+          // Print HTTP request params
+          var formValue = $(this).serialize();
+          $('#result-data').text(formValue);
+          // Prevent the form from actually submitting
+          // return false;
+        });
+      }
+      else{
+       $('.cropit-image-preview').hide();
+      }
+      });
+   });
+ 
+  </script>
