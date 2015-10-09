@@ -1,3 +1,4 @@
+
  if ActiveRecord::Base.connection.table_exists? 'spree_payment_methods'
 strip = Spree::Gateway::StripeGateway.where(:active=>true, :environment=>Rails.env).last
 if strip

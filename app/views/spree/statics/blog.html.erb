@@ -23,11 +23,19 @@
                     <div class="right-contents-bl">
                         <header class="entry-header">
                             <!--post image-->
-                            <figure>
-                                    <%= image_tag f.avatar.url(:blarge) , class: " wp-post-image" %>
-                            </figure>
+                            <% dimensions = Paperclip::Geometry.from_file(f.avatar.url(:original))  
+                            %>
+                            <% if dimensions.width >= 580 && dimensions.height >= 300%>
+                            <div style="margin-top: 20px;">
+                              <%= image_tag f.avatar.url(:blarge) , class: " wp-post-image" %>
+                            </div>
+                            <% else %>
+                            <div style="margin-top: 20px;">
+                              <%= image_tag f.avatar.url(:original) , class: " wp-post-image align-cente center-block" %>
+                            </div>
+                            <% end %>
                             <!--post title-->
-                            <h3 class="entry-title"><a href="image-post-format.html">
+                            <h3 class="entry-title" style="width: 580px;"><a href="image-post-format.html">
                                <%= link_to f.title , "/blog/#{f.permalink}" , class: "icon_link with-tip no-text", "data-action" => "show_post"%>
                              </a></h3>
                             <!--author name-->
@@ -37,7 +45,7 @@
                                     </span>
                         </header>
                         <!--post content-->
-                        <div class="entry-content">
+                        <div class="entry-content"  style="width: 580px;">
                             <p><%= f.summary.html_safe %> </p>
                         </div>
                      
