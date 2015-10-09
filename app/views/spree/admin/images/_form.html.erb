@@ -1,4 +1,4 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="/assets/spree/cropit_ajax_api"></script>
 <script src="/assets/spree/jquery.cropit.js"></script>
 <style>
   .cropit-image-preview {
@@ -21,6 +21,12 @@
   .image-size-label {
     margin-top: 10px;
   }
+  a {
+    color: #FF0000;
+}
+a:visited{
+  color: #FF0000;
+}
 
   input {
     display: block;
@@ -65,15 +71,14 @@
         </div>
         <input type="range" class="cropit-image-zoom-input">
         <input type="hidden" name="image_data" class="hidden-image-data" />
+        <input type="hidden" name="skip_crop" class="skip_crop" />
       </div>
+       <div class="skip"> <a href="#"  id="solution0">Skip Cropping</a></div>
       <div data-hook="variant" class="field">
         <%= f.label :viewable_id, Spree::Variant.model_name.human %><br>
         <%= f.select :viewable_id, @variants, {}, { class: 'select2 form-control' } %>
       </div>
       <!-- <input type="hidden"  name="result-data" style=" display: none" id="result-data"> -->
-      <div id="result">
-        <code id="result-data"></code>
-      </div>
     </div>
     <div data-hook="alt_text" class="col-md-6">
       <%= f.label :alt, Spree.t(:alt_text) %><br>
@@ -84,6 +89,17 @@
 
   <div class="clear"></div>
   <script type="text/javascript">
+  $(document).ready(function(){
+     $(".skip a").live('click',function(e){
+      alert('aaa')
+      $('.skip').hide();
+    $('.skip_crop').val("true");
+     $('.cropit-image-preview').hide();
+       $('.image-size-label').hide();
+       $('.cropit-image-zoom-input').hide();
+     });
+});
+
   function readURL(input) {
     console.log(input.files.length)
 
@@ -102,13 +118,11 @@
     });
        $("#image_attachment").change(function(){
       if(total_files == 1){
-        var i = new Image(); 
-       
-      i.onload = function(){
-        // alert( i.width+", "+i.height );
-        // $("#w").val(i.width);
-        // $("#h").val(i.height);
-      }
+         $('.cropit-image-preview').show();
+       $('.image-size-label').show();
+       $('.cropit-image-zoom-input').show();
+        $('.skip').show();
+          $('.skip_crop').val("false");
      $('form').submit(function() {
           // Move cropped image data to hidden input
           var imageData = $('.image-editor').cropit('export',{
@@ -128,6 +142,11 @@
       }
       else{
        $('.cropit-image-preview').hide();
+       $('.image-size-label').hide();
+       $('.cropit-image-zoom-input').hide();
+          $('.skip_crop').val("false");
+        $('.skip').hide();
+
       }
       });
    });

@@ -26,8 +26,12 @@ module Spree
           alt = image_params[:alt]
           viewable_id = image_params[:viewable_id]
           @image = scope.images.accessible_by(current_ability, :update).find(params[:id])
+          if params[:skip_crop]!= "true"
           @image.update_attributes(alt: alt, viewable_id: viewable_id, attachment:  data)
+          else
+             @image.update_attributes(alt: alt, viewable_id: viewable_id, attachment:  attachment)
           end
+        end
           redirect_to :back
         end
 
@@ -89,7 +93,7 @@ module Spree
         end
 
         def set_and_create_images
-          if image_params[:attachment].length == 1
+          if image_params[:attachment].length == 1 and params[:skip_crop]!= "true"
           image_st = params[:image_data].split(',')[1]
           decoded_data = Base64.decode64(image_st)
           data = StringIO.new(decoded_data)
