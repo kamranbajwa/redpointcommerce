@@ -71,7 +71,6 @@
         <%= f.select :viewable_id, @variants, {}, { class: 'select2 form-control' } %>
       </div>
       <!-- <input type="hidden"  name="result-data" style=" display: none" id="result-data"> -->
-      <a href="yourafterskippage">Skip cropping</a>
       <div id="result">
         <code id="result-data"></code>
       </div>
@@ -98,7 +97,7 @@
     $(function() {
       $('.image-editor').cropit({
       originalSize: true,
-      smallImage: 'allow',
+      smallImage: 'false',
       
     });
        $("#image_attachment").change(function(){
@@ -109,7 +108,7 @@
             type: 'image/jpeg',
             originalSize: true,
             quality: 0.5,
-            smallImage: 'allow'
+            smallImage: 'false'
           });
           console.dir(imageData);
           $('.hidden-image-data').val(imageData);
