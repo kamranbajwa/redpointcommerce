@@ -4854,3 +4854,4 @@ vertical-align: middle;
 .details .name { font-weight:bold; }
 .details .shop-links { margin-top:10px; }
 .selling{ font-size: inherit !important;}
+.no-border{ border: none !important;}
