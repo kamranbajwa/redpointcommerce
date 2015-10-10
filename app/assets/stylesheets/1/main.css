@@ -4776,11 +4776,13 @@ ul#products li .price {
 .navbar-nav>li:hover { background-color:transparent !important; color:#666 !important; }
 .dropdown .dropdown-menu li a, .dropdown .dropdown-menu li { border:none !important; }
 .navbar-nav li a:hover { color:#999 !important; }
+.product-image-wrapper { width: auto; height: auto; }
 }
 @media screen and (min-width: 320px) and (max-width: 479px) {
 .navbar-nav>li:hover { background-color:transparent !important; color:#666 !important; }
 .dropdown .dropdown-menu li a, .dropdown .dropdown-menu li { border:none !important; }
 .navbar-nav li a:hover { color:#999 !important; }
+.product-image-wrapper { width: auto; height: auto; }
 }
 @media screen and (min-width: 480px) and (max-width: 639px) {
 .navbar-nav>li:hover { background-color:transparent !important; color:#666 !important; }
@@ -4788,11 +4790,13 @@ ul#products li .price {
 .navbar-nav li a:hover { color:#999 !important; }
 }
 @media screen and (min-width: 640px) and (max-width: 767px) {
+ #product-images #main-image img { margin-left:170px !important; }
 .navbar-nav>li:hover { background-color:transparent !important; color:#666 !important; }
 .dropdown .dropdown-menu li a, .dropdown .dropdown-menu li { border:none !important; }
 .navbar-nav li a:hover { color:#999 !important; }
 }
 @media screen and (min-width: 768px) and (max-width: 1003px) {
+#product-images #main-image img { margin-left:212px !important; }
 .navbar-nav>li:hover { background-color:transparent !important; color:#666 !important; }
 .dropdown .dropdown-menu li a, .dropdown .dropdown-menu li { border:none !important; }
 .navbar-nav li a:hover { color:#999 !important; }
@@ -4823,3 +4827,30 @@ ul#products li .price {
 .main-nav li a { display:block; }
 .top-search { width:100%; }
 }
+#product-images #main-image img { margin: 10px 0; 
+min-height: auto !important;
+
+}
+.tmb-all a { 
+display: table-cell;
+width: 62px;
+height: 62px;
+text-align: center;
+vertical-align: middle;
+}
+.product-image-wrapper {
+display: table-cell;
+max-width:auto !important;
+width: 368px;
+height: 300px;
+text-align: center;
+vertical-align: middle;
+}
+.product { height:300px; line-height: 300px; border:1px solid #ccc; display: flex; align-items: center; overflow:hidden; padding:1px; vertical-align:middle; text-align:center; }
+.product a { margin:auto; vertical-align:middle; display:inline-block; }
+.product img { max-height:300px; margin:auto; vertical-align:middle; display:inline-block; }
+
+.details { text-align:center; margin-top:10px; }
+.details .name { font-weight:bold; }
+.details .shop-links { margin-top:10px; }
+.selling{ font-size: inherit !important;}

@@ -70,8 +70,54 @@ paginated_products ||= products
     <% else %>
       <%#= render :partial => 'spree/shared/taxonomies_products' %>
     <% end %>
+    <div class="col-md-12">
+      
 
-<div data-hook="homepage_products">
+
+<% if products.any? %>
+ <% products.each do |product| %>
+ <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
+<div class="col-md-4 col-sm-6">
+      <div class="product">
+      <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive" ), url, :itemprop => 'url' %>
+      <!-- <a href="#">
+                  <img src="http://s3.amazonaws.com/redpoint-commerce/spree/spree/images/40/product/3.jpg?1444407037" class="img-responsive">
+                  </a> -->
+            </div>
+            <div class="details">
+              <div class="name"> <%= link_to truncate(product.name, :length => 50), url, :class => 'info', :itemprop => "name", :title => product.name %></div>
+                <div class="description"><span class="price selling" itemprop="price"><%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p=> product} %>
+          </span> <%if product.subscription %><span class="price selling" itemprop="price"> (Subscription Product)</span> <% end %></div>
+            </div>
+</div>
+<%end%>
+<%end%>
+<% if paginated_products.respond_to?(:num_pages) %>
+  <%= paginate paginated_products%>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+<!-- <div data-hook="homepage_products">
 
 
 
@@ -108,7 +154,7 @@ paginated_products ||= products
 <% if paginated_products.respond_to?(:num_pages) %>
   <%= paginate paginated_products%>
 <% end %>
-</div>
+</div> -->
 </div>
 <% end %>
   <%= render :partial => "spree/shared/4/compare_products_modal", :locals => { :products => @products} %>
