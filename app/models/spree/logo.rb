@@ -8,12 +8,12 @@ class Logo < Spree::Base
    after_post_process :find_dimensions
    
    def find_dimensions
-      temporary = attachment.queued_for_write[:original]
+      temporary = avatar.queued_for_write[:original]
       filename = temporary.path unless temporary.nil?
-      filename = attachment.path if filename.blank?
+      filename = avatar.path if filename.blank?
       geometry = Paperclip::Geometry.from_file(filename)
-      self.attachment_width  = geometry.width
-      self.attachment_height = geometry.height
+      self.avatar_width  = geometry.width
+      self.avatar_height = geometry.height
     end
 end
 end
