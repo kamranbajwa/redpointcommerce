@@ -1798,3 +1798,8 @@ Page Loading
 #progress{
   top: 379px !important;
 }
+
+.navbar-fixed-top .page-logo { height:63px; line-height: 63px;  display: flex; align-items: left; overflow:hidden; vertical-align:middle; text-align:left; }
+.navbar-fixed-top .page-logo a { margin:auto; vertical-align:middle; display:inline-block; }
+.navbar-fixed-top .page-logo .logo-default { max-height:63px; width: auto !important; margin:auto; vertical-align:middle; display:inline-block; }
+.page-header.navbar .page-logo .logo-default {margin-top: 5px !important;} 
