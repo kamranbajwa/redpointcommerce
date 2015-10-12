@@ -237,6 +237,8 @@ GEM
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
     execjs (2.2.2)
+    fastimage (1.7.0)
+      addressable (~> 2.3, >= 2.3.5)
     ffaker (1.25.0)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
@@ -463,6 +465,7 @@ DEPENDENCIES
   delayed_job_active_record
   exception_notification (= 4.1.0.rc1)
   execjs
+  fastimage
   font-awesome-rails
   jbuilder (~> 1.2)
   jquery-rails

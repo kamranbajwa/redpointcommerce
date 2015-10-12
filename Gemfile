@@ -9,6 +9,7 @@ gem 'pg'
 gem 'unicorn'
 # gem 'rack-timeout'
 gem 'exception_notification', '4.1.0.rc1'
+gem 'fastimage'
 
 #gem 'sqlite3'
 gem 'execjs'

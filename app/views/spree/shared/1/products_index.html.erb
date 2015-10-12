@@ -79,7 +79,22 @@ paginated_products ||= products
  <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
 <div class="col-md-4 col-sm-6">
       <div class="product">
-      <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive" ), url, :itemprop => 'url' %>
+     <% if product.images.count >= 1
+        %>
+      <% dimensions = FastImage.size(product.images.first.attachment.url(:original)) %>
+      <% if dimensions %>
+          <% if dimensions[0] >= 360 && dimensions[1] >= 360%>
+        <a href="<%= url %>" itemprop="url"><img alt="<%= product.slug%>" class="img-responsive" itemprop="image" src="<%= product.images.first.attachment.url(:product)%>"></a>
+        <% else %>
+          <a href="<%= url %>" itemprop="url"><img alt="<%= product.slug%>" class="img-responsive" itemprop="image" src="<%= product.images.first.attachment.url(:original)%>"></a>
+        <% end %>
+        <% else %>
+               <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive" ), url, :itemprop => 'url' %>
+        <% end %>
+      <% else %>
+           <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive" ), url, :itemprop => 'url' %>
+      <% end%>
+      <%#= link_to product_image(product, :itemprop => "image", :class => "img-responsive" ), url, :itemprop => 'url' %>
       <!-- <a href="#">
                   <img src="http://s3.amazonaws.com/redpoint-commerce/spree/spree/images/40/product/3.jpg?1444407037" class="img-responsive">
                   </a> -->
