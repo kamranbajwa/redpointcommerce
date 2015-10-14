@@ -159,3 +159,6 @@ table td.actions .fa-ok:hover, table td.actions .fa-plus:hover, table td.actions
 .template_variant_display  .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio]{
   left: 17px !important;
 }
+.toast .toast-close-button{
+  text-indent: 0px !important;
+}

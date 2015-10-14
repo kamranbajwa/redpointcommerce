@@ -41,7 +41,7 @@
         <% (@product.variant_images).each do |image| %>
         <tr id="<%= spree_dom_id image %>" data-hook="images_row" class="<%= cycle('odd', 'even')%>">
           <td class="no-border">
-            <span class="handle"></span>
+            <span data-toggle="tooltip" title="Sort Images" class="handle"></span>
           </td>
           <td>
             <%= link_to image_tag(image.attachment.url(:mini)), image.attachment.url(:product) %>
@@ -65,3 +65,9 @@
 <div class="col-md-3">
 <%= render :partial => 'spree/admin/shared/product_tabs', :locals => {:current => 'Images'} %>
 </div>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>

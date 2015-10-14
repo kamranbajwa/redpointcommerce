@@ -28,7 +28,9 @@
                 error: error,
                 getContainer: getContainer,
                 info: info,
-                options: {},
+                options: {
+                  "closeButton": true
+                },
                 subscribe: subscribe,
                 success: success,
                 version: '2.1.0',

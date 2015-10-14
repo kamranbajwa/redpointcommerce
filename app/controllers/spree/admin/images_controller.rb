@@ -10,7 +10,7 @@ module Spree
       def create
         authorize! :create, Image
         if set_and_create_images
-          notice = "Successfully Uploaded"
+          notice = "Image Successfully Uploaded"
         else
           notice = "Total Images Exceeded"
         end
@@ -32,7 +32,7 @@ module Spree
              @image.update_attributes(alt: alt, viewable_id: viewable_id, attachment:  attachment)
           end
         end
-          notice = "Successfully Uploaded"
+          notice = "Image Successfully Updated"
           redirect_to admin_product_images_url(@product), notice: notice
         end
 
