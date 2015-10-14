@@ -4,7 +4,7 @@
 <% if defined?(image) && image%>
   <%= image_tag image.attachment.url(:product), :itemprop => "image" %>
 <% else %>
- <% @product.images.count > 0 %>
+ <% if @product.images.count > 0 %>
   <% dimensions = FastImage.size(@product.images.first.attachment.url(:original)) 
  %>
  <% if dimensions %>
