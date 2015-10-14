@@ -14,7 +14,7 @@ module Spree
         else
           notice = "Total Images Exceeded"
         end
-        redirect_to :back, notice: notice
+        redirect_to admin_product_images_url(@product), notice: notice
       end
 
       def update
@@ -32,7 +32,8 @@ module Spree
              @image.update_attributes(alt: alt, viewable_id: viewable_id, attachment:  attachment)
           end
         end
-          redirect_to :back
+          notice = "Successfully Uploaded"
+          redirect_to admin_product_images_url(@product), notice: notice
         end
 
         #  def crop
