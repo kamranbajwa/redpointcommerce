@@ -163,7 +163,7 @@
       <div class="col-md-12">
       <% @blog_post.take(3).each do |f|%>
         <div class="col-md-4 text-left">
-          <div class="img-responsive"><img src="<%= f.avatar.url(:blarge) %>" alt=""></div>
+          <div class="img-responsive" style="height: 320px;"><img src="<%= f.avatar.url(:blarge) %>" alt=""></div>
           <h4><%= f.title%></h4>
           <p><%= f.published_at.strftime("%d %b %Y")%> </p>
           <hr>
