@@ -27,14 +27,14 @@ module Spree
           viewable_id = image_params[:viewable_id]
           @image = scope.images.accessible_by(current_ability, :update).find(params[:id])
           if params[:skip_crop]!= "true"
-          @image.update_attributes(alt: alt, viewable_id: viewable_id, attachment:  data)
+            @image.update_attributes(alt: alt, viewable_id: viewable_id, attachment:  data)
           else
-             @image.update_attributes(alt: alt, viewable_id: viewable_id, attachment:  attachment)
-          end
-        end
-          notice = "Image Successfully Updated"
-          redirect_to admin_product_images_url(@product), notice: notice
-        end
+           @image.update_attributes(alt: alt, viewable_id: viewable_id, attachment:  attachment)
+         end
+       end
+       notice = "Image Successfully Updated"
+       redirect_to admin_product_images_url(@product), notice: notice
+     end
 
         #  def crop
         

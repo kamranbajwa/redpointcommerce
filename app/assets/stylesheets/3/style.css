@@ -4546,3 +4546,11 @@ ul#products li .price { height: 38px; }
 
 .user-links { margin-top:5px; }
 .user-links li a { display: inline-block; margin-left: 12px; color:#fff; }
+
+.product-law { height:300px; line-height: 300px; display: flex; align-items: center; overflow:hidden; padding:1px; vertical-align:middle; text-align:center; }
+.product-law a { margin:auto !important; vertical-align:middle; display:inline-block; }
+.product-law img { max-height:300px; margin:auto; vertical-align:middle; display:inline-block; }
+
+.product-image-wrapper { height:360px !important; line-height: 360px !important; display: flex; align-items: center !important; overflow:hidden !important; padding:1px; vertical-align:middle !important; text-align:center !important; }
+.product-image-wrapper img { max-height:360px !important; margin:auto !important; vertical-align:middle !important; display:inline-block !important; }
+#product-images #main-image img { min-height: 1px !important;}

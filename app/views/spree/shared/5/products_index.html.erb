@@ -41,9 +41,24 @@
                     <div class="isotope-item advanced-technology free-facilities col-md-4 col-sm-6 ">
                         <article class="common clearfix hentry ">
                             <figure class="overlay-effect">
-                                <a href="#" title="Medical Record Keeping">
-                                   <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:100%; height: 250px;" ), url, :itemprop => 'url' %>
-                                </a>
+                        
+                                     <div class="product-doc">
+                                  <% if product.images.count >= 1
+                                    %>
+                                    <% dimensions = FastImage.size(product.images.first.attachment.url(:original)) %>
+                                    <% if dimensions %>
+                                    <% if dimensions[0] >= 360 && dimensions[1] >= 360%>
+                                    <a href="<%= url %>" itemprop="url"><img alt="<%= product.slug%>" class="img-responsive" itemprop="image" src="<%= product.images.first.attachment.url(:product)%>"></a>
+                                    <% else %>
+                                    <a href="<%= url %>" itemprop="url"><img alt="<%= product.slug%>" class="img-responsive" itemprop="image" src="<%= product.images.first.attachment.url(:original)%>"></a>
+                                    <% end %>
+                                    <% else %>
+                                    <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive"), url, :itemprop => 'url' %>
+                                    <% end %>
+                                    <% else %>
+                                    <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive"), url, :itemprop => 'url' %>
+                                    <% end%>
+                                </div>
                                 <a class="overlay" href="<%= url %>"></a>
                             </figure>
                             <div class="content clearfix">

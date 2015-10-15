@@ -82,7 +82,7 @@ h4 { font-size:16px; color:#EFB013; font-weight:bold; }
 
 .products { margin-bottom:30px; }
 .product { font-size:12px; }
-.product-box { position:relative; }
+.product-box { position:relative; height: 197px;}
 
 .product-box .sale, .product-box .new { color:#FFF; padding:6px 12px 4px 12px; position:absolute; }
 .product-box .sale:hover, .product-box .new:hover { text-decoration:none; }
@@ -420,3 +420,10 @@ table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
 #product-images #main-image {
   border: none !important;
 }
+
+.product-shoe { height:300px; line-height: 300px; display: flex; align-items: center; overflow:hidden; padding:1px; vertical-align:middle; text-align:center; }
+.product-shoe a { margin:auto !important; vertical-align:middle; display:inline-block; }
+.product-shoe img { max-height:300px; margin:auto; vertical-align:middle; display:inline-block; }
+
+.product-image-wrapper { height:360px !important; line-height: 360px !important; display: flex; align-items: center !important; overflow:hidden !important; padding:1px; vertical-align:middle !important; text-align:center !important; }
+.product-image-wrapper img { max-height:360px !important; margin:auto !important; vertical-align:middle !important; display:inline-block !important; }

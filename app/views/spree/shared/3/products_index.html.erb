@@ -67,9 +67,23 @@ paginated_products ||= products
           <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
           <li id="product_<%= product.id %>" class="col-md-3 product new-width" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
             <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
-              <div class="product-image">
-                <%= link_to product_image(product, :itemprop => "image", :class => "image-100 responsive-height" ), url, :itemprop => 'url' %>
-              </div>
+                    <div class="product-law">
+              <% if product.images.count >= 1
+                %>
+                <% dimensions = FastImage.size(product.images.first.attachment.url(:original)) %>
+                <% if dimensions %>
+                <% if dimensions[0] >= 360 && dimensions[1] >= 360%>
+                <a href="<%= url %>" itemprop="url"><img alt="<%= product.slug%>" class="img-responsive" itemprop="image" src="<%= product.images.first.attachment.url(:product)%>"></a>
+                <% else %>
+                <a href="<%= url %>" itemprop="url"><img alt="<%= product.slug%>" class="img-responsive" itemprop="image" src="<%= product.images.first.attachment.url(:original)%>"></a>
+                <% end %>
+                <% else %>
+                <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive"), url, :itemprop => 'url' %>
+                <% end %>
+                <% else %>
+                <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive"), url, :itemprop => 'url' %>
+                <% end%>
+            </div>
               <%= link_to  url, :class => 'info', :itemprop => "name", :title => product.name do %><%=truncate(product.name, :length => 50) %><br><%if product.subscription %> (Subscription Product) <% end %> <% end %>
 
               <span class="price selling" itemprop="price"> <%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p=> product} %>
