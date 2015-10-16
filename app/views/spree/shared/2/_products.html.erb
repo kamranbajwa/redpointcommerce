@@ -13,15 +13,15 @@ paginated_products ||= products
       <% dimensions = FastImage.size(product.images.first.attachment.url(:original)) %>
       <% if dimensions %>
           <% if dimensions[0] >= 360 && dimensions[1] >= 360%>
-        <a href="<%= url %>" itemprop="url"><img alt="<%= product.slug%>" class="img-responsive height-responsive-home" itemprop="image" style="width:100%" src="<%= product.images.first.attachment.url(:product)%>"></a>
+        <a href="<%= url %>" itemprop="url"><img alt="<%= product.slug%>" class="img-responsive height-responsive-home" itemprop="image" src="<%= product.images.first.attachment.url(:product)%>"></a>
         <% else %>
-           <a href="<%= url %>" itemprop="url"><img alt="<%= product.slug%>" class="img-responsive height-responsive-home" itemprop="image" style="width:100%" src="<%= product.images.first.attachment.url(:original)%>"></a>
+           <a href="<%= url %>" itemprop="url"><img alt="<%= product.slug%>" class="img-responsive height-responsive-home" itemprop="image" src="<%= product.images.first.attachment.url(:original)%>"></a>
         <% end %>
         <% else %>
-                  <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive height-responsive-home",:style=>"width:100%" ), url, :itemprop => 'url' %>
+                  <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive height-responsive-home" ), url, :itemprop => 'url' %>
         <% end %>
       <% else %>
-             <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive height-responsive-home",:style=>"width:100%" ), url, :itemprop => 'url' %>
+             <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive height-responsive-home" ), url, :itemprop => 'url' %>
       <% end%>
             <div class="text-center">
               <h4><%= link_to truncate(product.name, :length => 25), url, :class => 'info', :itemprop => "name", :title => product.name %></h4><%if product.subscription %><small class="styleColor"><span> (Subscription Product)</span></small><% end %>

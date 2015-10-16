@@ -77,8 +77,25 @@ paginated_products ||= products
 											<strong>PRODUCT</strong> DETAIL
 										</span>
 									</a>
+                  <div class="product-beauty">
+                  <% if p.images.count >= 1
+                    %>
+                    <% dimensions = FastImage.size(p.images.first.attachment.url(:original)) %>
+                    <% if dimensions %>
+                    <% if dimensions[0] >= 360 && dimensions[1] >= 360%>
+                    <a href="<%= url %>" itemprop="url"><img alt="<%= p.slug%>" class="img-responsive" itemprop="image" src="<%= p.images.first.attachment.url(:product)%>"></a>
+                    <% else %>
+                    <a href="<%= url %>" itemprop="url"><img alt="<%= p.slug%>" class="img-responsive" itemprop="image" src="<%= p.images.first.attachment.url(:original)%>"></a>
+                    <% end %>
+                    <% else %>
+                    <%= link_to product_image(p, :itemprop => "image", :class => "img-responsive height-responsive-home",:style=>"width:100%" ), url, :itemprop => 'url' %>
+                    <% end %>
+                    <% else %>
+                    <%= link_to product_image(p, :itemprop => "image", :class => "img-responsive height-responsive-home",:style=>"width:100%" ), url, :itemprop => 'url' %>
+                    <% end%>
+                    </div>
 									<!-- <img src="/assets/1.jpg" class = "img-responsive"> -->
-									<%= link_to product_image(p, :itemprop => "image", :class => "img-responsive responsive-height",:style=>"max-width:100%;", rel: 'shadowbox' )%>
+									<%#= link_to product_image(p, :itemprop => "image", :class => "img-responsive responsive-height",:style=>"max-width:100%;", rel: 'shadowbox' )%>
                   <%= link_to url, :class => "btn btn-primary add_to_cart cart_popup", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "width: 100%" do %>
                   <i class="fa fa-shopping-cart"></i> ADD TO CART
                 <% end %>
