@@ -4,6 +4,6 @@
 <% elsif @user_group == "WholeSaler" && p.dealer_price.present? %>
    <%=p.dealer_display_price.to_html %>
 <% else %>
- <%= p.price %>
+ <%= display_price(p) %>
 <% end %>
 <%end%>
