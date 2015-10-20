@@ -64,7 +64,6 @@
         
         <div class="social-sharing">
       <div class="socialApis">
-                      <h3 class="page-header">TELL TO YOUR FRIENDS</h3>
 
                       <!-- facebook -->
                       <div class="api">
@@ -117,8 +116,8 @@
             <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:100%" ), url, :itemprop => 'url' %>
           </div>
           <div class="product-info">
-            <div class="name"><%=product.name%></div>
-            <div class="price"><%=product.price%></div>
+            <div class="name center-block text-center"><%=product.name%></div>
+            <div class="price center-block text-center"><%= display_price(product)%></div>
             <div class="clear"></div>
             <%= link_to url, :class => "btn btn-primary add_to_cart cart_popup", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "width: 100%" do %>
             <i class="fa fa-shopping-cart"></i> ADD TO CART
