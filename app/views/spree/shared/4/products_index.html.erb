@@ -83,7 +83,7 @@ paginated_products ||= products
 							<%if product.subscription %> (Subscription Product) <% end %>
 							<%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p=> product} %></div>
 							<div class="clear"></div>
-							<%= link_to url, :class => "btn btn-primary add_to_cart cart_popup image-bottom", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "" do %>
+							<%= link_to url, :class => "btn btn-primary add_to_cart cart_popup image-bottom center-block text-center", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "" do %>
 							<i class="fa fa-shopping-cart"></i> ADD TO CART
 							<%end%>
 							<div class="clear20"></div>
