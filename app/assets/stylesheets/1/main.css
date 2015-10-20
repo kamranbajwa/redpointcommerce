@@ -4848,7 +4848,7 @@ vertical-align: middle;
 }
 .product { height:300px; line-height: 300px;  display: flex; align-items: center; overflow:hidden; padding:1px; vertical-align:middle; text-align:center; }
 .product a { margin:auto; vertical-align:middle; display:inline-block; }
-.product img {  border: 1px solid #ccc; max-height:300px; margin:auto; vertical-align:middle; display:inline-block; }
+.product img {  border: 1px solid #ccc; max-height:300px; margin:auto; vertical-align:middle; display:inline-block; width: 100%;}
 
 .details { text-align:center; margin-top:10px; }
 .details .name { font-weight:bold; }

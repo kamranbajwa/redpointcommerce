@@ -423,7 +423,7 @@ table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
 
 .product-shoe { height:300px; line-height: 300px; display: flex; align-items: center; overflow:hidden; padding:1px; vertical-align:middle; text-align:center; }
 .product-shoe a { margin:auto !important; vertical-align:middle; display:inline-block; }
-.product-shoe img { max-height:300px; margin:auto; vertical-align:middle; display:inline-block; }
+.product-shoe img { max-height:300px; margin:auto; vertical-align:middle; display:inline-block; width: 100%;}
 
 .product-image-wrapper { height:360px !important; line-height: 360px !important; display: flex; align-items: center !important; overflow:hidden !important; padding:1px; vertical-align:middle !important; text-align:center !important; }
 .product-image-wrapper img { max-height:360px !important; margin:auto !important; vertical-align:middle !important; display:inline-block !important; }
