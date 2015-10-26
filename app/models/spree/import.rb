@@ -27,6 +27,28 @@ class Import < Spree::Base
         #product.variants.where(:sku=>variant_params['variant_sku'],:cost_price=>variant_params['variant_price'],:vendor_sku=>variant_params['variant_vendor_sku'],:width=>variant_params['variant_width'],:height=>variant_params['variant_height'],:depth=>variant_params['variant_depth']).first_or_create
   end
 end
+
+  def self.var_import_new(file, product)
+    CSV.foreach(file.path,headers: true) do |row|
+      variant_params = row.to_hash
+      option_type = Spree::OptionType.where'lower(name) = ?', (variant_params['option_type_name'].downcase)
+      unless product.option_types.include?(option_type)
+        product.option_types << option_type.first
+      end
+      if option_type.present?
+        option_value = option_type.first.option_values.where('lower(name) = ?', variant_params["option_type_value"].downcase)
+        if option_value.present?
+          variant = product.variants.create(:sku=>variant_params['variant_sku'],:cost_price=>variant_params['variant_price'],:vendor_sku=>variant_params['variant_vendor_sku'],:width=>variant_params['variant_width'],:height=>variant_params['variant_height'],:depth=>variant_params['variant_depth'])
+          variant.option_values << option_value
+        else
+          raise("Option values are not valid")
+        end
+      else
+        raise("Option type not exist! please provide valid option type name.")
+      end
+    end
+  end
+
 	def self.prodcut_import(file)
   		CSV.foreach(file.path, headers: true) do |row|
   			product_params=row.to_hash

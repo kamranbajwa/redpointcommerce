@@ -18,19 +18,21 @@ module Spree
       end
 
       def update
+        alt = image_params[:alt]
+        viewable_id = image_params[:viewable_id]
+        @image = scope.images.accessible_by(current_ability, :update).find(params[:id])
         if image_params[:attachment]
           image_st = params[:image_data].split(',')[1]
           decoded_data = Base64.decode64(image_st)
           data = StringIO.new(decoded_data)
           attachment = image_params[:attachment].first
-          alt = image_params[:alt]
-          viewable_id = image_params[:viewable_id]
-          @image = scope.images.accessible_by(current_ability, :update).find(params[:id])
           if params[:skip_crop]!= "true"
             @image.update_attributes(alt: alt, viewable_id: viewable_id, attachment:  data)
           else
            @image.update_attributes(alt: alt, viewable_id: viewable_id, attachment:  attachment)
          end
+       else
+          @image.update_attributes(alt: alt, viewable_id: viewable_id)
        end
        notice = "Image Successfully Updated"
        redirect_to admin_product_images_url(@product), notice: notice
@@ -105,7 +107,7 @@ module Spree
           if image_params[:attachment].count <= 10
             image_params[:attachment].each do |attachment|
            alt = image_params[:alt]
-          viewable_id = image_params[:viewable_id]
+           viewable_id = image_params[:viewable_id]
             @image = scope.images.create(alt: alt, viewable_id: viewable_id, attachment: attachment)
             end
             return true
