@@ -4554,8 +4554,41 @@ ul#products li .price { height: 38px; }
 .product-image-wrapper { height:360px !important; line-height: 360px !important; display: flex; align-items: center !important; overflow:hidden !important; padding:1px; vertical-align:middle !important; text-align:center !important; }
 .product-image-wrapper img { max-height:360px !important; margin:auto !important; vertical-align:middle !important; display:inline-block !important; }
 #product-images #main-image img { min-height: 1px !important;}
-.img-responsive{
+.related-items-law .img-responsive{
     display: block;
     height: auto;
     max-width: 70% ;
 } 
+h3, .h3 {
+    font-size: 24px !important;
+    font-weight: 500 !important;
+}
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: inherit;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #404042;
+    font-weight: 700;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+h3 {
+    font-size: 20px;
+    line-height: 30px;
+}
+h4{
+  font-size: 18px !important;
+  font-weight: 500 !important;
+}
+.img-responsive{
+  display: block;
+  height: auto;
+  max-width: 600;
+}

@@ -4633,7 +4633,9 @@ border-bottom:0 solid transparent;
 
 }
 
-
+.product-title{
+    padding-bottom: 10px;
+}
 input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"] 
 {
 height: 40px;
@@ -4746,9 +4748,8 @@ ul#products li .price {
 }
 .navbar-nav a {padding: 0px 10px !important;}
 .navbar-default { padding-bottom: 17px;}
-#product-images1{
-    text-align: center;
-  border: 1px solid #d9d9db;
+#product-images{
+  text-align: center;
   background-color: white;
   margin-bottom: 10px;
 }
@@ -4766,8 +4767,21 @@ ul#products li .price {
     width: auto !important;
 }
 .dropdown-menu { top: 125% !important;}
-
-
+#product-images #main-image{
+    border: none !important;
+}
+.details {
+    height: 30px;
+}
+.item-box a{
+    width: 70% !important;
+    display: block;
+}
+.img-responsive{
+    display: block;
+    height: auto;
+    max-width: 70% ;
+}
 
 
 
@@ -4808,7 +4822,6 @@ ul#products li .price {
 .dropdown .dropdown-menu li a, .dropdown .dropdown-menu li { border:none !important; }
 .navbar-nav li a:hover { color:#999 !important; }
 }
-
 
 
 
