@@ -4884,3 +4884,6 @@ vertical-align: middle;
     height: auto;
     max-width: 70% ;
 }
+.description ul li {
+    float: none !important;
+}
