@@ -48,9 +48,10 @@
           </div>
 
           <%= render :partial => 'taxons' %>
-
+          
         </div>
       </div>
-
+      
     </div>
 </div>
+<%= render :partial => "spree/shared/common/related_products", :locals => {:product => @product} %>

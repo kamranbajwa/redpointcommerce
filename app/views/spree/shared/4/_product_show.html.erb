@@ -107,13 +107,16 @@
 
 
           
+<h2 class="entry-title-bottom">Related Items</h2>
+
 
          <!-- item -->
          <%@simlier_product.each do |product|%>
+          <% unless product.id == @product.id %>
          <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
          <div class="col-md-3 col-sm-6 col-xs-12 product">
           <div class="product-shoe">
-            <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:100%" ), url, :itemprop => 'url' %>
+            <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:70%" ), url, :itemprop => 'url' %>
           </div>
           <div class="product-info">
             <div class="name center-block text-center"><%=product.name%></div>
@@ -125,6 +128,7 @@
             <div class="clear20"></div>
           </div>
         </div>
+        <% end %>
         <%end%>
         
         <%= render :partial => "spree/shared/2/popup_modal" %>

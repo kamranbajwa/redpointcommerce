@@ -1,5 +1,5 @@
 
-        <section class="container margintop">
+        <section class="container">
           <div class="row">
 
             <div class="col-md-9">
@@ -99,35 +99,37 @@
       <% end %>
               </ul>
             </aside>
-            <div class="clear-fix"></div>
-            <div class="col-md-12">
-                <hr />
+            
+
+          </div>
+        </section>
+            <div class="container clear-fix">
+                
                  <!-- RELATED -->
-    <h3><strong>Related</strong> Products</h3>
+    <h3 class="entry-title-bottom">Related Products</h3>
     <div class="row">
      <!-- item -->
      <%@simlier_product.each do |p|%>
+     <% unless p.id == @product.id%>
      <div class="col-sm-6 col-md-3"><!-- item -->
 
        <% url = product_path(p) %>
        <div class="item-box">
           <!-- <img src="/assets/1.jpg" class = "img-responsive"> -->
-          <%= link_to product_image(p, :itemprop => "image", :class => "img-responsive responsive-height",:style=>"max-width:100%;", rel: 'shadowbox' )%>
+          <%= link_to product_image(p, :itemprop => "image", :class => "img-responsive ", rel: 'shadowbox' )%>
 
-        <div class="item-box-desc">
-          <h4><%=p.name%></h4> <%if p.subscription %> (Subscription Product) <% end %>
-          <%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p => p, } %>
+          <div class="item-box-desc">
+            <h4><%=p.name%></h4> <%if p.subscription %> (Subscription Product) <% end %>
+            <%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p => p, } %>
+          </div>
         </div>
-      </div>
     </div>
+    <%end%>
     <%end%>
 
     <!-- /RELATED -->
+    
   </div>
 
             </div>
-          </div>
-        </section>
-      </div>
-    </div>
     

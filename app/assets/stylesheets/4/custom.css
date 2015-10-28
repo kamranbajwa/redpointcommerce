@@ -7,10 +7,13 @@ a:hover, a:active, a:visited { text-decoration:none; }
 img { border:0; }
 .navbar-default, .navbar-default .active, .navbar-default .active a { background-color:transparent !important; border-color:transparent !important; }
 
-h1 { font-size:26px; color:#EFB013; }
-h2 { font-size:24px; color:#EFB013; }
-h3 { font-size:22px; color:#EFB013; }
-h4 { font-size:16px; color:#EFB013; font-weight:bold; }
+h1 { font-size:26px; color:#0000; }
+h2 { font-size:24px; color:#000; }
+h3 { font-size:22px; color:#000; }
+h4 { font-size:16px; color:#000; font-weight:bold; }
+h1 , h2 , h3 , h4 , h5 , h6{
+  color: #000 !important;
+}
 
 .clear { clear:both; line-height:0px; height:0px; font-size:0px; }
 .clear1 { clear:both; line-height:1px; height:1px; font-size:0px; }
@@ -427,3 +430,8 @@ table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
 
 .product-image-wrapper { height:360px !important; line-height: 360px !important; display: flex; align-items: center !important; overflow:hidden !important; padding:1px; vertical-align:middle !important; text-align:center !important; }
 .product-image-wrapper img { max-height:360px !important; margin:auto !important; vertical-align:middle !important; display:inline-block !important; }
+.entry-title-bottom{ border-bottom:1px solid #eee; padding-bottom: 6px; }
+.product-shoe{
+  height: 200px !important;
+  line-height: 0px !important;
+}

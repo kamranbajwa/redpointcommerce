@@ -45,9 +45,9 @@
         <div class="carousel-caption1">
          <p><%=image.try(:overlay_text)%></p>
         </div>
-</div>
- <a href="<%=image.try(:link_to_page)%>">
-      <img src="<%= image.slider_image.url(:xlarge)%>" alt="">  
+      </div>
+      <a href="<%=image.try(:link_to_page)%>">
+      <img src="<%= image.slider_image.url(:xxlarge)%>" alt="Slider", class = "img_slider_width">  
       </a>
       </div>
     <%else%>
@@ -56,10 +56,10 @@
         <div class="carousel-caption1">
          <p><%=image.try(:overlay_text)%></p>
         </div>
-</div>
+        </div>
 
-    <a href="<%=image.try(:link_to_page)%>">
-      <img src="<%= image.slider_image.url(:xlarge)%>" alt="">  
+        <a href="<%=image.try(:link_to_page)%>">
+      <img src="<%= image.slider_image.url(:xxlarge)%>" alt="Slider", class = "img_slider_width">  
       </a>
     </div>
     <%end%>
@@ -79,6 +79,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
 
     
    
