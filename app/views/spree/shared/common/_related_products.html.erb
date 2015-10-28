@@ -1,6 +1,7 @@
     <!-- RELATED -->
-    <div class = "container">
+    
     <h3 class = 'entry-title-bottom'>Related Products</h3>
+    <div class = "container">
     <div class="row">
      <!-- item -->
      <%@simlier_product.each do |p|%>
@@ -9,17 +10,17 @@
        <% url = product_path(p) %>
       
        <div class="item-box" align="justify">
-        <figure>
+        <figure class = "related-items">
           <a class="item-hover" href="<%=url%>">
             <span class="overlay color2"></span>
             <span class="inner">
               <span class="block fa fa-plus fsize20"></span>
-              <strong>PRODUCT</strong> DETAIL
+              <strong class = "related-product-text">PRODUCT DETAIL</strong>
             </span>
           </a>
           <!-- <img src="/assets/1.jpg" class = "img-responsive"> -->
           <%= link_to product_image(p, :itemprop => "image", :class => "img-responsive ",:style=>"max-width:70%;", rel: 'shadowbox' )%>
-          <%= link_to url, :class => "btn btn-primary add_to_cart cart_popup", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "width: 70%" do %>
+          <%= link_to url, :class => "btn btn-primary add_to_cart cart_popup", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "width: 100%" do %>
           <i class="fa fa-shopping-cart"></i>ADD TO CART
           <% end %>
         </figure>

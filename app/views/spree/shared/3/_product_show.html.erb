@@ -114,12 +114,12 @@
      <div class="col-sm-6 col-md-3"><!-- item -->
 
        <% url = product_path(p) %>
-       <div class="item-box">
+       <div class="item-box related-items-law">
           <!-- <img src="/assets/1.jpg" class = "img-responsive"> -->
           <%= link_to product_image(p, :itemprop => "image", :class => "img-responsive ", rel: 'shadowbox' )%>
 
-          <div class="item-box-desc">
-            <h4><%=p.name%></h4> <%if p.subscription %> (Subscription Product) <% end %>
+          <div class="item-box-desc center-block text-center">
+            <h4 class="product-name"><%=p.name%></h4> <%if p.subscription %> (Subscription Product) <% end %>
             <%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p => p, } %>
           </div>
         </div>

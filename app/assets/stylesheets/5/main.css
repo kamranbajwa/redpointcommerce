@@ -2904,7 +2904,6 @@ div.gallery-item-types a:hover {
 .overlay-effect {
   position: relative;
   overflow: hidden;
-  border: solid 1px #ccc;
 }
 .overlay-effect:hover .overlay {
   height: 100%;

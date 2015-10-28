@@ -185,3 +185,4 @@ table tbody tr, table tfoot tr { border-bottom: 1px solid #eee !important;}
 .yearly, .monthly, .weekly,.daily{
     display: none;
 }
+.entry-title-bottom{ border-bottom:1px solid #eee; padding-bottom: 6px; }
