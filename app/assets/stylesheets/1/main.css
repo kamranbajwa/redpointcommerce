@@ -4884,3 +4884,19 @@ vertical-align: middle;
 .navbar-fixed-top .page-logo { height:75px; line-height: 75px;  display: flex; align-items: left; overflow:hidden; vertical-align:middle; text-align:left; }
 .navbar-fixed-top .page-logo a { margin:auto; vertical-align:middle; display:inline-block; }
 .navbar-fixed-top .page-logo img { max-height:75px; width: auto !important; margin:auto; vertical-align:middle; display:inline-block; }
+
+.details {
+    height: 30px;
+}
+.item-box a{
+    width: 70% !important;
+    display: block;
+}
+.img-responsive{
+    display: block;
+    height: auto;
+    max-width: 70% ;
+}
+.description ul li {
+    float: none !important;
+}

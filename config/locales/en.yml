@@ -241,11 +241,11 @@ en:
         one: Tax Rate
         other: Tax Rates
       spree/taxon:
-        one: Taxon
-        other: Taxons
+        one: Sub Category
+        other: Sub Categories
       spree/taxonomy:
-        one: Taxonomy
-        other: Taxonomies
+        one: Category
+        other: Categories
       spree/tracker:
         one: Tracker
         other: Trackers
