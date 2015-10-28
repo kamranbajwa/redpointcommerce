@@ -649,6 +649,7 @@ header#topNav a.btn-danger {
 	overflow: hidden;
 	margin: 16px 0;
 	width: 100%;
+	text-align: left !important;
 	position: relative;
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
@@ -1054,14 +1055,13 @@ span.js_loader {
 	margin-bottom: 0;
 	overflow: hidden;
 	position: relative;
-	text-align: center;
 }
 .item-box.fixed-box figure img {
 	width: 100%;
 	height: auto;
 }
  .item-box-desc {
-padding: 10px 20px;
+padding-top: 10px;
 overflow: hidden;
 min-height: 110px;
 }
@@ -1109,7 +1109,6 @@ min-height: 110px;
 	right: 0;
 	top: 0;
 	bottom: 0;
-	text-align: center;
 	color: #fff;
 	-webkit-transition: all 0.2s;
 	-moz-transition: all 0.2s;
@@ -1131,6 +1130,10 @@ min-height: 110px;
 .item-box:hover .item-hover {
 	opacity: 1;
 	filter: alpha(opacity=100);
+}
+.item-hover{
+	text-align:  left !important;
+	display: block;
 }
 /** 09. Comments
  **************************************************************** **/
@@ -1511,7 +1514,6 @@ header#topNav li.quick-cart.open:before {
 /** *** **/
 .gallery-img {
 	padding: 4px;
-	border: solid 1px #ddd;
 	height: 337px;
 }
 button::-moz-focus-inner, input::-moz-focus-inner {
@@ -1690,6 +1692,7 @@ pre {
 .fsize20 {
 	font-size: 20px !important;
 	line-height: 26px !important;
+	text-align: center !important;
 }
 .fsize26 {
 	font-size: 26px !important;
@@ -1904,6 +1907,7 @@ pre {
 }
 .block {
 	display: block !important;
+	text-align: center !important;
 }
 .bold {
 	font-weight: bold !important;
@@ -5032,3 +5036,29 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', en
   }
 
  #product-variants ul li { display: block; float: none !important;}
+ figure a img{
+ 	text-align: center !important;
+ 	width:  70%;
+ 	display: block;
+ }
+
+ figure a {
+ 	width:  70%;
+ 	display: block;
+ }
+ figure{
+ 	text-align: left !important;
+ 	margin: 0 0 !important;
+ 	padding: 0;
+ 	position: relative;
+ 	left: 1px !important;
+ }
+ span.inner{
+ 	position: absolute;
+ 	top: 30% !important;
+ 	left: 0% !important;
+ 	display: block;
+ 	width: 100%;
+ 	margin: 0 !important;
+ 	text-align: center;
+ }

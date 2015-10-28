@@ -1,7 +1,5 @@
-<%
-paginated_products = @searcher.retrieve_products if params.key?(:keywords)
-paginated_products ||= products
-%>
+<%paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+paginated_products ||= products%>
  <% products.each do |product| %>
       <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
       
@@ -9,8 +7,7 @@ paginated_products ||= products
         <div class="col-md-3">
           <div class="gallery-img">
           <div class="product-beauty2">
-          <% if product.images.count >= 1
-        %>
+          <% if product.images.count >= 1%>
       <% dimensions = FastImage.size(product.images.first.attachment.url(:original)) %>
       <% if dimensions %>
           <% if dimensions[0] >= 360 && dimensions[1] >= 360%>

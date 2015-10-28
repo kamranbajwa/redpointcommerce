@@ -14,6 +14,7 @@ module Spree
       
       @taxonomies = Spree::Taxonomy.all
       render :template => "/spree/shared/#{@selected_template.template_no}/products_index.html.erb", :locals => {:products => @products,:taxonomies => @taxonomies, :searcher => @searcher, :taxon =>@taxon }
+      
     end
 
     def show
@@ -24,12 +25,12 @@ module Spree
       @product = @products.friendly.find(params[:id])
       @taxns=@product.taxons.first
       if @taxns
-        @simlier_product=  @taxns.products.limit(4).offset(1)
+        @simlier_product=  @taxns.products.limit(5).offset(1)
       else
-        @simlier_product = @products.limit 4 
+        @simlier_product = @products.limit 5 
       end
       @title=@product.name rescue ''
-      #@title= @selected_template.product_tab ? "#{@selected_template.product_tab}" ": "+ "#{@product.name}" : "Services: "+ @product.name
+      #@title= @selected_template.product_tab? "#{@selected_template.product_tab}" ": "+ "#{@product.name}" ":" + "Services: "+ @product.name
 
     end
     def products_compare

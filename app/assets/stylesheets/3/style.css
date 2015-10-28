@@ -4554,3 +4554,8 @@ ul#products li .price { height: 38px; }
 .product-image-wrapper { height:360px !important; line-height: 360px !important; display: flex; align-items: center !important; overflow:hidden !important; padding:1px; vertical-align:middle !important; text-align:center !important; }
 .product-image-wrapper img { max-height:360px !important; margin:auto !important; vertical-align:middle !important; display:inline-block !important; }
 #product-images #main-image img { min-height: 1px !important;}
+.img-responsive{
+    display: block;
+    height: auto;
+    max-width: 70% ;
+} 

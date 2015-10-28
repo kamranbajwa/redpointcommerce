@@ -28,6 +28,7 @@ paginated_products ||= products
                             <%#= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:100%" ), url, :itemprop => 'url' %>
                         </div>
                         <div class="product-info">
+
                             <div class="text-center sub-height-pro"><%= link_to truncate(product.name, :length => 18), url, :class => 'info', :itemprop => "name", :title => product.name %></div>
                             <div class="price text-center">
                             <%if product.subscription %> (Subscription Product) <% end %>
@@ -35,7 +36,7 @@ paginated_products ||= products
                             <div class="clear"></div>
                             <div class="text-center">
                             <%= link_to url, :class => "btn btn-primary add_to_cart cart_popup image-bottom", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "" do %>
-                            <i class="fa fa-shopping-cart"></i> ADD TO CART
+                            <i class="fa fa-shopping-cart"></i> ADD TO CART 
                             <%end%>
                             </div>
                             
