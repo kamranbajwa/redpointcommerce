@@ -28,6 +28,8 @@
           <div class="col-md-4">
             <%= file_field_tag :file,  :accept=>"*.csv", class: "form-control", required: true%>
           </div>
+            <div class="col-md-4">
+           <%= link_to "Download Csv Format", "/csv/category.csv", class: "btn btn-circle blue"%>
         </div>
       </div>
       <div class="form-actions">
