@@ -22,6 +22,9 @@ Supports Thumbs: true
 	left:0px;
 	display:none;
 }
+.product .price{
+	margin-top: 20px !important;
+}
 .theme-default .nivoSlider a {
 	border:0;
 	display:block;

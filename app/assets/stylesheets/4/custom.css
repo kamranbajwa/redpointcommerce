@@ -431,7 +431,3 @@ table tbody tr.alt, table tbody tr.odd, table tfoot tr.alt, table tfoot tr.odd {
 .product-image-wrapper { height:360px !important; line-height: 360px !important; display: flex; align-items: center !important; overflow:hidden !important; padding:1px; vertical-align:middle !important; text-align:center !important; }
 .product-image-wrapper img { max-height:360px !important; margin:auto !important; vertical-align:middle !important; display:inline-block !important; }
 .entry-title-bottom{ border-bottom:1px solid #eee; padding-bottom: 6px; }
-.product-shoe{
-  height: 200px !important;
-  line-height: 0px !important;
-}

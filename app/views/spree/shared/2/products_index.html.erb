@@ -14,7 +14,7 @@ paginated_products ||= products
   <div class="row">
     <div class="custom-alert alert-success" style="display: none;"> Successfully Added </div>
       <aside class="col-md-3">
-      <button data-toggle = "modal" data-target = "#myModalcompare" class="btn btn-primary">Compare Products</button>
+      <button data-toggle = "modal" data-target = "#myModalcompare" class="btn btn-primary" id = "compare-button" >Compare Products</button>
         <div class="col-sm-12 col-md-12 no-padding" >
 					<%if Spree::Product.count>12 and params[:controller]=="spree/products" and !params[:keywords].present?%>
 						<%if params[:page]%>

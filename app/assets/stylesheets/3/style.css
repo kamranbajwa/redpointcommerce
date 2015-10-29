@@ -67,6 +67,15 @@ a:before {
   background-color: white;
   color: #ff9000;
 }
+#myCarousel2, #myCarousel1 {
+  border: 1px solid #ccc;
+}
+.img-height-custom{
+  max-height: 200px;
+}
+.no-brd-srch{
+  border: none !important;
+}
 input,
 textarea {
   border: none;
@@ -4029,10 +4038,11 @@ padding: 10px;}
     content:url(/assets/right.png);
 }
 ul#products li .product-image {
-  border: 1px solid #d9d9db;
   padding: 5px;
   background-color: white;
-  min-height: 250px !important;
+}
+ul#products li .product-image{
+  border: none !important;
 }
 #product-images #main-image {
   text-align: center;

@@ -3,7 +3,7 @@
       <%if recommended_products.length!=0%>
        <div class="col-md-6 widgets-bg">
           <h3 class="text-center">Recommended Deals</h3>
-          <hr>    
+      
     <div id="myCarousel1" class="carousel" data-ride="carousel">
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
@@ -12,8 +12,7 @@
        <% if index == 0 %>
         <div class="item active">
            <div class="col-md-12">
-          <div class="">
-          <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive height-responsive-home ",:style=>"margin:auto;padding: 17px; border: 1px solid;" ), url, :itemprop => 'url' %>
+          <div class=""><%= link_to product_image(product, :itemprop => "image", :class => "img-responsive img-height-custom height-responsive-home ",:style=>"margin:auto;padding: 17px;" ), url, :itemprop => 'url' %>
             <div class="text-center">
               <h4><%= link_to truncate(product.name, :length => 25), url, :class => 'info', :itemprop => "name", :title => product.name %></h4><%if product.subscription %> (Subscription Product) <% end %>
                 <p><%= render :partial => "spree/shared/1/show_price", :locals => { :p=> product} %>
@@ -23,9 +22,9 @@
         </div>
         </div>
         <%else%>
-          <div class="item active">
+          <div class="item ">
            <div class="col-md-12">
-          <div class=""><%= link_to product_image(product, :itemprop => "image", :class => "img-responsive height-responsive-home",:style=>"margin:auto;padding: 17px; border: 1px solid;" ), url, :itemprop => 'url' %>
+          <div class=""><%= link_to product_image(product, :itemprop => "image", :class => "img-responsive img-height-custom height-responsive-home",:style=>"margin:auto;padding: 17px;" ), url, :itemprop => 'url' %>
             <div class="text-center">
               <h4><%= link_to truncate(product.name, :length => 25), url, :class => 'info', :itemprop => "name", :title => product.name %></h4><%if product.subscription %> (Subscription Product) <% end %>
                 <p><%= render :partial => "spree/shared/1/show_price", :locals => { :p=> product} %>
@@ -54,7 +53,7 @@
     <%end%>
         <div class="col-md-6 widgets-bg" >
           <h3 class="text-center">Top Selling</h3>
-          <hr>
+
       <div id="myCarousel2" class="carousel" data-ride="carousel">
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
@@ -63,7 +62,8 @@
        <% if index == 0 %>
         <div class="item active">
            <div class="col-md-12">
-          <div class=" "><%= link_to product_image(product, :itemprop => "image", :class => "img-responsive height-responsive-home", :style=>"margin:auto;padding: 17px;"), url, :itemprop => 'url' %>
+
+          <div class=" "><%= link_to product_image(product, :itemprop => "image", :class => "img-responsive img-height-custom height-responsive-home", :style=>"margin:auto;padding: 17px;"), url, :itemprop => 'url' %>
             <div class="text-center">
               <h4><%= link_to truncate(product.name, :length => 25), url, :class => 'info', :itemprop => "name", :title => product.name %></h4>
               <p><%= display_price(product) %></p>
@@ -74,7 +74,7 @@
         <%else%>
           <div class="item ">
            <div class="col-md-12">
-          <div class=""><%= link_to product_image(product, :itemprop => "image", :class => "img-responsive height-responsive-home", :style=>"margin:auto;padding: 17px;" ), url, :itemprop => 'url' %>
+          <div class=""><%= link_to product_image(product, :itemprop => "image", :class => "img-responsive img-height-custom height-responsive-home", :style=>"margin:auto;padding: 17px;" ), url, :itemprop => 'url' %>
             <div class="text-center">
               <h4><%= link_to truncate(product.name, :length => 25), url, :class => 'info', :itemprop => "name", :title => product.name %></h4>
               <p><%= display_price(product) %></p>

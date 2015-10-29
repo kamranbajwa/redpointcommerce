@@ -4866,9 +4866,10 @@ height: 300px;
 text-align: center;
 vertical-align: middle;
 }
-.product { height:300px; line-height: 300px;  display: flex; align-items: center; overflow:hidden; padding:1px; vertical-align:middle; text-align:center; }
+#widgets h3 { margin-bottom:20px; }
+.product { height:200px; line-height: 200px;  display: flex; align-items: center; overflow:hidden; padding:1px; vertical-align:middle; text-align:center; }
 .product a { margin:auto; vertical-align:middle; display:inline-block; }
-.product img { max-height:300px; margin:auto; vertical-align:middle; display:inline-block; width: 100%;}
+.product img { max-height:200px; margin:auto; vertical-align:middle; display:inline-block; width: 100%;}
 
 .details { text-align:center; margin-top:10px; }
 .details .name { font-weight:bold; }

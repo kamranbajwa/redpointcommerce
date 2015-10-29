@@ -16,9 +16,11 @@
               <div class="name text-center sub-height-pro"><%=product.name%></div><%if product.subscription %> (Subscription Product) <% end %>
               <div class="price text-center"><%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p=> product} %></div>
               <div class="clear"></div>
-              <%= link_to url, :class => "btn btn-primary add_to_cart cart_popup image-product", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "" do %>
+              <div class = "text-center">
+              <%= link_to url, :class => "btn btn-primary  add_to_cart cart_popup image-product", :remote => true, "data-toggle" => "modal", "data-target" => "#myModal", style: "" do %>
               <i class="fa fa-shopping-cart"></i> ADD TO CART
               <%end%>
+              </div>
               <div class="clear20"></div>
             </div>
           </div>
