@@ -55,4 +55,37 @@
       
     </div>
 </div>
-<%= render :partial => "spree/shared/common/related_products", :locals => {:product => @product} %>
+
+<div class="clear40"></div>
+<div class="clear20"></div>
+
+  <div class="container">
+              <h3 class="entry-title-bottom">Related Products</h3>
+    <div class="row">
+          <!-- item -->
+          <%@simlier_product.each do |product|%>
+          <% unless product.id == @product.id %>
+          <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
+      <div class="col-sm-6 col-md-3">
+        <div class="products" >
+        <figure>
+        <%= link_to product_image(product, :itemprop => "image", :class => "img-responsive center-block",:style=>"width:70%" ), url, :itemprop => 'url' %>
+        </figure>
+            </div>
+
+            <div class="details">
+              <div class="name "><%=product.name%></div>
+              <div class="description">
+                <span class="price selling"><%= display_price(product)%></span>
+              </div>
+              <div class="clear"></div>
+
+              <div class="clear20"></div>
+            </div>
+          </div>
+          <% end %>
+          <%end%>
+        </div>        
+      </div>
+    </div>
+  </div>
