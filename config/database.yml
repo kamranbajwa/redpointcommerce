@@ -8,22 +8,18 @@
   # username: postgres
   # password: password
 
-development:
+ development:
   adapter: postgresql
-  encoding: utf8
-  reconnect: false
-  database: stephnald
-  pool: 200
-  host: phsqcommerece1.c3t8ly8irobc.us-east-1.rds.amazonaws.com
-  username: phsqcommerece1
-  password: phsqcommerece1
+  encoding: unicode
+  database: commerce
+  pool: 5
+  username: postgres
+  password: postgres
 
 test:
   adapter: postgresql
-  encoding: utf8
-  reconnect: false
-  database: redpoint_commerce_test
-  pool: 200
-  host: localhost
+  encoding: unicode
+  database: commerce
+  pool: 5
   username: postgres
-  password: password
+  password: postgres
