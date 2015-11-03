@@ -25,9 +25,9 @@ module Spree
       @product = @products.friendly.find(params[:id])
       @taxns=@product.taxons.first
       if @taxns
-        @simlier_product=  @taxns.products.limit(5).offset(1)
+        @simlier_product=  @taxns.products.limit(4).offset(1)
       else
-        @simlier_product = @products.limit 5 
+        @simlier_product = @products.limit 4 
       end
       @title=@product.name rescue ''
       #@title= @selected_template.product_tab? "#{@selected_template.product_tab}" ": "+ "#{@product.name}" ":" + "Services: "+ @product.name

@@ -14,7 +14,7 @@ paginated_products ||= products
   <div class="row">
     <div class="custom-alert alert-success" style="display: none;"> Successfully Added </div>
       <aside class="col-md-3">
-      <button data-toggle = "modal" data-target = "#myModalcompare" class="btn btn-primary" id = "compare-button" >Compare Products</button>
+      <button data-toggle = "modal1" data-target = "#myModalcompare1" class="btn btn-primary">Compare Products</button>
         <div class="col-sm-12 col-md-12 no-padding" >
 					<%if Spree::Product.count>12 and params[:controller]=="spree/products" and !params[:keywords].present?%>
 						<%if params[:page]%>
@@ -104,9 +104,13 @@ paginated_products ||= products
 								<div class="item-box-desc">
 									<h4><%=p.name%></h4> <%if p.subscription %> <small class="styleColor"><span> (Subscription Product)</span></small> <% end %>
                    <%= render :partial => "spree/shared/#{@selected_template.template_no}/show_price", :locals => { :p => p, } %>
-								</div>
+                   </div> 
+                  <%= link_to url, :class => "btn btn-primary compare_menu cart_popup", :remote => true, "data-toggle" => "modal", "data-target" => "#myModalcompare", style: "width: 100%" do %>
+                  <i class=" compare-menu"></i>Compare
+                <% end %>
 							</div>
 						</div>
+
 						<%end%>
 						<% end %>
             <% if paginated_products.respond_to?(:num_pages) %>
@@ -117,5 +121,5 @@ paginated_products ||= products
 						
 </div>
 <%= render :partial => "spree/shared/2/popup_modal" %>
-  <%= render :partial => "spree/shared/4/compare_products_modal", :locals => { :products => @products} %>
+  <%= render :partial => "spree/shared/common/compare_menu", :locals => { :products => @products} %>
 
